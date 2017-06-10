@@ -1,15 +1,14 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
-Some information about you!
+Full Stack developer, Entrepreneur, AI enthusiast. Founder [@Typingeek](http://www.typingeek.com), Classroom mentor and Project reviewer [@Udacity](http://www.udacity.com)
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
-
+I am a Full Stack Developer, Entrepreneur, Aspiring Data Scientist. Recently I have been learning through Udacity, adding more structure to my education on Web technologies, Machine Learning, Deep Learning and Software development in general.
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[xadahiya@gmail.com](mailto:xadahiya@gmail.com)

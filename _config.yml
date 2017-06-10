@@ -6,7 +6,7 @@
 name: Akshay Dahiya
 
 # Short bio or description (displayed in the header)
-description: Web Developer from Somewhere
+description: Aspiring Iron Man!
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars3.githubusercontent.com/u/9114274?v=3&u=f5285051d577243c4557509da99bec63681e0b94&s=400
@@ -18,11 +18,11 @@ avatar: https://avatars3.githubusercontent.com/u/9114274?v=3&u=f5285051d577243c4
 footer-links:
   dribbble:
   email:
-  facebook:facebook.com/xadahiya
+  facebook: facebook.com/xadahiya
   flickr:
   github: github.com/xadahiya
   instagram:
-  linkedin:https://www.linkedin.com/in/xadahiya/
+  linkedin: https://www.linkedin.com/in/xadahiya/
   pinterest:
   rss: # just type anything here for a working RSS icon
   twitter: https://twitter.com/xadahiya
@@ -75,6 +75,7 @@ sass:
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jemoji
 
 # Exclude these files from your production _site
 exclude:
