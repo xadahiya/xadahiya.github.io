@@ -3,14 +3,13 @@
 #
 
 # Name of your site (displayed in the header)
-name: Your Name
+name: Akshay Dahiya
 
 # Short bio or description (displayed in the header)
 description: Web Developer from Somewhere
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/jekyll-logo.png
-
+avatar: https://avatars3.githubusercontent.com/u/9114274?v=3&u=f5285051d577243c4557509da99bec63681e0b94&s=400
 #
 # Flags below are optional
 #
@@ -19,14 +18,14 @@ avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/je
 footer-links:
   dribbble:
   email:
-  facebook:
+  facebook:facebook.com/xadahiya
   flickr:
-  github: barryclark/jekyll-now
+  github: github.com/xadahiya
   instagram:
-  linkedin:
+  linkedin:https://www.linkedin.com/in/xadahiya/
   pinterest:
   rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  twitter: https://twitter.com/xadahiya
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
