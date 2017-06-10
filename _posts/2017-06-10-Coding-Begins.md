@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Coding begins!
+title: GSOC Coding begins!
 ---
 
 Let me start with a basic introduction. I'm Akshay, a 21-year-old undergrad student from India.
@@ -38,7 +38,7 @@ So the Semantic Web can be seen as a huge engineering solution... but it is more
 The Semantic Web is generally built on syntaxes which use URIs to represent data, usually in triples based structures: i.e. many triples of URI data that can be held in databases, or interchanged on the world Wide Web using a set of particular syntaxes developed especially for the task. These syntaxes are called "Resource Description Framework" syntaxes.<br />
 
 ## Progress so far
-During the Community Bonding period, I learned a lot about Graph Databases, SPARQL, Semantic Web and some other fancy stuff, I won't bother you about :p. <br />
+During the Community Bonding period, I learned a lot about Graph Databases, SPARQL, Semantic Web and some other fancy stuff, I won't bore you about :p. <br />
 
 
 For now, we are keeping things simple. Currently we're using [Flask](http://flask.pocoo.org/), [Sqlalchemy](https://www.sqlalchemy.org/) and a graph database implemented in  [PostgreSql](https://www.postgresql.org/) for our server implementation.<br />
