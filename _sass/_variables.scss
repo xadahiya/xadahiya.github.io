@@ -13,10 +13,12 @@ $darkGray: #333;
 $gray: #666;
 $lightGray: #eee;
 $white: #fff;
-
+@import 'fontface';
+@include fontFace('Diariapro', 'fonts/diariapro-light-webfont');
+@include fontFace('Diariapro-bold', 'fonts/diariapro-bold-webfont');
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$helvetica: Diariapro, Arial, sans-serif;
+$helveticaNeue: Diariapro-bold, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
 // Mobile breakpoints
