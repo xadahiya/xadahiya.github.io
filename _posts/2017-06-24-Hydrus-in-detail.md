@@ -3,7 +3,7 @@ layout: post
 title: A Detailed Introduction to Hydrus
 ---
 
-Hi everyone, in my [last post](https://xadahiya.github.io/Coding-Begins/) I told you about who I am and what we've been working on for  [GSOC](https://summerofcode.withgoogle.com/) 2017. In this post, I would like to discuss in detail what we've been working on and what's the current status of the project.
+Hi everyone, in my [last post](https://xadahiya.github.io/Coding-Begins/) I told you about who I am and what we've been working on for  [GSOC](https://summerofcode.withgoogle.com/) 2017. In this post, I would like to discuss in detail about our project Hydrus.
 
 **Hydrus** is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data. Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
 
