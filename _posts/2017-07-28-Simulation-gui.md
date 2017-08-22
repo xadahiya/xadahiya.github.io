@@ -3,7 +3,10 @@ layout: post
 title: Building the simulation GUI!
 ---
 
-So last week, we've been working on a GUI for our Simulation. We're almost done, the gui looks neat. Here are a couple of images of the simulation GUI we've been working on.
+So last week, we've been working on a GUI for our Simulation. We're almost done, the gui looks neat.<br/>
+We're using a simple flask server, JQuery,  [gmaps.js](https://hpneo.github.io/gmaps/), [toastr.js](codeseven.github.io/toastr/) and [bootstrap](http://getbootstrap.com/).
+
+Here are a couple of images of the simulation GUI we've been working on.
 
 ![Gui image 1](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui1.png)
 
@@ -12,8 +15,6 @@ So last week, we've been working on a GUI for our Simulation. We're almost done,
 ![Gui image 3](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui3.png)
 
 ![Gui image 4](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui4.png)
-
-The Gui is build using simple flask server, [gmaps.js](https://hpneo.github.io/gmaps/), [toastr.js](codeseven.github.io/toastr/) and [bootstrap](http://getbootstrap.com/).
 
 
 
