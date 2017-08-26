@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building the simulation GUI!
+title: Building the simulation Gui
 ---
 
 So last week, we've been working on a GUI for our Simulation. We're almost done, the gui looks neat.<br/>
