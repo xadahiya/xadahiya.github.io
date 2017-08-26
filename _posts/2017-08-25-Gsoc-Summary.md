@@ -14,16 +14,16 @@ I’m very grateful to my mentors, [Lorenzo](http://github.com/lopezdp) and [Kri
 
 Below is the summary and links to the work I did during the last 3 months.
 
-GSOC Phase 1
+GSoC Phase 1
 ============
-During the first phase of GSOC I and [@chrizandr](https://github.com/chrizandr/) worked on [Hydrus](https://github.com/HTTP-APIs/hydrus/).
+During the first phase of GSoC I and [@chrizandr](https://github.com/chrizandr/) worked on [Hydrus](https://github.com/HTTP-APIs/hydrus/).
 
 
 Hydrus is basically a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data.
 Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of its APIs.
 
 I wrote the following blog posts related to Hydrus and its architecture:
-- [GSOC coding begins](https://xadahiya.github.io/Coding-Begins/)
+- [GSoC coding begins](https://xadahiya.github.io/Coding-Begins/)
 - [A detailed introduction to hydrus](https://xadahiya.github.io/Hydrus-in-detail/)
 
 GSoC Phase 2 and 3
@@ -33,7 +33,7 @@ Once we had things working with Hydrus then we started working on different proj
 The [simulation](https://github.com/HTTP-APIs/hydra-flock-demo/) simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensor.
 
 I wrote the following blog posts related to the simulation:
-- [GSOC Phase 2](https://xadahiya.github.io/Phase2/)
+- [GSoC Phase 2](https://xadahiya.github.io/Phase2/)
 - [Building the Simulation Gui](https://xadahiya.github.io/Simulation-gui/)
 - [Finishing Up](https://xadahiya.github.io/Finishing-up/)
 

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: GSOC Coding begins!
+title: GSoC Coding begins!
 ---
 
 Let me start with a basic introduction. I'm Akshay, a 21-year-old undergrad student from India.
 I'm working with [Hydra](http://hydra-cg.com/) W3C Group which is a sub-org of [Python Software Foundation](https://www.python.org/psf/) with a bunch of amazing folks on Semantic web and smart APIs.
 
-My [GSOC](https://summerofcode.withgoogle.com/) journey started with [this](https://drive.google.com/file/d/0B1mDyyLEOCHqdWJFd01KOHU5dkk/view?usp=sharing) proposal draft.
+My [GSoC](https://summerofcode.withgoogle.com/) journey started with [this](https://drive.google.com/file/d/0B1mDyyLEOCHqdWJFd01KOHU5dkk/view?usp=sharing) proposal draft.
 
 ### Project Introduction
 

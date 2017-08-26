@@ -3,7 +3,7 @@ layout: post
 title: Finishing up!
 ---
 
-So, we've reached the [GSOC](https://summerofcode.withgoogle.com/) final evaluations period. In this post I'll be summarizing in brief we've accomplished in the last 3 months.
+So, we've reached the [GSoC](https://summerofcode.withgoogle.com/) final evaluations period. In this post I'll be summarizing in brief we've accomplished in the last 3 months.
 
 We worked on two projects one is [Hydrus](https://github.com/HTTP-APIs/hydrus) and the other one is a [Forestry Patrol Simulation](https://github.com/HTTP-APIs/hydra-flock-demo) using various Hydrus instances with a mechanics layer on the top.
 
