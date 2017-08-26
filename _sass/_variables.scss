@@ -14,11 +14,11 @@ $gray: #666;
 $lightGray: #eee;
 $white: #fff;
 @import 'fontface';
-@include fontFace('Diariapro', 'fonts/diariapro-light-webfont');
-@include fontFace('Diariapro-bold', 'fonts/diariapro-bold-webfont');
+@include fontFace('Montserrat', 'fonts/Montserrat-Regular');
+@include fontFace('Montserrat-bold', 'fonts/Montserrat-Bold');
 // Font stacks
-$helvetica: Diariapro, Arial, sans-serif;
-$helveticaNeue: Diariapro-bold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$helvetica: Montserrat, Arial, sans-serif;
+$helveticaNeue: Montserrat-bold, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
 // Mobile breakpoints
