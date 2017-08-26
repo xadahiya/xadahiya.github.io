@@ -6,13 +6,14 @@ title: GSoC 2017 summary
 Hi, everyone! I’m Akshay, a Google Summer of Code student working on [Hydra](http://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
 
 - [Hydrus](https://github.com/HTTP-APIs/hydrus/)
-- [Hydra-flock-demo](https://github.com/HTTP-APIs/hydra-flock-demo/)
+- [A simulation to demonstrate Hydrus capabilities](https://github.com/HTTP-APIs/hydra-flock-demo/)
 
 It was a great experience and I loved working on Python Software Foundation. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
 
 I’m very grateful to my mentors, [Lorenzo](http://github.com/lopezdp) and [Kristian koci](https://github.com/kkoci). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](http://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
 
 Below is the summary and links to the work I did during the last 3 months.
+<hr>
 
 GSoC Phase 1
 ============
@@ -25,6 +26,7 @@ Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and
 I wrote the following blog posts related to Hydrus and its architecture:
 - [GSoC coding begins](https://xadahiya.github.io/Coding-Begins/)
 - [A detailed introduction to hydrus](https://xadahiya.github.io/Hydrus-in-detail/)
+<hr>
 
 GSoC Phase 2 and 3
 =============
@@ -46,6 +48,8 @@ The simulation consists of 4 repositories:
 The [Hydra Flock drone](https://github.com/HTTP-APIs/hydra-flock-drone) and [Hydra Flock Controller](https://github.com/HTTP-APIs/hydra-flock-central-controller) are basically instances of Hydrus with a mechanics layer on the top to simulate the behavior of Drones and Central Controller.
 
 The [Hydra Flock GUI](https://github.com/HTTP-APIs/hydra-flock-gui) is a Javascript application that uses the data stored at the central controller and google maps to render the simulation in the browser.
+
+<hr>
 
 Summary of work done
 ===========
