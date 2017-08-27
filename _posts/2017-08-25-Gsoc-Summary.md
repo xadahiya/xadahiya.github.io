@@ -3,12 +3,12 @@ layout: post
 title: GSoC 2017 summary
 ---
 
-Hi, everyone! I’m Akshay, a Google Summer of Code student working on [Hydra](http://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
+Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra](http://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
 
 - [Hydrus](https://github.com/HTTP-APIs/hydrus/)
 - [A simulation to demonstrate Hydrus capabilities](https://github.com/HTTP-APIs/hydra-flock-demo/)
 
-It was a great experience and I loved working on Python Software Foundation. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
+It was a great experience and I loved working with Hydra CG. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
 
 I’m very grateful to my mentors, [Lorenzo](http://github.com/lopezdp) and [Kristian koci](https://github.com/kkoci). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](http://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
 
