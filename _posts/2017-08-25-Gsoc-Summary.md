@@ -10,7 +10,7 @@ Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra]
 
 It was a great experience and I loved working with Hydra CG. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
 
-I’m very grateful to my mentors, [Lorenzo](http://github.com/lopezdp) and [Kristian koci](https://github.com/kkoci). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](http://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
+I’m very grateful to my mentors, [Lorenzo](https://github.com/Mec-iS/) and [Kristian koci](https://github.com/kkoci/). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](http://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
 
 Below is the summary and links to the work I did during the last 3 months.
 <hr>
