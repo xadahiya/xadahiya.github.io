@@ -13,12 +13,9 @@ $darkGray: #333;
 $gray: #666;
 $lightGray: #eee;
 $white: #fff;
-@import 'fontface';
-@include fontFace('Montserrat', 'fonts/Montserrat-Regular');
-@include fontFace('Montserrat-bold', 'fonts/Montserrat-Bold');
 // Font stacks
 $helvetica: Montserrat, Arial, sans-serif;
-$helveticaNeue: Montserrat-bold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$helveticaNeue: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 
 // Mobile breakpoints
