@@ -311,8 +311,8 @@ When the drone is confirming any anomaly detected by some other drone. User can'
 - **Off** - Drone is turned off.
 
 ### Battery
-- **When `Battery>20`** - Drones function normally when their `Battery>20`
-- **When `4<Battery<20`** - Drones enter power saving mode (`Inactive` state) and start moving toward the central controller for charging.
-- **When `Battery<4`** - If any drone fails to reach the central controller then it shuts down.
+- **When `Battery > 20`** - Drones function normally when their `Battery > 20`
+- **When `4 < Battery < 20`** - Drones enter power saving mode (`Inactive` state) and start moving toward the central controller for charging.
+- **When `Battery < 4`** - If any drone fails to reach the central controller then it shuts down.
 
 Full source code for the drone component is available [here](https://github.com/HTTP-APIs/hydra-flock-drone).
