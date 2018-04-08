@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Finishing up!
+category: Project
+tags: [web, jekyllffds]
 ---
 
 So, we've reached the [GSoC](https://summerofcode.withgoogle.com/) final evaluations period. In this post I'll be summarizing in brief we've accomplished in the last 3 months.

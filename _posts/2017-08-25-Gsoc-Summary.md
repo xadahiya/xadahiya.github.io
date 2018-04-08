@@ -1,6 +1,8 @@
 ---
 layout: post
 title: GSoC 2017 summary
+category: Blog
+tags: [web, jekyll]
 ---
 
 Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra](http://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
