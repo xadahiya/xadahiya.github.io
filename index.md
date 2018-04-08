@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-permalink: /projects/
+permalink: /
 ---
 
 Full Stack Developer, Entrepreneur, AI enthusiast. Founder [@Typingeek](http://www.typingeek.com), Classroom Mentor and Project reviewer [@Udacity](http://www.udacity.com)

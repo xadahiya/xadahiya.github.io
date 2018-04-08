@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Building the simulation GUI
+tags: [GSoC, Hydra, Hydra Flock Simulation, Semantic Web]
+
 ---
 
 So last week, we've been working on a GUI for our Simulation. We're almost done, the gui looks neat.<br/>
