@@ -24,7 +24,7 @@ The proposed project is to create a demo Web API ​implementing the HYDRA draft
 For demonstration purposes, we're using the Spacecraft and [SubSystems](https://github.com/chronos-pramantha/RDFvocab/blob/master/ld%2Bjson/SubSystems.json) vocabulary as mentioned [here](https://github.com/HTTP-APIs/hydrus/issues/2).<br />
  I think it is an interesting and fun project to work on, the idea is to design simulated spacecraft spare parts (Cubesat's COTS) and serve these parts using a REST API. In this case, the user could create his/her own parts and put them together (with physical constraints applied) to build its own spacecraft. This implementation uses the Spacecraft and SubSystems vocabulary.
 
-![Hydrus architecture](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/hydrus-archi.png "A basic architecture for demonstration purposes
+![Hydrus architecture](/images/hydrus-archi.png "A basic architecture for demonstration purposes
 ")
 *A basic architecture for demonstration purposes*
 

@@ -11,13 +11,13 @@ We're using a simple flask server, JQuery,  [gmaps.js](https://hpneo.github.io/g
 
 Here are a couple of images of the simulation GUI I've been working on:
 
-![Gui image 1](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui1.png)
+![Gui image 1](/images/gui1.png)
 
-![Gui image 2](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui2.png)
+![Gui image 2](/images/gui2.png)
 
-![Gui image 3](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui3.png)
+![Gui image 3](/images/gui3.png)
 
-![Gui image 4](https://raw.githubusercontent.com/xadahiya/xadahiya.github.io/master/images/gui4.png)
+![Gui image 4](/images/gui4.png)
 
 
 If you want a sneak to the project, [here's](https://github.com/HTTP-APIs) the organisation's Github link.
