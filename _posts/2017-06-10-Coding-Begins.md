@@ -1,6 +1,7 @@
 ---
 layout: post
 title: GSoC Coding begins!
+category: Blog
 tags: [GSoC, Hydra, Semantic Web, Python Software Foundation, Flask]
 
 ---

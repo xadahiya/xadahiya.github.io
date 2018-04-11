@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Finishing up!
-category: Project
+category: Blog
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
 
 ---

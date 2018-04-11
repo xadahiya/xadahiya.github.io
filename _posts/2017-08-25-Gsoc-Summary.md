@@ -1,5 +1,6 @@
 ---
 layout: post
+category: Blog
 title: GSoC 2017 summary
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
 permalink: /Gsoc-Summary/
