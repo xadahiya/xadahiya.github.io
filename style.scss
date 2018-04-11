@@ -26,7 +26,7 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 10px;
-  width: 90%;
+  max-width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -355,7 +355,7 @@ padding: 0 15px;
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.03); }
 .container {
-  width: 80%;
+  max-width: 80%;
 }
 .timeline:before {
   background-color: #e8e8e8;

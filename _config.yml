@@ -25,7 +25,7 @@ category_page: '/blog/categories/'
 name: Akshay Dahiya
 
 # Short bio or description (displayed in the header)
-description: wubba lubba dub dub
+description: '@xadahiya'
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars0.githubusercontent.com/u/9114274?v=4&u=696c6f2f7a3eceef365e10d99a747c5e0e6959b2&s=400
@@ -43,7 +43,7 @@ footer-links:
   instagram:
   linkedin: xadahiya
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: /feed.xml # just type anything here for a working RSS icon
   twitter: xadahiya
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
