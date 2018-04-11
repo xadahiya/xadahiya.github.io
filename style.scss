@@ -26,7 +26,7 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 10px;
-  width: 80%;
+  width: 90%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -311,13 +311,10 @@ footer {
   -moz-box-shadow: -1px 1px 10px #777;
 
 }
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.03); }
 
 
 .timeline {
 position: relative;
-padding: 40px ;
 margin-top: 40px;
 
 }
@@ -347,10 +344,19 @@ padding: 0 15px;
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .timeline{
+    padding: 40px ;
+
+  }
 .timeline .blogpost {
   margin-bottom: 0;
 }
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.03); }
+.container {
+  width: 80%;
+}
 .timeline:before {
   background-color: #e8e8e8;
   background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
