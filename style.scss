@@ -25,9 +25,8 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1024px;
   padding: 0 10px;
-  width: 100%;
+  width: 80%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -142,6 +141,25 @@ img {
     clear: both;
 }
 
+.projects-main{
+  text-align: center;
+}
+.title{
+  font-size: 35px;
+  display: block;
+}
+
+.main-title{
+  font-size: 50px;
+}
+
+.project-image{
+  max-height: 150px;
+}
+
+.portfolio-links{
+  font-size: 25px;
+}
 /*********************/
 /* LAYOUT / SECTIONS */
 /*********************/
@@ -281,6 +299,236 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
+}
+
+// Project styles
+
+.effect2
+{
+  position: relative;
+  -webkit-box-shadow: -1px 1px 10px #777;
+  box-shadow: -1px 1px 10px #777;
+  -moz-box-shadow: -1px 1px 10px #777;
+
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.03); }
+
+
+.timeline {
+position: relative;
+padding: 40px ;
+margin-top: 40px;
+
+}
+
+.timeline .blogpost footer {
+padding-top: 0px;
+border-top: none;
+}
+
+.timeline .blogpost header h2 {
+font-size: 22px;
+}
+
+.timeline .timeline-item {
+padding: 0 15px;
+}
+
+.white-bg{
+  background-color: white;
+
+}
+.p-20{
+  padding: 20px;
+}
+.text-center{
+  text-align: center !important;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+.timeline .blogpost {
+  margin-bottom: 0;
+}
+
+.timeline:before {
+  background-color: #e8e8e8;
+  background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(10%, rgba(0, 0, 0, 0.09)), color-stop(90%, rgba(0, 0, 0, 0.09)), color-stop(100%, transparent));
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
+  background: -o-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
+  background: -ms-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.09) 10%, rgba(0, 0, 0, 0.09) 90%, transparent 100%);
+  width: 1px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  display: block;
+  top: 0;
+}
+
+.timeline .timeline-item {
+  position: relative;
+  width: 50%;
+  padding-left: 0;
+  padding-right: 40px;
+  margin-bottom: 80px;
+  float: left;
+  clear: left;
+  z-index: 1;
+}
+
+.timeline .timeline-item.pull-right {
+  position: relative;
+  width: 50%;
+  padding-left: 40px;
+  padding-right: 0;
+  margin-top: 80px;
+  margin-bottom: 0;
+  float: right;
+  clear: right;
+}
+
+.timeline .timeline-item.pull-right + .timeline-date-label {
+  padding-top: 80px;
+}
+
+.timeline .timeline-item:after {
+  content: "";
+  font-family: "FontAwesome";
+  right: 0px;
+  background-color: #eaeaea;
+  left: auto;
+  position: absolute;
+  top: 20px;
+  z-index: -1;
+  width: 50px;
+  height: 1px;
+}
+
+.timeline .timeline-item:before {
+  content: "";
+  position: absolute;
+  background-color: #cdcdcd;
+  border: 1px solid #cdcdcd;
+  height: 7px;
+  width: 7px;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  top: 17px;
+  right: -4px;
+}
+
+.timeline .timeline-item.pull-right:after {
+  right: auto;
+  left: 0px;
+}
+
+.timeline .timeline-item.pull-right:before {
+  left: -3px;
+}
+}
+
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+.timeline-item{
+  margin-bottom: 50px;
+}
+.timeline .timeline-item.pull-right {
+  float: none !important;
+
+}
+}
+
+// Tags css
+.post-tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 20px 0 23px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.post-tag::before {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+  content: '';
+  height: 6px;
+  left: 10px;
+  position: absolute;
+  width: 6px;
+  top: 10px;
+}
+
+.post-tag::after {
+  background: #fff;
+  border-bottom: 14px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.post-tag:hover {
+  background-color: #119fde;
+  color: white;
+}
+
+.post-tag:hover::after {
+   border-left-color: #119fde;
+}
+
+
+.project-tag {
+  background: #eee;
+  border-radius: 3px 0 0 3px;
+  color: #999;
+  display: inline-block;
+  height: 26px;
+  line-height: 26px;
+  padding: 0 12px 0 6px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
+}
+
+.project-tag::after {
+  background: #fff;
+  border-bottom: 14px solid transparent;
+  border-left: 10px solid #eee;
+  border-top: 13px solid transparent;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.project-tag:hover {
+  background-color: #119fde;
+  color: white;
+}
+
+.project-tag:hover::after {
+   border-left-color: #119fde;
+}
+
+.tags{
+  margin-top:5px;
+}
+.pagination{
+  text-align:center;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
