@@ -11,8 +11,6 @@ nav:
     - { Tags: '/blog/tags/' }
   Projects:
     - '/projects/'
-  Github Project:
-    - 'http://xadahiya.github.io/'
 
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
@@ -59,7 +57,7 @@ google_analytics: UA-41023285-3
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://xadahiya.github.io
+url: http://www.xadahiya.me
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
