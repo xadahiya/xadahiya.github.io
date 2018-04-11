@@ -1,5 +1,6 @@
 ---
 layout: post
+category: Blog
 title: Building the simulation GUI
 tags: [GSoC, Hydra, Hydra Flock Simulation, Semantic Web]
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+category: Blog
 title: A Detailed Introduction to Hydrus
 tags: [GSoC, Hydra, Semantic Web, Hydrus, Flask]
 
