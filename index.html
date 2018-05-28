@@ -41,7 +41,7 @@ I also created a typing platform <a href="http://typingeek.com">Typingeek</a> to
 <br>
 </article>
 
-<div class="My Skills">
+<div class="skills">
   <span class="title">My Skills</span>
   <p>P.S. These are not ordered in any way.</p>
   <br>
@@ -93,4 +93,26 @@ I also created a typing platform <a href="http://typingeek.com">Typingeek</a> to
   <span class="project-tag">Metric Performance</span>
   <span class="project-tag">Cross Validation</span>
   <span class="project-tag">Model Tuning</span>
+  <br>
+  <br>
+
 </div>
+
+<div class="github-activity">
+  <span class="title">My Github Activity</span>
+  <br>
+  <a href="http://github.com/xadahiya">
+    <img src="http://ghchart.rshah.org/xadahiya" class="github-contib-image" alt="xadahiya's Github chart" />
+  </a>
+  <div id="feed"></div>
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/github-activity.js"></script>
+
+<script type="text/javascript">
+GitHubActivity.feed({
+username: "xadahiya",
+selector: "#feed",
+limit: 15 // optional
+});
+</script>
