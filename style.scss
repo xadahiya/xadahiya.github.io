@@ -539,8 +539,9 @@ padding: 0 15px;
 
 .github-contib-image{
   width:100%;
-  padding: 25px;
+  padding-bottom: 15px;
 }
+
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
