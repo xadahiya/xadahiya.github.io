@@ -80,7 +80,7 @@ Hydrus supports the following features:
 Requirements
 -------------
 The system is built using the following standards and tools:
-- [Flask](http://flask.pocoo.org/) a Python based micro-framework for handling server requests and responses.
+- [Flask](http://flask.pocoo.org/) a Python-based micro-framework for handling server requests and responses.
 - [JSON-LD](http://json-ld.org/spec/latest/json-ld/) as the preferred data format.
 - [Hydra](http://www.hydra-cg.com/) as the API standard.
 - [PostgreSQL](https://www.postgresql.org/) as the backend database for storage and CRUD operations.
@@ -98,7 +98,7 @@ Once we have docker up and running setting up the demo server is a piece of cake
 - Clone the repository to your local machine.
 - `cd` into the project directory and use `docker-compose build` to build the required Docker containers.
 - Start the containers using `docker-compose up` (With this we have our demo server up and running).
-- Now, all we need to do is setup and populate the database. Connect to the container using <br/> `docker exec -i -t <container_name or container_id> /bin/bash` ( You can get the hydrus container name using `docker ps`. It should be something like `hydrus*`).
+- Now, all we need to do is set up and populate the database. Connect to the container using <br/> `docker exec -it <container_name or container_id> /bin/bash` ( You can get the hydrus container name using `docker ps`. It should be something like `hydrus*`).
 - Create the database models using `python /app/hydrus/data/db_models.py`.
 - Parse and Insert classes from RDF/OWL vocabulary to the database using `python /app/hydrus/data/insert_classes.py`
 - Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`. <br/>
@@ -119,7 +119,7 @@ Setting up a Hydra server from OWL vocabulary
 
 Setting up a new Hydra server from Hydrus is actually pretty straightforward and involves the following steps:
 ### 1. The first step is parsing the `HydraClasses` and their `SupportedProperties` from the OWL vocabulary.
-To setup a new Hydra server you need to provide an OWL vocabulary.
+To set up a new Hydra server you need to provide an OWL vocabulary.
 
 `Hydrus.hydraspec.parser` can be used to generate parsed classes. Just import the OWL vocabulary in `parser.py` and run it. It will parse and convert all the OWL classes and properties into `HydraClasses` and their `SupportedProperties`.
 
@@ -407,7 +407,7 @@ The `update` operation is a combination of a `delete` and an `insert` operation.
 ***
 
 ## Setting up the server
-The following section explains how the server needs to be setup to be able to serve the data we added in the previous section.
+The following section explains how the server needs to be set up to be able to serve the data we added in the previous section.
 
 The generic server is implemented using the [Flask](http://flask.pocoo.org/) micro-framework. To get the server up and running, all you need to do is:
 ```python
@@ -426,10 +426,10 @@ For running tests related to ensuring the validity of the database run
 
 **`python -m unittest hydrus.data.test_db`**
 
-For running client side tests related to the server, run
+For running client-side tests related to the server, run
 
 **`python -m unittest hydrus.test_app`**
 
 
 ## Using the client
-(Under developement) client not yet ready
+(Under development) client not yet ready
