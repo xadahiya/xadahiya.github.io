@@ -3,7 +3,7 @@ layout: post
 title: GSoC Coding begins!
 category: Blog
 tags: [GSoC, Hydra, Semantic Web, Python Software Foundation, Flask]
-
+permalink: /Coding-Begins/
 ---
 
 Let me start with a basic introduction. I'm Akshay, a 21-year-old undergrad student from India.

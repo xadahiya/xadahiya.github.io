@@ -3,7 +3,7 @@ layout: post
 category: Blog
 title: A Detailed Introduction to Hydrus
 tags: [GSoC, Hydra, Semantic Web, Hydrus, Flask]
-
+permalink: /Hydrus-in-detail/
 ---
 
 Hi everyone, in my [last post](https://xadahiya.github.io/Coding-Begins/) I told you about who I am and what we've been working on for  [GSoC](https://summerofcode.withgoogle.com/) 2017. In this post, I would like to discuss in detail about our project Hydrus.
