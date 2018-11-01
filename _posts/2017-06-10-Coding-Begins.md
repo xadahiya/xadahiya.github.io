@@ -7,13 +7,13 @@ permalink: /Coding-Begins/
 ---
 
 Let me start with a basic introduction. I'm Akshay, a 21-year-old undergrad student from India.
-I'm working with [Hydra](http://hydra-cg.com/) W3C Group which is a sub-org of [Python Software Foundation](https://www.python.org/psf/) with a bunch of amazing folks on Semantic web and smart APIs.
+I'm working with [Hydra](https://hydra-cg.com/) W3C Group which is a sub-org of [Python Software Foundation](https://www.python.org/psf/) with a bunch of amazing folks on Semantic web and smart APIs.
 
 My [GSoC](https://summerofcode.withgoogle.com/) journey started with [this](https://drive.google.com/file/d/0B1mDyyLEOCHqdWJFd01KOHU5dkk/view?usp=sharing) proposal draft.
 
 ### Project Introduction
 
-The [Hydra draft](http://www.hydra-cg.com/spec/latest/core/) describes a vocabulary to help people design RESTful APIs so that the data flow between various machines can be automated. It uses [JSON-LD](https://en.wikipedia.org/wiki/JSON-LD) as default data exchange format which is basically JSON with some extra Contexts and Vocabs to make it machine interpretable. It makes using APIs much easier.<br />
+The [Hydra draft](https://www.hydra-cg.com/spec/latest/core/) describes a vocabulary to help people design RESTful APIs so that the data flow between various machines can be automated. It uses [JSON-LD](https://en.wikipedia.org/wiki/JSON-LD) as default data exchange format which is basically JSON with some extra Contexts and Vocabs to make it machine interpretable. It makes using APIs much easier.<br />
 The proposed project is to create a demo Web API ​implementing the HYDRA draft, that is an​ RDF-based​ framework to demonstrate Hydra capabilities and enable a Hydra-enabled client to connect to the API's entry point and automatically find out where and how to find the needed data.
 
 
@@ -44,6 +44,6 @@ The Semantic Web is generally built on syntaxes which use URIs to represent data
 During the Community Bonding period, I learned a lot about Graph Databases, SPARQL, Semantic Web and some other fancy stuff, I won't bore you about :p. <br />
 
 
-For now, we are keeping things simple. Currently we're using [Flask](http://flask.pocoo.org/), [Sqlalchemy](https://www.sqlalchemy.org/) and a graph database implemented in  [PostgreSql](https://www.postgresql.org/) for our server implementation.<br />
+For now, we are keeping things simple. Currently we're using [Flask](https://flask.pocoo.org/), [Sqlalchemy](https://www.sqlalchemy.org/) and a graph database implemented in  [PostgreSql](https://www.postgresql.org/) for our server implementation.<br />
 
 If you want a sneak peek at the project, [here's](https://github.com/HTTP-APIs/hydrus/tree/develop) the Github repo.

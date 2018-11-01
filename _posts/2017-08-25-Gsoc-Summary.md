@@ -7,14 +7,14 @@ permalink: /Gsoc-Summary/
 
 ---
 
-Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra](http://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
+Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra](https://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
 
 - [Hydrus](https://github.com/HTTP-APIs/hydrus/)
 - [A simulation to demonstrate Hydrus capabilities](https://github.com/HTTP-APIs/hydra-flock-demo/)
 
 It was a great experience and I loved working with Hydra CG. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
 
-I’m very grateful to my mentors, [Lorenzo](https://github.com/Mec-iS/) and [Kristian koci](https://github.com/kkoci/). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](http://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
+I’m very grateful to my mentors, [Lorenzo](https://github.com/Mec-iS/) and [Kristian koci](https://github.com/kkoci/). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](https://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
 
 Below is the summary and links to the work I did during the last 3 months.
 <hr>
@@ -25,7 +25,7 @@ During the first phase of GSoC I and [@chrizandr](https://github.com/chrizandr/)
 
 
 Hydrus is basically a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data.
-Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of its APIs.
+Hydrus uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for creation and documentation of its APIs.
 
 I wrote the following blog posts related to Hydrus and its architecture:
 - [GSoC coding begins](https://xadahiya.github.io/Coding-Begins/)

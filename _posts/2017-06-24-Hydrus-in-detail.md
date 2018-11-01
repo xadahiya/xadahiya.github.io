@@ -8,7 +8,7 @@ permalink: /Hydrus-in-detail/
 
 Hi everyone, in my [last post](https://xadahiya.github.io/Coding-Begins/) I told you about who I am and what we've been working on for  [GSoC](https://summerofcode.withgoogle.com/) 2017. In this post, I would like to discuss in detail about our project Hydrus.
 
-**Hydrus** is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data. Hydrus uses the [Hydra(W3C)](http://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
+**Hydrus** is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data. Hydrus uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
 
 Let's discuss Hydrus in detail.
 
@@ -51,7 +51,7 @@ Here is a small illustration as to how data flows in Hydrus.
 Use cases
 -------------
 This section explains Hydrus's design and a use case for the same.
-For the demonstration, the server has the [Subsystems](http://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](http://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
+For the demonstration, the server has the [Subsystems](https://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](https://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
 
 Here is an example of a system used to serve data using the components of Hydrus:
 
@@ -80,9 +80,9 @@ Hydrus supports the following features:
 Requirements
 -------------
 The system is built using the following standards and tools:
-- [Flask](http://flask.pocoo.org/) a Python-based micro-framework for handling server requests and responses.
-- [JSON-LD](http://json-ld.org/spec/latest/json-ld/) as the preferred data format.
-- [Hydra](http://www.hydra-cg.com/) as the API standard.
+- [Flask](https://flask.pocoo.org/) a Python-based micro-framework for handling server requests and responses.
+- [JSON-LD](https://json-ld.org/spec/latest/json-ld/) as the preferred data format.
+- [Hydra](https://www.hydra-cg.com/) as the API standard.
 - [PostgreSQL](https://www.postgresql.org/) as the backend database for storage and CRUD operations.
 
 Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It would be advisable to run **`pip install -r requirements.txt`** before setting up other things.
@@ -159,7 +159,7 @@ def gen_vocab(parsed_classes, server_url, item_type, item_semantic_url):
     vocab_template = {
         "@context": {
             "vocab": SERVER_URL + "/api/vocab#",
-            "hydra": "http://www.w3.org/ns/hydra/core#",
+            "hydra": "https://www.w3.org/ns/hydra/core#",
             "ApiDocumentation": "hydra:ApiDocumentation",
             "property": {
 ......
@@ -175,8 +175,8 @@ Vocab generator uses a Hydra Vocabulary template `vocab_template` to generate th
 After passing all these variables, simply running the `vocab_generator.py` will return a Hydra vocabulary for the server.<br/>
 
 ```python
-    print(gen_vocab(parsed_classes, "http://hydrus.com/", "Cots",
-          "http://ontology.projectchronos.eu/subsystems?format=jsonld"))
+    print(gen_vocab(parsed_classes, "https://hydrus.com/", "Cots",
+          "https://ontology.projectchronos.eu/subsystems?format=jsonld"))
 ```
 Use Output redirection to save it, Running `python vocab_generator.py > vocab` should do it!
 
@@ -201,7 +201,7 @@ def gen_entrypoint(server_url, item_type):
 We can generate the data for entrypoint simply by doing something like this:
 
 ```python
-print(gen_entrypoint("http://hydrus.com/", "Cots"))
+print(gen_entrypoint("https://hydrus.com/", "Cots"))
 ```
 * #### Entrypoint Context Generator
 `Hydrus.hydraspec.entrypoint_context_generator` also uses a similar template to generate the entrypoint context.
@@ -214,7 +214,7 @@ def gen_entrypoint_context(server_url, item_type):
 
     entrypoint_context_template = {
         "@context": {
-            "hydra": "http://www.w3.org/ns/hydra/core#",
+            "hydra": "https://www.w3.org/ns/hydra/core#",
             "vocab": SERVER_URL + "/api/vocab#",
             "EntryPoint": "vocab:EntryPoint",
             ITEM_TYPE.lower(): {
@@ -228,7 +228,7 @@ def gen_entrypoint_context(server_url, item_type):
 ```
 We can generate the data for entrypoint context simply by doing something like this:
 ```python
-print(gen_entrypoint_context("http://hydrus.com/", "Cots"))
+print(gen_entrypoint_context("https://hydrus.com/", "Cots"))
 ```
 
 Both the `Hydrus.hydraspec.entrypoint_generator` and `Hydrus.hydraspec.entrypoint_context_generator` can be used to generate `Entrypoint` and `Entrypoint_context` data.
@@ -409,7 +409,7 @@ The `update` operation is a combination of a `delete` and an `insert` operation.
 ## Setting up the server
 The following section explains how the server needs to be set up to be able to serve the data we added in the previous section.
 
-The generic server is implemented using the [Flask](http://flask.pocoo.org/) micro-framework. To get the server up and running, all you need to do is:
+The generic server is implemented using the [Flask](https://flask.pocoo.org/) micro-framework. To get the server up and running, all you need to do is:
 ```python
 from hydrus.app import app
 

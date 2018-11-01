@@ -16,7 +16,7 @@ var GitHubActivity = (function() {
     renderLink: function(url, title, cssClass) {
       if (!title) { title = url; }
       if (typeof(cssClass) === 'undefined') cssClass = "";
-      return Mustache.render('<a class="' + cssClass + '" href="{{url}}" target="_blank">{{{title}}}</a>', { url: url, title: title });
+      return Mustache.render('<a class="' + cssClass + '" href="{{url}}" target="_blank" rel="noopener">{{{title}}}</a>', { url: url, title: title });
     },
     renderGitHubLink: function(url, title, cssClass) {
       if (!title) { title = url; }
@@ -26,7 +26,7 @@ var GitHubActivity = (function() {
     getMessageFor: function(data) {
       var p = data.payload;
       data.repoLink = methods.renderGitHubLink(data.repo.name);
-      data.userGravatar = Mustache.render('<div class="gha-gravatar-user"><img src="{{url}}" class="gha-gravatar-small"></div>', { url: data.actor.avatar_url });
+      data.userGravatar = Mustache.render('<div class="gha-gravatar-user"><img src="{{url}}s=30" class="gha-gravatar-small"></div>', { url: data.actor.avatar_url });
 
       // Get the branch name if it exists.
       if (p.ref) {
@@ -44,10 +44,10 @@ var GitHubActivity = (function() {
         var length = p.commits.length;
         if (length === 2) {
           // If there are 2 commits, show message 'View comparison for these 2 commits >>'
-          data.commitsMessage = Mustache.render('<a href="https://github.com/{{repo}}/compare/{{shaDiff}}">View comparison for these 2 commits &raquo;</a>', { repo: data.repo.name, shaDiff: shaDiff });
+          data.commitsMessage = Mustache.render('<a href="https://github.com/{{repo}}/compare/{{shaDiff}}" rel="noopener">View comparison for these 2 commits &raquo;</a>', { repo: data.repo.name, shaDiff: shaDiff });
         } else if (length > 2) {
           // If there are more than two, show message '(numberOfCommits - 2) more commits >>'
-          data.commitsMessage = Mustache.render('<a href="https://github.com/{{repo}}/compare/{{shaDiff}}">{{length}} more ' + pluralize('commit', length - 2) + ' &raquo;</a>', { repo: data.repo.name, shaDiff: shaDiff, length: p.size - 2 });
+          data.commitsMessage = Mustache.render('<a href="https://github.com/{{repo}}/compare/{{shaDiff}}" rel="noopener">{{length}} more ' + pluralize('commit', length - 2) + ' &raquo;</a>', { repo: data.repo.name, shaDiff: shaDiff, length: p.size - 2 });
         }
 
         p.commits.forEach(function(d, i) {
@@ -153,7 +153,8 @@ var GitHubActivity = (function() {
         data.withoutName = ' without-name';
       }
       data.userLink = methods.renderLink(data.html_url, data.login);
-      data.gravatarLink = methods.renderLink(data.html_url, '<img src="' + data.avatar_url + '">');
+      var profile_pic_size = '&s=59';
+      data.gravatarLink = methods.renderLink(data.html_url, '<img src="' + data.avatar_url + profile_pic_size + '" alt="xadahiya github avatar">');
 
       return Mustache.render(templates.UserHeader, data);
     },
@@ -331,7 +332,7 @@ var templates = {
                  <div class="gha-user-info{{withoutName}}">{{{userNameLink}}}<p>{{{userLink}}}</p></div>\
                  <div class="gha-gravatar">{{{gravatarLink}}}</div>\
                </div><div class="gha-push"></div>',
-  Footer: '<div class="gha-footer">Public Activity <a href="https://github.com/caseyscarborough/github-activity" target="_blank">GitHub Activity Stream</a>',
+  Footer: '<div class="gha-footer">Public Activity <a href="https://github.com/caseyscarborough/github-activity" target="_blank" rel="noopener">GitHub Activity Stream</a>',
   NoActivity: '<div class="gha-info">This user does not have any public activity yet.</div>',
   UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
   EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',

@@ -7,16 +7,15 @@
   {% include meta.html %}
 
   <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
   <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/github-activity.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
   <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc" />
-  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  <!-- Created with Jekyll Now - https://github.com/barryclark/jekyll-now -->
 </head>
 
 <body>
@@ -54,6 +53,17 @@
   </div>
 
   {% include analytics.html %}
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-41023285-3', 'auto');
+ga('send', 'pageview');
+</script>
+
+{% include lazyload.html %}
 </body>
 
 </html>

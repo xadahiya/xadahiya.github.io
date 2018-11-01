@@ -7,7 +7,7 @@ permalink: /Simulation-gui/
 ---
 
 So last week, we've been working on a GUI for our Simulation. We're almost done, the GUI looks neat.<br/>
-We're using a simple flask server, JQuery,  [gmaps.js](https://hpneo.github.io/gmaps/), [toastr.js](codeseven.github.io/toastr/) and [bootstrap](http://getbootstrap.com/).
+We're using a simple flask server, JQuery,  [gmaps.js](https://hpneo.github.io/gmaps/), [toastr.js](codeseven.github.io/toastr/) and [bootstrap](https://getbootstrap.com/).
 <br>
 
 Here are a couple of images of the simulation GUI I've been working on:
