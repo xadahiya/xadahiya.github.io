@@ -153,6 +153,8 @@ img {
 
 .title-small{
   font-size: 22px;
+  padding-top:10px;
+  padding-bottom: 5px;
   display: block;
 }
 
@@ -580,7 +582,7 @@ padding: 0 15px;
 .project-tag {
   background: #eee;
   border-radius: 3px 0 0 3px;
-  color: #999;
+  color: #6b6b6b;
   display: inline-block;
   height: 26px;
   line-height: 26px;
@@ -592,7 +594,7 @@ padding: 0 15px;
 }
 
 .project-tag::after {
-  background: #fff;
+  background: #f9f9f9;
   border-bottom: 14px solid transparent;
   border-left: 10px solid #eee;
   border-top: 13px solid transparent;
@@ -603,12 +605,12 @@ padding: 0 15px;
 }
 
 .project-tag:hover {
-  background-color: #119fde;
+  background-color: #ffa700;
   color: white;
 }
 
 .project-tag:hover::after {
-   border-left-color: #119fde;
+   border-left-color: #ffa700;
 }
 
 .tags{
