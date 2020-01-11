@@ -62,8 +62,8 @@ baseurl: ""
 
 # !! You don't need to change any of the configuration flags below !!
 #
-paginate: 5
-paginate_path: '/blog/page:num'
+# paginate: 5
+# paginate_path: '/blog/page:num'
 permalink: pretty
 # The release of Jekyll Now that you're using
 version: v1.2.0
@@ -84,9 +84,6 @@ sass:
 
 # Use the following gems
 gems:
-  # - jekyll-sitemap
-  # - jekyll-feed
-  # - jekyll-paginate
 
 # Exclude these files from your production _site
 exclude:
