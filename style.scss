@@ -399,22 +399,22 @@ font-size: 22px;
 padding: 0 15px;
 }
 
-.timeline2 {
+.timelinee {
   position: relative;
   margin-top: 40px;
   
   }
   
-  .timeline2 .blogpost footer {
+  .timelinee .blogpost footer {
   padding-top: 0px;
   border-top: none;
   }
   
-  .timeline2 .blogpost header h2 {
+  .timelinee .blogpost header h2 {
   font-size: 22px;
   }
   
-  .timeline2 .timeline-item {
+  .timelinee .timeline-item {
   padding: 0 15px;
   }
   
@@ -528,7 +528,7 @@ padding: 0 15px;
 
 @media (min-width: 768px) {
 
-.timeline2 .timeline2-item {
+.timelinee .timelinee-item {
   position: relative;
   padding-left: 0;
   margin-bottom: 40px;
@@ -540,15 +540,15 @@ padding: 0 15px;
 }
 
 
-.timeline2{
+.timelinee{
   padding: 40px ;
 
 }
-.timeline2 .blogpost {
+.timelinee .blogpost {
 margin-bottom: 0;
 }
 
-.timeline2:before {
+.timelinee:before {
 background-color: #e8e8e8;
 background: -moz-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(10%, rgba(255, 167, 0, 0.9)), color-stop(90%, rgba(255, 167, 0, 0.9)), color-stop(100%, transparent));
@@ -565,7 +565,7 @@ top: 0;
 }
 
 
-.timeline2 .timeline2-item.pull-right {
+.timelinee .timelinee-item.pull-right {
 position: relative;
 width: 50%;
 padding-left: 40px;
@@ -576,11 +576,11 @@ float: right;
 clear: right;
 }
 
-.timeline2 .timeline2-item.pull-right + .timeline2-date-label {
+.timelinee .timelinee-item.pull-right + .timelinee-date-label {
 padding-top: 80px;
 }
 
-.timeline2 .timeline2-item:after {
+.timelinee .timelinee-item:after {
 content: "";
 font-family: "FontAwesome";
 right: 0px;
@@ -593,7 +593,7 @@ width: 50px;
 height: 5px;
 }
 
-.timeline2 .timeline2-item:before {
+.timelinee .timelinee-item:before {
 content: "";
 position: absolute;
 background-color: #cdcdcd;
@@ -607,11 +607,11 @@ top: 32px;
 right: -4px;
 }
 
-.timeline2 .timeline2-item:after {
+.timelinee .timelinee-item:after {
 left: -40px;
 }
 
-.timeline2 .timeline2-item:before {
+.timelinee .timelinee-item:before {
 left: -49px;
 }
 
@@ -627,7 +627,7 @@ left: -49px;
 .timeline-item{
   margin-bottom: 50px;
 }
-.timeline2-item{
+.timelinee-item{
   margin-bottom: 50px;
 }
 .timeline .timeline-item.pull-right {
