@@ -296,9 +296,9 @@ img {
 
 nav {
   float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  margin-top: 38px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
-  font-size: 18px;
+  font-size: 20px;
 
   @include mobile {
     float: none;
@@ -420,7 +420,7 @@ padding: 0 15px;
   
 
 .white-bg{
-  background-color: white;
+  background-color: #fdfdfd;
 
 }
 .p-20{
