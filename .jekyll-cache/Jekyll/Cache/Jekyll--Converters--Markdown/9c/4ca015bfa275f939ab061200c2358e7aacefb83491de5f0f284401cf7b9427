@@ -1,0 +1,92 @@
+I"�<p><img src="/images/rl-intro.png" alt="RL Intro image" /></p>
+
+<p>Reinforcement learning (RL) is an area of machine learning inspired by behaviorist psychology concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward.</p>
+<h4 id="source---wikipedia">Source - Wikipedia</h4>
+<hr />
+
+<h1 id="the-setting">The Setting</h1>
+
+<ul>
+  <li>Reinforcement Learning is characterized by an agent trying to learn by interacting with its environment.</li>
+  <li>At each time step(T), the agent receives the environment state and chooses some appropriate action in response. At the next time step (T+1), the agent receives a reward from the environment (can be either encouraging or discouraging) and the next state of the environment.</li>
+  <li>All agents have the task to maximize <strong>expected cumulative reward</strong> i.e the expected sum of rewards to be received over all future time steps.</li>
+</ul>
+<hr />
+
+<h1 id="episodic-vs-continuous-tasks">Episodic Vs Continuous Tasks</h1>
+<p>There can be two type of tasks in reinforcement learning</p>
+<ul>
+  <li>Episodic tasks</li>
+  <li>Continuous tasks</li>
+</ul>
+
+<h2 id="episodic-tasks">Episodic Tasks</h2>
+<p>In Episodic tasks, the agent interacts with the environment in episodes or parts i.e there is no continuous interaction. Here the environment has some predefined terminal states and upon reaching those states the episode terminates. Episodic tasks are more common then you think, consider the agent playing a chess game. Here, the episode will end when one game is over. If the agent wins, it’ll receive some positive reward and if it loses then it’ll receive some negative reward.
+Other examples can be -</p>
+<ul>
+  <li>Any board or Atari game</li>
+  <li>When the agent needs to reach some destination</li>
+  <li>Control tasks like some Robotic arm throwing a dart</li>
+</ul>
+
+<h2 id="continuous-tasks">Continuous Tasks</h2>
+<p>Continuous tasks, in contrast, don’t have fixed ending states. Here, the agent needs to interact with the environment and take decisions in real time. The following example will make this clear.</p>
+
+<p>Consider the task is teaching a Self Driving Car how to drive. If it were an episodic task then the car needs to crash every time in order to update its policy which obviously isn’t practical. Continuous tasks are much like real-world setting where the agent needs to continuously interact with the environment and keep on evolving.</p>
+<hr />
+
+<h1 id="the-reward-hypothesis">The Reward Hypothesis</h1>
+<p>The reward hypothesis says all goals can be framed as the maximization of <strong>expected cumulative reward</strong></p>
+
+<h2 id="cumulative-reward-return">Cumulative Reward (Return)</h2>
+<p>The cumulative reward at any time step is the sum of rewards that will be achieved in all future time steps. We call this Return (<strong>G[t]</strong>).</p>
+
+<p><strong>G[t] = R[t+1] + R[t+2] + R[t+3] + …..</strong></p>
+
+<h2 id="discounted-return">Discounted Return</h2>
+<p>Using Return would mean, the agent needs to consider all the rewards in near as well as distant future but most of the times the episodes can be very long and future rewards are not as relevant as present rewards. That’s where discounted return comes in picture.</p>
+
+<p>In discounted return, we use a hyper-parameter γ(Gamma) to control the agent’s farsightedness.</p>
+<ul>
+  <li>The discounted return at time step t is G[t]:= R[t+1]+γ<em>R[t+2]+γ^2</em>R[t+3}+ …..</li>
+  <li>The discount rate γ is something that you set, to refine the goal that you have the agent.
+    <ul>
+      <li>It must satisfy 0≤γ≤1.</li>
+      <li>If γ=0 the agent only cares about the most immediate reward.</li>
+      <li>If γ=1 the return is not discounted.</li>
+      <li>For larger values of γ, the agent cares more about the distant future. Smaller values of γ result in more extreme discounting, wherein the most extreme case agent only cares about the most immediate reward.</li>
+    </ul>
+    <hr />
+  </li>
+</ul>
+
+<h1 id="mdp-and-one-step-dynamics">MDP and One Step Dynamics</h1>
+
+<p><img src="/images/MDP.png" alt="Markov Decision Process" /></p>
+
+<h2 id="markov-decision-process-mdp">Markov Decision Process (MDP)</h2>
+<p>Markov decision processes (MDPs) provide a mathematical framework for modeling decision making in situations where outcomes are partly random and partly under the control of a decision maker. MDPs are useful for studying a wide range of optimization problems solved via dynamic programming and reinforcement learning. MDPs were known at least as early as the 1950s, a core body of research on Markov decision processes resulted from Ronald A. Howard’s book published in 1960, Dynamic Programming and Markov Processes. They are used in a wide area of disciplines, including robotics, automatic control, economics, and manufacturing.</p>
+
+<p>Before I explain MDP any further, we need to know a couple of new Terms.</p>
+<ul>
+  <li><strong>State Space</strong> - State Space is a set of all possible (non-terminal) state.</li>
+  <li>In episodic tasks, we use <strong>S+</strong> to refer to the set of all states, including terminal states.</li>
+  <li><strong>Action Space</strong> - The action space A is the set of possible actions. (Alternatively, A(s) refers to the set of possible actions available in state s∈S.)</li>
+  <li><strong>Policy</strong> - Policy can be understood as a mapping from different state to optimal actions. It can be as simple as a dictionary or complex as a deep neural network.</li>
+  <li><strong>Expected Cumulative Reward (Expected Return)</strong> - Expected Return E[G(t)] is the return that’ll be received if the agent is in State S at Time t and it follows the policy thereafter.</li>
+  <li><strong>One Step Dynamics</strong> - One step dynamics of the environment determines how the environment decides next state and reward at any given time step (This is very useful in dynamic programming environments). The dynamics can be defined by specifying <strong>p(s′,r∣s,a) = P(S[t+1]​=s′, R[t+1]​=r ∣ S[t]​=s, A[t]=a)</strong> for each possible s′,r,s,and a.</li>
+</ul>
+
+<h2 id="finite-mdps">Finite MDPs</h2>
+<p>A Markov decision process is a 5-tuple<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d4d72bc2f3410321082e3703fed550834d17902d" alt="MDP tuple" /> where</p>
+<ul>
+  <li><strong>S</strong> is a set of finite states,</li>
+  <li><strong>A</strong> is a finite set of actions (alternatively, A[s]is the finite set of actions available from state s),</li>
+  <li><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9f46bb2846b8b20a08220507fa105540f34850e7" alt="Finite MDP formula" />  is the probability that action a in state s at time t will lead to state s’ at time t+1,</li>
+  <li><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f842d4a4b1340e194d8014d63163e5e27f94215" alt="Finite MDP reward" />  is the immediate reward (or expected immediate reward) received after transitioning from a state s to state s’, due to action a,</li>
+  <li><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cbc65bc4fa0e25a8305259b234865def64ac1a8a" alt="Gamma Range" /> is the discount factor, which represents the difference in importance between future rewards and present rewards.
+    <h4 id="source---wikipedia-1">Source - Wikipedia</h4>
+    <p><strong>Note</strong> - The theory of Markov decision processes does not state that S or A is finite, but the basic algorithms below assume that they are finite.</p>
+  </li>
+</ul>
+:ET
