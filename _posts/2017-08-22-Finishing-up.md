@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Finishing up!
-category: Blog
+category: GSoC
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
-permalink: /Finishing-up/
 ---
 
 So, we've reached the [GSoC](https://summerofcode.withgoogle.com/) final evaluations period. In this post I'll be summarizing in brief we've accomplished in the last 3 months.
