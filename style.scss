@@ -1,7 +1,3 @@
----
----
-
-//
 // IMPORTS
 //
 
@@ -653,7 +649,7 @@ left: -49px;
 
 // Tags css
 .post-tag {
-  background: #eee;
+  background: #f9f9f9;
   border-radius: 3px 0 0 3px;
   color: #999;
   display: inline-block;
@@ -663,6 +659,7 @@ left: -49px;
   position: relative;
   margin: 0 10px 10px 0;
   text-decoration: none;
+  transition: color 0.2s;
   -webkit-transition: color 0.2s;
 }
 
@@ -710,6 +707,7 @@ left: -49px;
   position: relative;
   margin: 0 10px 10px 0;
   text-decoration: none;
+  transition: color 0.2s;
   -webkit-transition: color 0.2s;
 }
 
