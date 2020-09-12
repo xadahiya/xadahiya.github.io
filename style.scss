@@ -663,7 +663,7 @@ left: -49px;
 }
 
 .post-tag::before {
-  background: #fff;
+  background: #eee;
   border-radius: 10px;
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
   content: '';
@@ -675,7 +675,7 @@ left: -49px;
 }
 
 .post-tag::after {
-  background: #fff;
+  background: #eee;
   border-bottom: 14px solid transparent;
   border-left: 10px solid #eee;
   border-top: 13px solid transparent;
@@ -743,6 +743,10 @@ left: -49px;
 .github-contib-image{
   width:100%;
   padding-bottom: 15px;
+}
+
+#cloudflare-app-google-translate{
+  float:right !important;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
