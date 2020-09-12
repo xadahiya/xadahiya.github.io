@@ -663,7 +663,7 @@ left: -49px;
 }
 
 .post-tag::before {
-  background: #eee;
+  background: #f9f9f9;
   border-radius: 10px;
   box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
   content: '';
@@ -675,9 +675,9 @@ left: -49px;
 }
 
 .post-tag::after {
-  background: #eee;
+  background: #f9f9f9;
   border-bottom: 14px solid transparent;
-  border-left: 10px solid #eee;
+  border-left: 10px solid #f9f9f9;
   border-top: 13px solid transparent;
   content: '';
   position: absolute;
