@@ -243,6 +243,10 @@ img {
     
   }
 
+  .entry{
+    margin-top:10px;
+  }
+
 
 
 }
@@ -747,6 +751,7 @@ left: -49px;
 
 #cloudflare-app-google-translate{
   float:right !important;
+  max-width:60% !important;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
