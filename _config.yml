@@ -82,7 +82,7 @@ sass:
   style: :compressed # You might prefer to minify using :compressed
 
 # Use the following gems
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-feed
   - jekyll-sitemap
