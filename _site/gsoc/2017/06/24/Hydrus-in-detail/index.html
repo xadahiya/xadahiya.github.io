@@ -1,5 +1,185 @@
-<!DOCTYPE html> <html lang="en-US"> <head> <title>A Detailed Introduction to Hydrus </title> <meta charset="utf-8"/> <meta content='text/html; charset=utf-8' http-equiv='Content-Type'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0'> <meta name="description" content="@xadahiya"> <meta property="og:description" content="@xadahiya"/> <meta name="author" content="Akshay Dahiya"/> <meta property="og:title" content="A Detailed Introduction to Hydrus"/> <meta property="twitter:title" content="A Detailed Introduction to Hydrus"/> <link rel="shortcut icon" type="image/png" href="/images/favicon.ico"> <link rel="stylesheet" type="text/css" href="/style.css" media="print" onload="this.media='all'"/> <link rel="alternate" type="application/rss+xml" title="Akshay Dahiya - @xadahiya" href="/feed.xml"/> <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc"/> </head> <body> <div class="wrapper-masthead"> <div class="container"> <header class="masthead clearfix"> <a href="/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="/images/avatar.png"/></a> <div class="site-info"> <h1 class="site-name"><a href="/">Akshay Dahiya</a></h1> <p class="site-description">@xadahiya</p> </div> <nav> <a href="/">Home</a> <a href="/blog/categories">Blog</a> <a href="/publications">Publications</a> <a href="/projects">Projects</a> <a href="/resume.pdf">Résumé</a> </nav> </header> </div> </div> <div id="main" role="main" class="container entry-index"> <article class="post"> <h1>A Detailed Introduction to Hydrus</h1> <div class="entry"> <p>Hi everyone, in my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a> I told you about who I am and what we’ve been working on for <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. In this post, I would like to discuss in detail about our project Hydrus.</p> <p><strong>Hydrus</strong> is a set of <strong>Python</strong> based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create a powerful REST APIs to serve data. Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creation and documentation of it’s APIs.</p> <p>Let’s discuss Hydrus in detail.</p> <hr/> <h1 id="design">Design</h1> <p>There are three main aspects of Hydrus design. Those are <strong>Database design</strong>, <strong>Data flow</strong> and <strong>Use cases</strong>.</p> <h2 id="database-design">Database Design</h2> <p>The design of the Database takes into account the different types of representations possible using the triple format. Typically, there are 4 types of triples that are stored in a <code class="highlighter-rouge">Graph</code>:</p> <ul> <li><strong><code class="highlighter-rouge">Class &gt;&gt; Property &gt;&gt; Class</code> [<code class="highlighter-rouge">GraphCAC</code>]</strong></li> <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Class</code> [<code class="highlighter-rouge">GraphIAC</code>]</strong></li> <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Resource</code> [<code class="highlighter-rouge">GraphIII</code>]</strong></li> <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Value</code> [<code class="highlighter-rouge">GraphIIT</code>]</strong></li> </ul> <p>For a distinction between the different types of <code class="highlighter-rouge">Value</code>, we created a <code class="highlighter-rouge">Terminal</code> class, which contains a <code class="highlighter-rouge">value</code> and it’s <code class="highlighter-rouge">unit</code>. There is also a distinction between properties that map to <code class="highlighter-rouge">Resources</code> and <code class="highlighter-rouge">Terminals</code> and those that map to <code class="highlighter-rouge">Classes</code>. We call <code class="highlighter-rouge">Properties</code> that map to <code class="highlighter-rouge">Classes</code> as <code class="highlighter-rouge">AbstractProperty</code> and the other as <code class="highlighter-rouge">InstanceProperty</code>.</p> <p>Below is the schema diagram for our database design:</p> <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/db_schema.png?raw=true" alt="DB Schema" title="Schema"/> ***</p> <h2 id="data-flow">Data Flow</h2> <p>Here is a small illustration as to how data flows in Hydrus.</p> <p><strong>Hydra API Documentation to server endpoints</strong>:</p> <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/hydra_dataflow.png?raw=true" alt="API Flow" title="API Flow"/></p> <p><strong>RDF/OWL declarations to server endpoints</strong>:</p> <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/rdf_dataflow.png?raw=true" alt="RDF Flow" title="RDF Flow"/></p> <h2 id="use-cases">Use cases</h2> <p>This section explains Hydrus’s design and a use case for the same. For the demonstration, the server has the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p> <p>Here is an example of a system used to serve data using the components of Hydrus:</p> <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" alt="Use case" title="Use case"/></p> <p><strong>A simple example explaining the use of the above architecture would be:</strong></p> <ul> <li>User types in the query “What is the cost of a Thermal Subsystem?”.</li> <li>Middleware uses NLP to extract keywords <code class="highlighter-rouge">Thermal Subsystem</code> and <code class="highlighter-rouge">cost</code> and maps it to the Hydra instances and properties present at the server.</li> <li>Middleware passes these instances and the underlying query to the client.</li> <li>Client models a request and uses the API endpoints to extract the given information from the server.</li> <li>Server replies with the required value.</li> <li>Client serves data to the User.</li> </ul> <hr/> <h1 id="features-and-requirements">Features and Requirements</h1> <h2 id="features">Features</h2> <p>Hydrus supports the following features:</p> <ul> <li>A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li> <li>A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.</li> <li>A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. <strong>(under development)</strong></li> </ul> <h2 id="requirements">Requirements</h2> <p>The system is built using the following standards and tools:</p> <ul> <li><a href="https://flask.pocoo.org/">Flask</a> a Python-based micro-framework for handling server requests and responses.</li> <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a> as the preferred data format.</li> <li><a href="https://www.hydra-cg.com/">Hydra</a> as the API standard.</li> <li><a href="https://www.postgresql.org/">PostgreSQL</a> as the backend database for storage and CRUD operations.</li> </ul> <p>Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It would be advisable to run <strong><code class="highlighter-rouge">pip install -r requirements.txt</code></strong> before setting up other things.</p> <hr/> <h1 id="running-the-demo-server">Running the Demo server</h1> <p><strong>Please make sure you have <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed.</strong></p> <p>Once we have docker up and running setting up the demo server is a piece of cake.</p> <h3 id="instructions">Instructions</h3> <ul> <li>Clone the repository to your local machine.</li> <li><code class="highlighter-rouge">cd</code> into the project directory and use <code class="highlighter-rouge">docker-compose build</code> to build the required Docker containers.</li> <li>Start the containers using <code class="highlighter-rouge">docker-compose up</code> (With this we have our demo server up and running).</li> <li>Now, all we need to do is set up and populate the database. Connect to the container using <br/> <code class="highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> ( You can get the hydrus container name using <code class="highlighter-rouge">docker ps</code>. It should be something like <code class="highlighter-rouge">hydrus*</code>).</li> <li>Create the database models using <code class="highlighter-rouge">python /app/hydrus/data/db_models.py</code>.</li> <li>Parse and Insert classes from RDF/OWL vocabulary to the database using <code class="highlighter-rouge">python /app/hydrus/data/insert_classes.py</code></li> <li>Insert random data generated by <code class="highlighter-rouge">hydrus.data.generator</code> using <code class="highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. <br/> <strong>NOTE</strong>: This step is only valid for the subsystem example. You’ll need to write your own generator to populate the database for any other example.</li> <li>Exit the docker container shell using <code class="highlighter-rouge">exit</code>.</li> </ul> <p><strong>The demo server should be up and running at <code class="highlighter-rouge">127.0.0.1:8080/api</code>.</strong></p> <p><strong>NOTE:</strong> Docker port binding is not working in Windows. Windows users can access the server at <code class="highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. You can check your docker_ip using <code class="highlighter-rouge">docker-machine ip</code>.</p> <hr/> <h1 id="advanced-usage">Advanced Usage</h1> <h2 id="setting-up-a-hydra-server-from-owl-vocabulary">Setting up a Hydra server from OWL vocabulary</h2> <p>Setting up a new Hydra server from Hydrus is actually pretty straightforward and involves the following steps:</p> <h3 id="1-the-first-step-is-parsing-the-hydraclasses-and-their-supportedproperties-from-the-owl-vocabulary">1. The first step is parsing the <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code> from the OWL vocabulary.</h3> <p>To set up a new Hydra server you need to provide an OWL vocabulary.</p> <p><code class="highlighter-rouge">Hydrus.hydraspec.parser</code> can be used to generate parsed classes. Just import the OWL vocabulary in <code class="highlighter-rouge">parser.py</code> and run it. It will parse and convert all the OWL classes and properties into <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code>.</p> <p>For example - We have the <code class="highlighter-rouge">Subsystem</code> OWL vocabulary defined in <code class="highlighter-rouge">Hydrus.metadata.subsystem_vocab_jsonld</code>.</p> <p>Import this into <code class="highlighter-rouge">parser.py</code> using</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.metadata.subsystem_vocab_jsonld</span> <span class="kn">import</span> <span class="n">subsystem_data</span>
-</code></pre></div></div> <p>Pass this vocab to data</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>A Detailed Introduction to Hydrus </title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0'>
+
+    
+    <meta name="description" content="@xadahiya">
+    <meta property="og:description" content="@xadahiya" />
+    
+    <meta name="author" content="Akshay Dahiya" />
+
+    
+    <meta property="og:title" content="A Detailed Introduction to Hydrus" />
+    <meta property="twitter:title" content="A Detailed Introduction to Hydrus" />
+    
+
+
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="print" onload="this.media='all'"/>
+  <link rel="alternate" type="application/rss+xml" title="Akshay Dahiya - @xadahiya" href="/feed.xml" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc" />
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <a href="/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="/images/avatar.png" /></a>
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Akshay Dahiya</a></h1>
+          <p class="site-description">@xadahiya</p>
+        </div>
+
+        <nav>
+          <a href="/">Home</a>
+          <a href="/blog/categories">Blog</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/resume.pdf">Résumé</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container entry-index">
+    <article class="post">
+  <h1>A Detailed Introduction to Hydrus</h1>
+
+  <div class="entry">
+    <p>Hi everyone, in my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a> I told you about who I am and what we’ve been working on for  <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. In this post, I would like to discuss in detail about our project Hydrus.</p>
+
+<p><strong>Hydrus</strong> is a set of <strong>Python</strong> based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create a powerful REST APIs to serve data. Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creation and documentation of it’s APIs.</p>
+
+<p>Let’s discuss Hydrus in detail.</p>
+
+<hr />
+
+<h1 id="design">Design</h1>
+<p>There are three main aspects of Hydrus design. Those are <strong>Database design</strong>, <strong>Data flow</strong> and <strong>Use cases</strong>.</p>
+
+<h2 id="database-design">Database Design</h2>
+<p>The design of the Database takes into account the different types of representations possible using the triple format.
+Typically, there are 4 types of triples that are stored in a <code class="highlighter-rouge">Graph</code>:</p>
+<ul>
+  <li><strong><code class="highlighter-rouge">Class &gt;&gt; Property &gt;&gt; Class</code> [<code class="highlighter-rouge">GraphCAC</code>]</strong></li>
+  <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Class</code> [<code class="highlighter-rouge">GraphIAC</code>]</strong></li>
+  <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Resource</code> [<code class="highlighter-rouge">GraphIII</code>]</strong></li>
+  <li><strong><code class="highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Value</code> [<code class="highlighter-rouge">GraphIIT</code>]</strong></li>
+</ul>
+
+<p>For a distinction between the different types of <code class="highlighter-rouge">Value</code>, we created a <code class="highlighter-rouge">Terminal</code> class, which contains a <code class="highlighter-rouge">value</code> and it’s <code class="highlighter-rouge">unit</code>.
+There is also a distinction between properties that map to <code class="highlighter-rouge">Resources</code> and <code class="highlighter-rouge">Terminals</code> and those that map to <code class="highlighter-rouge">Classes</code>.
+We call <code class="highlighter-rouge">Properties</code> that map to <code class="highlighter-rouge">Classes</code> as <code class="highlighter-rouge">AbstractProperty</code> and the other as <code class="highlighter-rouge">InstanceProperty</code>.</p>
+
+<p>Below is the schema diagram for our database design:</p>
+
+<p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/db_schema.png?raw=true" alt="DB Schema" title="Schema" />
+***</p>
+
+<h2 id="data-flow">Data Flow</h2>
+<p>Here is a small illustration as to how data flows in Hydrus.</p>
+
+<p><strong>Hydra API Documentation to server endpoints</strong>:</p>
+
+<p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/hydra_dataflow.png?raw=true" alt="API Flow" title="API Flow" /></p>
+
+<p><strong>RDF/OWL declarations to server endpoints</strong>:</p>
+
+<p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/rdf_dataflow.png?raw=true" alt="RDF Flow" title="RDF Flow" /></p>
+
+<h2 id="use-cases">Use cases</h2>
+<p>This section explains Hydrus’s design and a use case for the same.
+For the demonstration, the server has the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p>
+
+<p>Here is an example of a system used to serve data using the components of Hydrus:</p>
+
+<p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" alt="Use case" title="Use case" /></p>
+
+<p><strong>A simple example explaining the use of the above architecture would be:</strong></p>
+<ul>
+  <li>User types in the query “What is the cost of a Thermal Subsystem?”.</li>
+  <li>Middleware uses NLP to extract keywords <code class="highlighter-rouge">Thermal Subsystem</code> and <code class="highlighter-rouge">cost</code> and maps it to the Hydra instances and properties present at the server.</li>
+  <li>Middleware passes these instances and the underlying query to the client.</li>
+  <li>Client models a request and uses the API endpoints to extract the given information from the server.</li>
+  <li>Server replies with the required value.</li>
+  <li>Client serves data to the User.</li>
+</ul>
+
+<hr />
+
+<h1 id="features-and-requirements">Features and Requirements</h1>
+
+<h2 id="features">Features</h2>
+<p>Hydrus supports the following features:</p>
+<ul>
+  <li>A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li>
+  <li>A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.</li>
+  <li>A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. <strong>(under development)</strong></li>
+</ul>
+
+<h2 id="requirements">Requirements</h2>
+<p>The system is built using the following standards and tools:</p>
+<ul>
+  <li><a href="https://flask.pocoo.org/">Flask</a> a Python-based micro-framework for handling server requests and responses.</li>
+  <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a> as the preferred data format.</li>
+  <li><a href="https://www.hydra-cg.com/">Hydra</a> as the API standard.</li>
+  <li><a href="https://www.postgresql.org/">PostgreSQL</a> as the backend database for storage and CRUD operations.</li>
+</ul>
+
+<p>Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It would be advisable to run <strong><code class="highlighter-rouge">pip install -r requirements.txt</code></strong> before setting up other things.</p>
+
+<hr />
+
+<h1 id="running-the-demo-server">Running the Demo server</h1>
+<p><strong>Please make sure you have <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed.</strong></p>
+
+<p>Once we have docker up and running setting up the demo server is a piece of cake.</p>
+<h3 id="instructions">Instructions</h3>
+<ul>
+  <li>Clone the repository to your local machine.</li>
+  <li><code class="highlighter-rouge">cd</code> into the project directory and use <code class="highlighter-rouge">docker-compose build</code> to build the required Docker containers.</li>
+  <li>Start the containers using <code class="highlighter-rouge">docker-compose up</code> (With this we have our demo server up and running).</li>
+  <li>Now, all we need to do is set up and populate the database. Connect to the container using <br /> <code class="highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> ( You can get the hydrus container name using <code class="highlighter-rouge">docker ps</code>. It should be something like <code class="highlighter-rouge">hydrus*</code>).</li>
+  <li>Create the database models using <code class="highlighter-rouge">python /app/hydrus/data/db_models.py</code>.</li>
+  <li>Parse and Insert classes from RDF/OWL vocabulary to the database using <code class="highlighter-rouge">python /app/hydrus/data/insert_classes.py</code></li>
+  <li>Insert random data generated  by <code class="highlighter-rouge">hydrus.data.generator</code> using <code class="highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. <br />
+<strong>NOTE</strong>: This step is only valid for the subsystem example. You’ll need to write your own generator to populate the database for any other example.</li>
+  <li>Exit the docker container shell using <code class="highlighter-rouge">exit</code>.</li>
+</ul>
+
+<p><strong>The demo server should be up and running at <code class="highlighter-rouge">127.0.0.1:8080/api</code>.</strong></p>
+
+<p><strong>NOTE:</strong> Docker port binding is not working in Windows. Windows users can access the server at <code class="highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. You can check your docker_ip using <code class="highlighter-rouge">docker-machine ip</code>.</p>
+
+<hr />
+
+<h1 id="advanced-usage">Advanced Usage</h1>
+
+<h2 id="setting-up-a-hydra-server-from-owl-vocabulary">Setting up a Hydra server from OWL vocabulary</h2>
+
+<p>Setting up a new Hydra server from Hydrus is actually pretty straightforward and involves the following steps:</p>
+<h3 id="1-the-first-step-is-parsing-the-hydraclasses-and-their-supportedproperties-from-the-owl-vocabulary">1. The first step is parsing the <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code> from the OWL vocabulary.</h3>
+<p>To set up a new Hydra server you need to provide an OWL vocabulary.</p>
+
+<p><code class="highlighter-rouge">Hydrus.hydraspec.parser</code> can be used to generate parsed classes. Just import the OWL vocabulary in <code class="highlighter-rouge">parser.py</code> and run it. It will parse and convert all the OWL classes and properties into <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code>.</p>
+
+<p>For example -
+We have the <code class="highlighter-rouge">Subsystem</code> OWL vocabulary defined in <code class="highlighter-rouge">Hydrus.metadata.subsystem_vocab_jsonld</code>.</p>
+
+<p>Import this into <code class="highlighter-rouge">parser.py</code> using</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.metadata.subsystem_vocab_jsonld</span> <span class="kn">import</span> <span class="n">subsystem_data</span>
+</code></pre></div></div>
+<p>Pass this vocab to data</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
     <span class="c1"># NOTE: Usage must be in the following order
 </span>        <span class="c1"># get_all_properties() &gt;&gt; hydrafy_properties() &gt;&gt; properties
 </span>        <span class="c1"># get_all_classes() + properties &gt;&gt; hydrafy_classes() &gt;&gt; classes
@@ -9,7 +189,14 @@
     <span class="c1"># Get all the owl:ObjectProperty objects from the vocab
 </span>    <span class="n">owl_props</span> <span class="o">=</span> <span class="n">get_all_properties</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="o">......</span>
-</code></pre></div></div> <p>Running the <code class="highlighter-rouge">parser.py</code> will return <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code>.<br/> We can save this as <code class="highlighter-rouge">parsed_classes</code> using Output redirection. Running <code class="highlighter-rouge">python parser.py &gt; parsed_classes</code> should do it!<br/> Now we’re ready to move forward. The next steps involve generating a Hydra vocabulary and various contexts.</p> <h3 id="2-generating-hydravocab-from-parsed-classes">2. Generating <code class="highlighter-rouge">HydraVocab</code> from parsed classes</h3> <p><code class="highlighter-rouge">Hydrus.hydraspec.vocab_generator</code> can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists <code class="highlighter-rouge">gen_vocab</code> function.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">,</span> <span class="n">item_semantic_url</span><span class="p">):</span>
+</code></pre></div></div>
+<p>Running the <code class="highlighter-rouge">parser.py</code> will return <code class="highlighter-rouge">HydraClasses</code> and their <code class="highlighter-rouge">SupportedProperties</code>.<br />
+We can save this as <code class="highlighter-rouge">parsed_classes</code> using Output redirection. Running <code class="highlighter-rouge">python parser.py &gt; parsed_classes</code> should do it!<br />
+Now we’re ready to move forward. The next steps involve generating a Hydra vocabulary and various contexts.</p>
+
+<h3 id="2-generating-hydravocab-from-parsed-classes">2. Generating <code class="highlighter-rouge">HydraVocab</code> from parsed classes</h3>
+<p><code class="highlighter-rouge">Hydrus.hydraspec.vocab_generator</code> can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists <code class="highlighter-rouge">gen_vocab</code> function.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">,</span> <span class="n">item_semantic_url</span><span class="p">):</span>
     <span class="s">"""Generate Hydra Vocabulary."""</span>
     <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
     <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
@@ -22,9 +209,30 @@
             <span class="s">"ApiDocumentation"</span><span class="p">:</span> <span class="s">"hydra:ApiDocumentation"</span><span class="p">,</span>
             <span class="s">"property"</span><span class="p">:</span> <span class="p">{</span>
 <span class="o">......</span>
-</code></pre></div></div> <p>We need to pass the following variables into <code class="highlighter-rouge">gen_vocab()</code> for generation of a Hydra Vocabulary</p> <ul> <li><code class="highlighter-rouge">parsed_classes</code> - Use the classes parsed earlier from the OWL vocabulary.</li> <li><code class="highlighter-rouge">server_url</code> - Url where the server is hosted.</li> <li><code class="highlighter-rouge">item_type</code> - Item type can be anything depending upon what is being served by the API. For example in Subsystems example <code class="highlighter-rouge">item_type = Cots</code>.</li> <li><code class="highlighter-rouge">item_sematic_url</code> - Semantic reference of the Item.</li> </ul> <p>Vocab generator uses a Hydra Vocabulary template <code class="highlighter-rouge">vocab_template</code> to generate the required hydra vocabulary.</p> <p>After passing all these variables, simply running the <code class="highlighter-rouge">vocab_generator.py</code> will return a Hydra vocabulary for the server.<br/></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">print</span><span class="p">(</span><span class="n">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">,</span>
+</code></pre></div></div>
+<p>We need to pass the following variables into <code class="highlighter-rouge">gen_vocab()</code> for generation of a Hydra Vocabulary</p>
+<ul>
+  <li><code class="highlighter-rouge">parsed_classes</code> - Use the classes parsed earlier from the OWL vocabulary.</li>
+  <li><code class="highlighter-rouge">server_url</code> - Url where the server is hosted.</li>
+  <li><code class="highlighter-rouge">item_type</code> - Item type can be anything depending upon what is being served by the API. For example in Subsystems example <code class="highlighter-rouge">item_type = Cots</code>.</li>
+  <li><code class="highlighter-rouge">item_sematic_url</code> - Semantic reference of the Item.</li>
+</ul>
+
+<p>Vocab generator uses a Hydra Vocabulary template <code class="highlighter-rouge">vocab_template</code> to generate the required hydra vocabulary.</p>
+
+<p>After passing all these variables, simply running the <code class="highlighter-rouge">vocab_generator.py</code> will return a Hydra vocabulary for the server.<br /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">print</span><span class="p">(</span><span class="n">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">,</span>
           <span class="s">"https://ontology.projectchronos.eu/subsystems?format=jsonld"</span><span class="p">))</span>
-</code></pre></div></div> <p>Use Output redirection to save it, Running <code class="highlighter-rouge">python vocab_generator.py &gt; vocab</code> should do it!</p> <h3 id="3-generating-the-entrypoint-and-entrypoint_context">3. Generating the <code class="highlighter-rouge">Entrypoint</code> and <code class="highlighter-rouge">Entrypoint_context</code></h3> <ul> <li> <h4 id="entrypoint-generator">Entrypoint Generator</h4> <p><code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> uses an Entrypoint template to generate the required Entrypoint data.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
+</code></pre></div></div>
+<p>Use Output redirection to save it, Running <code class="highlighter-rouge">python vocab_generator.py &gt; vocab</code> should do it!</p>
+
+<h3 id="3-generating-the-entrypoint-and-entrypoint_context">3. Generating the <code class="highlighter-rouge">Entrypoint</code> and <code class="highlighter-rouge">Entrypoint_context</code></h3>
+<ul>
+  <li>
+    <h4 id="entrypoint-generator">Entrypoint Generator</h4>
+    <p><code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> uses an Entrypoint template to generate the required Entrypoint data.</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
   <span class="s">"""Generate EntryPoint."""</span>
   <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
   <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
@@ -37,8 +245,21 @@
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">entrypoint_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div> </div> <p>We can generate the data for entrypoint simply by doing something like this:</p> </li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
-</code></pre></div></div> <ul> <li> <h4 id="entrypoint-context-generator">Entrypoint Context Generator</h4> <p><code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_context_generator</code> also uses a similar template to generate the entrypoint context.</p> </li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint_context</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
+</code></pre></div>    </div>
+    <p>We can generate the data for entrypoint simply by doing something like this:</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
+</code></pre></div></div>
+<ul>
+  <li>
+    <h4 id="entrypoint-context-generator">Entrypoint Context Generator</h4>
+    <p><code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_context_generator</code> also uses a similar template to generate the entrypoint context.</p>
+  </li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint_context</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
     <span class="s">"""Generate context for the EntryPoint."""</span>
     <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
     <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
@@ -56,10 +277,40 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">entrypoint_context_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div></div> <p>We can generate the data for entrypoint context simply by doing something like this:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint_context</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
-</code></pre></div></div> <p>Both the <code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> and <code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_context_generator</code> can be used to generate <code class="highlighter-rouge">Entrypoint</code> and <code class="highlighter-rouge">Entrypoint_context</code> data.</p> <h3 id="4-binding-all-the-generated-data-in-hydrusapp">4. Binding all the generated data in <code class="highlighter-rouge">Hydrus.app</code></h3> <p><code class="highlighter-rouge">Hydrus.app</code> is the main <code class="highlighter-rouge">Flask</code> application from where all the Contexts and endpoints are server.<br/> The implementation of <code class="highlighter-rouge">app.py</code> is pretty straightforward.</p> <p>Modify <code class="highlighter-rouge">Hydrus.app</code> to use the generated data (<code class="highlighter-rouge">vocab</code>, <code class="highlighter-rouge">entrypoint</code> and <code class="highlighter-rouge">entrypoint_context</code>) and change the endpoints depending upon your requirements.<br/> Endpoints are defined in <code class="highlighter-rouge">api.add_resource</code> like this:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Needs to be changed manually
+</code></pre></div></div>
+<p>We can generate the data for entrypoint context simply by doing something like this:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint_context</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Both the <code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> and <code class="highlighter-rouge">Hydrus.hydraspec.entrypoint_context_generator</code> can be used to generate <code class="highlighter-rouge">Entrypoint</code> and <code class="highlighter-rouge">Entrypoint_context</code> data.</p>
+
+<h3 id="4-binding-all-the-generated-data-in-hydrusapp">4. Binding all the generated data in <code class="highlighter-rouge">Hydrus.app</code></h3>
+<p><code class="highlighter-rouge">Hydrus.app</code> is the main <code class="highlighter-rouge">Flask</code> application from where all the Contexts and endpoints are server.<br />
+The implementation of <code class="highlighter-rouge">app.py</code> is pretty straightforward.</p>
+
+<p>Modify <code class="highlighter-rouge">Hydrus.app</code> to use the generated data (<code class="highlighter-rouge">vocab</code>, <code class="highlighter-rouge">entrypoint</code> and <code class="highlighter-rouge">entrypoint_context</code>) and change the endpoints depending upon your requirements.<br />
+Endpoints are defined in <code class="highlighter-rouge">api.add_resource</code> like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Needs to be changed manually
 </span><span class="n">api</span><span class="o">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="s">"/api/&lt;string:type_&gt;/&lt;int:id_&gt;"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s">"cots"</span><span class="p">)</span>
-</code></pre></div></div> <h3 id="5-starting-the-api-server">5. Starting the API server</h3> <p>Use <a href="https://github.com/HTTP-APIs/hydrus/wiki#demo">these</a> instruction to start your hydra development server locally.<br/> <strong>NOTE</strong>: You’ll have to modify the OWL vocabulary references in these instructions too.</p> <hr/> <h2 id="manipulating-data">Manipulating data</h2> <p>We already saw how <code class="highlighter-rouge">insert</code> work in the Adding instance section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.</p> <h3 id="crud-operations">CRUD operations</h3> <p>There are four supported CURD operation (<code class="highlighter-rouge">insert</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">delete</code> and <code class="highlighter-rouge">update</code>). Here are examples for all four:</p> <p><strong>GET</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+</code></pre></div></div>
+
+<h3 id="5-starting-the-api-server">5. Starting the API server</h3>
+<p>Use <a href="https://github.com/HTTP-APIs/hydrus/wiki#demo">these</a> instruction to start your hydra development server locally.<br />
+<strong>NOTE</strong>: You’ll have to modify the OWL vocabulary references in these instructions too.</p>
+
+<hr />
+
+<h2 id="manipulating-data">Manipulating data</h2>
+
+<p>We already saw how <code class="highlighter-rouge">insert</code> work in the Adding instance section, we will now see how the other crud operations work and what are the errors and exceptions for each of them.</p>
+
+<h3 id="crud-operations">CRUD operations</h3>
+
+<p>There are four supported CURD operation (<code class="highlighter-rouge">insert</code>, <code class="highlighter-rouge">get</code>, <code class="highlighter-rouge">delete</code> and <code class="highlighter-rouge">update</code>). Here are examples for all four:</p>
+
+<p><strong>GET</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">instance</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s">"Spacecraft_Communication"</span><span class="p">)</span>     <span class="c1"># Return the Resource/Instance with ID = 1
@@ -77,7 +328,9 @@
 #         "minWorkingTemperature": -26
 #     }
 # }
-</span></code></pre></div></div> <p><strong>INSERT</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">instance</span> <span class="o">=</span> <span class="p">{</span>
+</span></code></pre></div></div>
+<p><strong>INSERT</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">instance</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"12W communication"</span><span class="p">,</span>    <span class="c1"># The name of the instance must be in "name"
 </span>    <span class="s">"object"</span><span class="p">:</span> <span class="p">{</span>
         <span class="c1"># The "object" key contains all the properties and their values for a given instance
@@ -100,7 +353,10 @@
 </span>
 <span class="c1"># Optionally, we can specify the ID of an instance if it is not already used
 </span><span class="n">crud</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">object_</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">#This will insert 'instance' with ID = 1  
-</span></code></pre></div></div> <p><strong>DELETE</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+</span></code></pre></div></div>
+
+<p><strong>DELETE</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">output</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s">"Spacecraft_Communication"</span><span class="p">)</span>     <span class="c1"># Deletes the Resource/Instance with ID = 1
@@ -109,7 +365,9 @@
 # {
 #   204: "Object with ID : 1 successfully deleted!"
 # }
-</span></code></pre></div></div> <p><strong>UPDATE</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+</span></code></pre></div></div>
+<p><strong>UPDATE</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">new_object</span> <span class="o">=</span> <span class="p">{</span>
@@ -130,7 +388,15 @@
 # {
 #   204: "Object with ID : 1 successfully updated!"
 # }
-</span></code></pre></div></div> <hr/> <h2 id="exceptions">Exceptions</h2> <p>The CRUD operations have a number of checks and conditions in place to ensure validity of data. Here are the exceptions that are returned for each of the operations when these conditions are violated. NOTE: Relevant all responses are returned in JSON format</p> <p><strong>GET</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</span></code></pre></div></div>
+<hr />
+
+<h2 id="exceptions">Exceptions</h2>
+<p>The CRUD operations have a number of checks and conditions in place to ensure validity of data. Here are the exceptions that are returned for each of the operations when these conditions are violated.
+NOTE: Relevant all responses are returned in JSON format</p>
+
+<p><strong>GET</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
 </span><span class="p">{</span>   
     <span class="mi">401</span><span class="p">:</span> <span class="s">"The class dummyClass is not a valid/defined RDFClass"</span>
@@ -141,7 +407,10 @@
     <span class="mi">404</span><span class="p">:</span> <span class="s">"Instance with ID : 2 NOT FOUND"</span>
 <span class="p">}</span>
 
-</code></pre></div></div> <p><strong>INSERT</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A 400 error is returned when an instance with a given ID already exists
+</code></pre></div></div>
+
+<p><strong>INSERT</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A 400 error is returned when an instance with a given ID already exists
 </span><span class="p">{</span>
     <span class="mi">400</span><span class="p">:</span> <span class="s">"Instance with ID : 1 already exists"</span>
 <span class="p">}</span>
@@ -160,7 +429,10 @@
 </span><span class="p">{</span>   
     <span class="mi">403</span><span class="p">:</span> <span class="s">"The instance 2 is not a valid Instance"</span>
 <span class="p">}</span>
-</code></pre></div></div> <p><strong>DELETE</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+<p><strong>DELETE</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
 </span><span class="p">{</span>   
     <span class="mi">401</span><span class="p">:</span> <span class="s">"The class dummyClass is not a valid/defined RDFClass"</span>
@@ -170,11 +442,86 @@
 </span><span class="p">{</span>
     <span class="mi">404</span><span class="p">:</span> <span class="s">"Instance with ID : 2 NOT FOUND"</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>The <code class="highlighter-rouge">update</code> operation is a combination of a <code class="highlighter-rouge">delete</code> and an <code class="highlighter-rouge">insert</code> operation. All exceptions for both the operation are inherited by the update operation.</p> <hr/> <h2 id="setting-up-the-server">Setting up the server</h2> <p>The following section explains how the server needs to be set up to be able to serve the data we added in the previous section.</p> <p>The generic server is implemented using the <a href="https://flask.pocoo.org/">Flask</a> micro-framework. To get the server up and running, all you need to do is:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.app</span> <span class="kn">import</span> <span class="n">app</span>
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">update</code> operation is a combination of a <code class="highlighter-rouge">delete</code> and an <code class="highlighter-rouge">insert</code> operation. All exceptions for both the operation are inherited by the update operation.</p>
+
+<hr />
+
+<h2 id="setting-up-the-server">Setting up the server</h2>
+<p>The following section explains how the server needs to be set up to be able to serve the data we added in the previous section.</p>
+
+<p>The generic server is implemented using the <a href="https://flask.pocoo.org/">Flask</a> micro-framework. To get the server up and running, all you need to do is:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.app</span> <span class="kn">import</span> <span class="n">app</span>
 
 <span class="n">IP</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span>
 <span class="n">port_</span> <span class="o">=</span> <span class="mi">8000</span>
 <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">IP</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_</span><span class="p">)</span>
 
 <span class="c1"># The server will be running at http://127.0.0.1:8000/
-</span></code></pre></div></div> <hr/> <h2 id="running-tests">Running tests</h2> <p>There are a number of tests in place to ensure that Hydrus functions properly. For running tests related to ensuring the validity of the database run</p> <p><strong><code class="highlighter-rouge">python -m unittest hydrus.data.test_db</code></strong></p> <p>For running client-side tests related to the server, run</p> <p><strong><code class="highlighter-rouge">python -m unittest hydrus.test_app</code></strong></p> <h2 id="using-the-client">Using the client</h2> <p>(Under development) client not yet ready</p> </div> <div class="date"> Written on June 24, 2017 </div> <div class="comments"> <div id="disqus_thread"></div> <script type="text/javascript">var disqus_shortname="xadahiya";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div> </article> </div> <div class="wrapper-footer"> <div class="container"> <footer class="footer"> <span class="footer-text">Get in Touch!</span> <a href="mailto:xadahiya@gmail.com"><i class="svg-icon email"></i></a> <a href="https://github.com/xadahiya"><i class="svg-icon github"></i></a> <a href="https://www.linkedin.com/in/xadahiya"><i class="svg-icon linkedin"></i></a> <a href="/feed.xml"><i class="svg-icon rss"></i></a> <a href="https://www.twitter.com/xadahiya"><i class="svg-icon twitter"></i></a> </footer> </div> </div> </body> </html>
+</span></code></pre></div></div>
+<hr />
+<h2 id="running-tests">Running tests</h2>
+<p>There are a number of tests in place to ensure that Hydrus functions properly.
+For running tests related to ensuring the validity of the database run</p>
+
+<p><strong><code class="highlighter-rouge">python -m unittest hydrus.data.test_db</code></strong></p>
+
+<p>For running client-side tests related to the server, run</p>
+
+<p><strong><code class="highlighter-rouge">python -m unittest hydrus.test_app</code></strong></p>
+
+<h2 id="using-the-client">Using the client</h2>
+<p>(Under development) client not yet ready</p>
+
+  </div>
+
+  <div class="date">
+    Written on June 24, 2017
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'xadahiya';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer class="footer">
+        <span class="footer-text">Get in Touch!</span>
+        
+<a href="mailto:xadahiya@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/xadahiya"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/xadahiya"><i class="svg-icon linkedin"></i></a>
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://www.twitter.com/xadahiya"><i class="svg-icon twitter"></i></a>
+
+
+
+
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
