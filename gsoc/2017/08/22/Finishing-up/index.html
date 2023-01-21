@@ -1,4 +1,141 @@
-<!DOCTYPE html> <html lang="en-US"> <head> <title>Finishing up! </title> <meta charset="utf-8"/> <meta content='text/html; charset=utf-8' http-equiv='Content-Type'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0'> <meta name="description" content="@xadahiya"> <meta property="og:description" content="@xadahiya"/> <meta name="author" content="Akshay Dahiya"/> <meta property="og:title" content="Finishing up!"/> <meta property="twitter:title" content="Finishing up!"/> <link rel="shortcut icon" type="image/png" href="/images/favicon.ico"> <link rel="stylesheet" type="text/css" href="/style.css" media="print" onload="this.media='all'"/> <link rel="alternate" type="application/rss+xml" title="Akshay Dahiya - @xadahiya" href="/feed.xml"/> <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet"> <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc"/> </head> <body> <div class="wrapper-masthead"> <div class="container"> <header class="masthead clearfix"> <div class="site-info"> <h1 class="site-name"><a href="/">Akshay Dahiya</a></h1> <p class="site-description">@xadahiya</p> </div> <nav> <a href="/">Home</a> <a href="/resume.pdf">Resume</a> <a href="/blog/categories">Blog</a> <a href="#socials">Socials</a> </nav> </header> </div> </div> <div id="main" role="main" class="container entry-index"> <article class="post"> <h1>Finishing up!</h1> <div class="entry"> <p>So, we’ve reached the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations period. In this post I’ll be summarizing in brief we’ve accomplished in the last 3 months.</p> <p>We worked on two projects one is <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and the other one is a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a> using various Hydrus instances with a mechanics layer on the top.</p> <p>I already wrote a post about hydrus. So in this post, I’ll tell you about the simulation in detail.</p> <h1 id="general-idea">General Idea</h1> <p>Hydra Flock Simulation is an application that simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using infrared sensors. <br/> The simulation uses the <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p> <h1 id="running-the-simulation">Running the Simulation</h1> <p>Running the simulation is pretty straightforward, you just need to run two scripts.<br/> First clone the simulation repo to your local system using <br/> <code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow the following steps:</p> <ul> <li>Create and activate a new virtualenv</li> <li>Upgrade pip and setuptools</li> <li>Check if <code class="language-plaintext highlighter-rouge">python3-dev</code> is installed</li> <li><code class="language-plaintext highlighter-rouge">cd</code> to the project directory</li> <li>Run <code class="language-plaintext highlighter-rouge">chmod +x bootstrap-dev.sh</code></li> <li>Run <code class="language-plaintext highlighter-rouge">./bootstrap-dev.sh</code></li> <li>Run <code class="language-plaintext highlighter-rouge">chmod +x init.sh</code></li> <li>Run <code class="language-plaintext highlighter-rouge">./bootstrap-dev.sh</code></li> </ul> <p><strong>Simulation GUI should be available at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:5000/</code></strong><br/></p> <p><strong>Central Controller should be available at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8080/api</code></strong><br/></p> <p><strong>Drones should be available at</strong><br/></p> <ul> <li>Drone 1 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8081/api</code></li> <li>Drone 2 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8082/api</code></li> <li>Drone 3 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8083/api</code></li> <li>Drone 4 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8084/api</code></li> </ul> <h3 id="note-to-stop-all-simulation-processes-use-killall-python"><strong>NOTE</strong>: To stop all simulation processes use <code class="language-plaintext highlighter-rouge">killall python</code></h3> <h1 id="interacting-with-the-simulation">Interacting with the simulation</h1> <p>The user can interact with the simulation from the simulation GUI. He can submit messages in a structured format to the central controller, the central controller will then parse the submitted message and issue commands to respective drones. Progress can be seen in controller and drone logs in the GUI.</p> <h3 id="some-general-information">Some general information</h3> <ul> <li>Supported Directions are [<strong>N</strong>, <strong>S</strong>, <strong>E</strong>, <strong>W</strong>]</li> <li>The user can only turn drones ON (<code class="language-plaintext highlighter-rouge">Active</code>) or Off (<code class="language-plaintext highlighter-rouge">Off</code>), rest all the states are automatically handled by the drone mechanics. To read more about the drone mechanics, read the <a href="https://github.com/HTTP-APIs/hydra-flock-demo/wiki/Drone-Design">drone design</a> page.</li> <li>Speed can be any number less than the <code class="language-plaintext highlighter-rouge">MaxSpeed</code> value of the drone, for any value greater than <code class="language-plaintext highlighter-rouge">MaxSpeed</code>, drones will use the <code class="language-plaintext highlighter-rouge">MaxSpeed</code> value.</li> </ul> <p><strong>Some Examples</strong></p> <ul> <li><code class="language-plaintext highlighter-rouge">Set Drone 2 speed 100</code> (Change the speed of drone with id 2 to 100 Km/h.)</li> <li><code class="language-plaintext highlighter-rouge">Set Drone 8 direction N</code> (Change the direction of drone with id 8 to North.)</li> <li><code class="language-plaintext highlighter-rouge">Set Drone 13 status off</code> (Turn drone with id 13 off.)</li> <li><code class="language-plaintext highlighter-rouge">Set Drone 8 status active</code> (Turn drone with id 8 on.)</li> </ul> <p><strong>NOTE:-</strong> Changing the drone direction won’t work if the drone is in <code class="language-plaintext highlighter-rouge">Confirming</code> state.</p> <h1 id="central-controller-design">Central Controller design</h1> <p>The central controller is a Hydra based API server acting as a central datastore and control center for all the drones. All active drones submit their status updates every 15 seconds to the central controller. Just like drones the central controller also has a client part that can be used to issue commands to different drones.</p> <h3 id="main-features">Main Features</h3> <ul> <li>It acts as a central database for all the drones to store their logs and sensor data. This is being done using the drone client side, drones issue POST/PUT requests after every 15 seconds or upon some status change. The central controller has different endpoints for different types of data. <ul> <li><code class="language-plaintext highlighter-rouge">/api/DroneCollection/&lt;drone_id&gt;</code> Each active drone updates their drone object using <code class="language-plaintext highlighter-rouge">PUT/POST</code> requests here, every 15 seconds.</li> <li><code class="language-plaintext highlighter-rouge">/api/DatastreamCollection/</code> Datastream from the drone sensors is stored here.</li> <li><code class="language-plaintext highlighter-rouge">/api/DroneLogCollection/</code> Logs related to drones are stored here.</li> <li><code class="language-plaintext highlighter-rouge">/api/ControllerLogCollection</code> Logs related to the controller are stored here.</li> <li><code class="language-plaintext highlighter-rouge">/api/HttpApiLogCollection</code> Logs related to general interactions between different components are stored here.</li> </ul> </li> <li>The user can issue a message to the central controller at <code class="language-plaintext highlighter-rouge">/api/MessageCollection/</code> in a structured format. The message is then parsed and commands are issued to the respective drones.</li> <li>The server will act as an intermediate if different drones want to interact with each other. For example - If some drone wants to know the position of all nearby drones.</li> <li>The central controller acts as the main docking station to recharge drones.</li> </ul> <p>The Central controller is driven by a 17 second time loop (2-second delay to let drones finish updating their status at the controller).</p> <h3 id="main-loop-design">Main Loop design</h3> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main loop for the central controller."""</span>
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Finishing up! </title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=5.0'>
+
+    
+    <meta name="description" content="@xadahiya">
+    <meta property="og:description" content="@xadahiya" />
+    
+    <meta name="author" content="Akshay Dahiya" />
+
+    
+    <meta property="og:title" content="Finishing up!" />
+    <meta property="twitter:title" content="Finishing up!" />
+    
+
+
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/style.css" media="print" onload="this.media='all'"/>
+  <link rel="alternate" type="application/rss+xml" title="Akshay Dahiya - @xadahiya" href="/feed.xml" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc" />
+</head>
+
+<body>
+  <div class="wrapper-masthead">
+    <div class="container">
+      <header class="masthead clearfix">
+        <!-- <a href="/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="https://avatars0.githubusercontent.com/u/9114274?v=4&u=696c6f2f7a3eceef365e10d99a747c5e0e6959b2&s=70" /></a> -->
+
+        <div class="site-info">
+          <h1 class="site-name"><a href="/">Akshay Dahiya</a></h1>
+          <p class="site-description">@xadahiya</p>
+        </div>
+
+        <nav>
+          <a href="/">Home</a>
+          <a href="/resume.pdf">Resume</a>
+          <a href="/blog/categories">Blog</a>
+          <a href="#socials">Socials</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+  <div id="main" role="main" class="container entry-index">
+    <article class="post">
+  <h1>Finishing up!</h1>
+
+  <div class="entry">
+    <p>So, we’ve reached the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations period. In this post I’ll be summarizing in brief we’ve accomplished in the last 3 months.</p>
+
+<p>We worked on two projects one is <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and the other one is a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a> using various Hydrus instances with a mechanics layer on the top.</p>
+
+<p>I already wrote a post about hydrus. So in this post, I’ll tell you about the simulation in detail.</p>
+
+<h1 id="general-idea">General Idea</h1>
+<p>Hydra Flock Simulation is an application that simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using infrared sensors. <br />
+The simulation uses the <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p>
+
+<h1 id="running-the-simulation">Running the Simulation</h1>
+<p>Running the simulation is pretty straightforward, you just need to run two scripts.<br />
+First clone the simulation repo to your local system using <br />
+<code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow the following steps:</p>
+<ul>
+  <li>Create and activate a new virtualenv</li>
+  <li>Upgrade pip and setuptools</li>
+  <li>Check if <code class="language-plaintext highlighter-rouge">python3-dev</code> is installed</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> to the project directory</li>
+  <li>Run <code class="language-plaintext highlighter-rouge">chmod +x bootstrap-dev.sh</code></li>
+  <li>Run <code class="language-plaintext highlighter-rouge">./bootstrap-dev.sh</code></li>
+  <li>Run <code class="language-plaintext highlighter-rouge">chmod +x init.sh</code></li>
+  <li>Run <code class="language-plaintext highlighter-rouge">./bootstrap-dev.sh</code></li>
+</ul>
+
+<p><strong>Simulation GUI should be available at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:5000/</code></strong><br /></p>
+
+<p><strong>Central Controller should be available at <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8080/api</code></strong><br /></p>
+
+<p><strong>Drones should be available at</strong><br /></p>
+<ul>
+  <li>Drone 1 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8081/api</code></li>
+  <li>Drone 2 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8082/api</code></li>
+  <li>Drone 3 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8083/api</code></li>
+  <li>Drone 4 - <code class="language-plaintext highlighter-rouge">http://127.0.0.1:8084/api</code></li>
+</ul>
+
+<h3 id="note-to-stop-all-simulation-processes-use-killall-python"><strong>NOTE</strong>: To stop all simulation processes use <code class="language-plaintext highlighter-rouge">killall python</code></h3>
+
+<h1 id="interacting-with-the-simulation">Interacting with the simulation</h1>
+<p>The user can interact with the simulation from the simulation GUI. He can submit messages in a structured format to the central controller, the central controller will then parse the submitted message and issue commands to respective drones. Progress can be seen in controller and drone logs in the GUI.</p>
+
+<h3 id="some-general-information">Some general information</h3>
+<ul>
+  <li>Supported Directions are [<strong>N</strong>, <strong>S</strong>, <strong>E</strong>, <strong>W</strong>]</li>
+  <li>The user can only turn drones ON (<code class="language-plaintext highlighter-rouge">Active</code>) or Off (<code class="language-plaintext highlighter-rouge">Off</code>), rest all the states are automatically handled by the drone mechanics. To read more about the drone mechanics, read the <a href="https://github.com/HTTP-APIs/hydra-flock-demo/wiki/Drone-Design">drone design</a> page.</li>
+  <li>Speed can be any number less than the <code class="language-plaintext highlighter-rouge">MaxSpeed</code> value of the drone, for any value greater than <code class="language-plaintext highlighter-rouge">MaxSpeed</code>, drones will use the <code class="language-plaintext highlighter-rouge">MaxSpeed</code> value.</li>
+</ul>
+
+<p><strong>Some Examples</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Set Drone 2 speed 100</code> (Change the speed of drone with id 2 to 100 Km/h.)</li>
+  <li><code class="language-plaintext highlighter-rouge">Set Drone 8 direction N</code> (Change the direction of drone with id 8 to North.)</li>
+  <li><code class="language-plaintext highlighter-rouge">Set Drone 13 status off</code> (Turn drone with id 13 off.)</li>
+  <li><code class="language-plaintext highlighter-rouge">Set Drone 8 status active</code> (Turn drone with id 8 on.)</li>
+</ul>
+
+<p><strong>NOTE:-</strong>  Changing the drone direction won’t work if the drone is in <code class="language-plaintext highlighter-rouge">Confirming</code> state.</p>
+
+<h1 id="central-controller-design">Central Controller design</h1>
+<p>The central controller is a Hydra based API server acting as a central datastore and control center for all the drones. All active drones submit their status updates every 15 seconds to the central controller. Just like drones the central controller also has a client part that can be used to issue commands to different drones.</p>
+
+<h3 id="main-features">Main Features</h3>
+<ul>
+  <li>It acts as a central database for all the drones to store their logs and sensor data. This is being done using the drone client side, drones issue POST/PUT requests after every 15 seconds or upon some status change. The central controller has different endpoints for different types of data.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/api/DroneCollection/&lt;drone_id&gt;</code> Each active drone updates their drone object using <code class="language-plaintext highlighter-rouge">PUT/POST</code> requests here, every 15 seconds.</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/DatastreamCollection/</code> Datastream from the drone sensors is stored here.</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/DroneLogCollection/</code> Logs related to drones are stored here.</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/ControllerLogCollection</code> Logs related to the controller are stored here.</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/HttpApiLogCollection</code> Logs related to general interactions between different components are stored here.</li>
+    </ul>
+  </li>
+  <li>The user can issue a message to the central controller at <code class="language-plaintext highlighter-rouge">/api/MessageCollection/</code> in a structured format. The message is then parsed and commands are issued to the respective drones.</li>
+  <li>The server will act as an intermediate if different drones want to interact with each other. For example -  If some drone wants to know the position of all nearby drones.</li>
+  <li>The central controller acts as the main docking station to recharge drones.</li>
+</ul>
+
+<p>The Central controller is driven by a 17 second time loop (2-second delay to let drones finish updating their status at the controller).</p>
+
+<h3 id="main-loop-design">Main Loop design</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main loop for the central controller."""</span>
     <span class="k">print</span><span class="p">(</span><span class="s">"Controller Simulation Loop"</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">handle_messages</span><span class="p">()</span>
@@ -9,7 +146,15 @@
 
     <span class="k">finally</span><span class="p">:</span>
         <span class="n">threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="n">start</span><span class="p">()</span>
-</code></pre></div></div> <p>In the main Loop, the controller tries to handle two things.</p> <ul> <li>The messages submitted by the user</li> <li>Anomalies detected by drones</li> </ul> <h3 id="handling-messages">Handling Messages</h3> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Handle messages in the MessageCollection."""</span>
+</code></pre></div></div>
+<p>In the main Loop, the controller tries to handle two things.</p>
+<ul>
+  <li>The messages submitted by the user</li>
+  <li>Anomalies detected by drones</li>
+</ul>
+
+<h3 id="handling-messages">Handling Messages</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Handle messages in the MessageCollection."""</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">message_collection</span> <span class="o">=</span> <span class="n">get_message_collection</span><span class="p">()</span>
         <span class="k">print</span><span class="p">(</span><span class="n">message_collection</span><span class="p">)</span>
@@ -49,7 +194,10 @@
 </span>                <span class="n">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div></div> <h3 id="parsing-a-message">Parsing a Message</h3> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" Parsing a given message string.
+</code></pre></div></div>
+
+<h3 id="parsing-a-message">Parsing a Message</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" Parsing a given message string.
     Messages will be in format 'Set Drone &lt;DroneID&gt; &lt;Property&gt; &lt;Value&gt;'.
     DroneID is the drone identifier assigned by the central controller.
     Property can be Direction, Speed or Status and values can be anything
@@ -66,7 +214,10 @@
         <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">None</span>
-</code></pre></div></div> <h3 id="handling-anomalies">Handling Anomalies</h3> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">"""Handling the anomalies in AnomalyCollection."""</span>
+</code></pre></div></div>
+
+<h3 id="handling-anomalies">Handling Anomalies</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">"""Handling the anomalies in AnomalyCollection."""</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">anomaly_collection</span> <span class="o">=</span> <span class="n">get_anomaly_collection</span><span class="p">()</span>
         <span class="n">drone_collection</span> <span class="o">=</span> <span class="n">get_drone_collection</span><span class="p">()</span>
@@ -83,7 +234,32 @@
             <span class="n">delete_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[</span><span class="s">"AnomalyID"</span><span class="p">])</span>
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div></div> <p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_controller.mechanics.simulate</code>. Full source code for the controller component is available <a href="https://github.com/HTTP-APIs/hydra-flock-central-controller">here</a>.</p> <h1 id="drone-design">Drone Design</h1> <p>Drones act as <strong>Hydra Servers as well as Hydra Clients</strong> (Hybrids): they have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p> <h2 id="main-features-1">Main Features</h2> <ul> <li>Drones can receive commands from the server at <code class="language-plaintext highlighter-rouge">/api/CommandCollection</code>.<br/> Each command has a <code class="language-plaintext highlighter-rouge">State</code> object with properties like <code class="language-plaintext highlighter-rouge">Speed</code> and <code class="language-plaintext highlighter-rouge">Direction</code> or <code class="language-plaintext highlighter-rouge">Status</code>. Upon receiving a command the drone will act immediately unless there is some issue and it needs to override the command. <br/> The drone deletes the command from it’s <code class="language-plaintext highlighter-rouge">/api/CommandCollection</code> after successful execution of each command.</li> <li>Drones publish their current state with all other properties at <code class="language-plaintext highlighter-rouge">/api/Drone</code>.</li> <li>Drone publish the latest <code class="language-plaintext highlighter-rouge">Datastream</code> from its temperature sensors at <code class="language-plaintext highlighter-rouge">/api/Datastream</code>.</li> <li>Each drone has a unique id assigned by the controller at runtime.</li> <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server.</li> <li>Drones will automatically decide when to charge and only, in that case, override the commands sent by the server only after sending a log of its status to the central server.</li> <li>Drones obey some basic rules ( For example - can’t hit each other)</li> </ul> <h2 id="drone-behavior">Drone Behavior</h2> <p>Drones are driven by a 15 second time loop after which the drones update their position, generate new sensor datastreams depending upon anomalies detected (if any).</p> <h3 id="main-loop-design-1">Main Loop design</h3> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main 15 second time loop for drone mechanics."""</span>
+</code></pre></div></div>
+
+<p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_controller.mechanics.simulate</code>.
+Full source code for the controller component is available <a href="https://github.com/HTTP-APIs/hydra-flock-central-controller">here</a>.</p>
+
+<h1 id="drone-design">Drone Design</h1>
+<p>Drones act as <strong>Hydra Servers as well as Hydra Clients</strong> (Hybrids): they have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
+
+<h2 id="main-features-1">Main Features</h2>
+<ul>
+  <li>Drones can receive commands from the server at <code class="language-plaintext highlighter-rouge">/api/CommandCollection</code>.<br />
+Each command has a <code class="language-plaintext highlighter-rouge">State</code> object with properties like <code class="language-plaintext highlighter-rouge">Speed</code> and <code class="language-plaintext highlighter-rouge">Direction</code> or <code class="language-plaintext highlighter-rouge">Status</code>. Upon receiving a command the drone will act immediately unless there is some issue and it needs to override the command. <br />
+The drone deletes the command from it’s <code class="language-plaintext highlighter-rouge">/api/CommandCollection</code> after successful execution of each command.</li>
+  <li>Drones publish their current state with all other properties at <code class="language-plaintext highlighter-rouge">/api/Drone</code>.</li>
+  <li>Drone publish the latest <code class="language-plaintext highlighter-rouge">Datastream</code> from its temperature sensors at <code class="language-plaintext highlighter-rouge">/api/Datastream</code>.</li>
+  <li>Each drone has a unique id assigned by the controller at runtime.</li>
+  <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server.</li>
+  <li>Drones will automatically decide when to charge and only, in that case, override the commands sent by the server only after sending a log of its status to the central server.</li>
+  <li>Drones obey some basic rules ( For example - can’t hit each other)</li>
+</ul>
+
+<h2 id="drone-behavior">Drone Behavior</h2>
+<p>Drones are driven by a 15 second time loop after which the drones update their position, generate new sensor datastreams depending upon anomalies detected (if any).</p>
+
+<h3 id="main-loop-design-1">Main Loop design</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main 15 second time loop for drone mechanics."""</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">"Retrieving the drone details"</span><span class="p">)</span>
         <span class="n">drone</span> <span class="o">=</span> <span class="n">get_drone</span><span class="p">()</span>
@@ -143,7 +319,12 @@
     <span class="k">finally</span><span class="p">:</span>
         <span class="c1"># call main() again in LOOP_TIME
 </span>        <span class="n">threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="n">start</span><span class="p">()</span>
-</code></pre></div></div> <p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_drone.mechanics.simulate</code>.</p> <h3 id="sample-drone-object">Sample Drone Object</h3> <p>All the drone configurations are defined in a drone object.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DRONE</span> <span class="o">=</span> <span class="p">{</span>
+</code></pre></div></div>
+<p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_drone.mechanics.simulate</code>.</p>
+
+<h3 id="sample-drone-object">Sample Drone Object</h3>
+<p>All the drone configurations are defined in a drone object.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DRONE</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"@type"</span><span class="p">:</span> <span class="s">"Drone"</span><span class="p">,</span>
     <span class="s">"DroneID"</span><span class="p">:</span> <span class="s">"-1000"</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Drone 1"</span><span class="p">,</span>
@@ -159,4 +340,91 @@
         <span class="s">"Status"</span><span class="p">:</span> <span class="s">"Active"</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div> <p>During runtime the drone mechanics modifies the <code class="language-plaintext highlighter-rouge">State</code> object to simulate the drone behavior.<br/></p> <h3 id="speed">Speed</h3> <p>The speed of each drone can be controlled by user from the Simulation GUI.<br/> <strong>NOTE:-</strong> <code class="language-plaintext highlighter-rouge">Speed &lt;= MaxSpeed</code> of the drone.</p> <h3 id="direction-and-position">Direction and Position</h3> <ul> <li>Drones will always move within the area of interest, if a drone reaches the boundary then it will change its direction.</li> <li>Each drone can move in one of the four directions East, West, North and South <code class="language-plaintext highlighter-rouge">[E, W, N, S]</code></li> </ul> <h3 id="status">Status</h3> <h4 id="drones-use-different-status-values-to-handle-different-scenarios">Drones use different <code class="language-plaintext highlighter-rouge">Status</code> values to handle different scenarios</h4> <ul> <li><strong>Active</strong> - Active is the drone default drone status, in this state the drone is free to move around within the area of interest.</li> <li><strong>Inactive</strong> - The inactive mode is like power saving mode. Drone takes only 1/4 battery in this state and all the sensors are turned off. Drones use this state to return back to the central controller for charging.</li> <li><strong>Charging</strong> - Drones need to return to the central controller for charging. Drones change their status to <code class="language-plaintext highlighter-rouge">Charging</code> once they reach the central controller.</li> <li><strong>Confirming</strong> - When the drone is confirming any anomaly detected by some other drone. User can’t change the drone direction in this state.</li> <li><strong>Off</strong> - Drone is turned off.</li> </ul> <h3 id="battery">Battery</h3> <ul> <li><strong>When <code class="language-plaintext highlighter-rouge">Battery &gt; 20</code></strong> - Drones function normally when their <code class="language-plaintext highlighter-rouge">Battery &gt; 20</code></li> <li><strong>When <code class="language-plaintext highlighter-rouge">4 &lt; Battery &lt; 20</code></strong> - Drones enter power saving mode (<code class="language-plaintext highlighter-rouge">Inactive</code> state) and start moving toward the central controller for charging.</li> <li><strong>When <code class="language-plaintext highlighter-rouge">Battery &lt; 4</code></strong> - If any drone fails to reach the central controller then it shuts down.</li> </ul> <p>Full source code for the drone component is available <a href="https://github.com/HTTP-APIs/hydra-flock-drone">here</a>.</p> </div> <div class="date"> Written on August 22, 2017 </div> <div class="comments"> <div id="disqus_thread"></div> <script type="text/javascript">var disqus_shortname="xadahiya";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div> </article> </div> <div class="wrapper-footer"> <div class="container"> <footer id="socials" class="footer"> <span class="footer-text">Get in Touch!</span> <a href="mailto:xadahiya@gmail.com"><i class="svg-icon email"></i></a> <a href="https://github.com/xadahiya"><i class="svg-icon github"></i></a> <a href="https://www.linkedin.com/in/xadahiya"><i class="svg-icon linkedin"></i></a> <a href="/feed.xml"><i class="svg-icon rss"></i></a> <a href="https://www.twitter.com/xadahiya"><i class="svg-icon twitter"></i></a> </footer> </div> </div> </body> </html>
+</code></pre></div></div>
+<p>During runtime the drone mechanics modifies the <code class="language-plaintext highlighter-rouge">State</code> object to simulate the drone behavior.<br /></p>
+
+<h3 id="speed">Speed</h3>
+<p>The speed of each drone can be controlled by user from the Simulation GUI.<br />
+<strong>NOTE:-</strong> <code class="language-plaintext highlighter-rouge">Speed &lt;= MaxSpeed</code> of the drone.</p>
+
+<h3 id="direction-and-position">Direction and Position</h3>
+<ul>
+  <li>Drones will always move within the area of interest, if a drone reaches the boundary then it will change its direction.</li>
+  <li>Each drone can move in one of the four directions East, West, North and South <code class="language-plaintext highlighter-rouge">[E, W, N, S]</code></li>
+</ul>
+
+<h3 id="status">Status</h3>
+<h4 id="drones-use-different-status-values-to-handle-different-scenarios">Drones use different <code class="language-plaintext highlighter-rouge">Status</code> values to handle different scenarios</h4>
+
+<ul>
+  <li><strong>Active</strong> -
+Active is the drone default drone status, in this state the drone is free to move around within the area of interest.</li>
+  <li><strong>Inactive</strong> -
+The inactive mode is like power saving mode. Drone takes only 1/4 battery in this state and all the sensors are turned off. Drones use this state to return back to the central controller for charging.</li>
+  <li><strong>Charging</strong> -
+Drones need to return to the central controller for charging. Drones change their status to <code class="language-plaintext highlighter-rouge">Charging</code> once they reach the central controller.</li>
+  <li><strong>Confirming</strong> -
+When the drone is confirming any anomaly detected by some other drone. User can’t change the drone direction in this state.</li>
+  <li><strong>Off</strong> - Drone is turned off.</li>
+</ul>
+
+<h3 id="battery">Battery</h3>
+<ul>
+  <li><strong>When <code class="language-plaintext highlighter-rouge">Battery &gt; 20</code></strong> - Drones function normally when their <code class="language-plaintext highlighter-rouge">Battery &gt; 20</code></li>
+  <li><strong>When <code class="language-plaintext highlighter-rouge">4 &lt; Battery &lt; 20</code></strong> - Drones enter power saving mode (<code class="language-plaintext highlighter-rouge">Inactive</code> state) and start moving toward the central controller for charging.</li>
+  <li><strong>When <code class="language-plaintext highlighter-rouge">Battery &lt; 4</code></strong> - If any drone fails to reach the central controller then it shuts down.</li>
+</ul>
+
+<p>Full source code for the drone component is available <a href="https://github.com/HTTP-APIs/hydra-flock-drone">here</a>.</p>
+
+  </div>
+
+  <div class="date">
+    Written on August 22, 2017
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'xadahiya';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+  </div>
+
+  <div class="wrapper-footer">
+    <div class="container">
+      <footer id="socials" class="footer">
+        <span class="footer-text">Get in Touch!</span>
+        
+<a href="mailto:xadahiya@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/xadahiya"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/xadahiya"><i class="svg-icon linkedin"></i></a>
+
+<a href="/feed.xml"><i class="svg-icon rss"></i></a>
+<a href="https://www.twitter.com/xadahiya"><i class="svg-icon twitter"></i></a>
+
+
+
+
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
