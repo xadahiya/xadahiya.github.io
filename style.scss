@@ -25,7 +25,8 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 10px;
-  max-width: 100%;
+  padding-top: 10px;
+  max-width: 98%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -432,6 +433,27 @@ padding: 0 15px;
 .text-center{
   text-align: center !important;
 }
+.entry-index{
+ max-width: 90%; 
+}
+
+.timelinee:before {
+  background-color: #e8e8e8;
+  background: -moz-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, transparent), color-stop(10%, rgba(255, 167, 0, 0.9)), color-stop(90%, rgba(255, 167, 0, 0.9)), color-stop(100%, transparent));
+  background: -webkit-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
+  background: -o-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
+  background: -ms-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
+  width: 5px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left:50%
+  }
+  
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .timeline{
@@ -447,6 +469,7 @@ padding: 0 15px;
 .container {
   max-width: 90%;
 }
+
 .timeline:before {
   background-color: #e8e8e8;
   background: -moz-linear-gradient(top, transparent 0%, rgba(255, 167, 0, 0.9) 10%, rgba(255, 167, 0, 0.9) 90%, transparent 100%);
@@ -576,6 +599,7 @@ content: "";
 position: absolute;
 display: block;
 top: 0;
+left:initial;
 }
 
 
