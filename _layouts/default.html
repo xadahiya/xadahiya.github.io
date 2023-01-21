@@ -17,7 +17,7 @@
   <div class="wrapper-masthead">
     <div class="container">
       <header class="masthead clearfix">
-        <a href="{{ site.baseurl }}/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="{{ site.baseurl }}/images/avatar.png" /></a>
+        <!-- <a href="{{ site.baseurl }}/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="{{ site.avatar }}" /></a> -->
 
         <div class="site-info">
           <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
@@ -26,10 +26,9 @@
 
         <nav>
           <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/resume.pdf">Resume</a>
           <a href="{{ site.baseurl }}/blog/categories">Blog</a>
-          <a href="{{ site.baseurl }}/publications">Publications</a>
-          <a href="{{ site.baseurl }}/projects">Projects</a>
-          <a href="{{ site.baseurl }}/resume.pdf">Résumé</a>
+          <a href="#socials">Socials</a>
         </nav>
       </header>
     </div>
@@ -41,7 +40,7 @@
 
   <div class="wrapper-footer">
     <div class="container">
-      <footer class="footer">
+      <footer id="socials" class="footer">
         <span class="footer-text">Get in Touch!</span>
         {% include svg-icons.html %}
       </footer>

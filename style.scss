@@ -203,7 +203,7 @@ img {
 
 .wrapper-masthead{
   background-color:
-  #FFA700;
+  #00ff00;
   border-radius: 1px;
   box-shadow: 5px 5px 10px 5px
   rgba(0,0,0,0.15),2px 4px 5px 0px rgba(0,0,0,.12); 
@@ -220,7 +220,7 @@ img {
     margin-right: auto;
     max-width: 100%;
     background-color:
-    #FFA700;
+    #000000;
     border-radius: 1px;
     box-shadow: 5px 5px 10px 5px
     rgba(0,0,0,0.15),2px 4px 5px 0px rgba(0,0,0,.12);  }
@@ -506,8 +506,8 @@ padding: 0 15px;
 .timeline .timeline-item:before {
   content: "";
   position: absolute;
-  background-color: #cdcdcd;
-  border: 1px solid #cdcdcd;
+  background-color: #8e8e8e;
+  border: 1px solid #8e8e8e;
   height: 7px;
   width: 7px;
   -webkit-border-radius: 100%;
@@ -598,7 +598,7 @@ padding-top: 80px;
 content: "";
 font-family: "FontAwesome";
 right: 0px;
-background-color: #fcd181cf;
+background-color: #ffbf48cf;
 left: auto;
 position: absolute;
 top: 38px;
@@ -699,7 +699,7 @@ left: -49px;
 }
 
 
-.project-tag {
+.skill-tag {
   background: #eee;
   border-radius: 3px 0 0 3px;
   color: #6b6b6b;
@@ -714,7 +714,7 @@ left: -49px;
   -webkit-transition: color 0.2s;
 }
 
-.project-tag::after {
+.skill-tag::after {
   background: #f9f9f9;
   border-bottom: 14px solid transparent;
   border-left: 10px solid #eee;
@@ -725,13 +725,13 @@ left: -49px;
   top: 0;
 }
 
-.project-tag:hover {
-  background-color: #ffa700;
+.skill-tag:hover {
+  background-color: #ffa600bc;
   color: white;
 }
 
-.project-tag:hover::after {
-   border-left-color: #ffa700;
+.skill-tag:hover::after {
+   border-left-color: #ffa600bc;
 }
 
 .tags{

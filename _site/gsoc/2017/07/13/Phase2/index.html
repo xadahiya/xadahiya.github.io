@@ -32,7 +32,7 @@
   <div class="wrapper-masthead">
     <div class="container">
       <header class="masthead clearfix">
-        <a href="/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="/images/avatar.png" /></a>
+        <!-- <a href="/" class="site-avatar"><img class="site-avatar" alt="avatar image" src="https://avatars0.githubusercontent.com/u/9114274?v=4&u=696c6f2f7a3eceef365e10d99a747c5e0e6959b2&s=70" /></a> -->
 
         <div class="site-info">
           <h1 class="site-name"><a href="/">Akshay Dahiya</a></h1>
@@ -41,10 +41,9 @@
 
         <nav>
           <a href="/">Home</a>
+          <a href="/resume.pdf">Resume</a>
           <a href="/blog/categories">Blog</a>
-          <a href="/publications">Publications</a>
-          <a href="/projects">Projects</a>
-          <a href="/resume.pdf">Résumé</a>
+          <a href="#socials">Socials</a>
         </nav>
       </header>
     </div>
@@ -77,25 +76,25 @@
 
 <p>Drones will act as Hydra Servers as well as Hydra Clients (Hybrids): they will have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
 
-<p>The drones will have some endpoint like <code class="highlighter-rouge">https://drone123/api/order</code> where the Controller can send the orders using <code class="highlighter-rouge">POST/PUT</code> requests. Upon receiving new orders, drones can act upon them immediately unless they need to improvise.</p>
+<p>The drones will have some endpoint like <code class="language-plaintext highlighter-rouge">https://drone123/api/order</code> where the Controller can send the orders using <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests. Upon receiving new orders, drones can act upon them immediately unless they need to improvise.</p>
 
-<p>Another example can be that the Drones can ask for information about other Drones by requesting the Controller using GET  <code class="highlighter-rouge">https://controller/api/drone</code> or
-GET <code class="highlighter-rouge">https://controller/api/status/&lt;drone_id&gt;</code>
+<p>Another example can be that the Drones can ask for information about other Drones by requesting the Controller using GET  <code class="language-plaintext highlighter-rouge">https://controller/api/drone</code> or
+GET <code class="language-plaintext highlighter-rouge">https://controller/api/status/&lt;drone_id&gt;</code>
 Drones have a standard behavior given by the simulation and defined below. At least this behavior is overridden by some order, they will go on moving, acquiring data, coming back to the recharging station, recharging and taking off.</p>
 
 <h2 id="main-functions">Main Functions</h2>
 <p>As defined above, the Drones will act as <strong>semi-intelligent Hydra Servers</strong> as well as <strong>Clients</strong>, they will have the following main functions:</p>
 
 <ul>
-  <li>Drones receive commands from the server ( can be something as simple as the central server sends orders at some endpoint like PUT <code class="highlighter-rouge">https://drone123/api/order/&lt;order_id&gt;</code>). Commands can include the speed and direction to move with some additional attributes.</li>
+  <li>Drones receive commands from the server ( can be something as simple as the central server sends orders at some endpoint like PUT <code class="language-plaintext highlighter-rouge">https://drone123/api/order/&lt;order_id&gt;</code>). Commands can include the speed and direction to move with some additional attributes.</li>
 </ul>
 
 <p>Upon receiving the order the drone will act immediately unless there is some issue and it needs to override the orders. These orders are sequential and they stack on the limited Drone’s in-memory queue. In the case of the <strong>“ order endpoint”</strong> above, Drone will respond with and <strong>Hydra: Status</strong> that can be, for example, <strong>“204 Accepted”</strong> or <strong>“409 Conflict”</strong>.</p>
 <ul>
-  <li>A Drone publishes its status via HTTP response from its Hydra Server at some endpoint like <code class="highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can reach it.</li>
-  <li>Drones publish their sensor data stream via requests to the server at some endpoint like <code class="highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
+  <li>A Drone publishes its status via HTTP response from its Hydra Server at some endpoint like <code class="language-plaintext highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can reach it.</li>
+  <li>Drones publish their sensor data stream via requests to the server at some endpoint like <code class="language-plaintext highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
   <li>Each drone will have a unique id and some other parameters like speed and battery life.</li>
-  <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server. For example, if any drone wants to know the nearby drones, it can just ask the server via <code class="highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
+  <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server. For example, if any drone wants to know the nearby drones, it can just ask the server via <code class="language-plaintext highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
   <li>Drones will automatically decide when to charge and only, in that case, override the commands sent by the server only after sending a log of its status to the central server.</li>
   <li>Drones obey some basic rules ( For example - can’t hit each other)</li>
 </ul>
@@ -169,7 +168,7 @@ The client will have to figure out the rest on its own.
 A Drone Client will serve the following purposes -</p>
 <ul>
   <li>Will be used to issue <strong>POST</strong> requests to the central server to submit drone status whenever the status changes or the drone needs to override the server orders.</li>
-  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit the data stream from sensors, this will only be done when the drone’s status will be <code class="highlighter-rouge">[Progress: Analysing]</code>. After the data stream is successfully submitted the drone will move to the next destination. Upon successful retrieval of Sensor data from the drone, the server will issue new orders to the drone (can be automatic or manual by the user).</li>
+  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit the data stream from sensors, this will only be done when the drone’s status will be <code class="language-plaintext highlighter-rouge">[Progress: Analysing]</code>. After the data stream is successfully submitted the drone will move to the next destination. Upon successful retrieval of Sensor data from the drone, the server will issue new orders to the drone (can be automatic or manual by the user).</li>
 </ul>
 
 <h1 id="central-server">Central server</h1>
@@ -188,11 +187,11 @@ A Drone Client will serve the following purposes -</p>
 <h4 id="the-central-server-will-serve-the-following-functionalities-through-related-endpoints--">The central server will serve the following functionalities through related endpoints -</h4>
 <ul>
   <li>
-    <p><strong>retrieve_drone_list() [GET][POST][/api/drones]</strong> - Will return list of all available drones <strong>{DroneCollection}</strong>. POST can be used to add new drones. For example <code class="highlighter-rouge">/drones/123 </code>will return Drone 123’s specs and details.</p>
+    <p><strong>retrieve_drone_list() [GET][POST][/api/drones]</strong> - Will return list of all available drones <strong>{DroneCollection}</strong>. POST can be used to add new drones. For example <code class="language-plaintext highlighter-rouge">/drones/123 </code>will return Drone 123’s specs and details.</p>
   </li>
-  <li><strong>submit_status(drone_id, status) [GET][POST] [/api/status]</strong> - Will be used by the client side of drones to update their status using <code class="highlighter-rouge">POST</code> requests. <code class="highlighter-rouge">GET</code> can be used to list all the status submissions <strong>{statusCollection}</strong>. Status objects will include the following</li>
-  <li><strong>submit_data(drone_id, data) [GET][POST] [/api/datastream]</strong> - Will be used by the client side of drones to send the analyzed data stream from sensors to the server. A simple <code class="highlighter-rouge">GET</code> request will return all the submitted datastreams <strong>{datastreamCollection}</strong>.
-<code class="highlighter-rouge">POST</code> requests can be used to submit new data streams. Datastream will include the following ( for simplicity of the simulation the drones will only have a temperature sensor and GPS for location)</li>
+  <li><strong>submit_status(drone_id, status) [GET][POST] [/api/status]</strong> - Will be used by the client side of drones to update their status using <code class="language-plaintext highlighter-rouge">POST</code> requests. <code class="language-plaintext highlighter-rouge">GET</code> can be used to list all the status submissions <strong>{statusCollection}</strong>. Status objects will include the following</li>
+  <li><strong>submit_data(drone_id, data) [GET][POST] [/api/datastream]</strong> - Will be used by the client side of drones to send the analyzed data stream from sensors to the server. A simple <code class="language-plaintext highlighter-rouge">GET</code> request will return all the submitted datastreams <strong>{datastreamCollection}</strong>.
+<code class="language-plaintext highlighter-rouge">POST</code> requests can be used to submit new data streams. Datastream will include the following ( for simplicity of the simulation the drones will only have a temperature sensor and GPS for location)</li>
   <li>
     <p><strong>get_latest_logs() [GET] [/api/logs]{logsCollection}</strong> - Will be used to serve the logs of past several seconds (say 5 seconds), logs will be used by the javascript application to display the progress on Map.</p>
   </li>
@@ -210,14 +209,14 @@ A Drone Client will serve the following purposes -</p>
 The client part will have no idea about the drone endpoints except the main entrypoint to each drone (<strong>VERY IMPORTANT TO DEMONSTRATE HYDRA CAPABILITIES</strong>). The client will have to figure out the rest on its own.
 The Server Client will serve the following purposes -</p>
 <ul>
-  <li>It will be used to issue new orders using <code class="highlighter-rouge">POST</code> requests to each drone.</li>
+  <li>It will be used to issue new orders using <code class="language-plaintext highlighter-rouge">POST</code> requests to each drone.</li>
 </ul>
 
 <h1 id="javascript-monitoring-application">Javascript Monitoring Application</h1>
 <p>The Javascript Application serves the following purposes -</p>
 <ul>
   <li>It uses logs from the central server to display the progress on a map in pseudo-realtime.</li>
-  <li>Can act as a control center to issue commands to different drones. - The user will write commands in NLP format, the commands will be sent to the server at <code class="highlighter-rouge">/message</code> via <strong>POST</strong> requests where further processing will be done. Once the processing is done, new orders will be available at <code class="highlighter-rouge">issue_order/&lt;drone_id&gt;</code>  that can be sent to the drones.</li>
+  <li>Can act as a control center to issue commands to different drones. - The user will write commands in NLP format, the commands will be sent to the server at <code class="language-plaintext highlighter-rouge">/message</code> via <strong>POST</strong> requests where further processing will be done. Once the processing is done, new orders will be available at <code class="language-plaintext highlighter-rouge">issue_order/&lt;drone_id&gt;</code>  that can be sent to the drones.</li>
 </ul>
 
 <h1 id="deploying-the-simulation">Deploying The Simulation</h1>
@@ -230,10 +229,10 @@ The Server Client will serve the following purposes -</p>
 
 <p>These components interact with a private network and are reachable using aliases:</p>
 <ul>
-  <li>A’s HTTP interface is reachable at <code class="highlighter-rouge">http://central</code> (central alias maps to port 8000)</li>
-  <li>B’s application is reachable at <code class="highlighter-rouge">http://localhost:8080</code></li>
-  <li>C’s HTTP interfaces are reachable at <code class="highlighter-rouge">http://drone:port</code>
-(e.g <code class="highlighter-rouge">http://drone:8001</code> maps to <code class="highlighter-rouge">port</code>)</li>
+  <li>A’s HTTP interface is reachable at <code class="language-plaintext highlighter-rouge">http://central</code> (central alias maps to port 8000)</li>
+  <li>B’s application is reachable at <code class="language-plaintext highlighter-rouge">http://localhost:8080</code></li>
+  <li>C’s HTTP interfaces are reachable at <code class="language-plaintext highlighter-rouge">http://drone:port</code>
+(e.g <code class="language-plaintext highlighter-rouge">http://drone:8001</code> maps to <code class="language-plaintext highlighter-rouge">port</code>)</li>
 </ul>
 
 <p>If you want a sneak to the project, <a href="https://github.com/HTTP-APIs/hydra-flock-demo/tree/develop">here’s</a> the Github repo.</p>
@@ -267,7 +266,7 @@ The Server Client will serve the following purposes -</p>
 
   <div class="wrapper-footer">
     <div class="container">
-      <footer class="footer">
+      <footer id="socials" class="footer">
         <span class="footer-text">Get in Touch!</span>
         
 <a href="mailto:xadahiya@gmail.com"><i class="svg-icon email"></i></a>
