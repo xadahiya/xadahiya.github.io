@@ -45,7 +45,7 @@ description: Wubba Lubba Dub Dub
                   <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 </h5>
                 <div class="lui-text">
-                  <p>{{ post.excerpt | markdownify }}</p>
+                  <p>{{ post.excerpt | markdownify | truncatewords: 50 }}</p>
                   <div class="readmore">
                   <a class="lnk" href="{{ site.baseurl }}{{ post.url }}"></i>Read more</a>
                   </div>
