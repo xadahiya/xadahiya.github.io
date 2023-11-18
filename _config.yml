@@ -6,13 +6,15 @@ nav:
     - '/blog/'
     - { Categories: '/blog/categories/' }
 
-paginate: 5
+paginate: 4
+paginate_path: "/blog/page:num/"
+
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 # This file contains configuration flags to customize your site
-#
+#s
 
 # Name of your site (displayed in the header)
 name: Akshay Dahiya

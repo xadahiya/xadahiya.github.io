@@ -1,53 +1,132 @@
 ---
-layout: default
+layout: new
 title: My Blog | Akshay Dahiya( xadahiya )
 description: Wubba Lubba Dub Dub
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ site.baseurl }}{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<section class="section section-inner started-heading">
+  <div class="container">
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-    {% if post.tags %}  |
-    {% for tag in post.tags %}
-    <a href="{{ site.baseurl }}{{ site.tag_page }}#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
-    {% endfor %}
-    {% endif %}
-
-    <article>
-      {{ post.excerpt | markdownify }}
-    <article>
-    <div class="post-more">
-      {% if site.disqus_short_name %}
-      <a href="{{ site.baseurl }}{{ post.url }}#disqus_thread"> <i class="fa fa-comments" aria-hidden="true"></i>Comment</a>&nbsp;
-      {% endif %}
-      <a href="{{ site.baseurl }}{{ post.url }}"><i class="fa fa-plus-circle" aria-hidden="true"></i>Read more</a>
+    <!-- Heading -->
+    <div class="m-titles align-center">
+      <h1 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+        <span> My Blog </span>
+      </h1>
+      <div class="m-subtitle splitting-text-anim-1 scroll-animate" data-splitting="words" data-animate="active">
+        <span> Recent Articles </span>
+      </div>
     </div>
+
   </div>
-  {% endfor %}
-</div>
+</section>
 
-<div class="pagination">
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/blog/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}/blog/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-  |
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}/blog/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
+<!-- Section - Blog -->
+<div class="section section-inner m-archive">
+  <div class="container">
 
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8">
+
+        <!-- Blog Items -->
+        <div class="articles-container">
+          
+          {% for post in paginator.posts %}
+            <div class="archive-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+              <div class="desc">
+                <div class="category lui-subtitle">
+                  <span>{{ post.date | date_to_string }}</span>
+                  {% if post.tags %}  |
+                    {% for tag in post.tags %}
+                      <span class="">{{ tag }}</a>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+                <h5 class="lui-title">
+                  <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </h5>
+                <div class="lui-text">
+                  <p>{{ post.excerpt | markdownify }}</p>
+                  <div class="readmore">
+                  <a class="lnk" href="{{ site.baseurl }}{{ post.url }}"></i>Read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="pager">
+          {% if paginator.previous_page %}
+            {% if paginator.page == 2 %}
+              <a class="page-numbers" href="{{ site.baseurl }}/blog/">Prev</a>
+            {% else %}
+              <a class="page-numbers" href="{{ site.baseurl }}/blog/page{{paginator.previous_page}}">Prev</a>
+            {% endif %}
+          {% endif %}
+          <a class="page-numbers current" href="#">{{paginator.page}}</a>
+          {% if paginator.next_page %}
+            <a class="page-numbers" href="{{ site.baseurl }}/blog/page{{paginator.next_page}}">Next</a>
+          {% endif %}
+          
+        </div>
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+
+        <!-- sidebar -->
+        <div class="col__sedebar scrolla-element-anim-1 scroll-animate" data-animate="active">
+          <div class="content-sidebar">
+            <aside class="widget-area">
+
+
+              <section class="widget widget_block">
+                <div class="wp-block-group">
+                  <div class="wp-block-group__inner-container">
+                    <h2>Recent Posts</h2>
+                    <ul class="wp-block-latest-posts__list wp-block-latest-posts">
+                      {% for post in site.posts %}
+                        <li><a class="wp-block-latest-posts__post-title" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <!-- <section class="widget widget_block">
+                <div class="wp-block-group">
+                  <div class="wp-block-group__inner-container">
+                    <h2>tags</h2>
+                    <ul class="wp-block-archives-list wp-block-archives">
+                      {% for tag in site.tags %}
+                        <li><a href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section class="widget widget_block">
+                <div class="is-layout-flow wp-block-group">
+                  <div class="wp-block-group__inner-container">
+                    <h2>Categories</h2>
+                    <ul class="wp-block-categories-list wp-block-categories">
+                      <li class="cat-item cat-item-2"><a href="blog-single.html">Branding</a></li>
+                      <li class="cat-item cat-item-3"><a href="blog-single.html">Photography</a></li>
+                      <li class="cat-item cat-item-4"><a href="blog-single.html">UI Design</a></li>
+                      <li class="cat-item cat-item-5"><a href="blog-single.html">UX Design</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </section> -->
+
+            </aside>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="v-line-left v-line-top"><div class="v-line-block"><span></span></div></div>
+
+  </div>
 </div>
