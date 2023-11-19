@@ -3221,7 +3221,7 @@ hr {
 
 .works-items.works-masonry-items .works-item .desc .text {
 	margin: 15px 0 0 0;
-	min-height: 125px;
+	min-height: 75px;
 }
 
 .works-item:hover .image:before,
