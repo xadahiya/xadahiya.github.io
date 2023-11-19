@@ -32,6 +32,11 @@ description: Wubba Lubba Dub Dub
           
           {% for post in paginator.posts %}
             <div class="archive-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+              <div class="image">
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                  <img src="{{post.image}}" alt="{{post.title}}" loading="lazy">
+                </a>
+              </div>
               <div class="desc">
                 <div class="category lui-subtitle">
                   <span>{{ post.date | date_to_string }}</span>
