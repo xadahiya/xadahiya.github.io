@@ -5382,10 +5382,10 @@ a.wp-block-button__link {
 		font-size: 13px;
 	}
 	.section.hero-started .label strong, .section.hero-started .label b {
-		font-size: 23px;
+		font-size: 24px;
 	}
 	.section.hero-started .slide {
-		top: 680px;
+		top: 725px;
 		transform: scale(0.5);
 	}
 	.hero-started .btn-lnk {
