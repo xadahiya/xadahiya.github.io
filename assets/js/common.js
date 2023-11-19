@@ -1,11 +1,3 @@
-/**
-*	Luique - Personal Portfolio HTML Template
-*	Version: 1.0
-*	Author: bslthemes
-*	Author URL: http://themeforest.net/user/bslthemes
-*	Copyright © Luique by bslthemes. All Rights Reserved.
-**/
-
 ( function( $ ) {
 	'use strict';
 
