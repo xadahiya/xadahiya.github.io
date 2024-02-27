@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-04T16:29:01+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">GSoC 2017 summary</title><link href="http://localhost:4000/Gsoc-Summary/" rel="alternate" type="text/html" title="GSoC 2017 summary" /><published>2017-08-25T00:00:00+05:30</published><updated>2017-08-25T00:00:00+05:30</updated><id>http://localhost:4000/Gsoc-Summary</id><content type="html" xml:base="http://localhost:4000/Gsoc-Summary/"><![CDATA[<p>Hi, everyone! I’m Akshay, a Google Summer of Code student working with <a href="https://hydra-cg.com/">Hydra</a> (A <a href="https://www.python.org/psf/">Python Software Foundation</a> sub-org). This summer, I mostly worked on 2 projects for Hydra:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-27T22:19:57+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">Personal Tech Expedition [Part 1]</title><link href="http://localhost:4000/banter/2024/02/27/journey-1/" rel="alternate" type="text/html" title="Personal Tech Expedition [Part 1]" /><published>2024-02-27T00:00:00+05:30</published><updated>2024-02-27T00:00:00+05:30</updated><id>http://localhost:4000/banter/2024/02/27/journey-1</id><content type="html" xml:base="http://localhost:4000/banter/2024/02/27/journey-1/"><![CDATA[<p>I am on a long flight from Frankfurt to Denver, heading there for a work trip to attend ETH Denver with a couple of team members from Powerloom Network.
+I thought it would be a good idea to use this time to reflect on the last 14 months of my life and the work I’ve been doing at Powerloom Protocol but I ended up writing about my entire journey in tech.</p>
+
+<p>I’ll write about my journey at Powerloom in the next part, but for now, here’s a brief history of my journey in tech.</p>
+
+<h2 id="how-it-started">How It Started</h2>
+
+<p>Over the years, I’ve dabbled with a lot of tech, but I get bored with most things when I get good at them.
+It all started when I was very young, but I’ll skip that part and start from when I was in college.</p>
+
+<p>I was in the first year of my bachelor’s degree. It’s super competitive in India, and conventional studies didn’t interest me much, so I wasn’t able to get admission to Computer Science. Instead, I went for Electronics and Communication Engineering.</p>
+
+<p>Secretly, I used to be a little envious of CS students. Over time, I found most of the things being taught in university are useless because they’re super outdated. This was true for all courses, not just CS. When I realized we were all on our own, I decided not to waste time on a university education and spent most of my time learning things (mostly coding) on my own.</p>
+
+<p>I accidentally stumbled upon MIT OCW and their “Intro to Computer Science” (MIT 6.00) course. It was a game-changer for me. There was no looking back after that; I kept on exploring different courses on OCW ranging from Entrepreneurship to Algorithms, learning a lot.</p>
+
+<p>After some time, I realized I was learning a lot but not building anything. I started exploring other platforms like Udacity which used to be really good and expensive (relatively) back then. They had just launched their Nanodegree programs, and I wanted in. I had no money, so I had to figure out ways around their system. For some context, Nanodegrees are multi-month-long specialized courses with 5-6 projects each, and when you finish the program, you get a certification of completion. For a brief period, Udacity used to offer a one-month trial to students, but there was one loophole: if someone managed to finish everything in that month, they still got the certificate. I took it as a challenge. With this trial program and a little bit of hacking (not really, more like finding flaws in their system like manipulating GraphQL queries, etc.), I was able to get access to multiple Nanodegree programs, including Frontend, Full Stack, Tech Entrepreneurship, and a bunch of other Nanodegrees. I finished them all!</p>
+
+<p>Then one day, I received a message from Udacity inviting me to be a mentor for the Nanodegree programs I had graduated from. This was around the 3rd year of college. Responsibilities included helping other students with their projects, answering their doubts, reviewing their code, etc. All this while getting paid seemed like the perfect opportunity, and I jumped on it. I used to spend a couple of hours a day helping other students, but that experience helped me improve my coding skills a lot!</p>
+
+<p>All this was still not enough to satisfy my curiosity. I eventually moved on to Edx, Coursera, and other education platforms. I tried out everything from Mobile App development to full-stack web development to Artificial intelligence (CS188 is an excellent program, by the way).</p>
+
+<p>I learned a lot from all this, but it was nothing compared to the time when I decided to bootstrap a startup using credits and free resources from the GitHub Education Pack.</p>
+
+<p>I was trying to improve my typing speed at that time, and I realized I was wasting an awful amount of time just typing meaningless phrases. Then came this idea: why not make people type something they’re interested in instead of just meaningless phrases? They can learn new things while practicing typing. I searched a lot for something like this but couldn’t find anything, so I decided to build the entire thing on my own. It was called Typingeek, and I went all out, building basically anything and everything I wanted to see, including the ability to challenge friends, generating typing lessons from Wikipedia, different difficulty modes, typing lessons for selected alphabets, and much more. I even designed a system to automatically award them certificates once they completed a typing test. Trying to find and attach some screenshots from where I started to where I got, hold on!</p>
+
+<h3 id="started-with-something-like-this">Started with Something Like this</h3>
+
+<p><img src="/images/tg1.png" alt="Screenshot 2024-02-27 at 7.35.07 PM.png" /></p>
+
+<h3 id="i-stopped-working-on-this-here-back-in-2016-iirc">I stopped working on this here (Back in 2016 IIRC)</h3>
+
+<p><img src="/images/tg4.png" alt="Screenshot from 2016-02-20 14-33-49.png" /></p>
+
+<p><img src="/images/tg3.png" alt="Screenshot from 2016-02-20 14-33-08.png" /></p>
+
+<p><img src="/images/tg2.png" alt="Screenshot from 2016-02-20 14-31-46.png" /></p>
+
+<p>The project got decent traction, but then I got bored with it, again!</p>
+
+<p>Another thing that caught my interest during the 3rd year was Google Summer of Code. I had done a lot of courses and projects but had almost no open-source contribution experience. I still decided to figure it out as I went. Back then, you had to choose one or two organizations from a list of organizations participating in GSoC and contribute to their codebase to gain some recognition. Then, create and submit a proposal detailing the scope of work you plan to do over the next couple of weeks. It took some hacking and a lot of effort, but I got in! The org was called Hydra Ecosystem, and it was participating under the Python Software Foundation, which is like an umbrella organization. My project was <a href="https://summerofcode.withgoogle.com/archive/2017/projects/5327114643439616">Hydrus and a Simulation to demonstrate the capabilities of the Hydra Draft</a>. During this, I learned a lot about building web development frameworks, simulating behaviors, and the Semantic Web.</p>
+
+<p>Post-completion, I continued to work with the Org and later took the role of Org Admin and Mentor for the next 3 years. I also got a chance to visit the Google Mentor Summit in Germany where I met a lot of other open-source mentors and admins. It was a really nice learning experience!</p>
+
+<p>Just realized this is getting too long; let me speed this up and talk about important things only. After graduation, I joined Fidelity International where I learned the fundamentals of Investing and helped design tools for Business Analysts. Everything was good, but being a big org, things moved too slowly, and I got really bored in about 6 months. Decided to leave all of it and Pursue a Master’s in Machine Learning, got into Georgia Tech too! But Covid and everything was going on, didn’t seem like the right idea to move to the US. I decided to do it remotely through the program OMSCS.</p>
+
+<p>During my Master’s, I spent a lot of time doing research, and building tools (mostly anti-plagiarism) to help enable learning at scale.</p>
+
+<p>We worked on all the hyped things, fancy invisible markers in code, A chatbot to impersonate freelancers and catch students, Cheating detection in MCQ exams by pattern analysis, you name it. Our team also got featured in multiple articles in places like Forbes, Times Higher Ed, etc. Even published two research papers in Learning @ Scale (<a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406723">Paper 1</a>, <a href="https://dl.acm.org/doi/abs/10.1145/3430895.3460982">Paper 2</a>). Most of these tools are still being used at Georgia Tech to monitor and catch students who plagiarize (with improvements obviously).</p>
+
+<p>While my Master’s was going on, I was also working at an AI startup called Hypersonix where I spent my free time building their backend Infra and auth-related tools. 
+Near the end of my Master’s, I started playing with Blockchain Development and Crypto. Won’t bore you with any more details but spent about 2 hours learning the ins and outs of blockchain and crypto. Then, I left Hypersonix and decided to work on blockchain full-time. That’s when I joined Powerloom (December 2022).</p>
+
+<p>After contributing to 50+ repositories over 14 months, here we are, on a flight to attend ETH Denver, and I’m still not bored!
+<img src="/images/github_xa.png" alt="Github Contributions" /></p>
+
+<p>I’ll write about my journey at Powerloom in the next part, but for now, I’m going to take a nap. It’s been a long day!</p>]]></content><author><name></name></author><category term="Banter" /><category term="Banter" /><summary type="html"><![CDATA[I am on a long flight from Frankfurt to Denver, heading there for a work trip to attend ETH Denver with a couple of team members from Powerloom Network. I thought it would be a good idea to use this time to reflect on the last 14 months of my life and the work I’ve been doing at Powerloom Protocol but I ended up writing about my entire journey in tech.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/github_xa.png" /><media:content medium="image" url="http://localhost:4000/images/github_xa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoC 2017 summary</title><link href="http://localhost:4000/Gsoc-Summary/" rel="alternate" type="text/html" title="GSoC 2017 summary" /><published>2017-08-25T00:00:00+05:30</published><updated>2017-08-25T00:00:00+05:30</updated><id>http://localhost:4000/Gsoc-Summary</id><content type="html" xml:base="http://localhost:4000/Gsoc-Summary/"><![CDATA[<p>Hi, everyone! I’m Akshay, a Google Summer of Code student working with <a href="https://hydra-cg.com/">Hydra</a> (A <a href="https://www.python.org/psf/">Python Software Foundation</a> sub-org). This summer, I mostly worked on 2 projects for Hydra:</p>
 
 <ul>
   <li><a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a></li>
