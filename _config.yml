@@ -6,13 +6,15 @@ nav:
     - '/blog/'
     - { Categories: '/blog/categories/' }
 
-paginate: 5
+paginate: 4
+paginate_path: "/blog/page:num/"
+
 # Where are tags and categories displayed
 tag_page: '/blog/tags/'
 category_page: '/blog/categories/'
 
 # This file contains configuration flags to customize your site
-#
+#s
 
 # Name of your site (displayed in the header)
 name: Akshay Dahiya
@@ -51,7 +53,7 @@ disqus: xadahiya
 google_analytics: UA-41023285-3
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: https://xadahiya.com
+url: https://xadahiya.me
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)

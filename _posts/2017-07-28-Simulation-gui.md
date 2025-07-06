@@ -2,6 +2,7 @@
 layout: post
 category: GSoC
 title: Building the simulation GUI
+image: /assets/images/gui1-min.png
 tags: [GSoC, Hydra, Hydra Flock Simulation, Semantic Web]
 ---
 

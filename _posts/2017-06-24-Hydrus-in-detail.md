@@ -2,6 +2,7 @@
 layout: post
 category: GSoC
 title: A Detailed Introduction to Hydrus
+image: https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true
 tags: [GSoC, Hydra, Semantic Web, Hydrus, Flask]
 ---
 

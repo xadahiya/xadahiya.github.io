@@ -3,6 +3,7 @@ layout: post
 category: GSoC
 title: GSoC 2017 summary
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
+image: https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png
 permalink: /Gsoc-Summary/
 
 ---

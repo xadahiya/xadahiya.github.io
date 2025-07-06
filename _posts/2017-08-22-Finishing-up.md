@@ -2,6 +2,7 @@
 layout: post
 title: Finishing up!
 category: GSoC
+image: https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9TYfOoeWvyLN36xSfcCWnlflCxLCc0_f7T_CCu05mx1TZMK35SdC9PSjv8
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
 ---
 
