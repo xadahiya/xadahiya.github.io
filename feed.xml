@@ -1,28 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://xadahiya.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://xadahiya.me/" rel="alternate" type="text/html" /><updated>2025-07-06T13:02:03+05:30</updated><id>https://xadahiya.me/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">Personal Tech Expedition [Part 1]</title><link href="https://xadahiya.me/banter/2024/02/27/journey-1/" rel="alternate" type="text/html" title="Personal Tech Expedition [Part 1]" /><published>2024-02-27T00:00:00+05:30</published><updated>2024-02-27T00:00:00+05:30</updated><id>https://xadahiya.me/banter/2024/02/27/journey-1</id><content type="html" xml:base="https://xadahiya.me/banter/2024/02/27/journey-1/"><![CDATA[<p>I am on a long flight from Frankfurt to Denver, heading there for a work trip to attend ETH Denver with a couple of team members from Powerloom Network.
-I thought it would be a good idea to use this time to reflect on the last 14 months of my life and the work I’ve been doing at Powerloom Protocol but I ended up writing about my entire journey in tech.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-06T14:15:27+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">Personal Tech Expedition [Part 1]</title><link href="http://localhost:4000/banter/2024/02/27/journey-1/" rel="alternate" type="text/html" title="Personal Tech Expedition [Part 1]" /><published>2024-02-27T00:00:00+05:30</published><updated>2024-02-27T00:00:00+05:30</updated><id>http://localhost:4000/banter/2024/02/27/journey-1</id><content type="html" xml:base="http://localhost:4000/banter/2024/02/27/journey-1/"><![CDATA[<p>So, here I am, on a super long flight from Frankfurt to Denver, heading to ETH Denver with some awesome folks from Powerloom Network. I figured, why not use this time to reflect on the last 14 months at Powerloom Protocol? But, as these things go, I ended up spilling the beans on my entire tech journey instead.</p>
 
-<p>I’ll write about my journey at Powerloom in the next part, but for now, here’s a brief history of my journey in tech.</p>
+<p>I’ll dive into my Powerloom adventures in the next part, but for now, let’s rewind and check out how I got here!</p>
 
 <h2 id="how-it-started">How It Started</h2>
 
-<p>Over the years, I’ve dabbled with a lot of tech, but I get bored with most things when I get good at them.
-It all started when I was very young, but I’ll skip that part and start from when I was in college.</p>
+<p>Over the years, I’ve tinkered with a ton of tech, but honestly, I tend to get a bit bored once I get good at something. It all started way back when I was a little kid, but let’s skip the baby steps and fast forward to college.</p>
 
-<p>I was in the first year of my bachelor’s degree. It’s super competitive in India, and conventional studies didn’t interest me much, so I wasn’t able to get admission to Computer Science. Instead, I went for Electronics and Communication Engineering.</p>
+<p>I was in my first year of my bachelor’s degree, and let me tell you, it’s super competitive in India. Conventional studies just weren’t my jam, so I didn’t get into Computer Science. Instead, I ended up in Electronics and Communication Engineering. Secretly, I was a little jealous of the CS students. But over time, I realized most of what they were teaching in university was, well, pretty useless and super outdated. This wasn’t just for CS, it was true for all courses! Once I figured out we were all pretty much on our own, I decided not to waste my time on a traditional university education and spent most of my time learning things (mostly coding) on my own.</p>
 
-<p>Secretly, I used to be a little envious of CS students. Over time, I found most of the things being taught in university are useless because they’re super outdated. This was true for all courses, not just CS. When I realized we were all on our own, I decided not to waste time on a university education and spent most of my time learning things (mostly coding) on my own.</p>
+<p>I accidentally stumbled upon MIT OCW and their “Intro to Computer Science” (MIT 6.00) course. Man, that was a game-changer! There was no looking back after that; I just kept exploring different courses on OCW, from Entrepreneurship to Algorithms, soaking up knowledge like a sponge.</p>
 
-<p>I accidentally stumbled upon MIT OCW and their “Intro to Computer Science” (MIT 6.00) course. It was a game-changer for me. There was no looking back after that; I kept on exploring different courses on OCW ranging from Entrepreneurship to Algorithms, learning a lot.</p>
+<p>After a while, I realized I was learning a ton but not actually <em>building</em> anything. So, I started checking out other platforms like Udacity, which used to be pretty awesome (and kinda pricey) back then. They had just launched their Nanodegree programs, and I <em>really</em> wanted in. Problem was, I was broke. So, I had to get creative. See, for a hot minute, Udacity offered a one-month trial, and there was this little loophole: if you finished everything in that month, you still got the certificate. I took that as a personal challenge! With that trial and a bit of clever hacking (okay, more like finding some sweet flaws in their system, like messing with GraphQL queries), I managed to snag access to a bunch of Nanodegree programs – Frontend, Full Stack, Tech Entrepreneurship, you name it. And guess what? I finished ‘em all!</p>
 
-<p>After some time, I realized I was learning a lot but not building anything. I started exploring other platforms like Udacity which used to be really good and expensive (relatively) back then. They had just launched their Nanodegree programs, and I wanted in. I had no money, so I had to figure out ways around their system. For some context, Nanodegrees are multi-month-long specialized courses with 5-6 projects each, and when you finish the program, you get a certification of completion. For a brief period, Udacity used to offer a one-month trial to students, but there was one loophole: if someone managed to finish everything in that month, they still got the certificate. I took it as a challenge. With this trial program and a little bit of hacking (not really, more like finding flaws in their system like manipulating GraphQL queries, etc.), I was able to get access to multiple Nanodegree programs, including Frontend, Full Stack, Tech Entrepreneurship, and a bunch of other Nanodegrees. I finished them all!</p>
+<p>Then one day, Udacity hit me up with an invite to be a mentor for the very Nanodegree programs I’d just crushed. This was around my third year of college. My gig? Helping other students with their projects, answering their burning questions, reviewing their code – basically, being a coding big brother. And getting paid for it? Seemed like the perfect setup, so I jumped on it! I only spent a couple of hours a day helping out, but that experience seriously leveled up my coding skills!</p>
 
-<p>Then one day, I received a message from Udacity inviting me to be a mentor for the Nanodegree programs I had graduated from. This was around the 3rd year of college. Responsibilities included helping other students with their projects, answering their doubts, reviewing their code, etc. All this while getting paid seemed like the perfect opportunity, and I jumped on it. I used to spend a couple of hours a day helping other students, but that experience helped me improve my coding skills a lot!</p>
+<p>But even all that wasn’t enough to satisfy my curiosity. I eventually moved on to Edx, Coursera, and other education platforms, trying out everything from Mobile App development to full-stack web development to Artificial Intelligence (CS188 is seriously an excellent program, by the way!).</p>
 
-<p>All this was still not enough to satisfy my curiosity. I eventually moved on to Edx, Coursera, and other education platforms. I tried out everything from Mobile App development to full-stack web development to Artificial intelligence (CS188 is an excellent program, by the way).</p>
-
-<p>I learned a lot from all this, but it was nothing compared to the time when I decided to bootstrap a startup using credits and free resources from the GitHub Education Pack.</p>
-
-<p>I was trying to improve my typing speed at that time, and I realized I was wasting an awful amount of time just typing meaningless phrases. Then came this idea: why not make people type something they’re interested in instead of just meaningless phrases? They can learn new things while practicing typing. I searched a lot for something like this but couldn’t find anything, so I decided to build the entire thing on my own. It was called Typingeek, and I went all out, building basically anything and everything I wanted to see, including the ability to challenge friends, generating typing lessons from Wikipedia, different difficulty modes, typing lessons for selected alphabets, and much more. I even designed a system to automatically award them certificates once they completed a typing test. Trying to find and attach some screenshots from where I started to where I got, hold on!</p>
+<p>I learned a ton from all this, but nothing quite compared to the time I decided to bootstrap a startup using credits and free resources from the GitHub Education Pack. I was trying to improve my typing speed back then and realized I was wasting a ridiculous amount of time just typing meaningless phrases. Then, <em>bam!</em> The idea hit me: why not make people type something they’re actually <em>interested</em> in instead of just random words? They could learn new stuff while practicing their typing! I searched high and low for something like this but came up empty, so I decided to build the whole thing myself. It was called Typingeek, and I went all out, building pretty much everything I ever wanted to see in a typing app, including the ability to challenge friends, generate lessons from Wikipedia, different difficulty modes, lessons for specific alphabets, and way more. I even designed a system to automatically award certificates once they finished a typing test. Hold on, let me dig up some screenshots from back in the day!</p>
 
 <h3 id="started-with-something-like-this">Started with Something Like this</h3>
 
@@ -36,43 +30,39 @@ It all started when I was very young, but I’ll skip that part and start from w
 
 <p><img src="/images/tg2.png" alt="Screenshot from 2016-02-20 14-31-46.png" /></p>
 
-<p>The project got decent traction, but then I got bored with it, again!</p>
+<p>The project actually got some decent traction, but then… you guessed it, I got bored with it again!</p>
 
-<p>Another thing that caught my interest during the 3rd year was Google Summer of Code. I had done a lot of courses and projects but had almost no open-source contribution experience. I still decided to figure it out as I went. Back then, you had to choose one or two organizations from a list of organizations participating in GSoC and contribute to their codebase to gain some recognition. Then, create and submit a proposal detailing the scope of work you plan to do over the next couple of weeks. It took some hacking and a lot of effort, but I got in! The org was called Hydra Ecosystem, and it was participating under the Python Software Foundation, which is like an umbrella organization. My project was <a href="https://summerofcode.withgoogle.com/archive/2017/projects/5327114643439616">Hydrus and a Simulation to demonstrate the capabilities of the Hydra Draft</a>. During this, I learned a lot about building web development frameworks, simulating behaviors, and the Semantic Web.</p>
+<p>Another thing that totally grabbed my attention during my third year was Google Summer of Code. I’d done a bunch of courses and projects, but my open-source contribution experience was, well, pretty much zero. Still, I decided to just figure it out as I went. Back then, you had to pick one or two organizations from a list of GSoC participants and contribute to their codebase to get noticed. Then, you’d whip up a proposal detailing what you planned to do over the next few weeks. It took some serious hacking (the good kind!) and a whole lot of effort, but I got in! The organization was Hydra Ecosystem, under the Python Software Foundation (a cool umbrella org). My project was <a href="https://summerofcode.withgoogle.com/archive/2017/projects/5327114643439616">Hydrus and a Simulation to demonstrate the capabilities of the Hydra Draft</a>. Through that, I learned a ton about building web development frameworks, simulating behaviors, and the Semantic Web – mind-blowing stuff!</p>
 
-<p>Post-completion, I continued to work with the Org and later took the role of Org Admin and Mentor for the next 3 years. I also got a chance to visit the Google Mentor Summit in Germany where I met a lot of other open-source mentors and admins. It was a really nice learning experience!</p>
+<p>After I finished, I kept working with the Org and even became an Org Admin and Mentor for the next three years. I also got to go to the Google Mentor Summit in Germany, where I met a bunch of other awesome open-source mentors and admins. It was such a cool learning experience!</p>
 
-<p>Just realized this is getting too long; let me speed this up and talk about important things only. After graduation, I joined Fidelity International where I learned the fundamentals of Investing and helped design tools for Business Analysts. Everything was good, but being a big org, things moved too slowly, and I got really bored in about 6 months. Decided to leave all of it and Pursue a Master’s in Machine Learning, got into Georgia Tech too! But Covid and everything was going on, didn’t seem like the right idea to move to the US. I decided to do it remotely through the program OMSCS.</p>
+<p>Okay, this is getting a bit long, so let me speed things up and just hit the highlights. After graduation, I landed a gig at Fidelity International, where I learned the ropes of investing and helped design tools for Business Analysts. Everything was cool, but being in a big organization, things moved at a snail’s pace, and honestly, I got super bored in about six months. So, I decided to ditch it all and go for a Master’s in Machine Learning. I even got into Georgia Tech! But then COVID hit, and moving to the US didn’t seem like the smartest idea. So, I decided to do the program remotely through OMSCS.</p>
 
-<p>During my Master’s, I spent a lot of time doing research, and building tools (mostly anti-plagiarism) to help enable learning at scale.</p>
+<p>During my Master’s, I spent a ton of time doing research and building tools (mostly anti-plagiarism) to help make learning at scale actually work. We worked on all the cool, hyped stuff: fancy invisible markers in code, a chatbot that could impersonate freelancers to catch students, cheating detection in MCQ exams using pattern analysis – you name it! Our team even got featured in multiple articles in places like Forbes and Times Higher Ed. We also published two research papers in Learning @ Scale (<a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406723">Paper 1</a>, <a href="https://dl.acm.org/doi/abs/10.1145/3430895.3460982">Paper 2</a>). Most of these tools are still being used at Georgia Tech to keep an eye on students who try to plagiarize (with some sweet improvements, of course!).</p>
 
-<p>We worked on all the hyped things, fancy invisible markers in code, A chatbot to impersonate freelancers and catch students, Cheating detection in MCQ exams by pattern analysis, you name it. Our team also got featured in multiple articles in places like Forbes, Times Higher Ed, etc. Even published two research papers in Learning @ Scale (<a href="https://dl.acm.org/doi/abs/10.1145/3386527.3406723">Paper 1</a>, <a href="https://dl.acm.org/doi/abs/10.1145/3430895.3460982">Paper 2</a>). Most of these tools are still being used at Georgia Tech to monitor and catch students who plagiarize (with improvements obviously).</p>
+<p>While I was doing my Master’s, I was also working at an AI startup called Hypersonix, where I spent my free time building their backend infrastructure and auth-related tools. Near the end of my Master’s, I started messing around with Blockchain Development and Crypto. I won’t bore you with all the details, but I spent about two hours learning the ins and outs of blockchain and crypto. Then, I decided to leave Hypersonix and dive into blockchain full-time. That’s when I joined Powerloom (December 2022).</p>
 
-<p>While my Master’s was going on, I was also working at an AI startup called Hypersonix where I spent my free time building their backend Infra and auth-related tools. 
-Near the end of my Master’s, I started playing with Blockchain Development and Crypto. Won’t bore you with any more details but spent about 2 hours learning the ins and outs of blockchain and crypto. Then, I left Hypersonix and decided to work on blockchain full-time. That’s when I joined Powerloom (December 2022).</p>
-
-<p>After contributing to 50+ repositories over 14 months, here we are, on a flight to attend ETH Denver, and I’m still not bored!
+<p>After contributing to 50+ repositories over 14 months, here we are, on a flight to attend ETH Denver, and guess what? I’m <em>still</em> not bored!
 <img src="/images/github_xa.png" alt="Github Contributions" /></p>
 
-<p>I’ll write about my journey at Powerloom in the next part, but for now, I’m going to take a nap. It’s been a long day!</p>]]></content><author><name></name></author><category term="Banter" /><category term="Banter" /><summary type="html"><![CDATA[I am on a long flight from Frankfurt to Denver, heading there for a work trip to attend ETH Denver with a couple of team members from Powerloom Network. I thought it would be a good idea to use this time to reflect on the last 14 months of my life and the work I’ve been doing at Powerloom Protocol but I ended up writing about my entire journey in tech.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://xadahiya.me/images/github_xa.png" /><media:content medium="image" url="https://xadahiya.me/images/github_xa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoC 2017 summary</title><link href="https://xadahiya.me/Gsoc-Summary/" rel="alternate" type="text/html" title="GSoC 2017 summary" /><published>2017-08-25T00:00:00+05:30</published><updated>2017-08-25T00:00:00+05:30</updated><id>https://xadahiya.me/Gsoc-Summary</id><content type="html" xml:base="https://xadahiya.me/Gsoc-Summary/"><![CDATA[<p>Hi, everyone! I’m Akshay, a Google Summer of Code student working with <a href="https://hydra-cg.com/">Hydra</a> (A <a href="https://www.python.org/psf/">Python Software Foundation</a> sub-org). This summer, I mostly worked on 2 projects for Hydra:</p>
+<p>I’ll spill more about my Powerloom journey in the next part, but for now, I’m gonna catch some Zs. It’s been a long day!</p>]]></content><author><name></name></author><category term="Banter" /><category term="Banter" /><summary type="html"><![CDATA[So, here I am, on a super long flight from Frankfurt to Denver, heading to ETH Denver with some awesome folks from Powerloom Network. I figured, why not use this time to reflect on the last 14 months at Powerloom Protocol? But, as these things go, I ended up spilling the beans on my entire tech journey instead.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/github_xa.png" /><media:content medium="image" url="http://localhost:4000/images/github_xa.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoC 2017 summary</title><link href="http://localhost:4000/Gsoc-Summary/" rel="alternate" type="text/html" title="GSoC 2017 summary" /><published>2017-08-25T00:00:00+05:30</published><updated>2017-08-25T00:00:00+05:30</updated><id>http://localhost:4000/Gsoc-Summary</id><content type="html" xml:base="http://localhost:4000/Gsoc-Summary/"><![CDATA[<p>Hey everyone! Akshay here, and I was a Google Summer of Code student chilling with <a href="https://hydra-cg.com/">Hydra</a> (a cool sub-org of the <a href="https://www.python.org/psf/">Python Software Foundation</a>). This summer, I basically split my time between two awesome projects for Hydra:</p>
 
 <ul>
   <li><a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a></li>
   <li><a href="https://github.com/HTTP-APIs/hydra-flock-demo/">A simulation to demonstrate Hydrus capabilities</a></li>
 </ul>
 
-<p>It was a great experience and I loved working with Hydra CG. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.</p>
+<p>It was a seriously great experience, and I had a blast working with Hydra CG. I learned a ton about Python, the Semantic Web, Hydra, Graph databases, and a bunch of other neat stuff.</p>
 
-<p>I’m very grateful to my mentors, <a href="https://github.com/Mec-iS/">Lorenzo</a> and <a href="https://github.com/kkoci/">Kristian koci</a>. They have been very responsive and helpful and it was great working with them. I would also like to thank <a href="https://github.com/chrizandr/">Chris</a> (a fellow student), it was a great experience collaborating with him.</p>
+<p>I’m super grateful to my mentors, <a href="https://github.com/Mec-iS/">Lorenzo</a> and <a href="https://github.com/kkoci/">Kristian Koci</a>. They were incredibly responsive and helpful, and it was a pleasure working with them. A big shout-out also goes to <a href="https://github.com/chrizandr/">Chris</a>, a fellow student – collaborating with him was awesome!</p>
 
-<p>Below is the summary and links to the work I did during the last 3 months.</p>
+<p>Below is a quick rundown and links to all the cool stuff I worked on over the last three months.</p>
 <hr />
 
 <h1 id="gsoc-phase-1">GSoC Phase 1</h1>
-<p>During the first phase of GSoC I and <a href="https://github.com/chrizandr/">@chrizandr</a> worked on <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a>.</p>
+<p>During the first phase of GSoC, <a href="https://github.com/chrizandr/">@chrizandr</a> and I teamed up on <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a>.</p>
 
-<p>Hydrus is basically a set of <strong>Python</strong> based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create a powerful REST APIs to serve data.
-Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creation and documentation of its APIs.</p>
+<p>Hydrus is basically a bunch of <strong>Python</strong> tools designed to make creating Hypermedia-driven REST-APIs way easier and more efficient. It taps into the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to whip up some seriously powerful REST APIs for serving data. Hydrus also uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for building and documenting its APIs, which is pretty neat.</p>
 
 <p>I wrote the following blog posts related to Hydrus and its architecture:</p>
 <ul>
@@ -82,9 +72,9 @@ Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for 
 <hr />
 
 <h1 id="gsoc-phase-2-and-3">GSoC Phase 2 and 3</h1>
-<p>Once we had things working with Hydrus then we started working on different projects. I was in charge of the <a href="https://github.com/HTTP-APIs/hydra-flock-demo/">simulation</a> to demonstrate the capabilities of Hydrus and <a href="https://www.hydra-cg.com/spec/latest/core/">Hydra Core vocabulary</a> in general. I contributed to Hydrus development whenever I had time.</p>
+<p>Once we got Hydrus up and running, we started tackling different projects. I was in charge of the <a href="https://github.com/HTTP-APIs/hydra-flock-demo/">simulation</a> to show off what Hydrus and the <a href="https://www.hydra-cg.com/spec/latest/core/">Hydra Core vocabulary</a> could do. I also chipped in on Hydrus development whenever I had a spare moment.</p>
 
-<p>The <a href="https://github.com/HTTP-APIs/hydra-flock-demo/">simulation</a> simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensor.</p>
+<p>This <a href="https://github.com/HTTP-APIs/hydra-flock-demo/">simulation</a> basically mimics a bunch of drones flying around, trying to spot fires or weird hot spots in a given area using an infrared sensor. Pretty cool, right?</p>
 
 <p>I wrote the following blog posts related to the simulation:</p>
 <ul>
@@ -128,20 +118,17 @@ Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for 
   </li>
 </ol>
 
-<p>It was a great experience, I’m looking forward to contributing to the Hydra community and Hydrus and Hydra community whenever I get time.</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><summary type="html"><![CDATA[Hi, everyone! I’m Akshay, a Google Summer of Code student working with Hydra (A Python Software Foundation sub-org). This summer, I mostly worked on 2 projects for Hydra:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" /><media:content medium="image" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Finishing up!</title><link href="https://xadahiya.me/gsoc/2017/08/22/Finishing-up/" rel="alternate" type="text/html" title="Finishing up!" /><published>2017-08-22T00:00:00+05:30</published><updated>2017-08-22T00:00:00+05:30</updated><id>https://xadahiya.me/gsoc/2017/08/22/Finishing-up</id><content type="html" xml:base="https://xadahiya.me/gsoc/2017/08/22/Finishing-up/"><![CDATA[<p>So, we’ve reached the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations period. In this post I’ll be summarizing in brief we’ve accomplished in the last 3 months.</p>
+<p>It was a fantastic experience, and I’m really looking forward to contributing more to the Hydra community and Hydrus whenever I can squeeze in some time!</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><summary type="html"><![CDATA[Hey everyone! Akshay here, and I was a Google Summer of Code student chilling with Hydra (a cool sub-org of the Python Software Foundation). This summer, I basically split my time between two awesome projects for Hydra:]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" /><media:content medium="image" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Finishing up!</title><link href="http://localhost:4000/gsoc/2017/08/22/Finishing-up/" rel="alternate" type="text/html" title="Finishing up!" /><published>2017-08-22T00:00:00+05:30</published><updated>2017-08-22T00:00:00+05:30</updated><id>http://localhost:4000/gsoc/2017/08/22/Finishing-up</id><content type="html" xml:base="http://localhost:4000/gsoc/2017/08/22/Finishing-up/"><![CDATA[<p>Alright, folks! We’ve hit the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations, and it’s time to wrap things up. In this post, I’ll give you a quick rundown of what we managed to pull off in the last three months.</p>
 
-<p>We worked on two projects one is <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and the other one is a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a> using various Hydrus instances with a mechanics layer on the top.</p>
+<p>We tackled two main projects: <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a>. The simulation uses various Hydrus instances with a cool mechanics layer on top.</p>
 
-<p>I already wrote a post about hydrus. So in this post, I’ll tell you about the simulation in detail.</p>
+<p>I’ve already blabbed about Hydrus in another post, so this time, I’ll give you the lowdown on the simulation.</p>
 
 <h1 id="general-idea">General Idea</h1>
-<p>Hydra Flock Simulation is an application that simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using infrared sensors. <br />
-The simulation uses the <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p>
+<p>The Hydra Flock Simulation is this neat application that simulates a bunch of drones flying around. Their mission? To detect fires or weird hot spots in a specific area using infrared sensors. Pretty cool, huh? The simulation runs on <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p>
 
 <h1 id="running-the-simulation">Running the Simulation</h1>
-<p>Running the simulation is pretty straightforward, you just need to run two scripts.<br />
-First clone the simulation repo to your local system using <br />
-<code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow the following steps:</p>
+<p>Getting this simulation up and running is super easy, you just need to run two scripts. First, clone the simulation repo to your local system using <code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow these steps:</p>
 <ul>
   <li>Create and activate a new virtualenv</li>
   <li>Upgrade pip and setuptools</li>
@@ -168,7 +155,7 @@ First clone the simulation repo to your local system using <br />
 <h3 id="note-to-stop-all-simulation-processes-use-killall-python"><strong>NOTE</strong>: To stop all simulation processes use <code class="language-plaintext highlighter-rouge">killall python</code></h3>
 
 <h1 id="interacting-with-the-simulation">Interacting with the simulation</h1>
-<p>The user can interact with the simulation from the simulation GUI. He can submit messages in a structured format to the central controller, the central controller will then parse the submitted message and issue commands to respective drones. Progress can be seen in controller and drone logs in the GUI.</p>
+<p>You can totally interact with the simulation right from the GUI! Just submit messages in a structured format to the central controller. It’ll then parse your message and send commands to the right drones. You can even watch the progress in the controller and drone logs in the GUI. Pretty neat, huh?</p>
 
 <h3 id="some-general-information">Some general information</h3>
 <ul>
@@ -188,7 +175,7 @@ First clone the simulation repo to your local system using <br />
 <p><strong>NOTE:-</strong>  Changing the drone direction won’t work if the drone is in <code class="language-plaintext highlighter-rouge">Confirming</code> state.</p>
 
 <h1 id="central-controller-design">Central Controller design</h1>
-<p>The central controller is a Hydra based API server acting as a central datastore and control center for all the drones. All active drones submit their status updates every 15 seconds to the central controller. Just like drones the central controller also has a client part that can be used to issue commands to different drones.</p>
+<p>The central controller is basically a Hydra-based API server that acts as the main data hub and control center for all the drones. All the active drones send their status updates every 15 seconds to this central controller. Just like the drones, the central controller also has a client part that you can use to send commands to different drones.</p>
 
 <h3 id="main-features">Main Features</h3>
 <ul>
@@ -314,7 +301,7 @@ First clone the simulation repo to your local system using <br />
 Full source code for the controller component is available <a href="https://github.com/HTTP-APIs/hydra-flock-central-controller">here</a>.</p>
 
 <h1 id="drone-design">Drone Design</h1>
-<p>Drones act as <strong>Hydra Servers as well as Hydra Clients</strong> (Hybrids): they have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
+<p>Drones in this setup are pretty cool – they act as both <strong>Hydra Servers and Hydra Clients</strong> (we call ‘em Hybrids!). This means they have some exposed endpoints where other Hydra Clients can send orders or ask for updates. But they also have their own Hydra Client capabilities, so they can send info and signals back to the Controller by calling its Hydra API. It’s a two-way street!</p>
 
 <h2 id="main-features-1">Main Features</h2>
 <ul>
@@ -449,8 +436,7 @@ When the drone is confirming any anomaly detected by some other drone. User can�
   <li><strong>When <code class="language-plaintext highlighter-rouge">Battery &lt; 4</code></strong> - If any drone fails to reach the central controller then it shuts down.</li>
 </ul>
 
-<p>Full source code for the drone component is available <a href="https://github.com/HTTP-APIs/hydra-flock-drone">here</a>.</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><summary type="html"><![CDATA[So, we’ve reached the GSoC final evaluations period. In this post I’ll be summarizing in brief we’ve accomplished in the last 3 months.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9TYfOoeWvyLN36xSfcCWnlflCxLCc0_f7T_CCu05mx1TZMK35SdC9PSjv8" /><media:content medium="image" url="https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9TYfOoeWvyLN36xSfcCWnlflCxLCc0_f7T_CCu05mx1TZMK35SdC9PSjv8" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building the simulation GUI</title><link href="https://xadahiya.me/gsoc/2017/07/28/Simulation-gui/" rel="alternate" type="text/html" title="Building the simulation GUI" /><published>2017-07-28T00:00:00+05:30</published><updated>2017-07-28T00:00:00+05:30</updated><id>https://xadahiya.me/gsoc/2017/07/28/Simulation-gui</id><content type="html" xml:base="https://xadahiya.me/gsoc/2017/07/28/Simulation-gui/"><![CDATA[<p>So last week, we’ve been working on a GUI for our Simulation. We’re almost done, the GUI looks neat.<br />
-We’re using a simple flask server, JQuery,  <a href="https://hpneo.github.io/gmaps/">gmaps.js</a>, <a href="codeseven.github.io/toastr/">toastr.js</a> and <a href="https://getbootstrap.com/">bootstrap</a>.
+<p>Full source code for the drone component is available <a href="https://github.com/HTTP-APIs/hydra-flock-drone">here</a>.</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><summary type="html"><![CDATA[Alright, folks! We’ve hit the GSoC final evaluations, and it’s time to wrap things up. In this post, I’ll give you a quick rundown of what we managed to pull off in the last three months.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9TYfOoeWvyLN36xSfcCWnlflCxLCc0_f7T_CCu05mx1TZMK35SdC9PSjv8" /><media:content medium="image" url="https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9TYfOoeWvyLN36xSfcCWnlflCxLCc0_f7T_CCu05mx1TZMK35SdC9PSjv8" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building the simulation GUI</title><link href="http://localhost:4000/gsoc/2017/07/28/Simulation-gui/" rel="alternate" type="text/html" title="Building the simulation GUI" /><published>2017-07-28T00:00:00+05:30</published><updated>2017-07-28T00:00:00+05:30</updated><id>http://localhost:4000/gsoc/2017/07/28/Simulation-gui</id><content type="html" xml:base="http://localhost:4000/gsoc/2017/07/28/Simulation-gui/"><![CDATA[<p>So, last week, we were busy cooking up a GUI for our simulation, and I gotta say, it’s looking pretty slick! We’re using a simple Flask server, JQuery, <a href="https://hpneo.github.io/gmaps/">gmaps.js</a>, <a href="codeseven.github.io/toastr/">toastr.js</a>, and <a href="https://getbootstrap.com/">bootstrap</a>.
 <br /></p>
 
 <p>Here are a couple of images of the simulation GUI I’ve been working on:</p>
@@ -463,7 +449,7 @@ We’re using a simple flask server, JQuery,  <a href="https://hpneo.github.io/g
 
 <p><img src="/images/gui4.png" alt="Gui image 4" /></p>
 
-<p>If you want a sneak to the project, <a href="https://github.com/HTTP-APIs">here’s</a> the organisation’s Github link.
+<p>Want a sneak peek at the project? Check out the organization’s GitHub link <a href="https://github.com/HTTP-APIs">here</a>.
 <br />
 There are four repositories for the simulation:</p>
 <ul>
@@ -471,49 +457,43 @@ There are four repositories for the simulation:</p>
   <li><a href="https://github.com/HTTP-APIs/hydra-flock-drone/">hydra-flock-drone</a></li>
   <li><a href="https://github.com/HTTP-APIs/hydra-flock-gui/">hydra-flock-gui</a></li>
   <li><a href="https://github.com/HTTP-APIs/hydra-flock-central-controller">hydra-flock-central-controller</a>).</li>
-</ul>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Hydra Flock Simulation" /><category term="Semantic Web" /><summary type="html"><![CDATA[So last week, we’ve been working on a GUI for our Simulation. We’re almost done, the GUI looks neat. We’re using a simple flask server, JQuery, gmaps.js, toastr.js and bootstrap. Here are a couple of images of the simulation GUI I’ve been working on: If you want a sneak to the project, here’s the organisation’s Github link. There are four repositories for the simulation: hydra-flock-demo hydra-flock-drone hydra-flock-gui hydra-flock-central-controller).]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://xadahiya.me/assets/images/gui1-min.png" /><media:content medium="image" url="https://xadahiya.me/assets/images/gui1-min.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoC Phase 2</title><link href="https://xadahiya.me/gsoc/2017/07/13/Phase2/" rel="alternate" type="text/html" title="GSoC Phase 2" /><published>2017-07-13T00:00:00+05:30</published><updated>2017-07-13T00:00:00+05:30</updated><id>https://xadahiya.me/gsoc/2017/07/13/Phase2</id><content type="html" xml:base="https://xadahiya.me/gsoc/2017/07/13/Phase2/"><![CDATA[<p>So, we passed the <a href="https://summerofcode.withgoogle.com/">GSoC</a> phase 1 evaluations. Now, that we have a Generic Hydra Server ready, things are getting a little more interesting. We’re working a Forestry Patrol Simulation using multiple Hydra servers and clients.</p>
+</ul>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Hydra Flock Simulation" /><category term="Semantic Web" /><summary type="html"><![CDATA[So, last week, we were busy cooking up a GUI for our simulation, and I gotta say, it’s looking pretty slick! We’re using a simple Flask server, JQuery, gmaps.js, toastr.js, and bootstrap.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/gui1-min.png" /><media:content medium="image" url="http://localhost:4000/assets/images/gui1-min.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">GSoC Phase 2</title><link href="http://localhost:4000/gsoc/2017/07/13/Phase2/" rel="alternate" type="text/html" title="GSoC Phase 2" /><published>2017-07-13T00:00:00+05:30</published><updated>2017-07-13T00:00:00+05:30</updated><id>http://localhost:4000/gsoc/2017/07/13/Phase2</id><content type="html" xml:base="http://localhost:4000/gsoc/2017/07/13/Phase2/"><![CDATA[<p>Alright, so we totally aced the <a href="https://summerofcode.withgoogle.com/">GSoC</a> Phase 1 evaluations! Now that we’ve got a generic Hydra Server up and running, things are getting even more exciting. We’re building a Forestry Patrol Simulation using a bunch of Hydra servers and clients. Think drones, but for saving forests!</p>
 
 <h1 id="general-idea">General Idea</h1>
-<p>We are building an application that simulates the movements of a flock of drones that have as objective to control the presence of fires or abnormal heat spots in a given geographical area using infrared sensors.</p>
+<p>We’re cooking up an application that simulates a whole flock of drones. Their main gig? To keep an eye out for fires or weird hot spots in a given area using their infrared sensors. Pretty cool, right?</p>
 
 <h4 id="the-simulation-will-have-these-3-main-components--">The simulation will have these 3 main components -</h4>
 <ul>
-  <li>A flock N flying drones</li>
-  <li>A centralized Hydra server</li>
-  <li>A Javascript Application for the GUI part</li>
-  <li>Docking stations (for charging) (the docking station can be the central server position)</li>
+  <li>A bunch of flying drones (N, to be exact!)</li>
+  <li>A centralized Hydra server to keep tabs on everything</li>
+  <li>A snazzy Javascript Application for the GUI part</li>
+  <li>And, of course, some docking stations for charging (which might just be the central server’s spot!)</li>
 </ul>
 
 <h1 id="design-principles-and-some-general-ideas">Design principles and some general ideas</h1>
 
 <h2 id="drones">Drones</h2>
-<p>We need a flock of <strong>N flying drones</strong> (professional drones for forestry patrol)</p>
+<p>We need a whole flock of <strong>N flying drones</strong> (these are professional drones, mind you, for forestry patrol!).</p>
 
-<p>As a basic starting implementation, the decision is that two-ways communication channels are established between every Drone and a Central Server (or Controller), information/signals can be sent back and forth the single Drone and the Controller but NOT among Drones.</p>
+<p>For a basic setup, we decided that each Drone and a Central Server (or Controller) would have a two-way communication channel. So, info and signals can zip back and forth between a single Drone and the Controller, but <em>not</em> directly between Drones. This keeps things tidy.</p>
 
-<p>Drones will act as Hydra Servers as well as Hydra Clients (Hybrids): they will have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
+<p>Drones will act as both Hydra Servers and Hydra Clients (we call ‘em Hybrids!). They’ll have some exposed endpoints where other Hydra Clients can send orders or ask for updates. But they also have their own Hydra Client superpowers, letting them send info and signals to the Controller by calling its Hydra API.</p>
 
-<p>The drones will have some endpoint like <code class="language-plaintext highlighter-rouge">https://drone123/api/order</code> where the Controller can send the orders using <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests. Upon receiving new orders, drones can act upon them immediately unless they need to improvise.</p>
+<p>These drones will have endpoints like <code class="language-plaintext highlighter-rouge">https://drone123/api/order</code> where the Controller can send orders using <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests. When they get new orders, drones will act on them right away, unless they need to improvise (they’re smart, after all!).</p>
 
-<p>Another example can be that the Drones can ask for information about other Drones by requesting the Controller using GET  <code class="language-plaintext highlighter-rouge">https://controller/api/drone</code> or
-GET <code class="language-plaintext highlighter-rouge">https://controller/api/status/&lt;drone_id&gt;</code>
-Drones have a standard behavior given by the simulation and defined below. At least this behavior is overridden by some order, they will go on moving, acquiring data, coming back to the recharging station, recharging and taking off.</p>
+<p>Another cool thing is that Drones can ask for info about other Drones by hitting up the Controller using <code class="language-plaintext highlighter-rouge">GET https://controller/api/drone</code> or <code class="language-plaintext highlighter-rouge">GET https://controller/api/status/&lt;drone_id&gt;</code>. Drones have a standard behavior set by the simulation, and they’ll stick to it unless an order overrides it. They’ll just keep moving, collecting data, heading back to the recharging station, juicing up, and taking off again.</p>
 
 <h2 id="main-functions">Main Functions</h2>
-<p>As defined above, the Drones will act as <strong>semi-intelligent Hydra Servers</strong> as well as <strong>Clients</strong>, they will have the following main functions:</p>
+<p>As I mentioned, these Drones are pretty smart, acting as both <strong>semi-intelligent Hydra Servers</strong> and <strong>Clients</strong>. Here’s what they can do:</p>
 
 <ul>
-  <li>Drones receive commands from the server ( can be something as simple as the central server sends orders at some endpoint like PUT <code class="language-plaintext highlighter-rouge">https://drone123/api/order/&lt;order_id&gt;</code>). Commands can include the speed and direction to move with some additional attributes.</li>
-</ul>
-
-<p>Upon receiving the order the drone will act immediately unless there is some issue and it needs to override the orders. These orders are sequential and they stack on the limited Drone’s in-memory queue. In the case of the <strong>“ order endpoint”</strong> above, Drone will respond with and <strong>Hydra: Status</strong> that can be, for example, <strong>“204 Accepted”</strong> or <strong>“409 Conflict”</strong>.</p>
-<ul>
-  <li>A Drone publishes its status via HTTP response from its Hydra Server at some endpoint like <code class="language-plaintext highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can reach it.</li>
-  <li>Drones publish their sensor data stream via requests to the server at some endpoint like <code class="language-plaintext highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
-  <li>Each drone will have a unique id and some other parameters like speed and battery life.</li>
-  <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server. For example, if any drone wants to know the nearby drones, it can just ask the server via <code class="language-plaintext highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
-  <li>Drones will automatically decide when to charge and only, in that case, override the commands sent by the server only after sending a log of its status to the central server.</li>
-  <li>Drones obey some basic rules ( For example - can’t hit each other)</li>
+  <li>Drones can get commands from the server (could be something as simple as the central server sending orders to an endpoint like <code class="language-plaintext highlighter-rouge">PUT https://drone123/api/order/&lt;order_id&gt;</code>). These commands can include stuff like speed and direction, plus any extra attributes. When a drone gets an order, it acts on it right away, unless there’s a good reason to do something else. These orders are sequential and stack up in the Drone’s limited in-memory queue. If the “order endpoint” is used, the Drone will respond with a <strong>Hydra: Status</strong> like “204 Accepted” or “409 Conflict” – basically, telling the server if it got the message or not.</li>
+  <li>A Drone broadcasts its status via an HTTP response from its Hydra Server at an endpoint like <code class="language-plaintext highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can always check in on it.</li>
+  <li>Drones send their sensor data stream by making requests to the server at an endpoint like <code class="language-plaintext highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
+  <li>Each drone gets a unique ID and has other cool parameters like speed and battery life.</li>
+  <li>Drones can’t chat directly with other drones or tell them what to do. They have to go through the central server. So, if a drone wants to know about nearby drones, it just asks the server via <code class="language-plaintext highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
+  <li>Drones are smart enough to decide when they need to charge. If they do, they’ll override server commands, but only after sending a log of their status to the central server. Safety first!</li>
+  <li>And of course, drones follow some basic rules (like, you know, not crashing into each other!).</li>
 </ul>
 
 <h2 id="supported-classes-and-their-props-for-drone-apidocumentation">Supported Classes and their Props for Drone ApiDocumentation</h2>
@@ -580,25 +560,23 @@ Drones have a standard behavior given by the simulation and defined below. At le
 </span></code></pre></div></div>
 
 <h2 id="client-part">Client part</h2>
-<p>Every drone will have a Client part along with the Hydra Server Part. The client part will have no idea about the server endpoints except the main entrypoint to the server (<strong>VERY IMPORTANT TO DEMONSTRATE HYDRA CAPABILITIES</strong>).
-The client will have to figure out the rest on its own.
-A Drone Client will serve the following purposes -</p>
+<p>Every drone will have a Client part alongside its Hydra Server Part. The cool thing is, the client part won’t know anything about the server endpoints except for the main entrypoint to the server (<strong>this is super important for showing off Hydra’s capabilities!</strong>). The client will have to figure out the rest on its own. A Drone Client will handle a couple of things:</p>
 <ul>
-  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit drone status whenever the status changes or the drone needs to override the server orders.</li>
-  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit the data stream from sensors, this will only be done when the drone’s status will be <code class="language-plaintext highlighter-rouge">[Progress: Analysing]</code>. After the data stream is successfully submitted the drone will move to the next destination. Upon successful retrieval of Sensor data from the drone, the server will issue new orders to the drone (can be automatic or manual by the user).</li>
+  <li>It’ll send <strong>POST</strong> requests to the central server to update the drone’s status whenever it changes or if the drone needs to override server orders.</li>
+  <li>It’ll also send <strong>POST</strong> requests to the central server to submit data streams from its sensors. This only happens when the drone’s status is <code class="language-plaintext highlighter-rouge">[Progress: Analysing]</code>. Once the data stream is successfully sent, the drone moves to its next destination. After the server gets the sensor data, it’ll send new orders to the drone (either automatically or manually by a user).</li>
 </ul>
 
 <h1 id="central-server">Central server</h1>
-<p>The central server will be a Hydra based API server acting as a <strong>central data store</strong> and <strong>control center</strong> for all the drones. It will also have a client part just like the drones that will be used to issue orders to different drones.</p>
+<p>The central server is a Hydra-based API server that acts as the <strong>main data hub</strong> and <strong>control center</strong> for all the drones. It also has a client part, just like the drones, which it uses to send orders to different drones. It’s basically the brain of the operation!</p>
 
 <h2 id="main-functions-1">Main Functions</h2>
-<p>The central server will serve the following purposes -</p>
+<p>The central server is pretty busy, handling a few key tasks:</p>
 <ul>
-  <li>It will act as a central database for all the drones to store their logs and sensor data. This will be done using the drone client side, they will issue POST/PUT requests after some fixed interval of time or upon some status change.</li>
-  <li>It will have some endpoint to serve all the logs from all the drones in some natural language format for the GUI part.</li>
-  <li>The server will issue orders to all the drones to make them coordinate and cover the entire area of interest ( the client side of the server will be used to send orders to the drones).</li>
-  <li>The server will act as an intermediate if different drones want to interact with each other. For example -  If some drone wants to know the position of all nearby drones.</li>
-  <li>Will act as the main docking station to recharge drones.</li>
+  <li>It acts as a central database for all the drones, storing their logs and sensor data. Drones will send <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests at fixed intervals or when their status changes.</li>
+  <li>It has an endpoint to serve all the drone logs in a human-readable format for the GUI.</li>
+  <li>The server sends orders to all the drones, making them coordinate and cover the entire area of interest (the server’s client side handles sending these orders).</li>
+  <li>It acts as a middleman if different drones need to talk to each other. For example, if a drone wants to know where all the nearby drones are, it asks the server.</li>
+  <li>It’s also the main docking station where drones go to recharge. Think of it as their home base!</li>
 </ul>
 
 <h4 id="the-central-server-will-serve-the-following-functionalities-through-related-endpoints--">The central server will serve the following functionalities through related endpoints -</h4>
@@ -622,11 +600,9 @@ A Drone Client will serve the following purposes -</p>
 <p>See this <a href="https://gist.github.com/xadahiya/9b8e27aab77c1d73a8be950e70abc3cb">Gist</a></p>
 
 <h2 id="client-part-1">Client Part</h2>
-<p>The central server will also have a Client part.
-The client part will have no idea about the drone endpoints except the main entrypoint to each drone (<strong>VERY IMPORTANT TO DEMONSTRATE HYDRA CAPABILITIES</strong>). The client will have to figure out the rest on its own.
-The Server Client will serve the following purposes -</p>
+<p>The central server also has a Client part. This client part is pretty cool because it doesn’t need to know all the nitty-gritty details about each drone’s endpoints, just the main entry point to each drone (<strong>this is super important for showing off Hydra’s capabilities!</strong>). It figures out the rest on its own. The Server Client is mainly used for one thing:</p>
 <ul>
-  <li>It will be used to issue new orders using <code class="language-plaintext highlighter-rouge">POST</code> requests to each drone.</li>
+  <li>It sends new orders to each drone using <code class="language-plaintext highlighter-rouge">POST</code> requests.</li>
 </ul>
 
 <h1 id="javascript-monitoring-application">Javascript Monitoring Application</h1>
@@ -652,20 +628,19 @@ The Server Client will serve the following purposes -</p>
 (e.g <code class="language-plaintext highlighter-rouge">http://drone:8001</code> maps to <code class="language-plaintext highlighter-rouge">port</code>)</li>
 </ul>
 
-<p>If you want a sneak to the project, <a href="https://github.com/HTTP-APIs/hydra-flock-demo/tree/develop">here’s</a> the Github repo.</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydra Flock Demo" /><category term="Flask" /><summary type="html"><![CDATA[So, we passed the GSoC phase 1 evaluations. Now, that we have a Generic Hydra Server ready, things are getting a little more interesting. We’re working a Forestry Patrol Simulation using multiple Hydra servers and clients.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" /><media:content medium="image" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A Detailed Introduction to Hydrus</title><link href="https://xadahiya.me/gsoc/2017/06/24/Hydrus-in-detail/" rel="alternate" type="text/html" title="A Detailed Introduction to Hydrus" /><published>2017-06-24T00:00:00+05:30</published><updated>2017-06-24T00:00:00+05:30</updated><id>https://xadahiya.me/gsoc/2017/06/24/Hydrus-in-detail</id><content type="html" xml:base="https://xadahiya.me/gsoc/2017/06/24/Hydrus-in-detail/"><![CDATA[<p>Hi everyone, in my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a> I told you about who I am and what we’ve been working on for  <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. In this post, I would like to discuss in detail about our project Hydrus.</p>
+<p>If you want a sneak to the project, <a href="https://github.com/HTTP-APIs/hydra-flock-demo/tree/develop">here’s</a> the Github repo.</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydra Flock Demo" /><category term="Flask" /><summary type="html"><![CDATA[Alright, so we totally aced the GSoC Phase 1 evaluations! Now that we’ve got a generic Hydra Server up and running, things are getting even more exciting. We’re building a Forestry Patrol Simulation using a bunch of Hydra servers and clients. Think drones, but for saving forests!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" /><media:content medium="image" url="https://1.bp.blogspot.com/-8g85F6YR8r0/WpcCNxJM_sI/AAAAAAAABbc/tpLh1if0MgYS3l1vqaEMwLPAaxC_nv81QCLcBGAs/s1600/GSoC%2B-%2BVertical%2BWide%2B-%2BGray%2BText%2B-%2BWhite%2BBG.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A Detailed Introduction to Hydrus</title><link href="http://localhost:4000/gsoc/2017/06/24/Hydrus-in-detail/" rel="alternate" type="text/html" title="A Detailed Introduction to Hydrus" /><published>2017-06-24T00:00:00+05:30</published><updated>2017-06-24T00:00:00+05:30</updated><id>http://localhost:4000/gsoc/2017/06/24/Hydrus-in-detail</id><content type="html" xml:base="http://localhost:4000/gsoc/2017/06/24/Hydrus-in-detail/"><![CDATA[<p>Hey everyone! In my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a>, I gave you the lowdown on who I am and what we’ve been up to for <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. This time, I want to dive deep into our awesome project: Hydrus!</p>
 
-<p><strong>Hydrus</strong> is a set of <strong>Python</strong> based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create a powerful REST APIs to serve data. Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creation and documentation of it’s APIs.</p>
+<p><strong>Hydrus</strong> is a cool set of <strong>Python</strong> tools that make building Hypermedia-driven REST-APIs way easier and more efficient. It taps into the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create some seriously powerful REST APIs for serving data. Plus, Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creating and documenting its APIs. Pretty neat, right?</p>
 
-<p>Let’s discuss Hydrus in detail.</p>
+<p>Let’s dive into the nitty-gritty of Hydrus!</p>
 
 <hr />
 
 <h1 id="design">Design</h1>
-<p>There are three main aspects of Hydrus design. Those are <strong>Database design</strong>, <strong>Data flow</strong> and <strong>Use cases</strong>.</p>
+<p>Hydrus design revolves around three key areas: <strong>Database design</strong>, <strong>Data flow</strong>, and <strong>Use cases</strong>. Let’s break ‘em down.</p>
 
 <h2 id="database-design">Database Design</h2>
-<p>The design of the Database takes into account the different types of representations possible using the triple format.
-Typically, there are 4 types of triples that are stored in a <code class="language-plaintext highlighter-rouge">Graph</code>:</p>
+<p>Our database design is pretty clever, taking into account all the different ways you can represent data using the triple format. We typically store four types of triples in a <code class="language-plaintext highlighter-rouge">Graph</code>:</p>
 <ul>
   <li><strong><code class="language-plaintext highlighter-rouge">Class &gt;&gt; Property &gt;&gt; Class</code> [<code class="language-plaintext highlighter-rouge">GraphCAC</code>]</strong></li>
   <li><strong><code class="language-plaintext highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Class</code> [<code class="language-plaintext highlighter-rouge">GraphIAC</code>]</strong></li>
@@ -673,9 +648,7 @@ Typically, there are 4 types of triples that are stored in a <code class="langua
   <li><strong><code class="language-plaintext highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Value</code> [<code class="language-plaintext highlighter-rouge">GraphIIT</code>]</strong></li>
 </ul>
 
-<p>For a distinction between the different types of <code class="language-plaintext highlighter-rouge">Value</code>, we created a <code class="language-plaintext highlighter-rouge">Terminal</code> class, which contains a <code class="language-plaintext highlighter-rouge">value</code> and it’s <code class="language-plaintext highlighter-rouge">unit</code>.
-There is also a distinction between properties that map to <code class="language-plaintext highlighter-rouge">Resources</code> and <code class="language-plaintext highlighter-rouge">Terminals</code> and those that map to <code class="language-plaintext highlighter-rouge">Classes</code>.
-We call <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Classes</code> as <code class="language-plaintext highlighter-rouge">AbstractProperty</code> and the other as <code class="language-plaintext highlighter-rouge">InstanceProperty</code>.</p>
+<p>For a clear distinction between different <code class="language-plaintext highlighter-rouge">Value</code> types, we created a <code class="language-plaintext highlighter-rouge">Terminal</code> class, which holds a <code class="language-plaintext highlighter-rouge">value</code> and its <code class="language-plaintext highlighter-rouge">unit</code>. We also differentiate between <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Resources</code> and <code class="language-plaintext highlighter-rouge">Terminals</code> versus those that map to <code class="language-plaintext highlighter-rouge">Classes</code>. We call <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Classes</code> as <code class="language-plaintext highlighter-rouge">AbstractProperty</code> and the others as <code class="language-plaintext highlighter-rouge">InstanceProperty</code>.</p>
 
 <p>Below is the schema diagram for our database design:</p>
 
@@ -683,7 +656,7 @@ We call <code class="language-plaintext highlighter-rouge">Properties</code> tha
 ***</p>
 
 <h2 id="data-flow">Data Flow</h2>
-<p>Here is a small illustration as to how data flows in Hydrus.</p>
+<p>Here’s a quick peek at how data zips around in Hydrus:</p>
 
 <p><strong>Hydra API Documentation to server endpoints</strong>:</p>
 
@@ -694,21 +667,20 @@ We call <code class="language-plaintext highlighter-rouge">Properties</code> tha
 <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/rdf_dataflow.png?raw=true" alt="RDF Flow" title="RDF Flow" /></p>
 
 <h2 id="use-cases">Use cases</h2>
-<p>This section explains Hydrus’s design and a use case for the same.
-For the demonstration, the server has the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p>
+<p>This section breaks down Hydrus’s design and shows you a real-world example. For this demo, the server uses the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p>
 
 <p>Here is an example of a system used to serve data using the components of Hydrus:</p>
 
 <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" alt="Use case" title="Use case" /></p>
 
-<p><strong>A simple example explaining the use of the above architecture would be:</strong></p>
+<p><strong>Here’s a simple example to show you how this architecture works:</strong></p>
 <ul>
-  <li>User types in the query “What is the cost of a Thermal Subsystem?”.</li>
-  <li>Middleware uses NLP to extract keywords <code class="language-plaintext highlighter-rouge">Thermal Subsystem</code> and <code class="language-plaintext highlighter-rouge">cost</code> and maps it to the Hydra instances and properties present at the server.</li>
-  <li>Middleware passes these instances and the underlying query to the client.</li>
-  <li>Client models a request and uses the API endpoints to extract the given information from the server.</li>
-  <li>Server replies with the required value.</li>
-  <li>Client serves data to the User.</li>
+  <li>Imagine a user types in, “What’s the cost of a Thermal Subsystem?”</li>
+  <li>Our clever Middleware uses Natural Language Processing (NLP) to pull out keywords like <code class="language-plaintext highlighter-rouge">Thermal Subsystem</code> and <code class="language-plaintext highlighter-rouge">cost</code>. It then maps these to the Hydra instances and properties chilling on the server.</li>
+  <li>The Middleware passes these instances and the original query to the client.</li>
+  <li>The Client then crafts a request and uses the API endpoints to grab the info from the server.</li>
+  <li>The Server, being super helpful, replies with the exact value needed.</li>
+  <li>Finally, the Client serves up that data to the User. Easy peasy!</li>
 </ul>
 
 <hr />
@@ -716,46 +688,45 @@ For the demonstration, the server has the <a href="https://ontology.projectchron
 <h1 id="features-and-requirements">Features and Requirements</h1>
 
 <h2 id="features">Features</h2>
-<p>Hydrus supports the following features:</p>
+<p>Hydrus comes packed with these cool features:</p>
 <ul>
-  <li>A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li>
-  <li>A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.</li>
-  <li>A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. <strong>(under development)</strong></li>
+  <li>A client that totally gets Hydra vocabulary and can chat with any Hydra-supporting server to do basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li>
+  <li>A generic server that can dish out all the data and metadata (like API documentation) to a client over HTTP.</li>
+  <li>A middleware that lets users talk to the client using plain old Natural Language, which then gets processed into machine-friendly language. (Still cooking this one up!)</li>
 </ul>
 
 <h2 id="requirements">Requirements</h2>
-<p>The system is built using the following standards and tools:</p>
+<p>We built this system using some solid standards and tools:</p>
 <ul>
-  <li><a href="https://flask.pocoo.org/">Flask</a> a Python-based micro-framework for handling server requests and responses.</li>
-  <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a> as the preferred data format.</li>
-  <li><a href="https://www.hydra-cg.com/">Hydra</a> as the API standard.</li>
-  <li><a href="https://www.postgresql.org/">PostgreSQL</a> as the backend database for storage and CRUD operations.</li>
+  <li><a href="https://flask.pocoo.org/">Flask</a>: Our go-to Python micro-framework for handling all those server requests and responses.</li>
+  <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a>: Our preferred data format – clean and easy to work with.</li>
+  <li><a href="https://www.hydra-cg.com/">Hydra</a>: The API standard that keeps everything in line.</li>
+  <li><a href="https://www.postgresql.org/">PostgreSQL</a>: Our backend database for storing data and doing all the CRUD operations.</li>
 </ul>
 
-<p>Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It would be advisable to run <strong><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></strong> before setting up other things.</p>
+<p>Oh, and there are a bunch of other Python packages Hydrus uses. You can find a full list in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It’s a good idea to run <strong><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></strong> before you get started with anything else!</p>
 
 <hr />
 
 <h1 id="running-the-demo-server">Running the Demo server</h1>
-<p><strong>Please make sure you have <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed.</strong></p>
+<p><strong>First things first, make sure you’ve got <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed!</strong></p>
 
-<p>Once we have docker up and running setting up the demo server is a piece of cake.</p>
+<p>Once Docker is all set up, getting our demo server up and running is a piece of cake. Seriously, it’s super easy!</p>
 <h3 id="instructions">Instructions</h3>
 <ul>
   <li>Clone the repository to your local machine.</li>
-  <li><code class="language-plaintext highlighter-rouge">cd</code> into the project directory and use <code class="language-plaintext highlighter-rouge">docker-compose build</code> to build the required Docker containers.</li>
-  <li>Start the containers using <code class="language-plaintext highlighter-rouge">docker-compose up</code> (With this we have our demo server up and running).</li>
-  <li>Now, all we need to do is set up and populate the database. Connect to the container using <br /> <code class="language-plaintext highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> ( You can get the hydrus container name using <code class="language-plaintext highlighter-rouge">docker ps</code>. It should be something like <code class="language-plaintext highlighter-rouge">hydrus*</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> into the project directory and use <code class="language-plaintext highlighter-rouge">docker-compose build</code> to build those Docker containers.</li>
+  <li>Fire up the containers using <code class="language-plaintext highlighter-rouge">docker-compose up</code> (and just like that, your demo server is live!).</li>
+  <li>Now, we just need to set up and fill up the database. Connect to the container using <code class="language-plaintext highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> (you can find the hydrus container name with <code class="language-plaintext highlighter-rouge">docker ps</code> – it’ll probably look something like <code class="language-plaintext highlighter-rouge">hydrus*</code>).</li>
   <li>Create the database models using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/db_models.py</code>.</li>
-  <li>Parse and Insert classes from RDF/OWL vocabulary to the database using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_classes.py</code></li>
-  <li>Insert random data generated  by <code class="language-plaintext highlighter-rouge">hydrus.data.generator</code> using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. <br />
-<strong>NOTE</strong>: This step is only valid for the subsystem example. You’ll need to write your own generator to populate the database for any other example.</li>
-  <li>Exit the docker container shell using <code class="language-plaintext highlighter-rouge">exit</code>.</li>
+  <li>Parse and insert classes from your RDF/OWL vocabulary into the database using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_classes.py</code>.</li>
+  <li>Insert some random data generated by <code class="language-plaintext highlighter-rouge">hydrus.data.generator</code> using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. (Heads up: This step is only for the subsystem example. If you’re using something else, you’ll need to whip up your own generator to populate the database).</li>
+  <li>Exit the docker container shell by typing <code class="language-plaintext highlighter-rouge">exit</code>.</li>
 </ul>
 
-<p><strong>The demo server should be up and running at <code class="language-plaintext highlighter-rouge">127.0.0.1:8080/api</code>.</strong></p>
+<p><strong>Your demo server should now be chilling at <code class="language-plaintext highlighter-rouge">127.0.0.1:8080/api</code>!</strong></p>
 
-<p><strong>NOTE:</strong> Docker port binding is not working in Windows. Windows users can access the server at <code class="language-plaintext highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. You can check your docker_ip using <code class="language-plaintext highlighter-rouge">docker-machine ip</code>.</p>
+<p><strong>NOTE:</strong> Docker port binding isn’t playing nice with Windows right now. If you’re on Windows, you can access the server at <code class="language-plaintext highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. Just use <code class="language-plaintext highlighter-rouge">docker-machine ip</code> to find your docker_ip.</p>
 
 <hr />
 
@@ -1069,4 +1040,4 @@ For running tests related to ensuring the validity of the database run</p>
 <p><strong><code class="language-plaintext highlighter-rouge">python -m unittest hydrus.test_app</code></strong></p>
 
 <h2 id="using-the-client">Using the client</h2>
-<p>(Under development) client not yet ready</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><category term="Flask" /><summary type="html"><![CDATA[Hi everyone, in my last post I told you about who I am and what we’ve been working on for GSoC 2017. In this post, I would like to discuss in detail about our project Hydrus.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" /><media:content medium="image" url="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>(Under development) client not yet ready</p>]]></content><author><name></name></author><category term="GSoC" /><category term="GSoC" /><category term="Hydra" /><category term="Semantic Web" /><category term="Hydrus" /><category term="Flask" /><summary type="html"><![CDATA[Hey everyone! In my last post, I gave you the lowdown on who I am and what we’ve been up to for GSoC 2017. This time, I want to dive deep into our awesome project: Hydrus!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" /><media:content medium="image" url="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
