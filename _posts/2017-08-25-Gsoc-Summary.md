@@ -8,25 +8,23 @@ permalink: /Gsoc-Summary/
 
 ---
 
-Hi, everyone! I’m Akshay, a Google Summer of Code student working with [Hydra](https://hydra-cg.com/) (A [Python Software Foundation](https://www.python.org/psf/) sub-org). This summer, I mostly worked on 2 projects for Hydra:
+Hey everyone! Akshay here, and I was a Google Summer of Code student chilling with [Hydra](https://hydra-cg.com/) (a cool sub-org of the [Python Software Foundation](https://www.python.org/psf/)). This summer, I basically split my time between two awesome projects for Hydra:
 
 - [Hydrus](https://github.com/HTTP-APIs/hydrus/)
 - [A simulation to demonstrate Hydrus capabilities](https://github.com/HTTP-APIs/hydra-flock-demo/)
 
-It was a great experience and I loved working with Hydra CG. I got to learn a lot about Python, Semantic web, Hydra, Graph databases and many other things.
+It was a seriously great experience, and I had a blast working with Hydra CG. I learned a ton about Python, the Semantic Web, Hydra, Graph databases, and a bunch of other neat stuff.
 
-I’m very grateful to my mentors, [Lorenzo](https://github.com/Mec-iS/) and [Kristian koci](https://github.com/kkoci/). They have been very responsive and helpful and it was great working with them. I would also like to thank [Chris](https://github.com/chrizandr/) (a fellow student), it was a great experience collaborating with him.
+I'm super grateful to my mentors, [Lorenzo](https://github.com/Mec-iS/) and [Kristian Koci](https://github.com/kkoci/). They were incredibly responsive and helpful, and it was a pleasure working with them. A big shout-out also goes to [Chris](https://github.com/chrizandr/), a fellow student – collaborating with him was awesome!
 
-Below is the summary and links to the work I did during the last 3 months.
+Below is a quick rundown and links to all the cool stuff I worked on over the last three months.
 <hr>
 
 GSoC Phase 1
 ============
-During the first phase of GSoC I and [@chrizandr](https://github.com/chrizandr/) worked on [Hydrus](https://github.com/HTTP-APIs/hydrus/).
+During the first phase of GSoC, [@chrizandr](https://github.com/chrizandr/) and I teamed up on [Hydrus](https://github.com/HTTP-APIs/hydrus/).
 
-
-Hydrus is basically a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data.
-Hydrus uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for creation and documentation of its APIs.
+Hydrus is basically a bunch of **Python** tools designed to make creating Hypermedia-driven REST-APIs way easier and more efficient. It taps into the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to whip up some seriously powerful REST APIs for serving data. Hydrus also uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for building and documenting its APIs, which is pretty neat.
 
 I wrote the following blog posts related to Hydrus and its architecture:
 - [GSoC coding begins](https://xadahiya.github.io/Coding-Begins/)
@@ -35,9 +33,9 @@ I wrote the following blog posts related to Hydrus and its architecture:
 
 GSoC Phase 2 and 3
 =============
-Once we had things working with Hydrus then we started working on different projects. I was in charge of the [simulation](https://github.com/HTTP-APIs/hydra-flock-demo/) to demonstrate the capabilities of Hydrus and [Hydra Core vocabulary](https://www.hydra-cg.com/spec/latest/core/) in general. I contributed to Hydrus development whenever I had time.
+Once we got Hydrus up and running, we started tackling different projects. I was in charge of the [simulation](https://github.com/HTTP-APIs/hydra-flock-demo/) to show off what Hydrus and the [Hydra Core vocabulary](https://www.hydra-cg.com/spec/latest/core/) could do. I also chipped in on Hydrus development whenever I had a spare moment.
 
-The [simulation](https://github.com/HTTP-APIs/hydra-flock-demo/) simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using an infrared sensor.
+This [simulation](https://github.com/HTTP-APIs/hydra-flock-demo/) basically mimics a bunch of drones flying around, trying to spot fires or weird hot spots in a given area using an infrared sensor. Pretty cool, right?
 
 I wrote the following blog posts related to the simulation:
 - [GSoC Phase 2](https://xadahiya.github.io/Phase2/)
@@ -70,4 +68,4 @@ There were a lot of Pull Requests in different repositories. Most of them got me
 
 5. [Pull requests created on the Hydra Flock Central Controller repo](https://github.com/HTTP-APIs/hydra-flock-central-controller/pulls?q=is:pr+is:closed+author:xadahiya)
 
-It was a great experience, I'm looking forward to contributing to the Hydra community and Hydrus and Hydra community whenever I get time.
+It was a fantastic experience, and I'm really looking forward to contributing more to the Hydra community and Hydrus whenever I can squeeze in some time!

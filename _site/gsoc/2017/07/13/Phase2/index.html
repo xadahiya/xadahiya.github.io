@@ -184,49 +184,43 @@
               <!-- content -->
               <div class="description">
                 <div class="post-content scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <p>So, we passed the <a href="https://summerofcode.withgoogle.com/">GSoC</a> phase 1 evaluations. Now, that we have a Generic Hydra Server ready, things are getting a little more interesting. We’re working a Forestry Patrol Simulation using multiple Hydra servers and clients.</p>
+                  <p>Alright, so we totally aced the <a href="https://summerofcode.withgoogle.com/">GSoC</a> Phase 1 evaluations! Now that we’ve got a generic Hydra Server up and running, things are getting even more exciting. We’re building a Forestry Patrol Simulation using a bunch of Hydra servers and clients. Think drones, but for saving forests!</p>
 
 <h1 id="general-idea">General Idea</h1>
-<p>We are building an application that simulates the movements of a flock of drones that have as objective to control the presence of fires or abnormal heat spots in a given geographical area using infrared sensors.</p>
+<p>We’re cooking up an application that simulates a whole flock of drones. Their main gig? To keep an eye out for fires or weird hot spots in a given area using their infrared sensors. Pretty cool, right?</p>
 
 <h4 id="the-simulation-will-have-these-3-main-components--">The simulation will have these 3 main components -</h4>
 <ul>
-  <li>A flock N flying drones</li>
-  <li>A centralized Hydra server</li>
-  <li>A Javascript Application for the GUI part</li>
-  <li>Docking stations (for charging) (the docking station can be the central server position)</li>
+  <li>A bunch of flying drones (N, to be exact!)</li>
+  <li>A centralized Hydra server to keep tabs on everything</li>
+  <li>A snazzy Javascript Application for the GUI part</li>
+  <li>And, of course, some docking stations for charging (which might just be the central server’s spot!)</li>
 </ul>
 
 <h1 id="design-principles-and-some-general-ideas">Design principles and some general ideas</h1>
 
 <h2 id="drones">Drones</h2>
-<p>We need a flock of <strong>N flying drones</strong> (professional drones for forestry patrol)</p>
+<p>We need a whole flock of <strong>N flying drones</strong> (these are professional drones, mind you, for forestry patrol!).</p>
 
-<p>As a basic starting implementation, the decision is that two-ways communication channels are established between every Drone and a Central Server (or Controller), information/signals can be sent back and forth the single Drone and the Controller but NOT among Drones.</p>
+<p>For a basic setup, we decided that each Drone and a Central Server (or Controller) would have a two-way communication channel. So, info and signals can zip back and forth between a single Drone and the Controller, but <em>not</em> directly between Drones. This keeps things tidy.</p>
 
-<p>Drones will act as Hydra Servers as well as Hydra Clients (Hybrids): they will have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
+<p>Drones will act as both Hydra Servers and Hydra Clients (we call ‘em Hybrids!). They’ll have some exposed endpoints where other Hydra Clients can send orders or ask for updates. But they also have their own Hydra Client superpowers, letting them send info and signals to the Controller by calling its Hydra API.</p>
 
-<p>The drones will have some endpoint like <code class="language-plaintext highlighter-rouge">https://drone123/api/order</code> where the Controller can send the orders using <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests. Upon receiving new orders, drones can act upon them immediately unless they need to improvise.</p>
+<p>These drones will have endpoints like <code class="language-plaintext highlighter-rouge">https://drone123/api/order</code> where the Controller can send orders using <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests. When they get new orders, drones will act on them right away, unless they need to improvise (they’re smart, after all!).</p>
 
-<p>Another example can be that the Drones can ask for information about other Drones by requesting the Controller using GET  <code class="language-plaintext highlighter-rouge">https://controller/api/drone</code> or
-GET <code class="language-plaintext highlighter-rouge">https://controller/api/status/&lt;drone_id&gt;</code>
-Drones have a standard behavior given by the simulation and defined below. At least this behavior is overridden by some order, they will go on moving, acquiring data, coming back to the recharging station, recharging and taking off.</p>
+<p>Another cool thing is that Drones can ask for info about other Drones by hitting up the Controller using <code class="language-plaintext highlighter-rouge">GET https://controller/api/drone</code> or <code class="language-plaintext highlighter-rouge">GET https://controller/api/status/&lt;drone_id&gt;</code>. Drones have a standard behavior set by the simulation, and they’ll stick to it unless an order overrides it. They’ll just keep moving, collecting data, heading back to the recharging station, juicing up, and taking off again.</p>
 
 <h2 id="main-functions">Main Functions</h2>
-<p>As defined above, the Drones will act as <strong>semi-intelligent Hydra Servers</strong> as well as <strong>Clients</strong>, they will have the following main functions:</p>
+<p>As I mentioned, these Drones are pretty smart, acting as both <strong>semi-intelligent Hydra Servers</strong> and <strong>Clients</strong>. Here’s what they can do:</p>
 
 <ul>
-  <li>Drones receive commands from the server ( can be something as simple as the central server sends orders at some endpoint like PUT <code class="language-plaintext highlighter-rouge">https://drone123/api/order/&lt;order_id&gt;</code>). Commands can include the speed and direction to move with some additional attributes.</li>
-</ul>
-
-<p>Upon receiving the order the drone will act immediately unless there is some issue and it needs to override the orders. These orders are sequential and they stack on the limited Drone’s in-memory queue. In the case of the <strong>“ order endpoint”</strong> above, Drone will respond with and <strong>Hydra: Status</strong> that can be, for example, <strong>“204 Accepted”</strong> or <strong>“409 Conflict”</strong>.</p>
-<ul>
-  <li>A Drone publishes its status via HTTP response from its Hydra Server at some endpoint like <code class="language-plaintext highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can reach it.</li>
-  <li>Drones publish their sensor data stream via requests to the server at some endpoint like <code class="language-plaintext highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
-  <li>Each drone will have a unique id and some other parameters like speed and battery life.</li>
-  <li>Drones cannot interact with other drones or issue commands to them directly, they need to do so via the central server. For example, if any drone wants to know the nearby drones, it can just ask the server via <code class="language-plaintext highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
-  <li>Drones will automatically decide when to charge and only, in that case, override the commands sent by the server only after sending a log of its status to the central server.</li>
-  <li>Drones obey some basic rules ( For example - can’t hit each other)</li>
+  <li>Drones can get commands from the server (could be something as simple as the central server sending orders to an endpoint like <code class="language-plaintext highlighter-rouge">PUT https://drone123/api/order/&lt;order_id&gt;</code>). These commands can include stuff like speed and direction, plus any extra attributes. When a drone gets an order, it acts on it right away, unless there’s a good reason to do something else. These orders are sequential and stack up in the Drone’s limited in-memory queue. If the “order endpoint” is used, the Drone will respond with a <strong>Hydra: Status</strong> like “204 Accepted” or “409 Conflict” – basically, telling the server if it got the message or not.</li>
+  <li>A Drone broadcasts its status via an HTTP response from its Hydra Server at an endpoint like <code class="language-plaintext highlighter-rouge">GET https://drone123/api/status</code>, so the Controller can always check in on it.</li>
+  <li>Drones send their sensor data stream by making requests to the server at an endpoint like <code class="language-plaintext highlighter-rouge">POST https://controller/drone/&lt;drone_id/data.</code></li>
+  <li>Each drone gets a unique ID and has other cool parameters like speed and battery life.</li>
+  <li>Drones can’t chat directly with other drones or tell them what to do. They have to go through the central server. So, if a drone wants to know about nearby drones, it just asks the server via <code class="language-plaintext highlighter-rouge">GET https://controller/drone/&lt;drone_id/status</code>.</li>
+  <li>Drones are smart enough to decide when they need to charge. If they do, they’ll override server commands, but only after sending a log of their status to the central server. Safety first!</li>
+  <li>And of course, drones follow some basic rules (like, you know, not crashing into each other!).</li>
 </ul>
 
 <h2 id="supported-classes-and-their-props-for-drone-apidocumentation">Supported Classes and their Props for Drone ApiDocumentation</h2>
@@ -293,25 +287,23 @@ Drones have a standard behavior given by the simulation and defined below. At le
 </span></code></pre></div></div>
 
 <h2 id="client-part">Client part</h2>
-<p>Every drone will have a Client part along with the Hydra Server Part. The client part will have no idea about the server endpoints except the main entrypoint to the server (<strong>VERY IMPORTANT TO DEMONSTRATE HYDRA CAPABILITIES</strong>).
-The client will have to figure out the rest on its own.
-A Drone Client will serve the following purposes -</p>
+<p>Every drone will have a Client part alongside its Hydra Server Part. The cool thing is, the client part won’t know anything about the server endpoints except for the main entrypoint to the server (<strong>this is super important for showing off Hydra’s capabilities!</strong>). The client will have to figure out the rest on its own. A Drone Client will handle a couple of things:</p>
 <ul>
-  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit drone status whenever the status changes or the drone needs to override the server orders.</li>
-  <li>Will be used to issue <strong>POST</strong> requests to the central server to submit the data stream from sensors, this will only be done when the drone’s status will be <code class="language-plaintext highlighter-rouge">[Progress: Analysing]</code>. After the data stream is successfully submitted the drone will move to the next destination. Upon successful retrieval of Sensor data from the drone, the server will issue new orders to the drone (can be automatic or manual by the user).</li>
+  <li>It’ll send <strong>POST</strong> requests to the central server to update the drone’s status whenever it changes or if the drone needs to override server orders.</li>
+  <li>It’ll also send <strong>POST</strong> requests to the central server to submit data streams from its sensors. This only happens when the drone’s status is <code class="language-plaintext highlighter-rouge">[Progress: Analysing]</code>. Once the data stream is successfully sent, the drone moves to its next destination. After the server gets the sensor data, it’ll send new orders to the drone (either automatically or manually by a user).</li>
 </ul>
 
 <h1 id="central-server">Central server</h1>
-<p>The central server will be a Hydra based API server acting as a <strong>central data store</strong> and <strong>control center</strong> for all the drones. It will also have a client part just like the drones that will be used to issue orders to different drones.</p>
+<p>The central server is a Hydra-based API server that acts as the <strong>main data hub</strong> and <strong>control center</strong> for all the drones. It also has a client part, just like the drones, which it uses to send orders to different drones. It’s basically the brain of the operation!</p>
 
 <h2 id="main-functions-1">Main Functions</h2>
-<p>The central server will serve the following purposes -</p>
+<p>The central server is pretty busy, handling a few key tasks:</p>
 <ul>
-  <li>It will act as a central database for all the drones to store their logs and sensor data. This will be done using the drone client side, they will issue POST/PUT requests after some fixed interval of time or upon some status change.</li>
-  <li>It will have some endpoint to serve all the logs from all the drones in some natural language format for the GUI part.</li>
-  <li>The server will issue orders to all the drones to make them coordinate and cover the entire area of interest ( the client side of the server will be used to send orders to the drones).</li>
-  <li>The server will act as an intermediate if different drones want to interact with each other. For example -  If some drone wants to know the position of all nearby drones.</li>
-  <li>Will act as the main docking station to recharge drones.</li>
+  <li>It acts as a central database for all the drones, storing their logs and sensor data. Drones will send <code class="language-plaintext highlighter-rouge">POST/PUT</code> requests at fixed intervals or when their status changes.</li>
+  <li>It has an endpoint to serve all the drone logs in a human-readable format for the GUI.</li>
+  <li>The server sends orders to all the drones, making them coordinate and cover the entire area of interest (the server’s client side handles sending these orders).</li>
+  <li>It acts as a middleman if different drones need to talk to each other. For example, if a drone wants to know where all the nearby drones are, it asks the server.</li>
+  <li>It’s also the main docking station where drones go to recharge. Think of it as their home base!</li>
 </ul>
 
 <h4 id="the-central-server-will-serve-the-following-functionalities-through-related-endpoints--">The central server will serve the following functionalities through related endpoints -</h4>
@@ -335,11 +327,9 @@ A Drone Client will serve the following purposes -</p>
 <p>See this <a href="https://gist.github.com/xadahiya/9b8e27aab77c1d73a8be950e70abc3cb">Gist</a></p>
 
 <h2 id="client-part-1">Client Part</h2>
-<p>The central server will also have a Client part.
-The client part will have no idea about the drone endpoints except the main entrypoint to each drone (<strong>VERY IMPORTANT TO DEMONSTRATE HYDRA CAPABILITIES</strong>). The client will have to figure out the rest on its own.
-The Server Client will serve the following purposes -</p>
+<p>The central server also has a Client part. This client part is pretty cool because it doesn’t need to know all the nitty-gritty details about each drone’s endpoints, just the main entry point to each drone (<strong>this is super important for showing off Hydra’s capabilities!</strong>). It figures out the rest on its own. The Server Client is mainly used for one thing:</p>
 <ul>
-  <li>It will be used to issue new orders using <code class="language-plaintext highlighter-rouge">POST</code> requests to each drone.</li>
+  <li>It sends new orders to each drone using <code class="language-plaintext highlighter-rouge">POST</code> requests.</li>
 </ul>
 
 <h1 id="javascript-monitoring-application">Javascript Monitoring Application</h1>

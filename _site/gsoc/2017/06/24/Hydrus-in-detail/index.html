@@ -184,20 +184,19 @@
               <!-- content -->
               <div class="description">
                 <div class="post-content scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <p>Hi everyone, in my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a> I told you about who I am and what we’ve been working on for  <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. In this post, I would like to discuss in detail about our project Hydrus.</p>
+                  <p>Hey everyone! In my <a href="https://xadahiya.github.io/Coding-Begins/">last post</a>, I gave you the lowdown on who I am and what we’ve been up to for <a href="https://summerofcode.withgoogle.com/">GSoC</a> 2017. This time, I want to dive deep into our awesome project: Hydrus!</p>
 
-<p><strong>Hydrus</strong> is a set of <strong>Python</strong> based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create a powerful REST APIs to serve data. Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creation and documentation of it’s APIs.</p>
+<p><strong>Hydrus</strong> is a cool set of <strong>Python</strong> tools that make building Hypermedia-driven REST-APIs way easier and more efficient. It taps into the power of <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> to create some seriously powerful REST APIs for serving data. Plus, Hydrus uses the <a href="https://www.hydra-cg.com/">Hydra(W3C)</a> standard for creating and documenting its APIs. Pretty neat, right?</p>
 
-<p>Let’s discuss Hydrus in detail.</p>
+<p>Let’s dive into the nitty-gritty of Hydrus!</p>
 
 <hr />
 
 <h1 id="design">Design</h1>
-<p>There are three main aspects of Hydrus design. Those are <strong>Database design</strong>, <strong>Data flow</strong> and <strong>Use cases</strong>.</p>
+<p>Hydrus design revolves around three key areas: <strong>Database design</strong>, <strong>Data flow</strong>, and <strong>Use cases</strong>. Let’s break ‘em down.</p>
 
 <h2 id="database-design">Database Design</h2>
-<p>The design of the Database takes into account the different types of representations possible using the triple format.
-Typically, there are 4 types of triples that are stored in a <code class="language-plaintext highlighter-rouge">Graph</code>:</p>
+<p>Our database design is pretty clever, taking into account all the different ways you can represent data using the triple format. We typically store four types of triples in a <code class="language-plaintext highlighter-rouge">Graph</code>:</p>
 <ul>
   <li><strong><code class="language-plaintext highlighter-rouge">Class &gt;&gt; Property &gt;&gt; Class</code> [<code class="language-plaintext highlighter-rouge">GraphCAC</code>]</strong></li>
   <li><strong><code class="language-plaintext highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Class</code> [<code class="language-plaintext highlighter-rouge">GraphIAC</code>]</strong></li>
@@ -205,9 +204,7 @@ Typically, there are 4 types of triples that are stored in a <code class="langua
   <li><strong><code class="language-plaintext highlighter-rouge">Resource &gt;&gt; Property &gt;&gt; Value</code> [<code class="language-plaintext highlighter-rouge">GraphIIT</code>]</strong></li>
 </ul>
 
-<p>For a distinction between the different types of <code class="language-plaintext highlighter-rouge">Value</code>, we created a <code class="language-plaintext highlighter-rouge">Terminal</code> class, which contains a <code class="language-plaintext highlighter-rouge">value</code> and it’s <code class="language-plaintext highlighter-rouge">unit</code>.
-There is also a distinction between properties that map to <code class="language-plaintext highlighter-rouge">Resources</code> and <code class="language-plaintext highlighter-rouge">Terminals</code> and those that map to <code class="language-plaintext highlighter-rouge">Classes</code>.
-We call <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Classes</code> as <code class="language-plaintext highlighter-rouge">AbstractProperty</code> and the other as <code class="language-plaintext highlighter-rouge">InstanceProperty</code>.</p>
+<p>For a clear distinction between different <code class="language-plaintext highlighter-rouge">Value</code> types, we created a <code class="language-plaintext highlighter-rouge">Terminal</code> class, which holds a <code class="language-plaintext highlighter-rouge">value</code> and its <code class="language-plaintext highlighter-rouge">unit</code>. We also differentiate between <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Resources</code> and <code class="language-plaintext highlighter-rouge">Terminals</code> versus those that map to <code class="language-plaintext highlighter-rouge">Classes</code>. We call <code class="language-plaintext highlighter-rouge">Properties</code> that map to <code class="language-plaintext highlighter-rouge">Classes</code> as <code class="language-plaintext highlighter-rouge">AbstractProperty</code> and the others as <code class="language-plaintext highlighter-rouge">InstanceProperty</code>.</p>
 
 <p>Below is the schema diagram for our database design:</p>
 
@@ -215,7 +212,7 @@ We call <code class="language-plaintext highlighter-rouge">Properties</code> tha
 ***</p>
 
 <h2 id="data-flow">Data Flow</h2>
-<p>Here is a small illustration as to how data flows in Hydrus.</p>
+<p>Here’s a quick peek at how data zips around in Hydrus:</p>
 
 <p><strong>Hydra API Documentation to server endpoints</strong>:</p>
 
@@ -226,21 +223,20 @@ We call <code class="language-plaintext highlighter-rouge">Properties</code> tha
 <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/rdf_dataflow.png?raw=true" alt="RDF Flow" title="RDF Flow" /></p>
 
 <h2 id="use-cases">Use cases</h2>
-<p>This section explains Hydrus’s design and a use case for the same.
-For the demonstration, the server has the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p>
+<p>This section breaks down Hydrus’s design and shows you a real-world example. For this demo, the server uses the <a href="https://ontology.projectchronos.eu/documentation/subsystems">Subsystems</a> and <a href="https://ontology.projectchronos.eu/documentation/spacecraft">Spacecraft</a> vocabularies.</p>
 
 <p>Here is an example of a system used to serve data using the components of Hydrus:</p>
 
 <p><img src="https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true" alt="Use case" title="Use case" /></p>
 
-<p><strong>A simple example explaining the use of the above architecture would be:</strong></p>
+<p><strong>Here’s a simple example to show you how this architecture works:</strong></p>
 <ul>
-  <li>User types in the query “What is the cost of a Thermal Subsystem?”.</li>
-  <li>Middleware uses NLP to extract keywords <code class="language-plaintext highlighter-rouge">Thermal Subsystem</code> and <code class="language-plaintext highlighter-rouge">cost</code> and maps it to the Hydra instances and properties present at the server.</li>
-  <li>Middleware passes these instances and the underlying query to the client.</li>
-  <li>Client models a request and uses the API endpoints to extract the given information from the server.</li>
-  <li>Server replies with the required value.</li>
-  <li>Client serves data to the User.</li>
+  <li>Imagine a user types in, “What’s the cost of a Thermal Subsystem?”</li>
+  <li>Our clever Middleware uses Natural Language Processing (NLP) to pull out keywords like <code class="language-plaintext highlighter-rouge">Thermal Subsystem</code> and <code class="language-plaintext highlighter-rouge">cost</code>. It then maps these to the Hydra instances and properties chilling on the server.</li>
+  <li>The Middleware passes these instances and the original query to the client.</li>
+  <li>The Client then crafts a request and uses the API endpoints to grab the info from the server.</li>
+  <li>The Server, being super helpful, replies with the exact value needed.</li>
+  <li>Finally, the Client serves up that data to the User. Easy peasy!</li>
 </ul>
 
 <hr />
@@ -248,46 +244,45 @@ For the demonstration, the server has the <a href="https://ontology.projectchron
 <h1 id="features-and-requirements">Features and Requirements</h1>
 
 <h2 id="features">Features</h2>
-<p>Hydrus supports the following features:</p>
+<p>Hydrus comes packed with these cool features:</p>
 <ul>
-  <li>A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li>
-  <li>A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.</li>
-  <li>A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. <strong>(under development)</strong></li>
+  <li>A client that totally gets Hydra vocabulary and can chat with any Hydra-supporting server to do basic <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> operations on data.</li>
+  <li>A generic server that can dish out all the data and metadata (like API documentation) to a client over HTTP.</li>
+  <li>A middleware that lets users talk to the client using plain old Natural Language, which then gets processed into machine-friendly language. (Still cooking this one up!)</li>
 </ul>
 
 <h2 id="requirements">Requirements</h2>
-<p>The system is built using the following standards and tools:</p>
+<p>We built this system using some solid standards and tools:</p>
 <ul>
-  <li><a href="https://flask.pocoo.org/">Flask</a> a Python-based micro-framework for handling server requests and responses.</li>
-  <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a> as the preferred data format.</li>
-  <li><a href="https://www.hydra-cg.com/">Hydra</a> as the API standard.</li>
-  <li><a href="https://www.postgresql.org/">PostgreSQL</a> as the backend database for storage and CRUD operations.</li>
+  <li><a href="https://flask.pocoo.org/">Flask</a>: Our go-to Python micro-framework for handling all those server requests and responses.</li>
+  <li><a href="https://json-ld.org/spec/latest/json-ld/">JSON-LD</a>: Our preferred data format – clean and easy to work with.</li>
+  <li><a href="https://www.hydra-cg.com/">Hydra</a>: The API standard that keeps everything in line.</li>
+  <li><a href="https://www.postgresql.org/">PostgreSQL</a>: Our backend database for storing data and doing all the CRUD operations.</li>
 </ul>
 
-<p>Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It would be advisable to run <strong><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></strong> before setting up other things.</p>
+<p>Oh, and there are a bunch of other Python packages Hydrus uses. You can find a full list in the <a href="https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt">requirements.txt</a> file. It’s a good idea to run <strong><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></strong> before you get started with anything else!</p>
 
 <hr />
 
 <h1 id="running-the-demo-server">Running the Demo server</h1>
-<p><strong>Please make sure you have <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed.</strong></p>
+<p><strong>First things first, make sure you’ve got <a href="https://docs.docker.com/engine/installation/">docker</a> and <a href="https://docs.docker.com/compose/install/">docker-compose</a> installed!</strong></p>
 
-<p>Once we have docker up and running setting up the demo server is a piece of cake.</p>
+<p>Once Docker is all set up, getting our demo server up and running is a piece of cake. Seriously, it’s super easy!</p>
 <h3 id="instructions">Instructions</h3>
 <ul>
   <li>Clone the repository to your local machine.</li>
-  <li><code class="language-plaintext highlighter-rouge">cd</code> into the project directory and use <code class="language-plaintext highlighter-rouge">docker-compose build</code> to build the required Docker containers.</li>
-  <li>Start the containers using <code class="language-plaintext highlighter-rouge">docker-compose up</code> (With this we have our demo server up and running).</li>
-  <li>Now, all we need to do is set up and populate the database. Connect to the container using <br /> <code class="language-plaintext highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> ( You can get the hydrus container name using <code class="language-plaintext highlighter-rouge">docker ps</code>. It should be something like <code class="language-plaintext highlighter-rouge">hydrus*</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> into the project directory and use <code class="language-plaintext highlighter-rouge">docker-compose build</code> to build those Docker containers.</li>
+  <li>Fire up the containers using <code class="language-plaintext highlighter-rouge">docker-compose up</code> (and just like that, your demo server is live!).</li>
+  <li>Now, we just need to set up and fill up the database. Connect to the container using <code class="language-plaintext highlighter-rouge">docker exec -it &lt;container_name or container_id&gt; /bin/bash</code> (you can find the hydrus container name with <code class="language-plaintext highlighter-rouge">docker ps</code> – it’ll probably look something like <code class="language-plaintext highlighter-rouge">hydrus*</code>).</li>
   <li>Create the database models using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/db_models.py</code>.</li>
-  <li>Parse and Insert classes from RDF/OWL vocabulary to the database using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_classes.py</code></li>
-  <li>Insert random data generated  by <code class="language-plaintext highlighter-rouge">hydrus.data.generator</code> using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. <br />
-<strong>NOTE</strong>: This step is only valid for the subsystem example. You’ll need to write your own generator to populate the database for any other example.</li>
-  <li>Exit the docker container shell using <code class="language-plaintext highlighter-rouge">exit</code>.</li>
+  <li>Parse and insert classes from your RDF/OWL vocabulary into the database using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_classes.py</code>.</li>
+  <li>Insert some random data generated by <code class="language-plaintext highlighter-rouge">hydrus.data.generator</code> using <code class="language-plaintext highlighter-rouge">python /app/hydrus/data/insert_data.py</code>. (Heads up: This step is only for the subsystem example. If you’re using something else, you’ll need to whip up your own generator to populate the database).</li>
+  <li>Exit the docker container shell by typing <code class="language-plaintext highlighter-rouge">exit</code>.</li>
 </ul>
 
-<p><strong>The demo server should be up and running at <code class="language-plaintext highlighter-rouge">127.0.0.1:8080/api</code>.</strong></p>
+<p><strong>Your demo server should now be chilling at <code class="language-plaintext highlighter-rouge">127.0.0.1:8080/api</code>!</strong></p>
 
-<p><strong>NOTE:</strong> Docker port binding is not working in Windows. Windows users can access the server at <code class="language-plaintext highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. You can check your docker_ip using <code class="language-plaintext highlighter-rouge">docker-machine ip</code>.</p>
+<p><strong>NOTE:</strong> Docker port binding isn’t playing nice with Windows right now. If you’re on Windows, you can access the server at <code class="language-plaintext highlighter-rouge">&lt;docker_ip&gt;:8080/api</code>. Just use <code class="language-plaintext highlighter-rouge">docker-machine ip</code> to find your docker_ip.</p>
 
 <hr />
 

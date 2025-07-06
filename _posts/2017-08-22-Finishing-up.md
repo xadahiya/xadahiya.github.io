@@ -6,23 +6,20 @@ image: https://lh3.googleusercontent.com/-RLc8chMXXv2wOj9lvZBOGNzcCVUW3CMlI3GE9T
 tags: [GSoC, Hydra, Semantic Web, Hydrus]
 ---
 
-So, we've reached the [GSoC](https://summerofcode.withgoogle.com/) final evaluations period. In this post I'll be summarizing in brief we've accomplished in the last 3 months.
+Alright, folks! We've hit the [GSoC](https://summerofcode.withgoogle.com/) final evaluations, and it's time to wrap things up. In this post, I'll give you a quick rundown of what we managed to pull off in the last three months.
 
-We worked on two projects one is [Hydrus](https://github.com/HTTP-APIs/hydrus) and the other one is a [Forestry Patrol Simulation](https://github.com/HTTP-APIs/hydra-flock-demo) using various Hydrus instances with a mechanics layer on the top.
+We tackled two main projects: [Hydrus](https://github.com/HTTP-APIs/hydrus) and a [Forestry Patrol Simulation](https://github.com/HTTP-APIs/hydra-flock-demo). The simulation uses various Hydrus instances with a cool mechanics layer on top.
 
-I already wrote a post about hydrus. So in this post, I'll tell you about the simulation in detail.
+I've already blabbed about Hydrus in another post, so this time, I'll give you the lowdown on the simulation.
 
 
 General Idea
 =============
-Hydra Flock Simulation is an application that simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using infrared sensors. <br/>
-The simulation uses the [Hydrus](https://github.com/HTTP-APIs/hydrus/) and [Hydra-py](https://github.com/pchampin/hydra-py).
+The Hydra Flock Simulation is this neat application that simulates a bunch of drones flying around. Their mission? To detect fires or weird hot spots in a specific area using infrared sensors. Pretty cool, huh? The simulation runs on [Hydrus](https://github.com/HTTP-APIs/hydrus/) and [Hydra-py](https://github.com/pchampin/hydra-py).
 
 Running the Simulation
 ==============
-Running the simulation is pretty straightforward, you just need to run two scripts.<br/>
-First clone the simulation repo to your local system using <br/>
-`git clone https://github.com/HTTP-APIs/hydra-flock-demo` and then follow the following steps:
+Getting this simulation up and running is super easy, you just need to run two scripts. First, clone the simulation repo to your local system using `git clone https://github.com/HTTP-APIs/hydra-flock-demo` and then follow these steps:
 * Create and activate a new virtualenv
 * Upgrade pip and setuptools
 * Check if `python3-dev` is installed
@@ -46,7 +43,7 @@ First clone the simulation repo to your local system using <br/>
 
 Interacting with the simulation
 ==================
-The user can interact with the simulation from the simulation GUI. He can submit messages in a structured format to the central controller, the central controller will then parse the submitted message and issue commands to respective drones. Progress can be seen in controller and drone logs in the GUI.
+You can totally interact with the simulation right from the GUI! Just submit messages in a structured format to the central controller. It'll then parse your message and send commands to the right drones. You can even watch the progress in the controller and drone logs in the GUI. Pretty neat, huh?
 
 ### Some general information
 - Supported Directions are [**N**, **S**, **E**, **W**]
@@ -64,7 +61,7 @@ The user can interact with the simulation from the simulation GUI. He can submit
 
 Central Controller design
 ===============
-The central controller is a Hydra based API server acting as a central datastore and control center for all the drones. All active drones submit their status updates every 15 seconds to the central controller. Just like drones the central controller also has a client part that can be used to issue commands to different drones.
+The central controller is basically a Hydra-based API server that acts as the main data hub and control center for all the drones. All the active drones send their status updates every 15 seconds to this central controller. Just like the drones, the central controller also has a client part that you can use to send commands to different drones.
 
 ### Main Features
 - It acts as a central database for all the drones to store their logs and sensor data. This is being done using the drone client side, drones issue POST/PUT requests after every 15 seconds or upon some status change. The central controller has different endpoints for different types of data.
@@ -189,7 +186,7 @@ Full source code for the controller component is available [here](https://github
 
 Drone Design
 ==============
-Drones act as **Hydra Servers as well as Hydra Clients** (Hybrids): they have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.
+Drones in this setup are pretty cool – they act as both **Hydra Servers and Hydra Clients** (we call 'em Hybrids!). This means they have some exposed endpoints where other Hydra Clients can send orders or ask for updates. But they also have their own Hydra Client capabilities, so they can send info and signals back to the Controller by calling its Hydra API. It's a two-way street!
 
 ## Main Features
 - Drones can receive commands from the server at `/api/CommandCollection`.<br/>
