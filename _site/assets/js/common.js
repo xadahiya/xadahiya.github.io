@@ -433,72 +433,64 @@ $(function() {
 });
 
 function initCursor() {
-	var mouseX=window.innerWidth/2, mouseY=window.innerHeight/2;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
-	var cursor = {
-		el: $('.cursor'),
-		x: window.innerWidth/2,
-		y: window.innerHeight/2,
-		w: 30,
-		h: 30,
-		update:function() {
-			var l = this.x-this.w/2;
-			var t = this.y-this.h/2;
-			this.el.css({ 'transform':'translate3d('+l+'px,'+t+'px, 0)' });
-		}
-	}
+    const cursor = {
+        el: $('.cursor'),
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+        w: 30,
+        h: 30,
+        update: function() {
+            const l = this.x - this.w / 2;
+            const t = this.y - this.h / 2;
+            this.el.css({ 'transform': `translate3d(${l}px, ${t}px, 0)` });
+        }
+    };
 
-	$(window).mousemove (function(e) {
-		mouseX = e.clientX;
-		mouseY = e.clientY;
-	});
+    $(window).mousemove(function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-	$('a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk').hover(function() {
-		$('.cursor').addClass("cursor-zoom");
-	}, function(){
-		$('.cursor').removeClass("cursor-zoom");
-	});
+    $('a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk').hover(
+        function() {
+            cursor.el.addClass("cursor-zoom");
+        },
+        function() {
+            cursor.el.removeClass("cursor-zoom");
+        }
+    );
 
-	setInterval(move,1000/60);
+    function move() {
+        cursor.x = lerp(cursor.x, mouseX, 0.9);
+        cursor.y = lerp(cursor.y, mouseY, 0.9);
+        cursor.update();
+        requestAnimationFrame(move);
+    }
 
-	function move() {
-		cursor.x = lerp (cursor.x, mouseX, 0.1);
-		cursor.y = lerp (cursor.y, mouseY, 0.1);
-		cursor.update()
-	}
+    function lerp(start, end, amt) {
+        return (1 - amt) * start + amt * end;
+    }
 
-	function lerp (start, end, amt) {
-		return (1-amt)*start+amt*end
-	}
+    move();
 
-	/*
-		Validate Contact Form
-	*/
-	if($('.contacts-form').length) {
-	$('#cform').validate({
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			}
-		},
-		success: 'valid',
-	});
-	}
+    if ($('.contacts-form').length) {
+        $('#cform').validate({
+            rules: {
+                name: { required: true },
+                message: { required: true },
+                email: { required: true, email: true }
+            },
+            success: 'valid'
+        });
+    }
 }
 
 function setHeightFullSection() {
-	var width = $(window).width();
-	var height = $(window).height();
-
-	/* Set full height in started blocks */
-	$('.error-page, .menu-full-overlay, .preloader .centrize').css({'height': height});
+    const height = $(window).height();
+    $('.error-page, .menu-full-overlay, .preloader .centrize').css({ 'height': height });
 }
 
 } )( jQuery );
@@ -888,7 +880,12 @@ function setHeightFullSection() {
             'a Protocol Engineer',
             'a DeFi Researcher', 
             'a Blockchain Developer',
-            'an AI Enthusiast'
+            'an AI Enthusiast',
+            'an Anti-plagiarism researcher',
+            'a Full-stack Developer',
+            'a Web3 Developer',
+            'a Blockchain Nerd',
+            'a Crypto Trader',
         ];
         
         let textIndex = 0;
@@ -1139,8 +1136,8 @@ function setHeightFullSection() {
         });
         
         function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.1;
-            cursorY += (mouseY - cursorY) * 0.1;
+            cursorX += (mouseX - cursorX) * 0.9;
+            cursorY += (mouseY - cursorY) * 0.9;
             
             cursor.css({
                 left: cursorX + 'px',
@@ -1334,7 +1331,7 @@ function setHeightFullSection() {
         };
 
         convertRemainingGreenElements();
-        addDynamicPurpleEffects();
+        // addDynamicPurpleEffects();
         enhanceButtonInteractions();
         addFocusGlowEffects();
         injectPurpleThemeCSS();
@@ -1644,7 +1641,7 @@ function setHeightFullSection() {
             if (mutation.addedNodes.length > 0) {
                 setTimeout(() => {
                     convertRemainingGreenElements();
-                    addDynamicPurpleEffects();
+                    // addDynamicPurpleEffects();
                 }, 100);
             }
         });
