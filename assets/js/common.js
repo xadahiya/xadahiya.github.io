@@ -81,22 +81,33 @@ $(function() {
 	});
 
 	/**
-		Header Sticky
+		Header Sticky with Conditional Glass Effect
 	**/
 	if($('.header').length) {
 		$(window).on('scroll', function(event){
+			var scrollTop = $(window).scrollTop();
+			var scrollThreshold = 50; // Start glass effect after 50px scroll
 
-			if ( $(window).scrollTop() > 100 ) {
+			if ( scrollTop > 100 ) {
 				$('.header').addClass('sticky');
+				
+				// Add glass effect only when scrolling down past threshold
+				if ( scrollTop > scrollThreshold ) {
+					$('.header').addClass('glass-effect');
+				} else {
+					$('.header').removeClass('glass-effect');
+				}
+				
 				if ( this.oldScroll < this.scrollY ) {
 					$('.header').addClass('animate-in');
 				} else {
-					if ( $(window).scrollTop() < 200 ) {
+					if ( scrollTop < 200 ) {
 						$('.header').addClass('animate-out');
 					}
 				}
 			} else {
 				$('.header').removeClass('sticky');
+				$('.header').removeClass('glass-effect');
 				$('.header').removeClass('animate-in');
 				$('.header').removeClass('animate-out');
 			}

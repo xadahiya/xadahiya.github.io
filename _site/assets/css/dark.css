@@ -5808,9 +5808,21 @@ a.wp-block-button__link {
 }
 
 /* Glass Morphism Effects */
-.header,
+.header {
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  background: transparent;
+}
+
+.header.glass-effect,
 .menu-full-overlay {
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+.menu-full-overlay {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 }
 
 /* Responsive Design */
