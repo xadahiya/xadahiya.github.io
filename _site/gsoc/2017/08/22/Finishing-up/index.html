@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="/assets/css/vendors/swiper.css" type="text/css" media="all" >
   <link rel="stylesheet" href="/assets/css/vendors/animate.css" type="text/css" media="all" >
   <link rel="stylesheet" href="/assets/css/style.css" type="text/css" media="all" >
-  <link rel="stylesheet" href="/assets/css/dark.css" type="text/css" media="all" >
+  	<link rel="stylesheet" href="/assets/css/dark.css" type="text/css" media="all" >
   <link rel="alternate" type="application/rss+xml" title="Akshay Dahiya - @xadahiya" href="/feed.xml" />
   <meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc" />
   <link rel="stylesheet" type="text/css" href="/style.css" media="print" onload="this.media='all'"/>
@@ -52,7 +52,7 @@
 <body class="home dark-skin">
 	<div class="container-page">
 
-		<!-- Preloader -->
+		<!-- Modern Preloader -->
 		<div class="preloader">
 			<div class="centrize full-width">
 				<div class="vertical-center">
@@ -60,6 +60,8 @@
 						<img src="/assets/images/pat-2.png" alt="@xadahiya" >
 						<div class="spinner-dot"></div>
 						<div class="spinner spinner-line"></div>
+						<div class="loading-text">LOADING...</div>
+						<div class="progress-bar"></div>
 					</div>
 				</div>
 			</div>
@@ -184,20 +186,17 @@
               <!-- content -->
               <div class="description">
                 <div class="post-content scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  <p>So, we’ve reached the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations period. In this post I’ll be summarizing in brief we’ve accomplished in the last 3 months.</p>
+                  <p>Alright, folks! We’ve hit the <a href="https://summerofcode.withgoogle.com/">GSoC</a> final evaluations, and it’s time to wrap things up. In this post, I’ll give you a quick rundown of what we managed to pull off in the last three months.</p>
 
-<p>We worked on two projects one is <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and the other one is a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a> using various Hydrus instances with a mechanics layer on the top.</p>
+<p>We tackled two main projects: <a href="https://github.com/HTTP-APIs/hydrus">Hydrus</a> and a <a href="https://github.com/HTTP-APIs/hydra-flock-demo">Forestry Patrol Simulation</a>. The simulation uses various Hydrus instances with a cool mechanics layer on top.</p>
 
-<p>I already wrote a post about hydrus. So in this post, I’ll tell you about the simulation in detail.</p>
+<p>I’ve already blabbed about Hydrus in another post, so this time, I’ll give you the lowdown on the simulation.</p>
 
 <h1 id="general-idea">General Idea</h1>
-<p>Hydra Flock Simulation is an application that simulates the movements of a flock of drones that have as objective to detect the presence of fires or abnormal heat spots in a given geographical area using infrared sensors. <br />
-The simulation uses the <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p>
+<p>The Hydra Flock Simulation is this neat application that simulates a bunch of drones flying around. Their mission? To detect fires or weird hot spots in a specific area using infrared sensors. Pretty cool, huh? The simulation runs on <a href="https://github.com/HTTP-APIs/hydrus/">Hydrus</a> and <a href="https://github.com/pchampin/hydra-py">Hydra-py</a>.</p>
 
 <h1 id="running-the-simulation">Running the Simulation</h1>
-<p>Running the simulation is pretty straightforward, you just need to run two scripts.<br />
-First clone the simulation repo to your local system using <br />
-<code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow the following steps:</p>
+<p>Getting this simulation up and running is super easy, you just need to run two scripts. First, clone the simulation repo to your local system using <code class="language-plaintext highlighter-rouge">git clone https://github.com/HTTP-APIs/hydra-flock-demo</code> and then follow these steps:</p>
 <ul>
   <li>Create and activate a new virtualenv</li>
   <li>Upgrade pip and setuptools</li>
@@ -224,7 +223,7 @@ First clone the simulation repo to your local system using <br />
 <h3 id="note-to-stop-all-simulation-processes-use-killall-python"><strong>NOTE</strong>: To stop all simulation processes use <code class="language-plaintext highlighter-rouge">killall python</code></h3>
 
 <h1 id="interacting-with-the-simulation">Interacting with the simulation</h1>
-<p>The user can interact with the simulation from the simulation GUI. He can submit messages in a structured format to the central controller, the central controller will then parse the submitted message and issue commands to respective drones. Progress can be seen in controller and drone logs in the GUI.</p>
+<p>You can totally interact with the simulation right from the GUI! Just submit messages in a structured format to the central controller. It’ll then parse your message and send commands to the right drones. You can even watch the progress in the controller and drone logs in the GUI. Pretty neat, huh?</p>
 
 <h3 id="some-general-information">Some general information</h3>
 <ul>
@@ -244,7 +243,7 @@ First clone the simulation repo to your local system using <br />
 <p><strong>NOTE:-</strong>  Changing the drone direction won’t work if the drone is in <code class="language-plaintext highlighter-rouge">Confirming</code> state.</p>
 
 <h1 id="central-controller-design">Central Controller design</h1>
-<p>The central controller is a Hydra based API server acting as a central datastore and control center for all the drones. All active drones submit their status updates every 15 seconds to the central controller. Just like drones the central controller also has a client part that can be used to issue commands to different drones.</p>
+<p>The central controller is basically a Hydra-based API server that acts as the main data hub and control center for all the drones. All the active drones send their status updates every 15 seconds to this central controller. Just like the drones, the central controller also has a client part that you can use to send commands to different drones.</p>
 
 <h3 id="main-features">Main Features</h3>
 <ul>
@@ -370,7 +369,7 @@ First clone the simulation repo to your local system using <br />
 Full source code for the controller component is available <a href="https://github.com/HTTP-APIs/hydra-flock-central-controller">here</a>.</p>
 
 <h1 id="drone-design">Drone Design</h1>
-<p>Drones act as <strong>Hydra Servers as well as Hydra Clients</strong> (Hybrids): they have some exposed endpoints where other Hydra Client can send orders or ask for updates, but they also have Hydra Client capabilities themselves, to send information and signals to the Controller by calling the Controller’s Hydra API.</p>
+<p>Drones in this setup are pretty cool – they act as both <strong>Hydra Servers and Hydra Clients</strong> (we call ‘em Hybrids!). This means they have some exposed endpoints where other Hydra Clients can send orders or ask for updates. But they also have their own Hydra Client capabilities, so they can send info and signals back to the Controller by calling its Hydra API. It’s a two-way street!</p>
 
 <h2 id="main-features-1">Main Features</h2>
 <ul>
@@ -588,7 +587,7 @@ When the drone is confirming any anomaly detected by some other drone. User can�
   <script src="/assets/js/skrollr.js"></script>
   <script src="/assets/js/jquery.cookie.js"></script>
   <script src="/assets/js/typed.js"></script>
-  <script src="/assets/js/common.js"></script>
+  	<script src="/assets/js/common.js"></script>
 
 </body>
 </html>

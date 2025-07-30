@@ -786,5 +786,7 @@
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-@use "highlights";
-@use "svg-icons";
+// @import "highlights";
+// @import "svg-icons";
+
+/* Modern enhancements are loaded via separate CSS files */

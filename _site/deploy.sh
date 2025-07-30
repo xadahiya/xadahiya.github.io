@@ -1,4 +1,5 @@
 JEKYLL_ENV=production 
+bundle exec jekyll clean
 jekyll build
 # cp CNAME _site/CNAME
 git add .

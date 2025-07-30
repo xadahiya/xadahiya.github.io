@@ -6,30 +6,27 @@ image: https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_cas
 tags: [GSoC, Hydra, Semantic Web, Hydrus, Flask]
 ---
 
-Hi everyone, in my [last post](https://xadahiya.github.io/Coding-Begins/) I told you about who I am and what we've been working on for  [GSoC](https://summerofcode.withgoogle.com/) 2017. In this post, I would like to discuss in detail about our project Hydrus.
+Hey everyone! In my [last post](https://xadahiya.github.io/Coding-Begins/), I gave you the lowdown on who I am and what we've been up to for [GSoC](https://summerofcode.withgoogle.com/) 2017. This time, I want to dive deep into our awesome project: Hydrus!
 
-**Hydrus** is a set of **Python** based tools for easier and efficient creation of Hypermedia driven REST-APIs. Hydrus utilizes the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create a powerful REST APIs to serve data. Hydrus uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for creation and documentation of it's APIs.
+**Hydrus** is a cool set of **Python** tools that make building Hypermedia-driven REST-APIs way easier and more efficient. It taps into the power of [Linked Data](https://en.wikipedia.org/wiki/Linked_data) to create some seriously powerful REST APIs for serving data. Plus, Hydrus uses the [Hydra(W3C)](https://www.hydra-cg.com/) standard for creating and documenting its APIs. Pretty neat, right?
 
-Let's discuss Hydrus in detail.
+Let's dive into the nitty-gritty of Hydrus!
 
 ***
 
 Design
 ===================
-There are three main aspects of Hydrus design. Those are **Database design**, **Data flow** and **Use cases**.
+Hydrus design revolves around three key areas: **Database design**, **Data flow**, and **Use cases**. Let's break 'em down.
 
 Database Design
 -------------
-The design of the Database takes into account the different types of representations possible using the triple format.
-Typically, there are 4 types of triples that are stored in a `Graph`:
+Our database design is pretty clever, taking into account all the different ways you can represent data using the triple format. We typically store four types of triples in a `Graph`:
 * **`Class >> Property >> Class` [`GraphCAC`]**
 * **`Resource >> Property >> Class` [`GraphIAC`]**
 * **`Resource >> Property >> Resource` [`GraphIII`]**
 * **`Resource >> Property >> Value` [`GraphIIT`]**
 
-For a distinction between the different types of `Value`, we created a `Terminal` class, which contains a `value` and it's `unit`.
-There is also a distinction between properties that map to `Resources` and `Terminals` and those that map to `Classes`.
-We call `Properties` that map to `Classes` as `AbstractProperty` and the other as `InstanceProperty`.
+For a clear distinction between different `Value` types, we created a `Terminal` class, which holds a `value` and its `unit`. We also differentiate between `Properties` that map to `Resources` and `Terminals` versus those that map to `Classes`. We call `Properties` that map to `Classes` as `AbstractProperty` and the others as `InstanceProperty`.
 
 Below is the schema diagram for our database design:
 
@@ -38,7 +35,7 @@ Below is the schema diagram for our database design:
 
 Data Flow
 -------------
-Here is a small illustration as to how data flows in Hydrus.
+Here's a quick peek at how data zips around in Hydrus:
 
 **Hydra API Documentation to server endpoints**:
 
@@ -50,20 +47,19 @@ Here is a small illustration as to how data flows in Hydrus.
 
 Use cases
 -------------
-This section explains Hydrus's design and a use case for the same.
-For the demonstration, the server has the [Subsystems](https://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](https://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
+This section breaks down Hydrus's design and shows you a real-world example. For this demo, the server uses the [Subsystems](https://ontology.projectchronos.eu/documentation/subsystems) and [Spacecraft](https://ontology.projectchronos.eu/documentation/spacecraft) vocabularies.
 
 Here is an example of a system used to serve data using the components of Hydrus:
 
 ![Use case](https://github.com/HTTP-APIs/hydrus/blob/develop/docs/wiki/images/use_case1.png?raw=true "Use case")
 
-**A simple example explaining the use of the above architecture would be:**
-* User types in the query “What is the cost of a Thermal Subsystem?”.
-* Middleware uses NLP to extract keywords `Thermal Subsystem` and `cost` and maps it to the Hydra instances and properties present at the server.
-* Middleware passes these instances and the underlying query to the client.
-* Client models a request and uses the API endpoints to extract the given information from the server.
-* Server replies with the required value.
-* Client serves data to the User.
+**Here's a simple example to show you how this architecture works:**
+* Imagine a user types in, "What's the cost of a Thermal Subsystem?"
+* Our clever Middleware uses Natural Language Processing (NLP) to pull out keywords like `Thermal Subsystem` and `cost`. It then maps these to the Hydra instances and properties chilling on the server.
+* The Middleware passes these instances and the original query to the client.
+* The Client then crafts a request and uses the API endpoints to grab the info from the server.
+* The Server, being super helpful, replies with the exact value needed.
+* Finally, the Client serves up that data to the User. Easy peasy!
 
 ***
 
@@ -72,42 +68,41 @@ Features and Requirements
 
 Features
 ------------
-Hydrus supports the following features:
-- A client that can understand Hydra vocabulary and interacts with a Hydra supporting server to basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
-- A generic server that can serve required data and metadata(in the form of API documentation) to a client over HTTP.
-- A middleware that allows users to use the client to interact with the server using Natural Language which is processed machine consumable language. **(under development)**
+Hydrus comes packed with these cool features:
+- A client that totally gets Hydra vocabulary and can chat with any Hydra-supporting server to do basic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on data.
+- A generic server that can dish out all the data and metadata (like API documentation) to a client over HTTP.
+- A middleware that lets users talk to the client using plain old Natural Language, which then gets processed into machine-friendly language. (Still cooking this one up!)
 
 Requirements
 -------------
-The system is built using the following standards and tools:
-- [Flask](https://flask.pocoo.org/) a Python-based micro-framework for handling server requests and responses.
-- [JSON-LD](https://json-ld.org/spec/latest/json-ld/) as the preferred data format.
-- [Hydra](https://www.hydra-cg.com/) as the API standard.
-- [PostgreSQL](https://www.postgresql.org/) as the backend database for storage and CRUD operations.
+We built this system using some solid standards and tools:
+- [Flask](https://flask.pocoo.org/): Our go-to Python micro-framework for handling all those server requests and responses.
+- [JSON-LD](https://json-ld.org/spec/latest/json-ld/): Our preferred data format – clean and easy to work with.
+- [Hydra](https://www.hydra-cg.com/): The API standard that keeps everything in line.
+- [PostgreSQL](https://www.postgresql.org/): Our backend database for storing data and doing all the CRUD operations.
 
-Apart from this, there are also various Python packages that Hydrus uses. A list of all these packages can be found in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It would be advisable to run **`pip install -r requirements.txt`** before setting up other things.
+Oh, and there are a bunch of other Python packages Hydrus uses. You can find a full list in the [requirements.txt](https://github.com/HTTP-APIs/hydrus/blob/master/requirements.txt) file. It's a good idea to run **`pip install -r requirements.txt`** before you get started with anything else!
 
 ***
 
 Running the Demo server
 ==============
-**Please make sure you have [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) installed.**
+**First things first, make sure you've got [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) installed!**
 
-Once we have docker up and running setting up the demo server is a piece of cake.
+Once Docker is all set up, getting our demo server up and running is a piece of cake. Seriously, it's super easy!
 ### Instructions
 - Clone the repository to your local machine.
-- `cd` into the project directory and use `docker-compose build` to build the required Docker containers.
-- Start the containers using `docker-compose up` (With this we have our demo server up and running).
-- Now, all we need to do is set up and populate the database. Connect to the container using <br/> `docker exec -it <container_name or container_id> /bin/bash` ( You can get the hydrus container name using `docker ps`. It should be something like `hydrus*`).
+- `cd` into the project directory and use `docker-compose build` to build those Docker containers.
+- Fire up the containers using `docker-compose up` (and just like that, your demo server is live!).
+- Now, we just need to set up and fill up the database. Connect to the container using `docker exec -it <container_name or container_id> /bin/bash` (you can find the hydrus container name with `docker ps` – it'll probably look something like `hydrus*`).
 - Create the database models using `python /app/hydrus/data/db_models.py`.
-- Parse and Insert classes from RDF/OWL vocabulary to the database using `python /app/hydrus/data/insert_classes.py`
-- Insert random data generated  by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`. <br/>
-**NOTE**: This step is only valid for the subsystem example. You'll need to write your own generator to populate the database for any other example.
-- Exit the docker container shell using `exit`.
+- Parse and insert classes from your RDF/OWL vocabulary into the database using `python /app/hydrus/data/insert_classes.py`.
+- Insert some random data generated by `hydrus.data.generator` using `python /app/hydrus/data/insert_data.py`. (Heads up: This step is only for the subsystem example. If you're using something else, you'll need to whip up your own generator to populate the database).
+- Exit the docker container shell by typing `exit`.
 
-**The demo server should be up and running at `127.0.0.1:8080/api`.**
+**Your demo server should now be chilling at `127.0.0.1:8080/api`!**
 
-**NOTE:** Docker port binding is not working in Windows. Windows users can access the server at `<docker_ip>:8080/api`. You can check your docker_ip using `docker-machine ip`.
+**NOTE:** Docker port binding isn't playing nice with Windows right now. If you're on Windows, you can access the server at `<docker_ip>:8080/api`. Just use `docker-machine ip` to find your docker_ip.
 
 ***
 

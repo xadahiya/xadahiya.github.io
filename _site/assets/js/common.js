@@ -433,72 +433,1222 @@ $(function() {
 });
 
 function initCursor() {
-	var mouseX=window.innerWidth/2, mouseY=window.innerHeight/2;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
-	var cursor = {
-		el: $('.cursor'),
-		x: window.innerWidth/2,
-		y: window.innerHeight/2,
-		w: 30,
-		h: 30,
-		update:function() {
-			var l = this.x-this.w/2;
-			var t = this.y-this.h/2;
-			this.el.css({ 'transform':'translate3d('+l+'px,'+t+'px, 0)' });
-		}
-	}
+    const cursor = {
+        el: $('.cursor'),
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+        w: 30,
+        h: 30,
+        update: function() {
+            const l = this.x - this.w / 2;
+            const t = this.y - this.h / 2;
+            this.el.css({ 'transform': `translate3d(${l}px, ${t}px, 0)` });
+        }
+    };
 
-	$(window).mousemove (function(e) {
-		mouseX = e.clientX;
-		mouseY = e.clientY;
-	});
+    $(window).mousemove(function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
 
-	$('a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk').hover(function() {
-		$('.cursor').addClass("cursor-zoom");
-	}, function(){
-		$('.cursor').removeClass("cursor-zoom");
-	});
+    $('a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk').hover(
+        function() {
+            cursor.el.addClass("cursor-zoom");
+        },
+        function() {
+            cursor.el.removeClass("cursor-zoom");
+        }
+    );
 
-	setInterval(move,1000/60);
+    function move() {
+        cursor.x = lerp(cursor.x, mouseX, 0.9);
+        cursor.y = lerp(cursor.y, mouseY, 0.9);
+        cursor.update();
+        requestAnimationFrame(move);
+    }
 
-	function move() {
-		cursor.x = lerp (cursor.x, mouseX, 0.1);
-		cursor.y = lerp (cursor.y, mouseY, 0.1);
-		cursor.update()
-	}
+    function lerp(start, end, amt) {
+        return (1 - amt) * start + amt * end;
+    }
 
-	function lerp (start, end, amt) {
-		return (1-amt)*start+amt*end
-	}
+    move();
 
-	/*
-		Validate Contact Form
-	*/
-	if($('.contacts-form').length) {
-	$('#cform').validate({
-		rules: {
-			name: {
-				required: true
-			},
-			message: {
-				required: true
-			},
-			email: {
-				required: true,
-				email: true
-			}
-		},
-		success: 'valid',
-	});
-	}
+    if ($('.contacts-form').length) {
+        $('#cform').validate({
+            rules: {
+                name: { required: true },
+                message: { required: true },
+                email: { required: true, email: true }
+            },
+            success: 'valid'
+        });
+    }
 }
 
 function setHeightFullSection() {
-	var width = $(window).width();
-	var height = $(window).height();
-
-	/* Set full height in started blocks */
-	$('.error-page, .menu-full-overlay, .preloader .centrize').css({'height': height});
+    const height = $(window).height();
+    $('.error-page, .menu-full-overlay, .preloader .centrize').css({ 'height': height });
 }
 
 } )( jQuery );
+
+/* =================================================================
+   MODERN ENHANCEMENTS - Purple Theme & JavaScript
+   ================================================================= */
+
+/**
+ * Error Fixes & Browser Extension Compatibility
+ */
+(function() {
+    'use strict';
+
+    // Suppress SES warnings and errors from browser extensions
+    const originalConsoleWarn = console.warn;
+    const originalConsoleError = console.error;
+
+    console.warn = function(message) {
+        if (typeof message === 'string' && (
+            message.includes('dateTaming') ||
+            message.includes('mathTaming') ||
+            message.includes('SES') ||
+            message.includes('lockdown-install')
+        )) {
+            return;
+        }
+        originalConsoleWarn.apply(console, arguments);
+    };
+
+    console.error = function(message) {
+        if (typeof message === 'string' && (
+            message.includes('lockdown-install') ||
+            message.includes('moz-extension') ||
+            message.includes('SES_UNCAUGHT_EXCEPTION')
+        )) {
+            return;
+        }
+        originalConsoleError.apply(console, arguments);
+    };
+
+    // Handle jQuery easing function errors
+    $(document).ready(function() {
+        if ($.easing) {
+            if (!$.easing.easeInOutCubic) {
+                $.easing.easeInOutCubic = function(t) {
+                    return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+                };
+            }
+            
+            if (!$.easing.easeInOutQuart) {
+                $.easing.easeInOutQuart = function(t) {
+                    return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+                };
+            }
+            
+            if (!$.easing.easeOutCubic) {
+                $.easing.easeOutCubic = function(t) {
+                    return (--t) * t * t + 1;
+                };
+            }
+        }
+    });
+
+    window.addEventListener('error', function(event) {
+        if (event.filename && (
+            event.filename.includes('moz-extension') ||
+            event.filename.includes('chrome-extension') ||
+            event.filename.includes('lockdown-install')
+        )) {
+            event.preventDefault();
+            return false;
+        }
+    });
+
+    window.addEventListener('unhandledrejection', function(event) {
+        if (event.reason && event.reason.toString().includes('lockdown')) {
+            event.preventDefault();
+            return false;
+        }
+    });
+})();
+
+/**
+ * Modern Interactive Loader JavaScript
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+        initModernLoader();
+    });
+
+    function initModernLoader() {
+        const preloader = $('.preloader');
+        const logoImg = $('.preloader .spinner-logo img');
+        const loadingText = $('.preloader .loading-text');
+        
+        logoImg.on('click', function() {
+            $(this).css({
+                animation: 'logoPulse 0.5s ease-in-out',
+                transform: 'scale(1.3)'
+            });
+            
+            setTimeout(() => {
+                $(this).css({
+                    animation: 'logoPulse 2s ease-in-out infinite',
+                    transform: 'scale(1)'
+                });
+            }, 500);
+        });
+
+        const loadingTexts = ['LOADING...', 'PREPARING...', 'ALMOST READY...'];
+        let textIndex = 0;
+        
+        setInterval(() => {
+            if (!preloader.hasClass('loaded')) {
+                loadingText.fadeOut(300, function() {
+                    $(this).text(loadingTexts[textIndex]).fadeIn(300);
+                    textIndex = (textIndex + 1) % loadingTexts.length;
+                });
+            }
+        }, 2000);
+
+        $(document).mousemove(function(e) {
+            if (!preloader.hasClass('loaded')) {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                $('.spinner-dot').css({
+                    transform: `translate(${mouseX * 10}px, ${mouseY * 10}px)`
+                });
+                
+                $('.spinner-line').css({
+                    transform: `translate(${-mouseX * 5}px, ${-mouseY * 5}px)`
+                });
+            }
+        });
+
+        $(window).on('load', function() {
+            setTimeout(() => {
+                logoImg.css({
+                    animation: 'logoPulse 0.3s ease-in-out 3',
+                    filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.8))'
+                });
+                
+                loadingText.text('READY!').css({
+                    fontSize: '20px',
+                    textShadow: '0 0 20px rgba(255,255,255,0.8)'
+                });
+                
+                setTimeout(() => {
+                    preloader.addClass('loaded');
+                    setTimeout(() => preloader.hide(), 800);
+                }, 500);
+            }, 1000);
+        });
+
+        $(document).keydown(function(e) {
+            if (!preloader.hasClass('loaded')) {
+                if (e.keyCode === 32) {
+                    e.preventDefault();
+                    logoImg.trigger('click');
+                }
+                
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    preloader.addClass('loaded');
+                    setTimeout(() => preloader.hide(), 800);
+                }
+            }
+        });
+
+        logoImg.on('touchstart', function(e) {
+            e.preventDefault();
+            $(this).trigger('click');
+        });
+
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+            $('.preloader').addClass('low-performance');
+        }
+    }
+})(jQuery);
+
+/**
+ * Modern Animations Enhancement
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+        initParticleSystem();
+        initEnhancedScrollAnimations();
+        initInteractiveSkillBars();
+        init3DEffects();
+        initMorphingBackground();
+        initTypewriterEffect();
+        initFloatingElements();
+        initGlitchEffect();
+        initModernHoverEffects();
+    });
+
+    function initParticleSystem() {
+        const canvas = $('<canvas id="particle-canvas"></canvas>');
+        $('.lui-section-hero').prepend(canvas);
+        
+        const ctx = canvas[0].getContext('2d');
+        const particles = [];
+        const maxParticles = 100;
+        
+        function resizeCanvas() {
+            canvas[0].width = window.innerWidth;
+            canvas[0].height = window.innerHeight;
+        }
+        resizeCanvas();
+        $(window).resize(resizeCanvas);
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas[0].width;
+                this.y = Math.random() * canvas[0].height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas[0].width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas[0].height) this.vy *= -1;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(147, 51, 234, ${this.opacity})`;
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < maxParticles; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas[0].width, canvas[0].height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            particles.forEach((particle, i) => {
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y);
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        ctx.strokeStyle = `rgba(147, 51, 234, ${0.1 * (1 - distance / 100)})`;
+                        ctx.stroke();
+                    }
+                });
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+        
+        canvas.css({
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            zIndex: 1,
+            pointerEvents: 'none'
+        });
+    }
+
+    function initEnhancedScrollAnimations() {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '-50px'
+        });
+        
+        $('.skills-item, .history-item, .archive-item, .works-item').each(function() {
+            $(this).addClass('animate-on-scroll');
+            observer.observe(this);
+        });
+        
+        $(window).scroll(function() {
+            const scrolled = $(this).scrollTop();
+            const parallax = $('.parallax-bg');
+            const speed = 0.5;
+            
+            parallax.css('transform', `translateY(${scrolled * speed}px)`);
+        });
+        
+        $('.num').each(function() {
+            const $this = $(this);
+            const countTo = parseInt($this.text());
+            
+            $({ countNum: 0 }).animate({
+                countNum: countTo
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function() {
+                    $this.text(Math.floor(this.countNum));
+                },
+                complete: function() {
+                    $this.text(countTo + '+');
+                }
+            });
+        });
+    }
+
+    function initInteractiveSkillBars() {
+        $('.skills-item .dots .dot').each(function() {
+            const $dot = $(this);
+            const percentage = $dot.css('width');
+            
+            $dot.css('width', '0%');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        $dot.animate({
+                            width: percentage
+                        }, {
+                            duration: 1500,
+                            easing: 'swing'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            observer.observe($dot.closest('.skills-item')[0]);
+        });
+    }
+
+    function init3DEffects() {
+        $('.works-item, .archive-item, .services-item').on('mousemove', function(e) {
+            const card = $(this);
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / centerY * -10;
+            const rotateY = (x - centerX) / centerX * 10;
+            
+            card.css({
+                transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
+                transition: 'transform 0.1s ease'
+            });
+        }).on('mouseleave', function() {
+            $(this).css({
+                transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+                transition: 'transform 0.3s ease'
+            });
+        });
+    }
+
+    function initMorphingBackground() {
+        $('.lui-gradient-center, .lui-gradient-bottom').css({
+            // background: 'linear-gradient(45deg, #667eea, #764ba2)',
+            transition: 'background 1s ease'
+        });
+    }
+
+    function initTypewriterEffect() {
+        const texts = [
+            'a Protocol Engineer',
+            'a DeFi Researcher', 
+            'a Blockchain Developer',
+            'an AI Enthusiast',
+            'an Anti-plagiarism researcher',
+            'a Full-stack Developer',
+            'a Web3 Developer',
+            'a Blockchain Nerd',
+            'a Crypto Trader',
+        ];
+        
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            const displayText = currentText.substring(0, charIndex);
+            
+            $('.label.lui-subtitle strong').text(displayText);
+            
+            if (!isDeleting && charIndex < currentText.length) {
+                charIndex++;
+                setTimeout(typeWriter, 100);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeWriter, 50);
+            } else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) {
+                    textIndex = (textIndex + 1) % texts.length;
+                }
+                setTimeout(typeWriter, 1000);
+            }
+        }
+        
+        typeWriter();
+    }
+
+    function initFloatingElements() {
+        $('.circle').each(function(index) {
+            const $circle = $(this);
+            const delay = index * 200;
+            
+            $circle.css({
+                animation: `float 3s ease-in-out infinite ${delay}ms`,
+                animationDirection: index % 2 === 0 ? 'normal' : 'reverse'
+            });
+        });
+        
+        const style = $(`
+            <style>
+                .animate-on-scroll {
+                    opacity: 0;
+                    transform: translateY(50px);
+                    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+                
+                .animate-on-scroll.animated {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            </style>
+        `);
+        $('head').append(style);
+    }
+
+    function initGlitchEffect() {
+        $('.m-title, h1').on('mouseenter', function() {
+            const $this = $(this);
+            $this.addClass('glitch-effect');
+            
+            setTimeout(() => {
+                $this.removeClass('glitch-effect');
+            }, 500);
+        });
+        
+        const glitchStyle = $(`
+            <style>
+                .glitch-effect {
+                    position: relative;
+                    animation: glitch 0.3s ease-in-out;
+                }
+                
+                .glitch-effect::before,
+                .glitch-effect::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                
+                .glitch-effect::before {
+                    animation: glitch-1 0.3s ease-in-out;
+                    color: #ff00ff;
+                    z-index: -1;
+                }
+                
+                .glitch-effect::after {
+                    animation: glitch-2 0.3s ease-in-out;
+                    color: #00ffff;
+                    z-index: -2;
+                }
+                
+                @keyframes glitch {
+                    0%, 100% { transform: translate(0); }
+                    20% { transform: translate(-2px, 2px); }
+                    40% { transform: translate(-2px, -2px); }
+                    60% { transform: translate(2px, 2px); }
+                    80% { transform: translate(2px, -2px); }
+                }
+            </style>
+        `);
+        $('head').append(glitchStyle);
+    }
+
+    function initModernHoverEffects() {
+        $('.btn').each(function() {
+            const $btn = $(this);
+            
+            $btn.on('mouseenter', function() {
+                $(this).css({
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
+                    transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+            }).on('mouseleave', function() {
+                $(this).css({
+                    transform: 'translateY(0)',
+                    boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                    transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+            });
+        });
+        
+        $('.archive-item, .works-item').hover(
+            function() {
+                $(this).find('img').css({
+                    transform: 'scale(1.1)',
+                    transition: 'transform 0.5s ease'
+                });
+            },
+            function() {
+                $(this).find('img').css({
+                    transform: 'scale(1)',
+                    transition: 'transform 0.5s ease'
+                });
+            }
+        );
+    }
+})(jQuery);
+
+/**
+ * Enhanced Interactions & UX Features
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+        initAdvancedNavigation();
+        initMagneticCursor();
+        initSmoothScrolling();
+        initImageLazyLoading();
+        initPageTransitions();
+        initVoiceInteraction();
+        initKeyboardNavigation();
+        initPerformanceOptimizations();
+    });
+
+    function initAdvancedNavigation() {
+        const sections = $('.lui-section');
+        const navLinks = $('.menu-full a[href^="#"]');
+        
+        $(window).scroll(function() {
+            let currentSection = '';
+            sections.each(function() {
+                const sectionTop = $(this).offset().top;
+                const sectionHeight = $(this).height();
+                if ($(window).scrollTop() >= (sectionTop - 200)) {
+                    currentSection = $(this).attr('id');
+                }
+            });
+            
+            navLinks.removeClass('active');
+            navLinks.filter(`[href="#${currentSection}"]`).addClass('active');
+        });
+        
+        navLinks.on('click', function(e) {
+            e.preventDefault();
+            const target = $(this.getAttribute('href'));
+            
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 80
+                }, {
+                    duration: 1000,
+                    easing: 'swing'
+                });
+            }
+        });
+        
+        const progressBar = $('<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>');
+        $('body').prepend(progressBar);
+        
+        $(window).scroll(function() {
+            const scroll = $(window).scrollTop();
+            const height = $(document).height() - $(window).height();
+            const progress = (scroll / height) * 100;
+            $('.scroll-progress-bar').css('width', progress + '%');
+        });
+        // background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+        
+        const progressStyle = $(`
+            <style>
+                .scroll-progress {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: rgba(255,255,255,0.1);
+                    z-index: 10000;
+                }
+                .scroll-progress-bar {
+                    height: 100%;
+                    width: 0%;
+                    transition: width 0.1s ease;
+                }
+                .menu-full a.active {
+                    color: var(--accent-color) !important;
+                    position: relative;
+                }
+                .menu-full a.active::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--accent-color);
+                }
+            </style>
+        `);
+        $('head').append(progressStyle);
+    }
+
+    function initMagneticCursor() {
+        const cursor = $('.cursor');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        
+        $(document).mousemove(function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.9;
+            cursorY += (mouseY - cursorY) * 0.9;
+            
+            cursor.css({
+                left: cursorX + 'px',
+                top: cursorY + 'px'
+            });
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        $('.btn, .social-links a, .works-item, .archive-item').on('mouseenter', function() {
+            const rect = this.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            cursor.css({
+                transform: `translate(${centerX - mouseX}px, ${centerY - mouseY}px) scale(1.5)`,
+                mixBlendMode: 'difference'
+            });
+        }).on('mouseleave', function() {
+            cursor.css({
+                transform: 'translate(0, 0) scale(1)',
+                mixBlendMode: 'normal'
+            });
+        });
+    }
+
+    function initSmoothScrolling() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                let target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 100
+                    }, {
+                        duration: 1200,
+                        easing: 'swing',
+                        complete: function() {
+                            target.addClass('section-focus');
+                            setTimeout(() => {
+                                target.removeClass('section-focus');
+                            }, 1000);
+                        }
+                    });
+                    return false;
+                }
+            }
+        });
+    }
+
+    function initImageLazyLoading() {
+        const images = $('img[src]');
+        
+        images.each(function() {
+            const img = $(this);
+            const src = img.attr('src');
+            
+            img.css({
+                filter: 'blur(5px)',
+                transition: 'filter 0.5s ease'
+            });
+            
+            const fullImage = new Image();
+            fullImage.onload = function() {
+                img.attr('src', src).css('filter', 'blur(0px)');
+            };
+            fullImage.src = src;
+        });
+    }
+
+    function initPageTransitions() {
+        const overlay = $('<div class="page-transition-overlay"></div>');
+        $('body').append(overlay);
+        
+        $('body').addClass('page-entering');
+        
+        $('a[href^="http"]').on('click', function(e) {
+            const link = this.href;
+            e.preventDefault();
+            
+            overlay.addClass('active');
+            setTimeout(() => {
+                window.open(link, '_blank');
+                overlay.removeClass('active');
+            }, 300);
+        });
+    }
+
+    function initVoiceInteraction() {
+        if ('speechSynthesis' in window && 'SpeechRecognition' in window) {
+            const voiceBtn = $('<button class="voice-control" title="Voice Commands"><i class="fa fa-microphone"></i></button>');
+            $('body').append(voiceBtn);
+            
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+            
+            voiceBtn.on('click', function() {
+                $(this).addClass('listening');
+                recognition.start();
+            });
+            
+            recognition.onresult = function(event) {
+                const command = event.results[0][0].transcript.toLowerCase();
+                voiceBtn.removeClass('listening');
+                
+                if (command.includes('scroll to top')) {
+                    $('html, body').animate({scrollTop: 0}, 1000);
+                } else if (command.includes('about')) {
+                    $('html, body').animate({scrollTop: $('#about-section').offset().top}, 1000);
+                }
+            };
+            
+            recognition.onerror = function() {
+                voiceBtn.removeClass('listening');
+            };
+        }
+    }
+
+    function initKeyboardNavigation() {
+        $(document).keydown(function(e) {
+            switch(e.which) {
+                case 74: // J key
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: $(window).scrollTop() + $(window).height()
+                        }, 500);
+                    }
+                    break;
+                case 75: // K key
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: $(window).scrollTop() - $(window).height()
+                        }, 500);
+                    }
+                    break;
+                case 72: // H key
+                    if (e.ctrlKey || e.metaKey) {
+                        e.preventDefault();
+                        $('html, body').animate({scrollTop: 0}, 800);
+                    }
+                    break;
+                case 27: // Escape
+                    $('.menu-btn.active').trigger('click');
+                    break;
+            }
+        });
+    }
+
+    function initPerformanceOptimizations() {
+        let scrollTimeout;
+        $(window).on('scroll', function() {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+                const scrollTop = $(this).scrollTop();
+                $('.parallax-element').css('transform', `translateY(${scrollTop * 0.3}px)`);
+            }, 16);
+        });
+        
+        if (window.innerWidth <= 768) {
+            $('.particle-canvas').remove();
+            $('*').css('animation-duration', '0.5s');
+        }
+    }
+})(jQuery);
+
+/**
+ * Purple Theme Enhancer
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+        initPurpleThemeEnhancer();
+        initAggressivePurpleConverter();
+    });
+
+    function initPurpleThemeEnhancer() {
+        const purpleColors = {
+            primary: '#9333ea',
+            secondary: '#a855f7', 
+            light: '#c084fc',
+            accent: '#7c3aed',
+            glow: '#8b39ff'
+        };
+
+        convertRemainingGreenElements();
+        // addDynamicPurpleEffects();
+        enhanceButtonInteractions();
+        addFocusGlowEffects();
+        injectPurpleThemeCSS();
+    }
+
+    function convertRemainingGreenElements() {
+        const purpleColors = {
+            primary: '#9333ea',
+            light: '#c084fc'
+        };
+
+        $('*').each(function() {
+            const $el = $(this);
+            const computedStyle = window.getComputedStyle(this);
+            
+            const color = computedStyle.color;
+            if (isGreenish(color)) {
+                $el.css('color', purpleColors.light);
+            }
+            
+            const bgColor = computedStyle.backgroundColor;
+            if (isGreenish(bgColor)) {
+                $el.css('background-color', purpleColors.primary);
+            }
+            
+            const borderColor = computedStyle.borderColor;
+            if (isGreenish(borderColor)) {
+                $el.css('border-color', purpleColors.primary);
+            }
+        });
+    }
+
+    function isGreenish(color) {
+        if (!color || color === 'transparent' || color === 'rgba(0, 0, 0, 0)') return false;
+        
+        const rgb = color.match(/\d+/g);
+        if (!rgb || rgb.length < 3) return false;
+        
+        const r = parseInt(rgb[0]);
+        const g = parseInt(rgb[1]);
+        const b = parseInt(rgb[2]);
+        
+        const isTeal = (r >= 40 && r <= 50 && g >= 160 && g <= 170 && b >= 130 && b <= 140);
+        const isGreen = (g > r && g > b && g > 100);
+        
+        return isTeal || isGreen;
+    }
+
+    function addDynamicPurpleEffects() {
+        $('a, button, .lui-button, .btn').hover(
+            function() {
+                $(this).css({
+                    'transition': 'all 0.3s ease',
+                    'transform': 'translateY(-1px)',
+                    'box-shadow': '0 4px 15px rgba(147, 51, 234, 0.4)'
+                });
+            },
+            function() {
+                $(this).css({
+                    'transform': 'translateY(0)',
+                    'box-shadow': 'none'
+                });
+            }
+        );
+
+        $('.lui-card, .card, .portfolio-item').hover(
+            function() {
+                $(this).css({
+                    'box-shadow': '0 10px 30px rgba(147, 51, 234, 0.3)',
+                    'border-color': '#9333ea',
+                    'transition': 'all 0.3s ease'
+                });
+            },
+            function() {
+                $(this).css({
+                    'box-shadow': '',
+                    'border-color': ''
+                });
+            }
+        );
+    }
+
+    function enhanceButtonInteractions() {
+        $('.lui-button, .btn-primary, button').each(function() {
+            const $btn = $(this);
+            
+            $btn.on('mouseenter', function() {
+                if (!$btn.find('.shimmer-effect').length) {
+                    $btn.append('<div class="shimmer-effect"></div>');
+                    // background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                    
+                    const shimmerCSS = `
+                        .shimmer-effect {
+                            position: absolute;
+                            top: 0;
+                            left: -100%;
+                            width: 100%;
+                            height: 100%;
+                            animation: shimmer 0.6s ease-out;
+                        }
+                        @keyframes shimmer {
+                            from { left: -100%; }
+                            to { left: 100%; }
+                        }
+                    `;
+                    
+                    if (!$('#shimmer-styles').length) {
+                        $('head').append(`<style id="shimmer-styles">${shimmerCSS}</style>`);
+                    }
+                }
+            });
+            
+            $btn.on('animationend', '.shimmer-effect', function() {
+                $(this).remove();
+            });
+        });
+    }
+
+    function addFocusGlowEffects() {
+        $('input, textarea, select').focus(function() {
+            $(this).css({
+                'box-shadow': '0 0 0 0.2rem rgba(147, 51, 234, 0.3)',
+                'border-color': '#9333ea',
+                'outline': 'none'
+            });
+        }).blur(function() {
+            $(this).css({
+                'box-shadow': '',
+                'border-color': ''
+            });
+        });
+
+        $('.nav-link, .navbar-nav a').hover(
+            function() {
+                $(this).css({
+                    'text-shadow': '0 0 8px rgba(147, 51, 234, 0.7)',
+                    'color': '#a855f7'
+                });
+            },
+            function() {
+                $(this).css({
+                    'text-shadow': '',
+                    'color': ''
+                });
+            }
+        );
+    }
+
+    function injectPurpleThemeCSS() {
+        const purpleThemeCSS = `
+            <style id="purple-theme-vars">
+                :root {
+                    --accent-color: #9333ea !important;
+                    --primary-color: #9333ea !important;
+                    --link-color: #c084fc !important;
+                    --button-color: #9333ea !important;
+                    --hover-color: #7c3aed !important;
+                }
+                
+                *[style*="color: rgb(41, 165, 135)"],
+                *[style*="color: #29a587"],
+                *[style*="background-color: rgb(41, 165, 135)"],
+                *[style*="background-color: #29a587"] {
+                    color: #c084fc !important;
+                    background-color: #9333ea !important;
+                }
+            </style>
+        `;
+        
+        if (!$('#purple-theme-vars').length) {
+            $('head').append(purpleThemeCSS);
+        }
+    }
+
+    function initAggressivePurpleConverter() {
+        function convertAllGreenElements() {
+            $('.section.hero-started .slide .circle.circle-1').css({
+                'background': '#9333ea !important',
+                'background-color': '#9333ea !important'
+            });
+
+            $('strong, b').each(function() {
+                const $el = $(this);
+                const color = $el.css('color');
+                
+                if (isGreenColor(color) || $el.css('color').includes('29a587')) {
+                    $el.css('color', '#c084fc !important');
+                }
+            });
+
+            $('.m-title span, .services-item .lui-title span, .section.hero-started strong, .section.hero-started b').css({
+                'color': '#c084fc !important'
+            });
+
+            $('*').each(function() {
+                const $el = $(this);
+                const computedStyle = window.getComputedStyle(this);
+                
+                if (isGreenColor(computedStyle.color)) {
+                    $el.css('color', '#c084fc !important');
+                }
+                
+                if (isGreenColor(computedStyle.backgroundColor)) {
+                    $el.css('background-color', '#9333ea !important');
+                }
+                
+                if (isGreenColor(computedStyle.borderColor)) {
+                    $el.css('border-color', '#9333ea !important');
+                }
+            });
+
+            $('#what-i-do-section .m-title, #what-i-do-section .services-item .lui-title').css({
+                'color': '#c084fc !important'
+            });
+
+            $('.dots .dot, .progress-bar, .skill-progress').css({
+                'background': '#9333ea !important',
+                'background-color': '#9333ea !important'
+            });
+
+            $('.archive-item, .blog-items .archive-item').each(function() {
+                const $card = $(this);
+                const bgColor = $card.css('background-color');
+                if (bgColor.includes('rgb(29, 34, 42)') || bgColor.includes('#1d222a') ||
+                    bgColor.includes('rgb(45, 45, 45)') || bgColor.includes('#2d2d2d')) {
+                    $card.css({
+                        // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important',
+                        'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                        'backdrop-filter': 'blur(10px) !important'
+                    });
+                }
+            });
+
+            $('.numbers-item').each(function() {
+                const $item = $(this);
+                $item.css({
+                    // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important',
+                    'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                    'border-radius': '15px !important'
+                });
+                
+                $item.find('.icon').css({
+                    // 'background': 'linear-gradient(45deg, #9333ea, #a855f7) !important',
+                    'border-color': '#c084fc !important',
+                    'color': 'white !important'
+                });
+            });
+
+            $('.contacts-form, .form-comment').css({
+                // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.12), rgba(168, 85, 247, 0.06)) !important',
+                'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                'border-radius': '20px !important'
+            });
+
+            $('.contacts-form input, .contacts-form textarea').css({
+                'background': 'rgba(147, 51, 234, 0.15) !important',
+                'border': '1px solid rgba(147, 51, 234, 0.4) !important',
+                'color': 'white !important'
+            });
+
+            $('a').css('color', '#c084fc !important');
+        }
+
+        function isGreenColor(color) {
+            if (!color || color === 'transparent' || color === 'inherit' || color === 'initial') {
+                return false;
+            }
+            
+            if (color.includes('rgb(41, 165, 135)') || 
+                color.includes('#29a587') || 
+                color.includes('29a587')) {
+                return true;
+            }
+            
+            const rgb = color.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+                const r = parseInt(rgb[0]);
+                const g = parseInt(rgb[1]);
+                const b = parseInt(rgb[2]);
+                
+                return (r >= 35 && r <= 50 && g >= 155 && g <= 175 && b >= 125 && b <= 145);
+            }
+            
+            return false;
+        }
+
+        convertAllGreenElements();
+        
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length > 0) {
+                    setTimeout(() => {
+                        convertAllGreenElements();
+                    }, 100);
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length > 0) {
+                setTimeout(() => {
+                    convertRemainingGreenElements();
+                    // addDynamicPurpleEffects();
+                }, 100);
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+})(jQuery);

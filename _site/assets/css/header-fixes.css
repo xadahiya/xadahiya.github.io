@@ -1,0 +1,113 @@
+/**
+ * Header & Navigation Fixes
+ * Reduces navbar size and fixes overlap issues
+ */
+
+/* Compact Header Design */
+.header {
+  padding: 10px 30px !important;
+  background: #1a1a1a !important;
+  border-bottom: 1px solid #3a3a3a;
+  height: auto !important;
+  min-height: 70px !important;
+}
+
+.header__builder {
+  min-height: 50px !important;
+}
+
+.header__builder .row {
+  align-items: center !important;
+  min-height: 50px !important;
+}
+
+/* Compact Logo */
+.header .logo a {
+  font-size: 24px !important;
+  line-height: 1.2 !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Compact Menu Button */
+.header__builder .menu-btn,
+.header .menu-btn {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 8px !important;
+}
+
+.header__builder .menu-btn span,
+.header .menu-btn span {
+  height: 2px !important;
+  margin: 4px 0 !important;
+}
+
+/* Fix Hero Section Spacing */
+.lui-section-hero {
+  padding-top: 90px !important;
+}
+
+.lui-section-hero .container {
+  padding-top: 20px !important;
+}
+
+/* Ensure title doesn't get covered */
+.section.hero-started {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.hero-started .content .titles {
+  margin-top: 0 !important;
+  z-index: 10;
+  position: relative;
+}
+
+/* Sticky header adjustments */
+.header.sticky {
+  padding: 8px 30px !important;
+  min-height: 60px !important;
+  background: rgba(26, 26, 26, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Mobile header fixes */
+@media (max-width: 768px) {
+  .header {
+    padding: 8px 20px !important;
+    min-height: 60px !important;
+  }
+  
+  .header .logo a {
+    font-size: 20px !important;
+  }
+  
+  .lui-section-hero {
+    padding-top: 80px !important;
+  }
+  
+  .header__builder .menu-btn {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
+/* Remove any excessive spacing */
+.wrapper {
+  padding-top: 0 !important;
+}
+
+/* Ensure hero content is properly spaced */
+.lui-started {
+  padding-top: 40px !important;
+}
+
+/* Fix any z-index issues */
+.header {
+  z-index: 1000 !important;
+}
+
+.lui-section-hero {
+  z-index: 1 !important;
+} 
