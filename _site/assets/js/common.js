@@ -392,12 +392,12 @@ $(function() {
 		Collapse
 	**/
 	$('.lui-collapse-item').on('click', '.lui-collapse-btn', function(){
-		if($(this).closest('li').hasClass('opened')) {
-			$(this).closest('li').removeClass('opened');
+		if($(this).closest('.lui-collapse-item').hasClass('opened')) {
+			$(this).closest('.lui-collapse-item').removeClass('opened');
 			$(this).removeClass('active');
 		}
 		else {
-			$(this).closest('li').addClass('opened');
+			$(this).closest('.lui-collapse-item').addClass('opened');
 			$(this).addClass('active');
 		}
 	});
@@ -737,7 +737,7 @@ function setHeightFullSection() {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(147, 51, 234, ${this.opacity})`; // Original purple color
+                ctx.fillStyle = `rgba(147, 51, 234, ${this.opacity})`;
                 ctx.fill();
             }
         }
@@ -761,7 +761,7 @@ function setHeightFullSection() {
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
-                        ctx.strokeStyle = `rgba(147, 51, 234, ${0.1 * (1 - distance / 100)})`; // Original purple color
+                        ctx.strokeStyle = `rgba(147, 51, 234, ${0.1 * (1 - distance / 100)})`;
                         ctx.stroke();
                     }
                 });
@@ -878,17 +878,17 @@ function setHeightFullSection() {
 
     function initMorphingBackground() {
         $('.lui-gradient-center, .lui-gradient-bottom').css({
-            background: 'linear-gradient(45deg, #667eea, #764ba2)',
+            // background: 'linear-gradient(45deg, #667eea, #764ba2)',
             transition: 'background 1s ease'
         });
     }
 
     function initTypewriterEffect() {
         const texts = [
-            'Protocol Engineer',
-            'DeFi Researcher', 
-            'Blockchain Developer',
-            'AI Enthusiast'
+            'a Protocol Engineer',
+            'a DeFi Researcher', 
+            'a Blockchain Developer',
+            'an AI Enthusiast'
         ];
         
         let textIndex = 0;
@@ -1092,6 +1092,7 @@ function setHeightFullSection() {
             const progress = (scroll / height) * 100;
             $('.scroll-progress-bar').css('width', progress + '%');
         });
+        // background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
         
         const progressStyle = $(`
             <style>
@@ -1106,12 +1107,11 @@ function setHeightFullSection() {
                 }
                 .scroll-progress-bar {
                     height: 100%;
-                    background: linear-gradient(45deg, #29a587, #29a587); /* Generic color */
                     width: 0%;
                     transition: width 0.1s ease;
                 }
                 .menu-full a.active {
-                    color: #29a587 !important; /* Generic color */
+                    color: var(--accent-color) !important;
                     position: relative;
                 }
                 .menu-full a.active::after {
@@ -1121,7 +1121,7 @@ function setHeightFullSection() {
                     left: 0;
                     width: 100%;
                     height: 2px;
-                    background: #29a587; /* Generic color */
+                    background: var(--accent-color);
                 }
             </style>
         `);
@@ -1308,7 +1308,350 @@ function setHeightFullSection() {
         
         if (window.innerWidth <= 768) {
             $('.particle-canvas').remove();
-            $('body').css('animation-duration', '0.5s');
+            $('*').css('animation-duration', '0.5s');
         }
     }
+})(jQuery);
+
+/**
+ * Purple Theme Enhancer
+ */
+(function($) {
+    'use strict';
+
+    $(document).ready(function() {
+        initPurpleThemeEnhancer();
+        initAggressivePurpleConverter();
+    });
+
+    function initPurpleThemeEnhancer() {
+        const purpleColors = {
+            primary: '#9333ea',
+            secondary: '#a855f7', 
+            light: '#c084fc',
+            accent: '#7c3aed',
+            glow: '#8b39ff'
+        };
+
+        convertRemainingGreenElements();
+        addDynamicPurpleEffects();
+        enhanceButtonInteractions();
+        addFocusGlowEffects();
+        injectPurpleThemeCSS();
+    }
+
+    function convertRemainingGreenElements() {
+        const purpleColors = {
+            primary: '#9333ea',
+            light: '#c084fc'
+        };
+
+        $('*').each(function() {
+            const $el = $(this);
+            const computedStyle = window.getComputedStyle(this);
+            
+            const color = computedStyle.color;
+            if (isGreenish(color)) {
+                $el.css('color', purpleColors.light);
+            }
+            
+            const bgColor = computedStyle.backgroundColor;
+            if (isGreenish(bgColor)) {
+                $el.css('background-color', purpleColors.primary);
+            }
+            
+            const borderColor = computedStyle.borderColor;
+            if (isGreenish(borderColor)) {
+                $el.css('border-color', purpleColors.primary);
+            }
+        });
+    }
+
+    function isGreenish(color) {
+        if (!color || color === 'transparent' || color === 'rgba(0, 0, 0, 0)') return false;
+        
+        const rgb = color.match(/\d+/g);
+        if (!rgb || rgb.length < 3) return false;
+        
+        const r = parseInt(rgb[0]);
+        const g = parseInt(rgb[1]);
+        const b = parseInt(rgb[2]);
+        
+        const isTeal = (r >= 40 && r <= 50 && g >= 160 && g <= 170 && b >= 130 && b <= 140);
+        const isGreen = (g > r && g > b && g > 100);
+        
+        return isTeal || isGreen;
+    }
+
+    function addDynamicPurpleEffects() {
+        $('a, button, .lui-button, .btn').hover(
+            function() {
+                $(this).css({
+                    'transition': 'all 0.3s ease',
+                    'transform': 'translateY(-1px)',
+                    'box-shadow': '0 4px 15px rgba(147, 51, 234, 0.4)'
+                });
+            },
+            function() {
+                $(this).css({
+                    'transform': 'translateY(0)',
+                    'box-shadow': 'none'
+                });
+            }
+        );
+
+        $('.lui-card, .card, .portfolio-item').hover(
+            function() {
+                $(this).css({
+                    'box-shadow': '0 10px 30px rgba(147, 51, 234, 0.3)',
+                    'border-color': '#9333ea',
+                    'transition': 'all 0.3s ease'
+                });
+            },
+            function() {
+                $(this).css({
+                    'box-shadow': '',
+                    'border-color': ''
+                });
+            }
+        );
+    }
+
+    function enhanceButtonInteractions() {
+        $('.lui-button, .btn-primary, button').each(function() {
+            const $btn = $(this);
+            
+            $btn.on('mouseenter', function() {
+                if (!$btn.find('.shimmer-effect').length) {
+                    $btn.append('<div class="shimmer-effect"></div>');
+                    // background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+                    
+                    const shimmerCSS = `
+                        .shimmer-effect {
+                            position: absolute;
+                            top: 0;
+                            left: -100%;
+                            width: 100%;
+                            height: 100%;
+                            animation: shimmer 0.6s ease-out;
+                        }
+                        @keyframes shimmer {
+                            from { left: -100%; }
+                            to { left: 100%; }
+                        }
+                    `;
+                    
+                    if (!$('#shimmer-styles').length) {
+                        $('head').append(`<style id="shimmer-styles">${shimmerCSS}</style>`);
+                    }
+                }
+            });
+            
+            $btn.on('animationend', '.shimmer-effect', function() {
+                $(this).remove();
+            });
+        });
+    }
+
+    function addFocusGlowEffects() {
+        $('input, textarea, select').focus(function() {
+            $(this).css({
+                'box-shadow': '0 0 0 0.2rem rgba(147, 51, 234, 0.3)',
+                'border-color': '#9333ea',
+                'outline': 'none'
+            });
+        }).blur(function() {
+            $(this).css({
+                'box-shadow': '',
+                'border-color': ''
+            });
+        });
+
+        $('.nav-link, .navbar-nav a').hover(
+            function() {
+                $(this).css({
+                    'text-shadow': '0 0 8px rgba(147, 51, 234, 0.7)',
+                    'color': '#a855f7'
+                });
+            },
+            function() {
+                $(this).css({
+                    'text-shadow': '',
+                    'color': ''
+                });
+            }
+        );
+    }
+
+    function injectPurpleThemeCSS() {
+        const purpleThemeCSS = `
+            <style id="purple-theme-vars">
+                :root {
+                    --accent-color: #9333ea !important;
+                    --primary-color: #9333ea !important;
+                    --link-color: #c084fc !important;
+                    --button-color: #9333ea !important;
+                    --hover-color: #7c3aed !important;
+                }
+                
+                *[style*="color: rgb(41, 165, 135)"],
+                *[style*="color: #29a587"],
+                *[style*="background-color: rgb(41, 165, 135)"],
+                *[style*="background-color: #29a587"] {
+                    color: #c084fc !important;
+                    background-color: #9333ea !important;
+                }
+            </style>
+        `;
+        
+        if (!$('#purple-theme-vars').length) {
+            $('head').append(purpleThemeCSS);
+        }
+    }
+
+    function initAggressivePurpleConverter() {
+        function convertAllGreenElements() {
+            $('.section.hero-started .slide .circle.circle-1').css({
+                'background': '#9333ea !important',
+                'background-color': '#9333ea !important'
+            });
+
+            $('strong, b').each(function() {
+                const $el = $(this);
+                const color = $el.css('color');
+                
+                if (isGreenColor(color) || $el.css('color').includes('29a587')) {
+                    $el.css('color', '#c084fc !important');
+                }
+            });
+
+            $('.m-title span, .services-item .lui-title span, .section.hero-started strong, .section.hero-started b').css({
+                'color': '#c084fc !important'
+            });
+
+            $('*').each(function() {
+                const $el = $(this);
+                const computedStyle = window.getComputedStyle(this);
+                
+                if (isGreenColor(computedStyle.color)) {
+                    $el.css('color', '#c084fc !important');
+                }
+                
+                if (isGreenColor(computedStyle.backgroundColor)) {
+                    $el.css('background-color', '#9333ea !important');
+                }
+                
+                if (isGreenColor(computedStyle.borderColor)) {
+                    $el.css('border-color', '#9333ea !important');
+                }
+            });
+
+            $('#what-i-do-section .m-title, #what-i-do-section .services-item .lui-title').css({
+                'color': '#c084fc !important'
+            });
+
+            $('.dots .dot, .progress-bar, .skill-progress').css({
+                'background': '#9333ea !important',
+                'background-color': '#9333ea !important'
+            });
+
+            $('.archive-item, .blog-items .archive-item').each(function() {
+                const $card = $(this);
+                const bgColor = $card.css('background-color');
+                if (bgColor.includes('rgb(29, 34, 42)') || bgColor.includes('#1d222a') ||
+                    bgColor.includes('rgb(45, 45, 45)') || bgColor.includes('#2d2d2d')) {
+                    $card.css({
+                        // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important',
+                        'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                        'backdrop-filter': 'blur(10px) !important'
+                    });
+                }
+            });
+
+            $('.numbers-item').each(function() {
+                const $item = $(this);
+                $item.css({
+                    // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.08)) !important',
+                    'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                    'border-radius': '15px !important'
+                });
+                
+                $item.find('.icon').css({
+                    // 'background': 'linear-gradient(45deg, #9333ea, #a855f7) !important',
+                    'border-color': '#c084fc !important',
+                    'color': 'white !important'
+                });
+            });
+
+            $('.contacts-form, .form-comment').css({
+                // 'background': 'linear-gradient(135deg, rgba(147, 51, 234, 0.12), rgba(168, 85, 247, 0.06)) !important',
+                'border': '1px solid rgba(147, 51, 234, 0.3) !important',
+                'border-radius': '20px !important'
+            });
+
+            $('.contacts-form input, .contacts-form textarea').css({
+                'background': 'rgba(147, 51, 234, 0.15) !important',
+                'border': '1px solid rgba(147, 51, 234, 0.4) !important',
+                'color': 'white !important'
+            });
+
+            $('a').css('color', '#c084fc !important');
+        }
+
+        function isGreenColor(color) {
+            if (!color || color === 'transparent' || color === 'inherit' || color === 'initial') {
+                return false;
+            }
+            
+            if (color.includes('rgb(41, 165, 135)') || 
+                color.includes('#29a587') || 
+                color.includes('29a587')) {
+                return true;
+            }
+            
+            const rgb = color.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+                const r = parseInt(rgb[0]);
+                const g = parseInt(rgb[1]);
+                const b = parseInt(rgb[2]);
+                
+                return (r >= 35 && r <= 50 && g >= 155 && g <= 175 && b >= 125 && b <= 145);
+            }
+            
+            return false;
+        }
+
+        convertAllGreenElements();
+        
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length > 0) {
+                    setTimeout(() => {
+                        convertAllGreenElements();
+                    }, 100);
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length > 0) {
+                setTimeout(() => {
+                    convertRemainingGreenElements();
+                    addDynamicPurpleEffects();
+                }, 100);
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 })(jQuery);
