@@ -68,8 +68,12 @@
 .header.sticky {
   padding: 8px 30px !important;
   min-height: 60px !important;
+}
+
+.header.sticky.glass-effect {
   background: rgba(26, 26, 26, 0.95) !important;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
 }
 
 /* Mobile header fixes */
@@ -91,6 +95,8 @@
     width: 35px !important;
     height: 35px !important;
   }
+  
+
 }
 
 /* Remove any excessive spacing */
