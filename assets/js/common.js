@@ -702,16 +702,21 @@ function setHeightFullSection() {
     });
 
     function initParticleSystem() {
+        console.log('Initializing particle system...');
+        
         const canvas = $('<canvas id="particle-canvas"></canvas>');
         $('.lui-section-hero').prepend(canvas);
         
+        console.log('Canvas created and added to DOM');
+        
         const ctx = canvas[0].getContext('2d');
         const particles = [];
-        const maxParticles = 100;
+        const maxParticles = 30; // Fewer particles for debugging
         
         function resizeCanvas() {
             canvas[0].width = window.innerWidth;
             canvas[0].height = window.innerHeight;
+            console.log('Canvas resized to:', canvas[0].width, 'x', canvas[0].height);
         }
         resizeCanvas();
         $(window).resize(resizeCanvas);
@@ -720,24 +725,31 @@ function setHeightFullSection() {
             constructor() {
                 this.x = Math.random() * canvas[0].width;
                 this.y = Math.random() * canvas[0].height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.radius = Math.random() * 2 + 1;
-                this.opacity = Math.random() * 0.5 + 0.2;
+                this.vx = (Math.random() - 0.5) * 1; // Much faster for visibility
+                this.vy = (Math.random() - 0.5) * 1;
+                this.radius = Math.random() * 3 + 2; // Much larger particles
+                this.opacity = Math.random() * 0.6 + 0.4; // Much more visible
+                this.originalOpacity = this.opacity;
             }
             
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
                 
-                if (this.x < 0 || this.x > canvas[0].width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas[0].height) this.vy *= -1;
+                // Gentle boundary wrapping
+                if (this.x < 0) this.x = canvas[0].width;
+                if (this.x > canvas[0].width) this.x = 0;
+                if (this.y < 0) this.y = canvas[0].height;
+                if (this.y > canvas[0].height) this.y = 0;
+                
+                // Subtle opacity variation
+                this.opacity = this.originalOpacity + Math.sin(Date.now() * 0.001 + this.x * 0.01) * 0.2;
             }
             
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(147, 51, 234, ${this.opacity})`;
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; // White color
                 ctx.fill();
             }
         }
@@ -745,6 +757,8 @@ function setHeightFullSection() {
         for (let i = 0; i < maxParticles; i++) {
             particles.push(new Particle());
         }
+        
+        console.log('Created', particles.length, 'particles');
         
         function animate() {
             ctx.clearRect(0, 0, canvas[0].width, canvas[0].height);
@@ -754,14 +768,16 @@ function setHeightFullSection() {
                 particle.draw();
             });
             
+            // More visible connections
             particles.forEach((particle, i) => {
                 particles.slice(i + 1).forEach(otherParticle => {
                     const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y);
-                    if (distance < 100) {
+                    if (distance < 100) { // Longer connections
                         ctx.beginPath();
                         ctx.moveTo(particle.x, particle.y);
                         ctx.lineTo(otherParticle.x, otherParticle.y);
-                        ctx.strokeStyle = `rgba(147, 51, 234, ${0.1 * (1 - distance / 100)})`;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - distance / 100)})`; // White color
+                        ctx.lineWidth = 1.5;
                         ctx.stroke();
                     }
                 });
@@ -769,15 +785,23 @@ function setHeightFullSection() {
             
             requestAnimationFrame(animate);
         }
+        
+        console.log('Starting animation...');
         animate();
         
         canvas.css({
             position: 'absolute',
             top: 0,
             left: 0,
-            zIndex: 1,
-            pointerEvents: 'none'
+            zIndex: 999, // Very high z-index
+            pointerEvents: 'none',
+            opacity: 1, // Full opacity for debugging
         });
+        
+        console.log('Canvas CSS applied');
+        
+        // Show immediately for debugging
+        canvas.show();
     }
 
     function initEnhancedScrollAnimations() {
