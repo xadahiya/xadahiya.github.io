@@ -373,7 +373,7 @@ textarea {
 	resize: none;
 	outline: 0;
 	font-weight: 400;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border: 2px solid #000;
 	border-radius: 30px;
 	-webkit-border-radius: 30px;
@@ -2311,18 +2311,15 @@ hr {
 }
 
 .lui-bgtitle {
-	position: relative;
-	top: -50px;
-	left: -50%;
-	width: 200%;
-	font-size: 350px;
-	font-family: "Caveat";
-	color: rgba(0, 0, 0, 0.02);
-	font-weight: bold;
-	line-height: 1px;
-	text-align: center;
-	white-space: nowrap;
-	pointer-events: none;
+  font-size: 150px;
+  font-family: "Caveat";
+  color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  line-height: 1px;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  margin-top: 2vh;
 }
 
 .section.section-inner.started-heading .m-titles .m-title {
@@ -2349,8 +2346,8 @@ hr {
 }
 
 .lui-section-hero .container {
+	padding-top: 200px;
 	max-width: 1300px;
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
 }
@@ -2688,10 +2685,6 @@ hr {
 	border-right: 2px solid #000;
 }
 
-.history-item:first-child {
-	border-right: 2px solid transparent;
-}
-
 .history-item .history-content {
 	padding: 0 50px 0 30px;
 	position: relative;
@@ -2756,12 +2749,12 @@ hr {
 	content: '+';
 	position: absolute;
 	right: -24px;
-	bottom: -24px;
+	top: -1px;
 	width: 48px;
 	height: 48px;
 	line-height: 40px;
-	background: #fff;
-	border-radius: 50%;
+	background: #ffffff;
+	border-radius: 25%;
 	border: 2px solid #000;
 	box-shadow: 5px 5px rgb(0 0 0 / 20%);
 	font-weight: 400;
@@ -2823,6 +2816,15 @@ hr {
 	text-align: left;
 }
 
+/* Position pagination dots near the slider */
+.js-services .swiper-pagination {
+	position: relative;
+	bottom: auto;
+	top: 20px;
+	margin-top: 30px;
+	text-align: center;
+}
+
 .elementor-editor-active .js-services .swiper-wrapper .swiper-slide .services-item {
 	opacity: 1;
 }
@@ -2853,8 +2855,11 @@ hr {
 	position: relative;
 	overflow: hidden;
 	padding: 30px 35px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 18px;
+	height: 300px; /* Fixed height for all cards */
+	display: flex;
+	flex-direction: column;
 }
 
 .services-item:first-child {
@@ -2871,6 +2876,40 @@ hr {
 
 .services-item .lui-text {
 	min-height: 175px;
+	flex: 1; /* Take remaining space */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	overflow-y: auto; /* Enable vertical scrolling */
+	max-height: 200px; /* Limit height to enable scrolling */
+}
+
+.services-item .lui-text div {
+	flex: 1; /* Content takes full available space */
+	overflow-y: auto; /* Enable scrolling for content */
+}
+
+/* Custom scrollbar styling for service cards */
+.services-item .lui-text::-webkit-scrollbar,
+.services-item .lui-text div::-webkit-scrollbar {
+	width: 6px;
+}
+
+.services-item .lui-text::-webkit-scrollbar-track,
+.services-item .lui-text div::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.1);
+	border-radius: 3px;
+}
+
+.services-item .lui-text::-webkit-scrollbar-thumb,
+.services-item .lui-text div::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+}
+
+.services-item .lui-text::-webkit-scrollbar-thumb:hover,
+.services-item .lui-text div::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.5);
 }
 
 .services-item .image,
@@ -3120,7 +3159,7 @@ hr {
 .works-items.works-masonry-items .works-item {
 	position: relative;
 	padding: 30px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 20px;
 }
 
@@ -3509,7 +3548,7 @@ hr {
 	position: relative;
 	overflow: hidden;
 	padding: 30px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 18px;
 	display: flex;
 	flex-direction: column;
@@ -3581,7 +3620,7 @@ hr {
 	border: 2px solid #000;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
-	background-color: #fff;
+	background-color: #fdf9f2 !important;
 	box-shadow: 5px 5px 0px 0px rgb(0 0 0 / 20%);
 	width: 56px;
 	height: 56px;
@@ -5085,27 +5124,31 @@ a.wp-block-button__link {
 
 	/*hero started*/
 	.section.hero-started .content {
-		padding-top: 140px;
+		padding-top: 60px;
 		text-align: center;
 	}
 	.section.hero-started .titles {
-		margin-bottom: 760px;
+		margin-bottom: 40px;
 		max-width: 100%;
 	}
 	.section.hero-started .title {
-		font-size: 64px;
+		font-size: 42px;
 	}
 	.section.hero-started .slide {
-		margin-left: -340px;
-		bottom: auto;
-		top: 740px;
+		position: relative;
+		margin: 30px auto 0;
+		top: auto;
+		left: auto;
 		right: auto;
-		left: 50%;
-		transform: scale(0.9);
-		transform-origin: top center;
+		transform: none;
+		max-width: 350px;
+		height: 400px;
 	}
 	.section.hero-started .description {
 		margin: 0 auto;
+		padding: 20px 0;
+		max-width: 100%;
+		text-align: center;
 	}
 
 	/*resume*/
@@ -5203,7 +5246,7 @@ a.wp-block-button__link {
 	}
 	.numbers-item {
 		padding-left: 120px;
-		width: 50%;
+		width: 100%;
 		font-size: 16px;
 		display: inline-block;
 		vertical-align: top;
@@ -5395,7 +5438,7 @@ a.wp-block-button__link {
 		opacity: 1;
 	}
 	.works-items.works-list-items .works-item {
-		background: #fff;
+		background: #fdf9f2 !important;
 		border-radius: 20px;
 	}
 	.works-items.works-list-items .works-item .image {
@@ -6087,4 +6130,15 @@ a:hover {
   width: 100%;
   height: 100%;
   animation: shimmer 0.6s ease-out;
+}
+
+@media screen and (max-width: 767px) {
+	.services-item {
+		height: auto; /* Allow natural height on mobile */
+		min-height: 250px; /* Minimum height for consistency */
+	}
+	
+	.services-item .lui-text {
+		min-height: 120px; /* Reduced minimum height on mobile */
+	}
 }

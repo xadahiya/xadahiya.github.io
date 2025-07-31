@@ -1,0 +1,1905 @@
+/**
+ * Responsive Optimization for All Devices
+ * Comprehensive fixes for iPad, tablet, mobile, and desktop compatibility
+ * Updated: Complete overhaul for better responsive design
+ */
+
+/* ==========================================
+   GLOBAL RESPONSIVE FIXES
+   ========================================== */
+
+/* Ensure proper viewport handling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Fix container issues */
+.container {
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ==========================================
+   HERO SECTION FIXES
+   ========================================== */
+
+/* Hide hero image on iPad and anything below it */
+@media screen and (max-width: 1024px) {
+  .section.hero-started .slide {
+    display: none !important;
+  }
+  
+  .section.hero-started .info-list {
+    display: none !important;
+  }
+  
+  /* Fix extra padding when image is hidden */
+  .section.hero-started {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    min-height: auto !important;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 20px !important;
+  }
+}
+
+/* ==========================================
+   SKILLS SECTION GRID LAYOUT FIXES
+   ========================================== */
+
+/* Force 2 cards per row for anything below desktop (1200px) */
+@media screen and (max-width: 1199px) {
+  .skills-items .col-xs-12,
+  .skills-items .col-sm-6,
+  .skills-items .col-md-4,
+  .skills-items .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Override Bootstrap grid system specifically for skills */
+  #skills-section .row .col-xs-12,
+  #skills-section .row .col-sm-6,
+  #skills-section .row .col-md-4,
+  #skills-section .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Additional specificity to override Bootstrap */
+  .v-line-left .container .row .col-xs-12,
+  .v-line-left .container .row .col-sm-6,
+  .v-line-left .container .row .col-md-4,
+  .v-line-left .container .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Fix for skills items distribution - ensure proper spacing */
+  .skills-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Ensure the third column items flow properly */
+  #skills-section .row .col-md-4:nth-child(3) .skills-items {
+    margin-top: 0;
+  }
+  
+  /* Force proper row breaks for 2-column layout */
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:first-child {
+    margin-top: 0;
+  }
+  
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Single column for mobile */
+@media screen and (max-width: 767px) {
+  .skills-items .col-xs-12,
+  .skills-items .col-sm-6,
+  .skills-items .col-md-4,
+  .skills-items .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Override Bootstrap grid system specifically for skills on mobile */
+  #skills-section .row .col-xs-12,
+  #skills-section .row .col-sm-6,
+  #skills-section .row .col-md-4,
+  #skills-section .row .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Additional specificity to override Bootstrap on mobile */
+  .v-line-left .container .row .col-xs-12,
+  .v-line-left .container .row .col-sm-6,
+  .v-line-left .container .row .col-md-4,
+  .v-line-left .container .row .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================
+   TABLET OPTIMIZATION (768px - 1024px)
+   ========================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  /* Hero Section Tablet Fixes */
+  .section.hero-started {
+    min-height: auto;
+    padding: 60px 0 40px 0;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 40px;
+    max-width: 100%;
+  }
+  
+  .section.hero-started .title {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+  
+  .section.hero-started .slide {
+    position: relative;
+    margin: 30px auto 0;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: 350px;
+    height: 400px;
+  }
+  
+  .section.hero-started .slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 200px;
+  }
+  
+  .section.hero-started .description {
+    padding: 20px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .section.hero-started .description p {
+    font-size: 16px;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 60px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 60px 0 40px 0;
+  }
+  
+  /* Typography Adjustments */
+  .m-titles .m-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .m-titles .m-subtitle {
+    font-size: 16px;
+  }
+  
+  /* Skills Section */
+  .skills-items {
+    margin-top: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 30px;
+    padding: 25px;
+    height: auto;
+    min-height: 200px;
+  }
+  
+  /* Ensure proper grid layout for tablet */
+  .skills-items .col-xs-12,
+  .skills-items .col-sm-6,
+  .skills-items .col-md-4,
+  .skills-items .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Override Bootstrap grid system specifically for skills on tablet */
+  #skills-section .row .col-xs-12,
+  #skills-section .row .col-sm-6,
+  #skills-section .row .col-md-4,
+  #skills-section .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Additional specificity to override Bootstrap on tablet */
+  .v-line-left .container .row .col-xs-12,
+  .v-line-left .container .row .col-sm-6,
+  .v-line-left .container .row .col-md-4,
+  .v-line-left .container .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Fix for skills items distribution - ensure proper spacing */
+  .skills-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Ensure the third column items flow properly */
+  #skills-section .row .col-md-4:nth-child(3) .skills-items {
+    margin-top: 0;
+  }
+  
+  /* Force proper row breaks for 2-column layout */
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:first-child {
+    margin-top: 0;
+  }
+  
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .skills-item .name {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .skills-item .text p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  /* Resume Section */
+  .history-item .name {
+    padding: 20px 25px 20px 20px;
+    font-size: 18px;
+  }
+  
+  .history-item .subname {
+    font-size: 16px;
+  }
+  
+  /* Works/Portfolio Section */
+  .works-items.works-masonry-items .works-col {
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 10px;
+  }
+  
+  .works-item .image img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Blog Section */
+  .blog-items .col-xs-12 {
+    margin-bottom: 30px;
+  }
+  
+  .archive-item .image img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Contact Section */
+  .numbers-items {
+    margin-bottom: 30px;
+  }
+  
+  .numbers-item {
+    margin-bottom: 20px;
+  }
+  
+  /* Form Elements */
+  .contacts-form input,
+  .contacts-form textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Navigation Menu */
+  .menu-full ul li a {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+  
+  /* Header Adjustments */
+  .header .logo a {
+    font-size: 26px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 30px 0;
+  }
+}
+
+/* ==========================================
+   LARGE TABLET OPTIMIZATION (1025px - 1200px)
+   ========================================== */
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  
+  /* Hero Section */
+  .section.hero-started .content {
+    padding-top: 80px;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 50px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 52px;
+  }
+  
+  .section.hero-started .slide {
+    transform: scale(0.8);
+    margin-left: -150px;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 80px 0;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 38px;
+  }
+  
+  /* Works Grid */
+  .works-items.works-masonry-items .works-col {
+    width: 50%;
+    flex: 0 0 50%;
+  }
+  
+  /* Skills Grid */
+  .skills-items .col-xs-12 {
+    margin-bottom: 25px;
+  }
+  
+  /* Ensure 2 cards per row for large tablets */
+  .skills-items .col-xs-12,
+  .skills-items .col-sm-6,
+  .skills-items .col-md-4,
+  .skills-items .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Override Bootstrap grid system specifically for skills on large tablets */
+  #skills-section .row .col-xs-12,
+  #skills-section .row .col-sm-6,
+  #skills-section .row .col-md-4,
+  #skills-section .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Additional specificity to override Bootstrap on large tablets */
+  .v-line-left .container .row .col-xs-12,
+  .v-line-left .container .row .col-sm-6,
+  .v-line-left .container .row .col-md-4,
+  .v-line-left .container .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  /* Fix for skills items distribution - ensure proper spacing */
+  .skills-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 0 !important;
+  }
+  
+  /* Ensure the third column items flow properly */
+  #skills-section .row .col-md-4:nth-child(3) .skills-items {
+    margin-top: 0;
+  }
+  
+  /* Force proper row breaks for 2-column layout */
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:first-child {
+    margin-top: 0;
+  }
+  
+  #skills-section .row .col-md-4:nth-child(3) .skills-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION (320px - 767px)
+   ========================================== */
+
+@media screen and (max-width: 767px) {
+  
+  /* Hero Section Mobile */
+  .section.hero-started {
+    min-height: auto;
+    padding: 40px 0 30px 0;
+  }
+  
+  /* Additional padding fixes for mobile when image is hidden */
+  .section.hero-started .content {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 20px !important;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 40px;
+    text-align: center;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 30px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 10px 0;
+  }
+  
+  .section.hero-started .description {
+    padding: 20px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .section.hero-started .description p {
+    font-size: 15px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 40px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 40px 0 30px 0;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .m-titles .m-subtitle {
+    font-size: 14px;
+  }
+  
+  /* Container */
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* Skills Section */
+  .skills-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    height: auto;
+    min-height: 180px;
+  }
+  
+  /* Ensure single column layout for mobile */
+  .skills-items .col-xs-12,
+  .skills-items .col-sm-6,
+  .skills-items .col-md-4,
+  .skills-items .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Override Bootstrap grid system specifically for skills on mobile */
+  #skills-section .row .col-xs-12,
+  #skills-section .row .col-sm-6,
+  #skills-section .row .col-md-4,
+  #skills-section .row .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Additional specificity to override Bootstrap on mobile */
+  .v-line-left .container .row .col-xs-12,
+  .v-line-left .container .row .col-sm-6,
+  .v-line-left .container .row .col-md-4,
+  .v-line-left .container .row .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .skills-item .name {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+  
+  .skills-item .text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  /* Resume Section */
+  .history-item .name {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+  
+  .history-item .subname {
+    font-size: 14px;
+  }
+  
+  .history-item .date {
+    font-size: 12px;
+  }
+  
+  /* Works Section */
+  .works-items.works-masonry-items .works-col {
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 8px;
+  }
+  
+  .works-item .image img {
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  /* Blog Section */
+  .archive-item {
+    margin-bottom: 25px;
+  }
+  
+  .archive-item .image img {
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  /* Contact Section */
+  .numbers-item {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .numbers-item .title {
+    font-size: 16px;
+  }
+  
+  /* Form Elements */
+  .contacts-form input,
+  .contacts-form textarea {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  /* Navigation */
+  .menu-full ul li a {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+  
+  /* Header */
+  .header .logo a {
+    font-size: 22px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 25px 0;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE OPTIMIZATION (320px - 480px)
+   ========================================== */
+
+@media screen and (max-width: 480px) {
+  
+  /* Hero Section */
+  .section.hero-started .title {
+    font-size: 28px;
+  }
+  
+  .section.hero-started .description p {
+    font-size: 14px;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 22px;
+  }
+  
+  /* Container */
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 30px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 30px 0 20px 0;
+  }
+  
+  /* Skills */
+  .skills-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    min-height: 160px;
+  }
+  
+  .skills-item .name {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .skills-item .text p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  /* Resume */
+  .history-item .name {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  /* Works */
+  .works-item .image img {
+    height: 140px;
+  }
+  
+  /* Blog */
+  .archive-item .image img {
+    height: 140px;
+  }
+  
+  /* Contact */
+  .numbers-item .title {
+    font-size: 14px;
+  }
+  
+  /* Header */
+  .header .logo a {
+    font-size: 20px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION FIXES
+   ========================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  
+  .section.hero-started {
+    min-height: auto;
+    padding: 30px 0;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 30px;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 20px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 28px;
+  }
+  
+  .lui-section {
+    padding: 30px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 30px 0 20px 0;
+  }
+}
+
+/* ==========================================
+   HIGH DPI DISPLAY OPTIMIZATION
+   ========================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  
+  .works-item .image img,
+  .archive-item .image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+
+/* Focus states for better accessibility */
+.btn:focus,
+.menu-btn:focus,
+.contacts-form input:focus,
+.contacts-form textarea:focus {
+  outline: 2px solid #29a587;
+  outline-offset: 2px;
+}
+
+/* Touch target improvements */
+.btn,
+.menu-btn,
+.menu-full ul li a {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   HERO SECTION CIRCLE FIXES
+   ========================================== */
+
+/* Hide problematic circle elements on iPad and smaller screens */
+@media screen and (max-width: 1024px) {
+  .section.hero-started .slide .circle.circle-1 {
+    display: none !important;
+  }
+  
+  .section.hero-started .slide .circle.img-1,
+  .section.hero-started .slide .circle.img-2,
+  .section.hero-started .slide .circle.img-3 {
+    display: none !important;
+  }
+}
+
+/* Hide all decorative circles on mobile */
+@media screen and (max-width: 767px) {
+  .section.hero-started .slide .circle {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   RESUME SECTION FIXES
+   ========================================== */
+
+/* Global Resume Section Improvements */
+.history-items {
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.history-item {
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  background: #f0ebe3 !important;
+  transition: all 0.3s ease;
+}
+
+.history-item:not(:last-child) {
+  border-bottom: 1px solid #fdf9f2  !important;
+}
+
+.history-item .name {
+  margin: 0;
+  padding: 25px 30px;
+  background: #f0ebe3 !important;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.history-item .name:hover {
+  background: #fdf9f2 !important;
+}
+
+.history-item .name:after {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.history-item .history-content {
+  margin: 0;
+  background: #fdf9f2 !important;
+  border: none;
+}
+
+.history-item .subname {
+  margin: 0 0 10px 0;
+  padding: 0;
+  float: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #29a587;
+  font-weight: 600;
+}
+
+.history-item .date {
+  margin: 0 0 15px 0;
+  padding: 0;
+  float: none;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.history-item .text {
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+
+.history-item .text p {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.history-item .text ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.history-item .text ul li {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* Resume Section Container Spacing */
+#resume-section .container {
+  padding: 0 20px;
+}
+
+#resume-section .row {
+  margin: 0 -15px;
+}
+
+#resume-section .col-xs-12,
+#resume-section .col-sm-6,
+#resume-section .col-md-6 {
+  padding: 0 15px;
+}
+
+.history-title {
+  margin-bottom: 30px;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+
+/* ==========================================
+   SPECIFIC COMPONENT FIXES
+   ========================================== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .js-services .swiper-wrapper .swiper-slide .services-item {
+    margin: 0 15px;
+  }
+  
+  .services-item {
+    padding: 30px 20px;
+  }
+}
+
+/* Fix for contact form on all devices */
+.contacts-form {
+  max-width: 100%;
+}
+
+.contacts-form .row {
+  margin: 0;
+}
+
+.contacts-form .col-xs-12,
+.contacts-form .col-sm-6,
+.contacts-form .col-md-6 {
+  padding: 0 10px;
+}
+
+/* Fix for social links spacing */
+.social-links a {
+  margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for menu overlay on tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .menu-full-overlay .menu-full-container {
+    padding: 0 30px;
+  }
+  
+  .menu-full ul li a {
+    font-size: 20px;
+  }
+}
+
+/* Fix for footer on all devices */
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+  .header,
+  .footer,
+  .menu-btn,
+  .preloader,
+  .cursor {
+    display: none !important;
+  }
+  
+  .lui-section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+  }
+  
+  .section.hero-started .slide {
+    display: none;
+  }
+  
+  .works-item .image {
+    page-break-inside: avoid;
+  }
+} 
+
+/* ==========================================
+   SKILLS SECTION MOBILE OPTIMIZATION
+   ========================================== */
+
+/* Global Skills Section Improvements */
+.skills-items {
+  margin: 0;
+  padding: 0;
+}
+
+.skills-item {
+  margin: 0 0 30px 0;
+  padding: 25px;
+  background: #fdf9f2 !important;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skills-item .name {
+  margin: 0 0 15px 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  min-height: 30px;
+}
+
+.skills-item .name span {
+  display: inline-block;
+}
+
+.skills-item .text {
+  margin: 0 0 20px 0;
+  padding: 0;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex item to shrink */
+}
+
+.skills-item .text p {
+  margin: 0;
+  line-height: 1.6;
+  color: #495057;
+  font-size: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  height: 100%; /* Take full height of parent */
+  padding-right: 8px;
+  padding-bottom: 5px;
+}
+
+.skills-item .text p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.skills-item .text p::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.skills-item .text p::-webkit-scrollbar-thumb {
+  background: #29a587;
+  border-radius: 3px;
+}
+
+.skills-item .text p::-webkit-scrollbar-thumb:hover {
+  background: #1abc9c;
+}
+
+.skills-item .dots {
+  position: relative;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 0 0 15px 0;
+  flex-shrink: 0;
+}
+
+.skills-item .dots .dot {
+  position: relative;
+  display: block;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #29a587, #1abc9c);
+  border-radius: 2px;
+  transition: all 0.8s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.skills-item .dots .dot span {
+  border: 3px solid #29a587;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(41, 165, 135, 0.3);
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.skills-item .dots .dot span:before {
+  margin-top: -3px;
+  margin-left: -3px;
+  border: 2px solid #29a587;
+  border-radius: 50%;
+  background-color: #29a587;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+}
+
+.skills-item .value {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #29a587, #1abc9c);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(41, 165, 135, 0.3);
+  flex-shrink: 0;
+}
+
+.skills-item .value .num {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+  color: #ffffff;
+  height: auto;
+  line-height: 1;
+}
+
+.skills-item .value .num span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+}
+
+/* ==========================================
+   TABLET OPTIMIZATION (768px - 1024px)
+   ========================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  /* Skills Section Tablet Fixes */
+  .skills-items {
+    margin-top: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 30px;
+    padding: 30px;
+    height: auto;
+    min-height: 220px;
+  }
+  
+  .skills-item .name {
+    font-size: 22px;
+    margin-bottom: 20px;
+    min-height: 35px;
+  }
+  
+  .skills-item .text p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .skills-item .dots {
+    height: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 5px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 22px;
+    height: 22px;
+    top: -9px;
+    right: -2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+  
+  .skills-item .value {
+    top: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  
+  /* Skills Grid Layout */
+  .skills-items .col-xs-12 {
+    margin-bottom: 25px;
+  }
+  
+  /* Skills Section Container */
+  .v-line-left .container .row {
+    margin: 0 -15px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 15px;
+  }
+}
+
+/* ==========================================
+   LARGE TABLET OPTIMIZATION (1025px - 1200px)
+   ========================================== */
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  
+  .skills-item {
+    padding: 35px;
+    height: auto;
+    min-height: 240px;
+  }
+  
+  .skills-item .name {
+    font-size: 24px;
+    min-height: 40px;
+  }
+  
+  .skills-item .text p {
+    font-size: 16px;
+  }
+  
+  .skills-item .value {
+    top: 35px;
+    right: 35px;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION (320px - 767px)
+   ========================================== */
+
+@media screen and (max-width: 767px) {
+  
+  /* Skills Section Mobile */
+  .skills-items {
+    margin-top: 25px;
+  }
+  
+  .skills-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    height: auto;
+    min-height: 180px;
+  }
+  
+  .skills-item .name {
+    font-size: 18px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 25px;
+  }
+  
+  .skills-item .text {
+    margin-bottom: 15px;
+  }
+  
+  .skills-item .text p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    padding-right: 6px;
+  }
+  
+  .skills-item .dots {
+    height: 3px;
+    margin-bottom: 12px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 3px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 18px;
+    height: 18px;
+    top: -8px;
+    right: -1px;
+    border-width: 2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 5px;
+    height: 5px;
+    margin-top: -3px;
+    margin-left: -3px;
+    border-width: 1px;
+  }
+  
+  .skills-item .value {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  /* Skills Grid Layout Mobile */
+  .v-line-left .container .row {
+    margin: 0 -10px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 10px;
+  }
+  
+  /* Skills Section Heading Mobile */
+  .lui-heading .m-titles .m-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .lui-heading .m-titles .m-subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .lui-heading .m-titles .m-subtitle b {
+    display: inline-block;
+    word-break: break-word;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE OPTIMIZATION (320px - 480px)
+   ========================================== */
+
+@media screen and (max-width: 480px) {
+  
+  .skills-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    height: auto;
+    min-height: 160px;
+  }
+  
+  .skills-item .name {
+    font-size: 16px;
+    margin-bottom: 12px;
+    min-height: 20px;
+  }
+  
+  .skills-item .text p {
+    font-size: 13px;
+    line-height: 1.4;
+    padding-right: 4px;
+  }
+  
+  .skills-item .dots {
+    height: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 2px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 16px;
+    height: 16px;
+    top: -7px;
+    border-width: 2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+  
+  .skills-item .value {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  
+  /* Skills Section Heading Small Mobile */
+  .lui-heading .m-titles .m-title {
+    font-size: 24px;
+  }
+  
+  .lui-heading .m-titles .m-subtitle {
+    font-size: 14px;
+  }
+  
+  /* Container adjustments */
+  .v-line-left .container {
+    padding: 0 15px;
+  }
+  
+  .v-line-left .container .row {
+    margin: 0 -5px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 5px;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION FIXES
+   ========================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  
+  .skills-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    height: auto;
+    min-height: 140px;
+  }
+  
+  .skills-item .name {
+    font-size: 16px;
+    margin-bottom: 10px;
+    min-height: 18px;
+  }
+  
+  .skills-item .text p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  
+  .skills-item .value {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   HIGH DPI DISPLAY OPTIMIZATION
+   ========================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  
+  .skills-item .dots .dot span {
+    border-width: 1.5px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    border-width: 1px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS FOR SKILLS
+   ========================================== */
+
+/* Focus states for skills items */
+.skills-item:focus-within {
+  outline: 2px solid #29a587;
+  outline-offset: 2px;
+}
+
+/* Better contrast for text */
+.skills-item .text p {
+  color: #2c3e50;
+}
+
+/* Improved touch targets */
+.skills-item {
+  min-height: 120px;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS FOR SKILLS
+   ========================================== */
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .skills-item,
+  .skills-item .dots .dot,
+  .skills-item .dots .dot span {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   SKILLS SECTION SPECIFIC FIXES
+   ========================================== */
+
+/* Fix for skills section container spacing */
+.v-line-left .container {
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+/* Fix for skills grid on all devices */
+.skills-items .row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.skills-items .col-xs-12,
+.skills-items .col-sm-6,
+.skills-items .col-md-4,
+.skills-items .col-lg-4 {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.skills-items .skills-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for skills section background */
+.lui-section .v-line-left {
+  background: transparent;
+}
+
+/* Fix for skills section heading alignment */
+.lui-heading .m-titles.align-center {
+  text-align: center;
+}
+
+/* Fix for emoji display in skill names */
+.skills-item .name span {
+  white-space: nowrap;
+}
+
+/* Fix for long skill descriptions */
+.skills-item .text {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex item to shrink */
+}
+
+.skills-item .text p {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+/* Remove text truncation and use scrolling instead */
+.skills-item .text p {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+@media screen and (max-width: 767px) {
+  .skills-item .text p {
+    -webkit-line-clamp: unset;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-item .text p {
+    -webkit-line-clamp: unset;
+  }
+}
+
+/* Ensure equal height cards */
+.skills-items .col-xs-12 .skills-item,
+.skills-items .col-sm-6 .skills-item,
+.skills-items .col-md-4 .skills-item,
+.skills-items .col-lg-4 .skills-item {
+  height: auto;
+  min-height: 200px; /* Minimum height for all cards */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    min-height: 220px; /* Minimum height for tablets */
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    min-height: 240px; /* Minimum height for large tablets */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    min-height: 180px; /* Minimum height for mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    min-height: 160px; /* Minimum height for small mobile */
+  }
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    min-height: 140px; /* Minimum height for landscape */
+  }
+}
+
+/* ==========================================
+   CRITICAL SKILLS GRID FIXES
+   ========================================== */
+
+/* Force proper 2-column layout for iPad and below desktop */
+@media screen and (max-width: 1199px) {
+  /* Override the entire row structure */
+  #skills-section .v-line-left .container .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -15px !important;
+  }
+  
+  /* Force all columns to be 50% width */
+  #skills-section .v-line-left .container .row .col-xs-12,
+  #skills-section .v-line-left .container .row .col-sm-6,
+  #skills-section .v-line-left .container .row .col-md-4,
+  #skills-section .v-line-left .container .row .col-lg-4 {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    padding: 0 15px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  /* Reset skills-items container */
+  #skills-section .skills-items {
+    display: block !important;
+    margin: 0 !important;
+  }
+  
+  /* Proper spacing for skills items */
+  #skills-section .skills-item {
+    margin-bottom: 30px !important;
+  }
+  
+  /* Remove bottom margin from last items */
+  #skills-section .v-line-left .container .row .col-xs-12:last-child .skills-item:last-child,
+  #skills-section .v-line-left .container .row .col-sm-6:last-child .skills-item:last-child,
+  #skills-section .v-line-left .container .row .col-md-4:last-child .skills-item:last-child,
+  #skills-section .v-line-left .container .row .col-lg-4:last-child .skills-item:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Single column for mobile */
+@media screen and (max-width: 767px) {
+  #skills-section .v-line-left .container .row .col-xs-12,
+  #skills-section .v-line-left .container .row .col-sm-6,
+  #skills-section .v-line-left .container .row .col-md-4,
+  #skills-section .v-line-left .container .row .col-lg-4 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================
+   CONTACT SECTION FIXES
+   ========================================== */
+
+/* Contact section fixes for iPad and below */
+@media screen and (max-width: 1024px) {
+  /* Force single column layout for contact section */
+  #contact-section .lui-contacts .container .row .col-xs-12,
+  #contact-section .lui-contacts .container .row .col-sm-12,
+  #contact-section .lui-contacts .container .row .col-md-5,
+  #contact-section .lui-contacts .container .row .col-md-7,
+  #contact-section .lui-contacts .container .row .col-lg-5,
+  #contact-section .lui-contacts .container .row .col-lg-7 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+  
+  /* Contact info items layout */
+  #contact-section .numbers-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  #contact-section .numbers-item {
+    text-align: center;
+    padding: 20px;
+    background: #fdf9f2;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Contact form fixes */
+  #contact-section .contacts-form {
+    margin-top: 0;
+  }
+  
+  #contact-section .contacts-form .row {
+    margin: 0;
+  }
+  
+  #contact-section .contacts-form .col-xs-12,
+  #contact-section .contacts-form .col-sm-6,
+  #contact-section .contacts-form .col-sm-12,
+  #contact-section .contacts-form .col-md-6,
+  #contact-section .contacts-form .col-md-12,
+  #contact-section .contacts-form .col-lg-6,
+  #contact-section .contacts-form .col-lg-12 {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+  
+  #contact-section .contacts-form .group {
+    margin-bottom: 20px;
+  }
+  
+  #contact-section .contacts-form input,
+  #contact-section .contacts-form textarea {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  #contact-section .contacts-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+}
+
+/* Contact section fixes for mobile */
+@media screen and (max-width: 767px) {
+  /* Single column for contact info items on mobile */
+  #contact-section .numbers-items {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  #contact-section .numbers-item {
+    padding: 15px;
+  }
+  
+  /* Contact form mobile fixes */
+  #contact-section .contacts-form .col-xs-12,
+  #contact-section .contacts-form .col-sm-6,
+  #contact-section .contacts-form .col-sm-12,
+  #contact-section .contacts-form .col-md-6,
+  #contact-section .contacts-form .col-md-12,
+  #contact-section .contacts-form .col-lg-6,
+  #contact-section .contacts-form .col-lg-12 {
+    padding: 0 5px;
+    margin-bottom: 15px;
+  }
+  
+  #contact-section .contacts-form input,
+  #contact-section .contacts-form textarea {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  #contact-section .contacts-form button {
+    padding: 12px;
+    font-size: 16px;
+  }
+} 

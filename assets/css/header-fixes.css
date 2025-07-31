@@ -95,8 +95,43 @@
     width: 35px !important;
     height: 35px !important;
   }
-  
+}
 
+/* Tablet header fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 12px 25px !important;
+    min-height: 65px !important;
+  }
+  
+  .header .logo a {
+    font-size: 24px !important;
+  }
+  
+  .lui-section-hero {
+    padding-top: 85px !important;
+  }
+  
+  .header__builder .menu-btn {
+    width: 38px !important;
+    height: 38px !important;
+  }
+}
+
+/* Large tablet header fixes */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .header {
+    padding: 15px 30px !important;
+    min-height: 70px !important;
+  }
+  
+  .header .logo a {
+    font-size: 26px !important;
+  }
+  
+  .lui-section-hero {
+    padding-top: 90px !important;
+  }
 }
 
 /* Remove any excessive spacing */

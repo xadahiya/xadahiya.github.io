@@ -1277,6 +1277,9 @@ hr {
 	-moz-border-radius: 100%;
 	-webkit-border-radius: 100%;
 	-khtml-border-radius: 100%;
+	transition: transform 0.1s ease-out;
+	will-change: transform;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .cursor.cursor-zoom {
@@ -1286,6 +1289,8 @@ hr {
 	height: 80px;
 	background: rgba(0, 0, 0, 0);
 	border-color: rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -2352,7 +2357,6 @@ hr {
 
 .lui-section-hero .container {
 	max-width: 1300px;
-	min-height: 100vh;
 	display: flex;
 	align-items: center;
 }
@@ -2553,6 +2557,7 @@ hr {
 	font-weight: 700;
 	width: 50%;
 	text-align: center;
+	transition: all 0.3s ease;
 }
 
 .section.hero-started .info-list ul li .num strong {
@@ -2690,9 +2695,6 @@ hr {
 	border-right: 2px solid #000;
 }
 
-.history-item:first-child {
-	border-right: 2px solid transparent;
-}
 
 .history-item .history-content {
 	padding: 0 50px 0 30px;
@@ -2758,12 +2760,12 @@ hr {
 	content: '+';
 	position: absolute;
 	right: -24px;
-	bottom: -24px;
+	top: -1px;
 	width: 48px;
 	height: 48px;
 	line-height: 40px;
-	background: #fff;
-	border-radius: 50%;
+	background: #ffffff;
+	border-radius: 25%;
 	border: 2px solid #000;
 	box-shadow: 5px 5px rgb(0 0 0 / 20%);
 	font-weight: 400;
@@ -5087,27 +5089,31 @@ a.wp-block-button__link {
 
 	/*hero started*/
 	.section.hero-started .content {
-		padding-top: 140px;
+		padding-top: 60px;
 		text-align: center;
 	}
 	.section.hero-started .titles {
-		margin-bottom: 760px;
+		margin-bottom: 40px;
 		max-width: 100%;
 	}
 	.section.hero-started .title {
-		font-size: 64px;
+		font-size: 42px;
 	}
 	.section.hero-started .slide {
-		margin-left: -340px;
-		bottom: auto;
-		top: 740px;
+		position: relative;
+		margin: 30px auto 0;
+		top: auto;
+		left: auto;
 		right: auto;
-		left: 50%;
-		transform: scale(0.9);
-		transform-origin: top center;
+		transform: none;
+		max-width: 350px;
+		height: 400px;
 	}
 	.section.hero-started .description {
 		margin: 0 auto;
+		padding: 20px 0;
+		max-width: 100%;
+		text-align: center;
 	}
 
 	/*resume*/
@@ -5326,24 +5332,23 @@ a.wp-block-button__link {
 
 	/*started hero*/
 	.section.hero-started .content {
-		padding-top: 120px;
+		padding-top: 40px;
 	}
 	.section.hero-started .titles {
-		margin-bottom: 420px;
-		min-height: 160px;
+		margin-bottom: 30px;
+		min-height: auto;
 	}
 	.section.hero-started .title {
-		font-size: 40px;
+		font-size: 32px;
 	}
 	.section.hero-started .lui-subtitle {
-		font-size: 13px;
+		font-size: 14px;
 	}
 	.section.hero-started .label strong, .section.hero-started .label b {
-		font-size: 24px;
+		font-size: 20px;
 	}
 	.section.hero-started .slide {
-		top: 725px;
-		transform: scale(0.5);
+		display: none;
 	}
 	.hero-started .btn-lnk {
 		margin-top: 20px;
