@@ -561,12 +561,12 @@ html {
   margin: 0;
   padding: 0;
   border: none !important;
-  background: #ffffff;
+  background: #f0ebe3 !important;
   transition: all 0.3s ease;
 }
 
 .history-item:not(:last-child) {
-  border-bottom: 1px solid #e0e0e0 !important;
+  border-bottom: 1px solid #fdf9f2  !important;
 }
 
 .history-item .name {
@@ -749,5 +749,669 @@ html {
   
   .works-item .image {
     page-break-inside: avoid;
+  }
+} 
+
+/* ==========================================
+   SKILLS SECTION MOBILE OPTIMIZATION
+   ========================================== */
+
+/* Global Skills Section Improvements */
+.skills-items {
+  margin: 0;
+  padding: 0;
+}
+
+.skills-item {
+  margin: 0 0 40px 0;
+  padding: 25px;
+  background: #fdf9f2 !important;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  height: 280px; /* Fixed height for all cards */
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skills-item .name {
+  margin: 0 0 15px 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  min-height: 30px;
+}
+
+.skills-item .name span {
+  display: inline-block;
+}
+
+.skills-item .text {
+  margin: 0 0 20px 0;
+  padding: 0;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex item to shrink */
+}
+
+.skills-item .text p {
+  margin: 0;
+  line-height: 1.6;
+  color: #495057;
+  font-size: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  height: 100%; /* Take full height of parent */
+  padding-right: 8px;
+  padding-bottom: 5px;
+}
+
+.skills-item .text p::-webkit-scrollbar {
+  width: 6px;
+}
+
+.skills-item .text p::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+.skills-item .text p::-webkit-scrollbar-thumb {
+  background: #29a587;
+  border-radius: 3px;
+}
+
+.skills-item .text p::-webkit-scrollbar-thumb:hover {
+  background: #1abc9c;
+}
+
+.skills-item .dots {
+  position: relative;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 0 0 15px 0;
+  flex-shrink: 0;
+}
+
+.skills-item .dots .dot {
+  position: relative;
+  display: block;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #29a587, #1abc9c);
+  border-radius: 2px;
+  transition: all 0.8s cubic-bezier(0.3, 0, 0.3, 1);
+}
+
+.skills-item .dots .dot span {
+  border: 3px solid #29a587;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(41, 165, 135, 0.3);
+  position: absolute;
+  right: -2px;
+  top: -8px;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s ease;
+}
+
+.skills-item .dots .dot span:before {
+  margin-top: -3px;
+  margin-left: -3px;
+  border: 2px solid #29a587;
+  border-radius: 50%;
+  background-color: #29a587;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+}
+
+.skills-item .value {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #29a587, #1abc9c);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 3px 10px rgba(41, 165, 135, 0.3);
+  flex-shrink: 0;
+}
+
+.skills-item .value .num {
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 700;
+  color: #ffffff;
+  height: auto;
+  line-height: 1;
+}
+
+.skills-item .value .num span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+}
+
+/* ==========================================
+   TABLET OPTIMIZATION (768px - 1024px)
+   ========================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  /* Skills Section Tablet Fixes */
+  .skills-items {
+    margin-top: 40px;
+  }
+  
+  .skills-item {
+    margin-bottom: 40px;
+    padding: 30px;
+    height: 300px; /* Fixed height for tablets */
+  }
+  
+  .skills-item .name {
+    font-size: 22px;
+    margin-bottom: 20px;
+    min-height: 35px;
+  }
+  
+  .skills-item .text p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .skills-item .dots {
+    height: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 5px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 22px;
+    height: 22px;
+    top: -9px;
+    right: -2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+  
+  .skills-item .value {
+    top: 30px;
+    right: 30px;
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+  
+  /* Skills Grid Layout */
+  .skills-items .col-xs-12 {
+    margin-bottom: 30px;
+  }
+  
+  /* Skills Section Container */
+  .v-line-left .container .row {
+    margin: 0 -15px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 15px;
+  }
+}
+
+/* ==========================================
+   LARGE TABLET OPTIMIZATION (1025px - 1200px)
+   ========================================== */
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  
+  .skills-item {
+    padding: 35px;
+    height: 320px; /* Fixed height for large tablets */
+  }
+  
+  .skills-item .name {
+    font-size: 24px;
+    min-height: 40px;
+  }
+  
+  .skills-item .text p {
+    font-size: 16px;
+  }
+  
+  .skills-item .value {
+    top: 35px;
+    right: 35px;
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION (320px - 767px)
+   ========================================== */
+
+@media screen and (max-width: 767px) {
+  
+  /* Skills Section Mobile */
+  .skills-items {
+    margin-top: 30px;
+  }
+  
+  .skills-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    height: 240px; /* Fixed height for mobile */
+  }
+  
+  .skills-item .name {
+    font-size: 18px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 25px;
+  }
+  
+  .skills-item .text {
+    margin-bottom: 15px;
+  }
+  
+  .skills-item .text p {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    padding-right: 6px;
+  }
+  
+  .skills-item .dots {
+    height: 3px;
+    margin-bottom: 12px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 3px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 18px;
+    height: 18px;
+    top: -8px;
+    right: -1px;
+    border-width: 2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 5px;
+    height: 5px;
+    margin-top: -3px;
+    margin-left: -3px;
+    border-width: 1px;
+  }
+  
+  .skills-item .value {
+    position: relative;
+    top: auto;
+    right: auto;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+  
+  /* Skills Grid Layout Mobile */
+  .v-line-left .container .row {
+    margin: 0 -10px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 10px;
+  }
+  
+  /* Skills Section Heading Mobile */
+  .lui-heading .m-titles .m-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .lui-heading .m-titles .m-subtitle {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  
+  .lui-heading .m-titles .m-subtitle b {
+    display: inline-block;
+    word-break: break-word;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE OPTIMIZATION (320px - 480px)
+   ========================================== */
+
+@media screen and (max-width: 480px) {
+  
+  .skills-item {
+    padding: 15px;
+    margin-bottom: 25px;
+    height: 200px; /* Fixed height for small mobile */
+  }
+  
+  .skills-item .name {
+    font-size: 16px;
+    margin-bottom: 12px;
+    min-height: 20px;
+  }
+  
+  .skills-item .text p {
+    font-size: 13px;
+    line-height: 1.4;
+    padding-right: 4px;
+  }
+  
+  .skills-item .dots {
+    height: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .skills-item .dots .dot {
+    height: 2px;
+  }
+  
+  .skills-item .dots .dot span {
+    width: 16px;
+    height: 16px;
+    top: -7px;
+    border-width: 2px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    width: 4px;
+    height: 4px;
+    margin-top: -2px;
+    margin-left: -2px;
+  }
+  
+  .skills-item .value {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  
+  /* Skills Section Heading Small Mobile */
+  .lui-heading .m-titles .m-title {
+    font-size: 24px;
+  }
+  
+  .lui-heading .m-titles .m-subtitle {
+    font-size: 14px;
+  }
+  
+  /* Container adjustments */
+  .v-line-left .container {
+    padding: 0 15px;
+  }
+  
+  .v-line-left .container .row {
+    margin: 0 -5px;
+  }
+  
+  .v-line-left .container .col-xs-12,
+  .v-line-left .container .col-sm-6,
+  .v-line-left .container .col-md-4,
+  .v-line-left .container .col-lg-4 {
+    padding: 0 5px;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION FIXES
+   ========================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  
+  .skills-item {
+    padding: 15px;
+    margin-bottom: 20px;
+    height: 180px; /* Fixed height for landscape */
+  }
+  
+  .skills-item .name {
+    font-size: 16px;
+    margin-bottom: 10px;
+    min-height: 18px;
+  }
+  
+  .skills-item .text p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  
+  .skills-item .value {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   HIGH DPI DISPLAY OPTIMIZATION
+   ========================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  
+  .skills-item .dots .dot span {
+    border-width: 1.5px;
+  }
+  
+  .skills-item .dots .dot span:before {
+    border-width: 1px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS FOR SKILLS
+   ========================================== */
+
+/* Focus states for skills items */
+.skills-item:focus-within {
+  outline: 2px solid #29a587;
+  outline-offset: 2px;
+}
+
+/* Better contrast for text */
+.skills-item .text p {
+  color: #2c3e50;
+}
+
+/* Improved touch targets */
+.skills-item {
+  min-height: 120px;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS FOR SKILLS
+   ========================================== */
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  .skills-item,
+  .skills-item .dots .dot,
+  .skills-item .dots .dot span {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   SKILLS SECTION SPECIFIC FIXES
+   ========================================== */
+
+/* Fix for skills section container spacing */
+.v-line-left .container {
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+/* Fix for skills grid on all devices */
+.skills-items .row {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.skills-items .col-xs-12,
+.skills-items .col-sm-6,
+.skills-items .col-md-4,
+.skills-items .col-lg-4 {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.skills-items .skills-item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix for skills section background */
+.lui-section .v-line-left {
+  background: transparent;
+}
+
+/* Fix for skills section heading alignment */
+.lui-heading .m-titles.align-center {
+  text-align: center;
+}
+
+/* Fix for emoji display in skill names */
+.skills-item .name span {
+  white-space: nowrap;
+}
+
+/* Fix for long skill descriptions */
+.skills-item .text {
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex item to shrink */
+}
+
+.skills-item .text p {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+/* Remove text truncation and use scrolling instead */
+.skills-item .text p {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+@media screen and (max-width: 767px) {
+  .skills-item .text p {
+    -webkit-line-clamp: unset;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-item .text p {
+    -webkit-line-clamp: unset;
+  }
+}
+
+/* Ensure equal height cards */
+.skills-items .col-xs-12 .skills-item,
+.skills-items .col-sm-6 .skills-item,
+.skills-items .col-md-4 .skills-item,
+.skills-items .col-lg-4 .skills-item {
+  height: 280px; /* Fixed height for all cards */
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    height: 300px; /* Fixed height for tablets */
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    height: 320px; /* Fixed height for large tablets */
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    height: 240px; /* Fixed height for mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    height: 200px; /* Fixed height for small mobile */
+  }
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .skills-items .col-xs-12 .skills-item,
+  .skills-items .col-sm-6 .skills-item,
+  .skills-items .col-md-4 .skills-item,
+  .skills-items .col-lg-4 .skills-item {
+    height: 180px; /* Fixed height for landscape */
   }
 } 
