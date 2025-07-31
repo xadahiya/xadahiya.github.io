@@ -2696,9 +2696,6 @@ hr {
 	border-right: 2px solid #000;
 }
 
-.history-item:first-child {
-	border-right: 2px solid transparent;
-}
 
 .history-item .history-content {
 	padding: 0 50px 0 30px;
@@ -2764,12 +2761,12 @@ hr {
 	content: '+';
 	position: absolute;
 	right: -24px;
-	bottom: -24px;
+	top: -1px;
 	width: 48px;
 	height: 48px;
 	line-height: 40px;
-	background: #fff;
-	border-radius: 50%;
+	background: #ffffff;
+	border-radius: 25%;
 	border: 2px solid #000;
 	box-shadow: 5px 5px rgb(0 0 0 / 20%);
 	font-weight: 400;

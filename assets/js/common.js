@@ -330,7 +330,8 @@
                 $('.num').each(function() {
                     const $this = $(this);
                     const originalText = $this.text();
-                    const countTo = parseInt(originalText);
+                    const suffix = originalText.split(' ')[1];
+                    const countTo = parseInt(originalText.split(' ')[0]);
                     
                     // Only animate if it's a valid number
                     if (isNaN(countTo) || countTo <= 0) {
@@ -355,10 +356,10 @@
                                         duration: 2000,
                                         easing: 'swing',
                                         step: function() {
-                                            $this.text(Math.floor(this.countNum));
+                                            $this.text(Math.floor(this.countNum) + suffix);
                                         },
                                         complete: function() {
-                                            $this.text(countTo + '%');
+                                            $this.text(countTo + suffix);
                                         }
                                     });
                                 }, 300);
