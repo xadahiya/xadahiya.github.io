@@ -2346,7 +2346,9 @@ hr {
 }
 
 .lui-section-hero .container {
-	padding-top: 200px;
+	@media screen and (min-width: 1025px) {
+		padding-top: 200px;
+	}
 	max-width: 1300px;
 	display: flex;
 	align-items: center;
