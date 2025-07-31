@@ -1277,6 +1277,9 @@ hr {
 	-moz-border-radius: 100%;
 	-webkit-border-radius: 100%;
 	-khtml-border-radius: 100%;
+	transition: transform 0.1s ease-out;
+	will-change: transform;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .cursor.cursor-zoom {
@@ -1286,6 +1289,8 @@ hr {
 	height: 80px;
 	background: rgba(0, 0, 0, 0);
 	border-color: rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -2553,6 +2558,7 @@ hr {
 	font-weight: 700;
 	width: 50%;
 	text-align: center;
+	transition: all 0.3s ease;
 }
 
 .section.hero-started .info-list ul li .num strong {
