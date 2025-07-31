@@ -572,7 +572,7 @@ html {
 .history-item .name {
   margin: 0;
   padding: 25px 30px;
-  background: #f8f9fa;
+  background: #f0ebe3 !important;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -580,7 +580,7 @@ html {
 }
 
 .history-item .name:hover {
-  background: #e9ecef;
+  background: #fdf9f2 !important;
 }
 
 .history-item .name:after {
@@ -596,9 +596,8 @@ html {
 }
 
 .history-item .history-content {
-  padding: 25px 30px;
   margin: 0;
-  background: #ffffff;
+  background: #fdf9f2 !important;
   border: none;
 }
 

@@ -373,7 +373,7 @@ textarea {
 	resize: none;
 	outline: 0;
 	font-weight: 400;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border: 2px solid #000;
 	border-radius: 30px;
 	-webkit-border-radius: 30px;
@@ -2858,7 +2858,7 @@ hr {
 	position: relative;
 	overflow: hidden;
 	padding: 30px 35px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 18px;
 	height: 300px; /* Fixed height for all cards */
 	display: flex;
@@ -3162,7 +3162,7 @@ hr {
 .works-items.works-masonry-items .works-item {
 	position: relative;
 	padding: 30px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 20px;
 }
 
@@ -3551,7 +3551,7 @@ hr {
 	position: relative;
 	overflow: hidden;
 	padding: 30px;
-	background: #fff;
+	background: #fdf9f2 !important;
 	border-radius: 18px;
 	display: flex;
 	flex-direction: column;
@@ -3623,7 +3623,7 @@ hr {
 	border: 2px solid #000;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
-	background-color: #fff;
+	background-color: #fdf9f2 !important;
 	box-shadow: 5px 5px 0px 0px rgb(0 0 0 / 20%);
 	width: 56px;
 	height: 56px;
@@ -5437,7 +5437,7 @@ a.wp-block-button__link {
 		opacity: 1;
 	}
 	.works-items.works-list-items .works-item {
-		background: #fff;
+		background: #fdf9f2 !important;
 		border-radius: 20px;
 	}
 	.works-items.works-list-items .works-item .image {
