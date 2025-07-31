@@ -1,0 +1,754 @@
+/**
+ * Responsive Optimization for All Devices
+ * Comprehensive fixes for iPad, tablet, mobile, and desktop compatibility
+ */
+
+/* ==========================================
+   GLOBAL RESPONSIVE FIXES
+   ========================================== */
+
+/* Ensure proper viewport handling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Fix container issues */
+.container {
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ==========================================
+   TABLET OPTIMIZATION (768px - 1024px)
+   ========================================== */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  
+  /* Hero Section Tablet Fixes */
+  .section.hero-started {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 50px;
+    max-width: 100%;
+  }
+  
+  .section.hero-started .title {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  
+  .section.hero-started .slide {
+    position: relative;
+    margin: 0 auto;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: 400px;
+    margin-top: 30px;
+  }
+  
+  .section.hero-started .slide img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 80px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 100px 0 80px 0;
+  }
+  
+  /* Typography Adjustments */
+  .m-titles .m-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .m-titles .m-subtitle {
+    font-size: 18px;
+  }
+  
+  /* Skills Section */
+  .skills-items {
+    margin-top: 40px;
+  }
+  
+  .skills-item {
+    margin-bottom: 40px;
+  }
+  
+  /* Resume Section */
+  .history-item .name {
+    padding: 20px 30px 20px 20px;
+    font-size: 18px;
+  }
+  
+  .history-item .subname {
+    font-size: 16px;
+  }
+  
+  /* Works/Portfolio Section */
+  .works-items.works-masonry-items .works-col {
+    width: 50%;
+    flex: 0 0 50%;
+    padding: 15px;
+  }
+  
+  .works-item .image img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Blog Section */
+  .blog-items .col-xs-12 {
+    margin-bottom: 30px;
+  }
+  
+  .archive-item .image img {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Contact Section */
+  .numbers-items {
+    margin-bottom: 40px;
+  }
+  
+  .numbers-item {
+    margin-bottom: 30px;
+  }
+  
+  /* Form Elements */
+  .contacts-form input,
+  .contacts-form textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Navigation Menu */
+  .menu-full ul li a {
+    font-size: 18px;
+    padding: 15px 0;
+  }
+  
+  /* Header Adjustments */
+  .header .logo a {
+    font-size: 28px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 0;
+  }
+}
+
+/* ==========================================
+   LARGE TABLET OPTIMIZATION (1025px - 1200px)
+   ========================================== */
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  
+  /* Hero Section */
+  .section.hero-started .content {
+    padding-top: 120px;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 60px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 56px;
+  }
+  
+  .section.hero-started .slide {
+    transform: scale(0.8);
+    margin-left: -200px;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 100px 0;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 42px;
+  }
+  
+  /* Works Grid */
+  .works-items.works-masonry-items .works-col {
+    width: 50%;
+    flex: 0 0 50%;
+  }
+  
+  /* Skills Grid */
+  .skills-items .col-xs-12 {
+    margin-bottom: 30px;
+  }
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION (320px - 767px)
+   ========================================== */
+
+@media screen and (max-width: 767px) {
+  
+  /* Hero Section Mobile */
+  .section.hero-started {
+    min-height: auto;
+    padding: 80px 0 60px 0;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 80px;
+    text-align: center;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 40px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+  
+  .section.hero-started .slide {
+    position: relative;
+    margin: 30px auto 0;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    max-width: 300px;
+  }
+  
+  .section.hero-started .slide img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 60px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 80px 0 60px 0;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .m-titles .m-subtitle {
+    font-size: 16px;
+  }
+  
+  /* Container */
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Skills Section */
+  .skills-item {
+    margin-bottom: 30px;
+  }
+  
+  .skills-item .name {
+    font-size: 18px;
+  }
+  
+  /* Resume Section */
+  .history-item .name {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+  
+  .history-item .subname {
+    font-size: 14px;
+  }
+  
+  .history-item .date {
+    font-size: 12px;
+  }
+  
+  /* Works Section */
+  .works-items.works-masonry-items .works-col {
+    width: 100%;
+    flex: 0 0 100%;
+    padding: 10px;
+  }
+  
+  .works-item .image img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Blog Section */
+  .archive-item {
+    margin-bottom: 30px;
+  }
+  
+  .archive-item .image img {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Contact Section */
+  .numbers-item {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .numbers-item .title {
+    font-size: 18px;
+  }
+  
+  /* Form Elements */
+  .contacts-form input,
+  .contacts-form textarea {
+    font-size: 16px;
+    padding: 12px 15px;
+  }
+  
+  /* Navigation */
+  .menu-full ul li a {
+    font-size: 16px;
+    padding: 12px 0;
+  }
+  
+  /* Header */
+  .header .logo a {
+    font-size: 24px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 30px 0;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE OPTIMIZATION (320px - 480px)
+   ========================================== */
+
+@media screen and (max-width: 480px) {
+  
+  /* Hero Section */
+  .section.hero-started .title {
+    font-size: 28px;
+  }
+  
+  .section.hero-started .slide {
+    max-width: 250px;
+  }
+  
+  /* Typography */
+  .m-titles .m-title {
+    font-size: 24px;
+  }
+  
+  /* Container */
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* Section Spacing */
+  .lui-section {
+    padding: 40px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 60px 0 40px 0;
+  }
+  
+  /* Skills */
+  .skills-item .name {
+    font-size: 16px;
+  }
+  
+  /* Resume */
+  .history-item .name {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  /* Works */
+  .works-item .image img {
+    height: 150px;
+  }
+  
+  /* Blog */
+  .archive-item .image img {
+    height: 150px;
+  }
+  
+  /* Contact */
+  .numbers-item .title {
+    font-size: 16px;
+  }
+  
+  /* Header */
+  .header .logo a {
+    font-size: 20px;
+  }
+  
+  /* Buttons */
+  .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION FIXES
+   ========================================== */
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  
+  .section.hero-started {
+    min-height: auto;
+    padding: 60px 0;
+  }
+  
+  .section.hero-started .content {
+    padding-top: 60px;
+  }
+  
+  .section.hero-started .titles {
+    margin-bottom: 30px;
+  }
+  
+  .section.hero-started .title {
+    font-size: 32px;
+  }
+  
+  .section.hero-started .slide {
+    max-width: 200px;
+    margin-top: 20px;
+  }
+  
+  .lui-section {
+    padding: 40px 0;
+  }
+  
+  .lui-section-hero {
+    padding: 60px 0 40px 0;
+  }
+}
+
+/* ==========================================
+   HIGH DPI DISPLAY OPTIMIZATION
+   ========================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  
+  .section.hero-started .slide img,
+  .works-item .image img,
+  .archive-item .image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+
+/* Focus states for better accessibility */
+.btn:focus,
+.menu-btn:focus,
+.contacts-form input:focus,
+.contacts-form textarea:focus {
+  outline: 2px solid #29a587;
+  outline-offset: 2px;
+}
+
+/* Touch target improvements */
+.btn,
+.menu-btn,
+.menu-full ul li a {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   HERO SECTION CIRCLE FIXES
+   ========================================== */
+
+/* Hide problematic circle elements on smaller screens */
+@media screen and (max-width: 1024px) {
+  .section.hero-started .slide .circle.circle-1 {
+    display: none !important;
+  }
+  
+  .section.hero-started .slide .circle.img-1,
+  .section.hero-started .slide .circle.img-2,
+  .section.hero-started .slide .circle.img-3 {
+    display: none !important;
+  }
+}
+
+/* Hide all decorative circles on mobile */
+@media screen and (max-width: 767px) {
+  .section.hero-started .slide .circle {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   RESUME SECTION FIXES
+   ========================================== */
+
+/* Global Resume Section Improvements */
+.history-items {
+  margin: 0;
+  padding: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.history-item {
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.history-item:not(:last-child) {
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.history-item .name {
+  margin: 0;
+  padding: 25px 30px;
+  background: #f8f9fa;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.history-item .name:hover {
+  background: #e9ecef;
+}
+
+.history-item .name:after {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  line-height: 36px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.history-item .history-content {
+  padding: 25px 30px;
+  margin: 0;
+  background: #ffffff;
+  border: none;
+}
+
+.history-item .subname {
+  margin: 0 0 10px 0;
+  padding: 0;
+  float: none;
+  width: 100%;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #29a587;
+  font-weight: 600;
+}
+
+.history-item .date {
+  margin: 0 0 15px 0;
+  padding: 0;
+  float: none;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.history-item .text {
+  margin: 0;
+  padding: 0;
+  clear: both;
+}
+
+.history-item .text p {
+  margin: 0 0 15px 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+.history-item .text ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.history-item .text ul li {
+  margin: 8px 0;
+  line-height: 1.6;
+  color: #495057;
+}
+
+/* Resume Section Container Spacing */
+#resume-section .container {
+  padding: 0 20px;
+}
+
+#resume-section .row {
+  margin: 0 -15px;
+}
+
+#resume-section .col-xs-12,
+#resume-section .col-sm-6,
+#resume-section .col-md-6 {
+  padding: 0 15px;
+}
+
+.history-title {
+  margin-bottom: 30px;
+  padding: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+
+/* ==========================================
+   SPECIFIC COMPONENT FIXES
+   ========================================== */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .js-services .swiper-wrapper .swiper-slide .services-item {
+    margin: 0 15px;
+  }
+  
+  .services-item {
+    padding: 30px 20px;
+  }
+}
+
+/* Fix for contact form on all devices */
+.contacts-form {
+  max-width: 100%;
+}
+
+.contacts-form .row {
+  margin: 0;
+}
+
+.contacts-form .col-xs-12,
+.contacts-form .col-sm-6,
+.contacts-form .col-md-6 {
+  padding: 0 10px;
+}
+
+/* Fix for social links spacing */
+.social-links a {
+  margin: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix for menu overlay on tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .menu-full-overlay .menu-full-container {
+    padding: 0 30px;
+  }
+  
+  .menu-full ul li a {
+    font-size: 20px;
+  }
+}
+
+/* Fix for footer on all devices */
+.footer .social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+  .header,
+  .footer,
+  .menu-btn,
+  .preloader,
+  .cursor {
+    display: none !important;
+  }
+  
+  .lui-section {
+    padding: 20px 0;
+    page-break-inside: avoid;
+  }
+  
+  .section.hero-started .slide {
+    display: none;
+  }
+  
+  .works-item .image {
+    page-break-inside: avoid;
+  }
+} 
