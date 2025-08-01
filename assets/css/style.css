@@ -1503,11 +1503,6 @@ hr {
 	-webkit-transform: translateZ(0)  translateY(0);
 }
 
-@media screen and (max-width: 1200px) {
-	.header.sticky {
-		background: #fff;
-	}
-}
 
 @media screen and (min-width: 1200px) {
 	.header.animate-in {
