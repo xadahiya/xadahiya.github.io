@@ -2346,9 +2346,6 @@ hr {
 }
 
 .lui-section-hero .container {
-	@media screen and (min-width: 1025px) {
-		padding-top: 200px;
-	}
 	max-width: 1300px;
 	display: flex;
 	align-items: center;
@@ -2468,7 +2465,13 @@ hr {
 	margin: 15px 0 0 0;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
-	text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000, 5px 5px 0px rgba(0, 0, 0, 0.2);
+	text-shadow: -2px -2px #29a587, 0px 2px #000, 6px 3px #000, 2px 0px #000, 2px 2px 0px rgba(0, 0, 0, 0.2);
+	/* For smaller screens 
+	-2px -2px #29a587, 0px 2px #000, 0px 0px #000, 2px 0px #000, 2px 2px 0px rgba(0, 0, 0, 0.2)
+	 */
+	 @media screen and (max-width: 1024px) {
+		text-shadow: -2px -2px #29a587, 0px 2px #000, 0px 0px #000, 2px 0px #000, 2px 2px 0px rgba(0, 0, 0, 0.2) !important;
+	 }
 }
 
 .section.hero-started .lui-subtitle {
