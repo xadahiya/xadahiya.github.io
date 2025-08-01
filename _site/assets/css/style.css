@@ -5598,3 +5598,135 @@ a.wp-block-button__link {
 		text-align: center!important;
 	}
 }
+
+/* GitHub Activity Section Styles */
+.github-activity-container {
+	text-align: center;
+	padding: 40px 0;
+}
+
+.github-graph-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 30px;
+	background: rgba(255, 255, 255, 0.05);
+	border-radius: 12px;
+	padding: 20px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.github-graph-wrapper img {
+	width: 90vw;
+	max-width: 90vw;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github-graph-wrapper img:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.github-stats-text {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 16px;
+	color: #666;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.github-stats-text p {
+	margin-bottom: 20px;
+	line-height: 1.6;
+	color: #888;
+}
+
+.github-stats-text .btn {
+	margin-top: 15px;
+	display: inline-block;
+	background: linear-gradient(135deg, #29a587 0%, #1e8a6f 100%);
+	border: none;
+	border-radius: 25px;
+	color: white;
+	text-decoration: none;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(41, 165, 135, 0.3);
+}
+
+.github-stats-text .btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(41, 165, 135, 0.4);
+	background: linear-gradient(135deg, #1e8a6f 0%, #29a587 100%);
+	text-decoration: none;
+}
+
+/* Responsive Design for GitHub Activity Section */
+@media screen and (max-width: 1024px) {
+	.github-graph-wrapper {
+		padding: 15px;
+		margin-bottom: 25px;
+	}
+	
+	.github-graph-wrapper img {
+		width: 90vw;
+		max-width: 90vw;
+	}
+	
+	.github-stats-text {
+		font-size: 15px;
+		padding: 0 20px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.github-activity-container {
+		padding: 30px 0;
+	}
+	
+	.github-graph-wrapper {
+		padding: 10px;
+		margin-bottom: 20px;
+		border-radius: 8px;
+	}
+	
+	.github-graph-wrapper img {
+		border-radius: 6px;
+	}
+	
+	.github-stats-text {
+		font-size: 14px;
+		padding: 0 15px;
+	}
+	
+	.github-stats-text .btn {
+		font-size: 14px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.github-activity-container {
+		padding: 20px 0;
+	}
+	
+	.github-graph-wrapper {
+		padding: 8px;
+		margin-bottom: 15px;
+	}
+	
+	.github-stats-text {
+		font-size: 13px;
+		padding: 0 10px;
+	}
+	
+	.github-stats-text .btn {
+		font-size: 13px;
+	}
+}
