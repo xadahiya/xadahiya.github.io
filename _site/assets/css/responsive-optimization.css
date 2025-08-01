@@ -379,7 +379,7 @@ html {
   }
   
   .section.hero-started .title {
-    font-size: 52px;
+    font-size: 42px;
   }
   
   .section.hero-started .slide {
@@ -742,38 +742,6 @@ html {
   .btn {
     padding: 10px 18px;
     font-size: 13px;
-  }
-}
-
-/* ==========================================
-   LANDSCAPE ORIENTATION FIXES
-   ========================================== */
-
-@media screen and (max-height: 600px) and (orientation: landscape) {
-  
-  .section.hero-started {
-    min-height: auto;
-    padding: 30px 0;
-  }
-  
-  .section.hero-started .content {
-    padding-top: 30px;
-  }
-  
-  .section.hero-started .titles {
-    margin-bottom: 20px;
-  }
-  
-  .section.hero-started .title {
-    font-size: 28px;
-  }
-  
-  .lui-section {
-    padding: 30px 0;
-  }
-  
-  .lui-section-hero {
-    padding: 30px 0 20px 0;
   }
 }
 
