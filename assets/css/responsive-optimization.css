@@ -56,7 +56,44 @@ html {
    SKILLS SECTION GRID LAYOUT FIXES
    ========================================== */
 
-/* Force 2 cards per row for anything below desktop (1200px) */
+/* New flexbox-based skills grid layout */
+.skills-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 30px !important;
+  position: relative;
+  z-index: 2;
+}
+
+.skills-grid .skills-item {
+  flex: 1 1 100% !important;
+  margin-bottom: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Large screens (lg) - 3 columns */
+@media screen and (min-width: 1200px) {
+  .skills-grid .skills-item {
+    flex: 1 1 calc(33.333% - 20px) !important;
+  }
+}
+
+/* Medium screens (md) - 2 columns */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .skills-grid .skills-item {
+    flex: 1 1 calc(50% - 15px) !important;
+  }
+}
+
+/* Small screens (sm and below) - 1 column */
+@media screen and (max-width: 767px) {
+  .skills-grid .skills-item {
+    flex: 1 1 100% !important;
+  }
+}
+
+/* Force 2 cards per row for anything below desktop (1200px) - OLD BOOTSTRAP STYLES */
 @media screen and (max-width: 1199px) {
   .skills-items .col-xs-12,
   .skills-items .col-sm-6,
@@ -367,7 +404,7 @@ html {
    LARGE TABLET OPTIMIZATION (1025px - 1200px)
    ========================================== */
 
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
   
   /* Hero Section */
   .section.hero-started .content {
@@ -1277,7 +1314,7 @@ html {
    LARGE TABLET OPTIMIZATION (1025px - 1200px)
    ========================================== */
 
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
   
   .skills-item {
     padding: 35px;
@@ -1669,7 +1706,7 @@ html {
   }
 }
 
-@media screen and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1300px) {
   .skills-items .col-xs-12 .skills-item,
   .skills-items .col-sm-6 .skills-item,
   .skills-items .col-md-4 .skills-item,

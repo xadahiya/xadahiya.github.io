@@ -1497,7 +1497,7 @@ hr {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
 	.header.animate-in {
 		animation: header_animate_one 0.8s cubic-bezier(0.3, 0, 0.3, 1) 0s forwards;
 	}
@@ -2341,6 +2341,9 @@ hr {
 }
 
 .lui-section-hero .container {
+	@media screen and (min-width: 1300px) {
+		padding-top: 200px;
+	}
 	max-width: 1300px;
 	display: flex;
 	align-items: center;

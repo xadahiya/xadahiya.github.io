@@ -1504,7 +1504,7 @@ hr {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1300px) {
 	.header.animate-in {
 		animation: header_animate_one 0.8s cubic-bezier(0.3, 0, 0.3, 1) 0s forwards;
 	}
@@ -2587,6 +2587,40 @@ hr {
 .skills-items {
 	position: relative;
 	z-index: 2;
+}
+
+.skills-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+	position: relative;
+	z-index: 2;
+}
+
+.skills-grid .skills-item {
+	flex: 1 1 100%;
+	margin-bottom: 0;
+}
+
+/* Large screens (lg) - 3 columns */
+@media screen and (min-width: 1200px) {
+	.skills-grid .skills-item {
+		flex: 1 1 calc(33.333% - 20px);
+	}
+}
+
+/* Medium screens (md) - 2 columns */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+	.skills-grid .skills-item {
+		flex: 1 1 calc(50% - 15px);
+	}
+}
+
+/* Small screens (sm and below) - 1 column */
+@media screen and (max-width: 767px) {
+	.skills-grid .skills-item {
+		flex: 1 1 100%;
+	}
 }
 
 .skills-item {
