@@ -313,7 +313,6 @@ button:before {
 	top: 50%;
 	width: 0%;
 	height: 0%;
-	background: #29a587;
 	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 	transform: translate(-50%, -50%);
@@ -338,8 +337,7 @@ button span {
 }
 
 a.btn:hover,
-.btn:hover,
-button:hover {
+.btn:hover{
 	color: #FFF;
 }
 
@@ -3062,32 +3060,6 @@ hr {
 	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 	-o-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 }
-
-.works-item .image .overlay {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(16, 30, 50, 0.5);
-	opacity: 0;
-	font-size: 25px;
-	color: #fff;
-	line-height: 1;
-	-webkit-transform: scale(1);
-	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-}
-
-.works-item .image .overlay:before {
-	content: '\f002';
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-}
-
 .works-items.works-list-items .works-item .desc {
 	margin-left: 58%;
 	padding: 0 8% 0 0;
@@ -3210,25 +3182,6 @@ hr {
 .works-items.works-masonry-items .works-item .desc .text {
 	margin: 15px 0 0 0;
 	min-height: 75px;
-}
-
-.works-item:hover .image:before,
-.works-item:hover .image:after {
-	width: 20px;
-}
-
-.works-item:hover .image .img:before,
-.works-item:hover .image .img:after {
-	height: 20px;
-}
-
-.works-item:hover .image .img img {
-	transform: scale(1.04);
-	-webkit-transform: scale(1.04);
-}
-
-.works-item:hover .image .img .overlay {
-	opacity: 1;
 }
 
 .works-items.hide_category .works-item .desc .category {
@@ -3622,8 +3575,8 @@ hr {
 	line-height: 52px;
 	font-size: 20px;
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 20px;
+	top: 10px;
 }
 
 .numbers-item .icon:after {
@@ -5756,6 +5709,97 @@ a.wp-block-button__link {
 	}
 	
 	.github-stats-text .btn {
+		font-size: 13px;
+	}
+}
+
+/* Books Section - Card Design Only */
+#books-section .works-item {
+	position: relative;
+	padding: 30px;
+	background: #fdf9f2 !important;
+	width: 350px;
+	border-radius: 20px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+#books-section .works-item:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+#books-section .works-item .image {
+	position: relative;
+	overflow: hidden;
+	line-height: 1;
+	font-size: 0;
+	display: block;
+	border-radius: 18px;
+}
+
+#books-section .works-item .image img {
+	width: 350px;
+	height: auto;
+	max-height: 150px;
+	object-fit: cover;
+	border-radius: 18px;
+	transition: transform 0.3s ease;
+}
+
+#books-section .works-item:hover .image img {
+	transform: scale(1.04);
+}
+
+#books-section .works-item .desc {
+	position: relative;
+	padding: 30px 0 0 0;
+}
+
+#books-section .works-item .desc .name {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+#books-section .works-item .desc .name a {
+	color: #000;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+#books-section .works-item .desc .text {
+	margin: 15px 0 0 0;
+	min-height: 75px;
+}
+
+#books-section .works-item .desc .text p {
+	margin: 0;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #666;
+}
+
+/* Responsive Design for Books Cards */
+@media screen and (max-width: 767px) {
+	#books-section .works-item {
+		padding: 20px;
+	}
+	
+	#books-section .works-item .desc {
+		padding: 20px 0 0 0;
+	}
+	
+	#books-section .works-item .desc .name {
+		font-size: 16px;
+	}
+	
+	#books-section .works-item .desc .text {
+		min-height: 60px;
+	}
+	
+	#books-section .works-item .desc .text p {
 		font-size: 13px;
 	}
 }

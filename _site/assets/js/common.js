@@ -1026,7 +1026,7 @@
                 spaceBetween: 40,
                 watchSlidesVisibility: true,
                 noSwipingSelector: 'a',
-                loop: false,
+                loop: true,
                 speed: 1000,
                 pagination: {
                     el: '.swiper-pagination',
@@ -1040,7 +1040,36 @@
                     1024: { slidesPerView: 3, spaceBetween: 40 }
                 }
             });
+
+            // Carousel Testimonials
+            new Swiper('.js-books', {
+                slidesPerView: 3,
+                spaceBetween: 40,
+                watchSlidesVisibility: true,
+                noSwipingSelector: 'a',
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                navigation: false,
+                breakpoints: {
+                    0: { slidesPerView: 1, spaceBetween: 20 },
+                    767: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 },
+                    1200: { slidesPerView: 4, spaceBetween: 40 }
+                }
+            });
         }
+
+                
 
         // Initialize portfolio items
         var $container = $('.works-items');

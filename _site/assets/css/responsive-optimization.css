@@ -2,6 +2,595 @@
  * Responsive Optimization for All Devices
  * Comprehensive fixes for iPad, tablet, mobile, and desktop compatibility
  * Updated: Complete overhaul for better responsive design
+ * 
+ * TYPOGRAPHY SYSTEM - Industry Standard Implementation
+ * ===================================================
+ * 
+ * This implements a comprehensive typography system using:
+ * - Modular scale (1.25 ratio for headings, 1.125 for body)
+ * - Viewport-based responsive scaling
+ * - Industry-standard font sizes for accessibility
+ * - Consistent spacing and line heights
+ * - WCAG 2.1 AA compliance for contrast ratios
+ */
+
+/* ==========================================
+   TYPOGRAPHY SYSTEM - INDUSTRY STANDARDS
+   ========================================== */
+
+/* CSS Custom Properties for Typography Scale */
+:root {
+  /* Base font size for rem calculations */
+  --base-font-size: 16px;
+  
+  /* Modular scale ratios */
+  --heading-scale: 1.25; /* Perfect fourth */
+  --body-scale: 1.125;   /* Major second */
+  
+  /* Viewport-based scaling factors */
+  --mobile-scale: 0.875;   /* 14px base on mobile */
+  --tablet-scale: 0.9375;  /* 15px base on tablet */
+  --desktop-scale: 1;      /* 16px base on desktop */
+  --large-scale: 1.125;    /* 18px base on large screens */
+  
+  /* Font sizes using modular scale */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  --text-7xl: 4.5rem;      /* 72px */
+  --text-8xl: 6rem;        /* 96px */
+  
+  /* Line heights for optimal readability */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+  
+  /* Font weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  
+  /* Letter spacing */
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+}
+
+/* ==========================================
+   GLOBAL TYPOGRAPHY RESET
+   ========================================== */
+
+/* Ensure proper viewport handling */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-size: var(--base-font-size);
+  line-height: var(--leading-normal);
+}
+
+/* Base body typography */
+body {
+  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+  color: #262626;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==========================================
+   HEADING TYPOGRAPHY SYSTEM
+   ========================================== */
+
+/* Heading base styles */
+h1, h2, h3, h4, h5, h6,
+.m-title, .h-title {
+  font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: #000;
+  margin: 0 0 1rem 0;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Desktop heading sizes */
+h1, .hero-title {
+  font-size: var(--text-6xl); /* 60px */
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-tight);
+}
+
+h2, .m-title {
+  font-size: var(--text-5xl); /* 48px */
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-tight);
+}
+
+h3 {
+  font-size: var(--text-4xl); /* 36px */
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+}
+
+h4 {
+  font-size: var(--text-3xl); /* 30px */
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-snug);
+}
+
+h5, .lui-title {
+  font-size: var(--text-2xl); /* 24px */
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+h6 {
+  font-size: var(--text-xl); /* 20px */
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+/* ==========================================
+   BODY TEXT TYPOGRAPHY
+   ========================================== */
+
+/* Paragraph styles */
+p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 1.5rem 0;
+  color: #262626;
+}
+
+/* Subtitle styles */
+.lui-subtitle, .m-subtitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+  color: #495057;
+  margin-bottom: 1rem;
+}
+
+/* Small text */
+.text-sm, small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+/* Large text */
+.text-lg {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+}
+
+/* ==========================================
+   RESPONSIVE TYPOGRAPHY SCALING
+   ========================================== */
+
+/* Large Desktop (1400px+) */
+@media screen and (min-width: 1400px) {
+  :root {
+    --base-font-size: 18px;
+  }
+  
+  h1, .hero-title {
+    font-size: var(--text-7xl); /* 72px */
+  }
+  
+  h2, .m-title {
+    font-size: var(--text-6xl); /* 60px */
+  }
+  
+  h3 {
+    font-size: var(--text-5xl); /* 48px */
+  }
+  
+  h4 {
+    font-size: var(--text-4xl); /* 36px */
+  }
+  
+  h5, .lui-title {
+    font-size: var(--text-3xl); /* 30px */
+  }
+  
+  h6 {
+    font-size: var(--text-2xl); /* 24px */
+  }
+  
+  .lui-subtitle, .m-subtitle {
+    font-size: var(--text-xl);
+  }
+  
+  p {
+    font-size: var(--text-lg);
+  }
+}
+
+/* Desktop (1025px - 1399px) */
+@media screen and (min-width: 1025px) and (max-width: 1399px) {
+  :root {
+    --base-font-size: 16px;
+  }
+  
+  h1, .hero-title {
+    font-size: var(--text-6xl); /* 60px */
+  }
+  
+  h2, .m-title {
+    font-size: var(--text-5xl); /* 48px */
+  }
+  
+  h3 {
+    font-size: var(--text-4xl); /* 36px */
+  }
+  
+  h4 {
+    font-size: var(--text-3xl); /* 30px */
+  }
+  
+  h5, .lui-title {
+    font-size: var(--text-2xl); /* 24px */
+  }
+  
+  h6 {
+    font-size: var(--text-xl); /* 20px */
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --base-font-size: 15px;
+  }
+  
+  h1, .hero-title {
+    font-size: var(--text-5xl); /* 48px */
+    line-height: var(--leading-tight);
+  }
+  
+  h2, .m-title {
+    font-size: var(--text-4xl); /* 36px */
+    line-height: var(--leading-tight);
+  }
+  
+  h3 {
+    font-size: var(--text-3xl); /* 30px */
+    line-height: var(--leading-snug);
+  }
+  
+  h4 {
+    font-size: var(--text-2xl); /* 24px */
+    line-height: var(--leading-snug);
+  }
+  
+  h5, .lui-title {
+    font-size: var(--text-xl); /* 20px */
+    line-height: var(--leading-normal);
+  }
+  
+  h6 {
+    font-size: var(--text-lg); /* 18px */
+    line-height: var(--leading-normal);
+  }
+  
+  .lui-subtitle, .m-subtitle {
+    font-size: var(--text-base);
+  }
+  
+  p {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+}
+
+/* Mobile (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  :root {
+    --base-font-size: 14px;
+  }
+  
+  h1, .hero-title {
+    font-size: var(--text-4xl); /* 36px */
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  
+  h2, .m-title {
+    font-size: var(--text-3xl); /* 30px */
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  
+  h3 {
+    font-size: var(--text-2xl); /* 24px */
+    line-height: var(--leading-snug);
+  }
+  
+  h4 {
+    font-size: var(--text-xl); /* 20px */
+    line-height: var(--leading-snug);
+  }
+  
+  h5, .lui-title {
+    font-size: var(--text-lg); /* 18px */
+    line-height: var(--leading-normal);
+  }
+  
+  h6 {
+    font-size: var(--text-base); /* 16px */
+    line-height: var(--leading-normal);
+  }
+  
+  .lui-subtitle, .m-subtitle {
+    font-size: var(--text-base);
+  }
+  
+  p {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+  }
+}
+
+/* Small Mobile (320px - 480px) */
+@media screen and (max-width: 480px) {
+  :root {
+    --base-font-size: 14px;
+  }
+  
+  h1, .hero-title {
+    font-size: var(--text-3xl); /* 30px */
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  
+  h2, .m-title {
+    font-size: var(--text-2xl); /* 24px */
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-normal);
+  }
+  
+  h3 {
+    font-size: var(--text-xl); /* 20px */
+    line-height: var(--leading-snug);
+  }
+  
+  h4 {
+    font-size: var(--text-lg); /* 18px */
+    line-height: var(--leading-snug);
+  }
+  
+  h5, .lui-title {
+    font-size: var(--text-base); /* 16px */
+    line-height: var(--leading-normal);
+  }
+  
+  h6 {
+    font-size: var(--text-sm); /* 14px */
+    line-height: var(--leading-normal);
+  }
+  
+  .lui-subtitle, .m-subtitle {
+    font-size: var(--text-sm);
+  }
+  
+  p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+}
+
+/* ==========================================
+   COMPONENT-SPECIFIC TYPOGRAPHY
+   ========================================== */
+
+/* Hero section typography */
+.section.hero-started .title {
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section.hero-started .description p {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: #495057;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills section typography */
+.skills-item .name {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  margin-bottom: 1rem;
+}
+
+.skills-item .text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #495057;
+}
+
+.skills-item .value {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+}
+
+/* Resume section typography */
+.history-item .name {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+.history-item .subname {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+.history-item .date {
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-normal);
+}
+
+.history-item .text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: #495057;
+}
+
+/* Works/Portfolio typography */
+.works-item .desc .name {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+.works-item .desc .category {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+.works-item .desc .text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #495057;
+}
+
+/* Blog typography */
+.archive-item .desc h5 a {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+.archive-item .desc .lui-text p {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: #495057;
+}
+
+/* Contact section typography */
+.numbers-item .title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+}
+
+.contacts-form label {
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+.contacts-form input,
+.contacts-form textarea {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+/* Navigation typography */
+.menu-full ul li a {
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  line-height: var(--leading-normal);
+}
+
+/* Button typography */
+.btn {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* Footer typography */
+.footer .copyright-text,
+.footer .footer-heading {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}
+
+/* ==========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================== */
+
+/* Ensure minimum contrast ratios */
+h1, h2, h3, h4, h5, h6,
+.m-title, .h-title {
+  color: #000; /* High contrast for headings */
+}
+
+p, .lui-text p {
+  color: #262626; /* Good contrast for body text */
+}
+
+.lui-subtitle, .m-subtitle {
+  color: #495057; /* Medium contrast for subtitles */
+}
+
+/* Focus indicators for better accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid #29a587;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Optimize font rendering */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/**
+ * Responsive Optimization for All Devices
+ * Comprehensive fixes for iPad, tablet, mobile, and desktop compatibility
+ * Updated: Complete overhaul for better responsive design
  */
 
 /* ==========================================
@@ -206,8 +795,8 @@ html {
   }
   
   .section.hero-started .title {
-    font-size: 42px;
-    line-height: 1.2;
+    font-size: var(--text-5xl); /* 48px */
+    line-height: var(--leading-tight);
     margin: 10px 0;
   }
   
@@ -235,7 +824,7 @@ html {
   }
   
   .section.hero-started .description p {
-    font-size: 16px;
+    font-size: var(--text-base);
     margin: 0 auto;
     max-width: 600px;
   }
@@ -251,12 +840,12 @@ html {
   
   /* Typography Adjustments */
   .m-titles .m-title {
-    font-size: 32px;
+    font-size: var(--text-4xl); /* 36px */
     margin-bottom: 15px;
   }
   
   .m-titles .m-subtitle {
-    font-size: 16px;
+    font-size: var(--text-base);
   }
   
   /* Skills Section */
@@ -327,23 +916,23 @@ html {
   }
   
   .skills-item .name {
-    font-size: 20px;
+    font-size: var(--text-xl); /* 20px */
     margin-bottom: 15px;
   }
   
   .skills-item .text p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
   }
   
   /* Resume Section */
   .history-item .name {
     padding: 20px 25px 20px 20px;
-    font-size: 18px;
+    font-size: var(--text-lg); /* 18px */
   }
   
   .history-item .subname {
-    font-size: 16px;
+    font-size: var(--text-base);
   }
   
   /* Works/Portfolio Section */
@@ -380,18 +969,18 @@ html {
   /* Form Elements */
   .contacts-form input,
   .contacts-form textarea {
-    font-size: 16px; /* Prevents zoom on iOS */
+    font-size: var(--text-base); /* Prevents zoom on iOS */
   }
   
   /* Navigation Menu */
   .menu-full ul li a {
-    font-size: 18px;
+    font-size: var(--text-lg); /* 18px */
     padding: 15px 0;
   }
   
   /* Header Adjustments */
   .header .logo a {
-    font-size: 26px;
+    font-size: var(--text-3xl); /* 30px */
   }
   
   /* Footer */
@@ -665,7 +1254,7 @@ html {
   }
   
   .numbers-item .title {
-    font-size: 16px;
+    font-size: 25px;
   }
   
   /* Form Elements */
@@ -902,7 +1491,18 @@ html {
   background: #fdf9f2 !important;
 }
 
+@media screen and (max-width: 767px) {
+  .history-title-experience{
+    padding-top: 20px !important;
+  }
+}
+
 .history-item .name:after {
+  /* hide for mobile */
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
+
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
@@ -1775,7 +2375,6 @@ html {
   
   /* Proper spacing for skills items */
   #skills-section .skills-item {
-    margin-bottom: 30px !important;
   }
   
   /* Remove bottom margin from last items */

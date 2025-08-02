@@ -299,7 +299,6 @@ input[type="submit"] {
 
 input[type="submit"] {
 	color: #FFF;
-	background: #29a587;
 	outline: none;
 	cursor: pointer;
 }
@@ -313,7 +312,6 @@ button:before {
 	top: 50%;
 	width: 0%;
 	height: 0%;
-	background: #29a587;
 	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 	transform: translate(-50%, -50%);
@@ -340,6 +338,9 @@ button span {
 a.btn:hover,
 .btn:hover,
 button:hover {
+	background: #29a587;
+	transition: background 0.7s cubic-bezier(0.3, 0, 0.3, 1), color 0.7s cubic-bezier(0.3, 0, 0.3, 1), box-shadow 0.7s cubic-bezier(0.3, 0, 0.3, 1);
+	transform: scale(1.03);
 	color: #FFF;
 }
 
@@ -2307,6 +2308,13 @@ hr {
 
 .lui-bgtitle {
   font-size: 150px;
+  margin-top: 2vh;
+
+  /* 100 px for mobile */
+  @media screen and (max-width: 768px) {
+    font-size: 100px;
+	margin-top:3vh;
+  }
   font-family: "Caveat";
   color: rgba(0, 0, 0, 0.05);
   font-weight: bold;
@@ -2314,7 +2322,6 @@ hr {
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
-  margin-top: 2vh;
 }
 
 .section.section-inner.started-heading .m-titles .m-title {
@@ -2810,11 +2817,24 @@ hr {
 	text-align: center;
 }
 
+.js-books {
+	text-align: center;
+}
+
 .swiper-container.js-services {
 	overflow: visible;
 }
 
+.swiper-container.js-books {
+	overflow: visible;
+}
+
 .js-services .swiper-wrapper {
+	margin-bottom: 50px;
+	text-align: left;
+}
+
+.js-books .swiper-wrapper {
 	margin-bottom: 50px;
 	text-align: left;
 }
@@ -2828,6 +2848,16 @@ hr {
 	text-align: center;
 }
 
+/* Position pagination dots near the slider */
+.js-books .swiper-pagination {
+	position: relative;
+	bottom: auto;
+	top: 20px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+
 .elementor-editor-active .js-services .swiper-wrapper .swiper-slide .services-item {
 	opacity: 1;
 }
@@ -2838,9 +2868,22 @@ hr {
 	opacity: 0;
 }
 
+.js-books .swiper-wrapper .swiper-slide .works-item {
+	transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+	-webkit-transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1);
+	opacity: 0;
+}
+
+
 .js-services .swiper-wrapper .swiper-slide-visible .services-item {
 	opacity: 1;
 }
+
+.js-books .swiper-wrapper .swiper-slide-visible .works-item {
+	opacity: 1;
+}
+
+
 
 .services-items {
 	margin-top: -40px;
@@ -2860,7 +2903,7 @@ hr {
 	padding: 30px 35px;
 	background: #fdf9f2 !important;
 	border-radius: 18px;
-	height: 300px; /* Fixed height for all cards */
+	height: 350px !important; /* Fixed height for all cards */
 	display: flex;
 	flex-direction: column;
 }
@@ -2884,7 +2927,7 @@ hr {
 	flex-direction: column;
 	justify-content: flex-start;
 	overflow-y: auto; /* Enable vertical scrolling */
-	max-height: 200px; /* Limit height to enable scrolling */
+	max-height: 350px; /* Limit height to enable scrolling */
 }
 
 .services-item .lui-text div {
@@ -3072,31 +3115,6 @@ hr {
 	-o-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
 }
 
-.works-item .image .overlay {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(16, 30, 50, 0.5);
-	opacity: 0;
-	font-size: 25px;
-	color: #fff;
-	line-height: 1;
-	-webkit-transform: scale(1);
-	transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-	-webkit-transition: all 0.6s cubic-bezier(0.3, 0, 0.3, 1);
-}
-
-.works-item .image .overlay:before {
-	content: '\f002';
-	position: absolute;
-	top: 30px;
-	right: 30px;
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-}
-
 .works-items.works-list-items .works-item .desc {
 	margin-left: 58%;
 	padding: 0 8% 0 0;
@@ -3219,25 +3237,6 @@ hr {
 .works-items.works-masonry-items .works-item .desc .text {
 	margin: 15px 0 0 0;
 	min-height: 75px;
-}
-
-.works-item:hover .image:before,
-.works-item:hover .image:after {
-	width: 20px;
-}
-
-.works-item:hover .image .img:before,
-.works-item:hover .image .img:after {
-	height: 20px;
-}
-
-.works-item:hover .image .img img {
-	transform: scale(1.04);
-	-webkit-transform: scale(1.04);
-}
-
-.works-item:hover .image .img .overlay {
-	opacity: 1;
 }
 
 .works-items.hide_category .works-item .desc .category {
@@ -3631,8 +3630,8 @@ hr {
 	line-height: 52px;
 	font-size: 20px;
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: 20px;
+	top: 10px;
 }
 
 .numbers-item .icon:after {
