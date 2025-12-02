@@ -2434,6 +2434,11 @@ html {
    CONTACT SECTION FIXES
    ========================================== */
 
+/* Remove extra space between contact form and footer */
+#contact-section.lui-section {
+  padding-bottom: 20px !important;
+}
+
 /* Contact section fixes for iPad and below */
 @media screen and (max-width: 1024px) {
   /* Force single column layout for contact section */
