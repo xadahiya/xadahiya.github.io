@@ -1,46 +1,97 @@
 /**
  * Header & Navigation Fixes
  * Reduces navbar size and fixes overlap issues
+ * Improved hamburger icon size and navbar design
  */
 
 /* Compact Header Design */
 .header {
-  padding: 10px 30px !important;
+  padding: 12px 30px !important;
   background: #1a1a1a !important;
   border-bottom: 1px solid #3a3a3a;
   height: auto !important;
-  min-height: 70px !important;
+  min-height: 65px !important;
+  transition: all 0.3s ease !important;
 }
 
 .header__builder {
-  min-height: 50px !important;
+  min-height: 45px !important;
 }
 
 .header__builder .row {
   align-items: center !important;
-  min-height: 50px !important;
+  min-height: 45px !important;
 }
 
 /* Compact Logo */
 .header .logo a {
-  font-size: 24px !important;
+  font-size: 22px !important;
   line-height: 1.2 !important;
   font-weight: 600 !important;
   color: #ffffff !important;
+  text-decoration: none !important;
+  transition: opacity 0.3s ease !important;
 }
 
-/* Compact Menu Button */
+.header .logo a:hover {
+  opacity: 0.8 !important;
+}
+
+/* Improved Hamburger Menu Button - Smaller and Refined */
 .header__builder .menu-btn,
 .header .menu-btn {
-  width: 40px !important;
-  height: 40px !important;
-  padding: 8px !important;
+  width: 28px !important;
+  height: 24px !important;
+  padding: 0 !important;
+  position: relative !important;
+  cursor: pointer !important;
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  transition: all 0.3s ease !important;
 }
 
+.header__builder .menu-btn:hover,
+.header .menu-btn:hover {
+  opacity: 0.8 !important;
+}
+
+/* Hamburger Icon Lines - Smaller and Better Spaced */
 .header__builder .menu-btn span,
 .header .menu-btn span {
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
   height: 2px !important;
-  margin: 4px 0 !important;
+  background: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.3, 0, 0.3, 1) !important;
+  border-radius: 1px !important;
+}
+
+.header__builder .menu-btn span:first-child,
+.header .menu-btn span:first-child {
+  top: 4px !important;
+}
+
+.header__builder .menu-btn span:last-child,
+.header .menu-btn span:last-child {
+  top: auto !important;
+  bottom: 4px !important;
+}
+
+/* Active State - X Animation */
+.header__builder .menu-btn.active span:first-child,
+.header .menu-btn.active span:first-child {
+  top: 11px !important;
+  transform: rotate(-45deg) !important;
+}
+
+.header__builder .menu-btn.active span:last-child,
+.header .menu-btn.active span:last-child {
+  bottom: auto !important;
+  top: 11px !important;
+  transform: rotate(45deg) !important;
 }
 
 /* Fix Hero Section Spacing */
@@ -66,8 +117,17 @@
 
 /* Sticky header adjustments */
 .header.sticky {
-  padding: 8px 30px !important;
-  min-height: 60px !important;
+  padding: 10px 30px !important;
+  min-height: 58px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.header.sticky .header__builder {
+  min-height: 40px !important;
+}
+
+.header.sticky .logo a {
+  font-size: 20px !important;
 }
 
 .header.sticky.glass-effect {
@@ -79,21 +139,48 @@
 /* Mobile header fixes */
 @media (max-width: 768px) {
   .header {
-    padding: 8px 20px !important;
-    min-height: 60px !important;
+    padding: 10px 20px !important;
+    min-height: 58px !important;
+  }
+  
+  .header__builder {
+    min-height: 40px !important;
   }
   
   .header .logo a {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
   
   .lui-section-hero {
-    padding-top: 80px !important;
+    padding-top: 75px !important;
   }
   
-  .header__builder .menu-btn {
-    width: 35px !important;
-    height: 35px !important;
+  .header__builder .menu-btn,
+  .header .menu-btn {
+    width: 24px !important;
+    height: 20px !important;
+  }
+  
+  .header__builder .menu-btn span,
+  .header .menu-btn span {
+    height: 1.5px !important;
+  }
+  
+  .header__builder .menu-btn span:first-child,
+  .header .menu-btn span:first-child {
+    top: 3px !important;
+  }
+  
+  .header__builder .menu-btn span:last-child,
+  .header .menu-btn span:last-child {
+    bottom: 3px !important;
+  }
+  
+  .header__builder .menu-btn.active span:first-child,
+  .header .menu-btn.active span:first-child,
+  .header__builder .menu-btn.active span:last-child,
+  .header .menu-btn.active span:last-child {
+    top: 10px !important;
   }
 }
 
@@ -101,36 +188,78 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .header {
     padding: 12px 25px !important;
-    min-height: 65px !important;
+    min-height: 62px !important;
+  }
+  
+  .header__builder {
+    min-height: 42px !important;
   }
   
   .header .logo a {
-    font-size: 24px !important;
+    font-size: 21px !important;
   }
   
   .lui-section-hero {
-    padding-top: 85px !important;
+    padding-top: 82px !important;
   }
   
-  .header__builder .menu-btn {
-    width: 38px !important;
-    height: 38px !important;
+  .header__builder .menu-btn,
+  .header .menu-btn {
+    width: 26px !important;
+    height: 22px !important;
+  }
+  
+  .header__builder .menu-btn span:first-child,
+  .header .menu-btn span:first-child {
+    top: 4px !important;
+  }
+  
+  .header__builder .menu-btn span:last-child,
+  .header .menu-btn span:last-child {
+    bottom: 4px !important;
+  }
+  
+  .header__builder .menu-btn.active span:first-child,
+  .header .menu-btn.active span:first-child,
+  .header__builder .menu-btn.active span:last-child,
+  .header .menu-btn.active span:last-child {
+    top: 11px !important;
   }
 }
 
 /* Large tablet header fixes */
 @media (min-width: 1025px) and (max-width: 1300px) {
   .header {
-    padding: 15px 30px !important;
-    min-height: 70px !important;
+    padding: 12px 30px !important;
+    min-height: 65px !important;
+  }
+  
+  .header__builder {
+    min-height: 45px !important;
   }
   
   .header .logo a {
-    font-size: 26px !important;
+    font-size: 22px !important;
   }
   
   .lui-section-hero {
-    padding-top: 90px !important;
+    padding-top: 88px !important;
+  }
+}
+
+/* Desktop header - refined sizing */
+@media (min-width: 1301px) {
+  .header {
+    padding: 14px 30px !important;
+    min-height: 68px !important;
+  }
+  
+  .header__builder {
+    min-height: 48px !important;
+  }
+  
+  .header .logo a {
+    font-size: 24px !important;
   }
 }
 

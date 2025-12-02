@@ -303,6 +303,12 @@ p {
     font-size: var(--text-base);
     line-height: var(--leading-normal);
   }
+  
+  /* About Section Intro Text - Slightly smaller on tablet */
+  #about-section .description {
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+  }
 }
 
 /* Mobile (481px - 767px) */
@@ -350,6 +356,12 @@ p {
   p {
     font-size: var(--text-base);
     line-height: var(--leading-normal);
+  }
+  
+  /* About Section Intro Text - Reduce font size on mobile */
+  #about-section .description {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
   }
 }
 
@@ -1314,6 +1326,12 @@ html {
   
   .section.hero-started .description p {
     font-size: 14px;
+  }
+  
+  /* About Section Intro Text - Reduce font size on mobile */
+  #about-section .description {
+    font-size: 15px !important;
+    line-height: 1.6 !important;
   }
   
   /* Typography */
