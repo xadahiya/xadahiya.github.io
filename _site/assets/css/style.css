@@ -978,6 +978,20 @@ hr {
 	max-width: 1300px;
 }
 
+/* Set container width to 80% for large screens */
+@media screen and (min-width: 1300px) {
+	.container {
+		width: 80%;
+		max-width: 80%;
+	}
+	
+	/* Keep original width for hero-container */
+	.container.hero-container {
+		width: auto;
+		max-width: 1300px;
+	}
+}
+
 .lui-section {
 	padding-bottom: 220px;
 }
@@ -1017,7 +1031,7 @@ hr {
 	left: -168px;
 	width: 226px;
 	height: 226px;
-	background-image: url(../images/pat-1.png);
+	/* background-image: url(../images/pat-1.png); */
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: block;

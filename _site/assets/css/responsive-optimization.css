@@ -610,6 +610,20 @@ html {
   padding-right: 15px;
 }
 
+/* Set container width to 80% for large screens */
+@media screen and (min-width: 1300px) {
+  .container {
+    width: 80%;
+    max-width: 80%;
+  }
+  
+  /* Keep original width for hero-container */
+  .container.hero-container {
+    width: auto;
+    max-width: 1300px;
+  }
+}
+
 /* ==========================================
    HERO SECTION FIXES
    ========================================== */
