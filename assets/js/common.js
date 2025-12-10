@@ -1063,7 +1063,7 @@
                 navigation: false,
                 breakpoints: {
                     0: { slidesPerView: 1, spaceBetween: 20 },
-                    767: { slidesPerView: 2, spaceBetween: 30 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
                     1024: { slidesPerView: 3, spaceBetween: 40 }
                 }
             });

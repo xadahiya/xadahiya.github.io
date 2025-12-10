@@ -2279,6 +2279,7 @@ hr {
 
 .m-titles .m-subtitle {
 	position: relative;
+	padding-top: 10px;
 	font-size: 14px;
 	line-height: 1;
 	color: #29a587;
@@ -6523,7 +6524,7 @@ a:hover {
 
 .lui-bgtitle {
 	position: absolute;
-	top: 55%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	margin: 0;
