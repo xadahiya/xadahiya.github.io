@@ -6826,7 +6826,6 @@ a:hover {
 .js-books .works-item:hover,
 .archive-item:hover {
 	box-shadow: 0 8px 16px rgba(41, 165, 135, 0.12) !important;
-	border-color: #29a587 !important;
 }
 
 /* ========================================
@@ -7259,7 +7258,6 @@ a:hover {
 /* Hover effect */
 .archive-item:hover {
 	box-shadow: 0 8px 16px rgba(41, 165, 135, 0.15) !important;
-	border-color: #29a587 !important;
 	transform: translateY(-4px) !important;
 }
 
@@ -7530,7 +7528,6 @@ select:focus {
 .skills-item:hover {
 	transform: translateY(-5px) !important;
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
-	border-color: #29a587 !important;
 	/* Green accent on hover */
 }
 
@@ -7580,7 +7577,6 @@ select:focus {
 	transform: translateY(-5px) !important;
 	box-shadow: 0 20px 50px rgba(41, 165, 135, 0.15) !important;
 	/* Green shadow hint */
-	border-color: #29a587 !important;
 }
 
 /* ========================================
@@ -7680,4 +7676,14 @@ html body .history-item .name:hover span {
 html body .history-item:hover .name:after {
 	border-color: #000000 !important;
 	color: #000000 !important;
+}
+
+/* ========================================
+   BUTTON HOVER TEXT FIX
+   ======================================== */
+
+/* Ensure button text turns white on hover */
+.btn:hover,
+.btn:hover span {
+	color: #FFFFFF !important;
 }
