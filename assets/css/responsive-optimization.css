@@ -1617,7 +1617,7 @@ html {
 
 .history-item .name {
   margin: 0;
-  padding: 25px 30px;
+  padding: 20px 10px;
   background: #FFFFFF !important;
   border: none;
   cursor: pointer;
@@ -1660,7 +1660,7 @@ html {
 }
 
 .history-item .subname {
-  margin: 0 0 10px 0;
+  margin: -5px 0 10px 0;
   padding: 0;
   float: none;
   width: 100%;

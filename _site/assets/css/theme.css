@@ -2744,6 +2744,7 @@ hr {
 
 .history-item .history-content {
 	padding: 0 50px 0 30px;
+
 	position: relative;
 	overflow: hidden;
 	max-height: 1px;
@@ -2753,6 +2754,7 @@ hr {
 
 .history-item.opened .history-content {
 	max-height: 1000px;
+	background-color: #FFFFFF !important;
 }
 
 .history-item:nth-child(1) {
@@ -2836,7 +2838,7 @@ hr {
 	width: 70%;
 	font-family: 'Caveat';
 	font-size: 28px;
-	line-height: 40px;
+	line-height: 1;
 	font-weight: 700;
 	color: #000;
 }
@@ -7619,5 +7621,62 @@ select:focus {
 
 /* "Protocol Engineer & DeFi Researcher" text should be black */
 .hero-started .titles .label.lui-subtitle strong {
+	color: #000000 !important;
+}
+
+/* ========================================
+   HISTORY CONTENT FIX - WHITE BACKGROUND
+   ======================================== */
+
+.history-item .history-content {
+	background-color: #FFFFFF !important;
+	padding: 20px !important;
+	/* Ensure content isn't flush against edge if bg is distinct */
+	border-radius: 0 0 12px 12px !important;
+	/* Rounded bottom corners to match container */
+}
+
+/* ========================================
+   HISTORY TITLE HOVER FIX
+   ======================================== */
+
+/* Prevent title color change on hover */
+.history-item:hover .name,
+.history-item:hover .name span,
+.lui-collapse-btn:hover,
+.lui-collapse-btn:hover span {
+	color: #000000 !important;
+	transition: none !important;
+}
+
+/* Ensure active state also stays black if desired, or let it indicate open state */
+/* Keeping active state as is for functionality, but hover should be stable */
+
+/* ========================================
+   NUCLEAR FIXES - SPECIFICITY BOOST
+   ======================================== */
+
+/* Force history content background to white with high specificity */
+html body .history-item .history-content {
+	background: #FFFFFF !important;
+	background-color: #FFFFFF !important;
+	padding: 0px 20px 20px 20px !important;
+	border-radius: 0 0 12px 12px !important;
+}
+
+/* Force history item title to STAY BLACK on hover */
+html body .history-item .name,
+html body .history-item .name span,
+html body .history-item:hover .name,
+html body .history-item:hover .name span,
+html body .history-item .name:hover,
+html body .history-item .name:hover span {
+	color: #000000 !important;
+	transition: none !important;
+}
+
+/* Ensure the arrow/icon also stays consistent if needed */
+html body .history-item:hover .name:after {
+	border-color: #000000 !important;
 	color: #000000 !important;
 }

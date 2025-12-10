@@ -2838,7 +2838,7 @@ hr {
 	width: 70%;
 	font-family: 'Caveat';
 	font-size: 28px;
-	line-height: 40px;
+	line-height: 1;
 	font-weight: 700;
 	color: #000;
 }
@@ -7660,7 +7660,7 @@ select:focus {
 html body .history-item .history-content {
 	background: #FFFFFF !important;
 	background-color: #FFFFFF !important;
-	padding: 20px !important;
+	padding: 0px 20px 20px 20px !important;
 	border-radius: 0 0 12px 12px !important;
 }
 
