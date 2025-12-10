@@ -750,6 +750,7 @@ label {
   text-align: right !important;
   display: flex !important;
   justify-content: flex-end !important;
+  align-items: center !important;
 }
 
 /* ========================================
