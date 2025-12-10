@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-02T15:24:50+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">Personal Tech Expedition [Part 1]</title><link href="http://localhost:4000/banter/2024/02/27/journey-1/" rel="alternate" type="text/html" title="Personal Tech Expedition [Part 1]" /><published>2024-02-27T00:00:00+05:30</published><updated>2024-02-27T00:00:00+05:30</updated><id>http://localhost:4000/banter/2024/02/27/journey-1</id><content type="html" xml:base="http://localhost:4000/banter/2024/02/27/journey-1/"><![CDATA[<p>So, here I am, on a super long flight from Frankfurt to Denver, heading to ETH Denver with some awesome folks from Powerloom Network. I figured, why not use this time to reflect on the last 14 months at Powerloom Protocol? But, as these things go, I ended up spilling the beans on my entire tech journey instead.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-10T15:03:10+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Akshay Dahiya</title><subtitle>@xadahiya</subtitle><entry><title type="html">Personal Tech Expedition [Part 1]</title><link href="http://localhost:4000/banter/2024/02/27/journey-1/" rel="alternate" type="text/html" title="Personal Tech Expedition [Part 1]" /><published>2024-02-27T00:00:00+05:30</published><updated>2024-02-27T00:00:00+05:30</updated><id>http://localhost:4000/banter/2024/02/27/journey-1</id><content type="html" xml:base="http://localhost:4000/banter/2024/02/27/journey-1/"><![CDATA[<p>So, here I am, on a super long flight from Frankfurt to Denver, heading to ETH Denver with some awesome folks from Powerloom Network. I figured, why not use this time to reflect on the last 14 months at Powerloom Protocol? But, as these things go, I ended up spilling the beans on my entire tech journey instead.</p>
 
 <p>I’ll dive into my Powerloom adventures in the next part, but for now, let’s rewind and check out how I got here!</p>
 
@@ -196,17 +196,17 @@
 <p>The Central controller is driven by a 17 second time loop (2-second delay to let drones finish updating their status at the controller).</p>
 
 <h3 id="main-loop-design">Main Loop design</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main loop for the central controller."""</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">"Controller Simulation Loop"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">Main loop for the central controller.</span><span class="sh">"""</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Controller Simulation Loop</span><span class="sh">"</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">handle_messages</span><span class="p">()</span>
-        <span class="n">handle_anomalies</span><span class="p">()</span>
+        <span class="nf">handle_messages</span><span class="p">()</span>
+        <span class="nf">handle_anomalies</span><span class="p">()</span>
 
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
     <span class="k">finally</span><span class="p">:</span>
-        <span class="n">threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">threading</span><span class="p">.</span><span class="nc">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="nf">start</span><span class="p">()</span>
 </code></pre></div></div>
 <p>In the main Loop, the controller tries to handle two things.</p>
 <ul>
@@ -215,86 +215,86 @@
 </ul>
 
 <h3 id="handling-messages">Handling Messages</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Handle messages in the MessageCollection."""</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">Handle messages in the MessageCollection.</span><span class="sh">"""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">message_collection</span> <span class="o">=</span> <span class="n">get_message_collection</span><span class="p">()</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">message_collection</span><span class="p">)</span>
+        <span class="n">message_collection</span> <span class="o">=</span> <span class="nf">get_message_collection</span><span class="p">()</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">message_collection</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">message_collection</span><span class="p">:</span>
-            <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s">'/(.*)/(\d*)'</span>
-            <span class="n">matchObj</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="n">match</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">message</span><span class="p">[</span><span class="s">"@id"</span><span class="p">])</span>
+            <span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="sh">'</span><span class="s">/(.*)/(\d*)</span><span class="sh">'</span>
+            <span class="n">matchObj</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">message</span><span class="p">[</span><span class="sh">"</span><span class="s">@id</span><span class="sh">"</span><span class="p">])</span>
             <span class="k">if</span> <span class="n">matchObj</span><span class="p">:</span>
-                <span class="n">message_id</span> <span class="o">=</span> <span class="n">matchObj</span><span class="p">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-                <span class="n">message_details</span> <span class="o">=</span> <span class="n">get_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
+                <span class="n">message_id</span> <span class="o">=</span> <span class="n">matchObj</span><span class="p">.</span><span class="nf">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">message_details</span> <span class="o">=</span> <span class="nf">get_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
 
                 <span class="c1"># parse message
-</span>                <span class="n">message_string</span> <span class="o">=</span> <span class="n">message_details</span><span class="p">[</span><span class="s">"MessageString"</span><span class="p">]</span>
-                <span class="n">parsed_message</span> <span class="o">=</span> <span class="n">parse_message</span><span class="p">(</span><span class="n">message_string</span><span class="p">)</span>
+</span>                <span class="n">message_string</span> <span class="o">=</span> <span class="n">message_details</span><span class="p">[</span><span class="sh">"</span><span class="s">MessageString</span><span class="sh">"</span><span class="p">]</span>
+                <span class="n">parsed_message</span> <span class="o">=</span> <span class="nf">parse_message</span><span class="p">(</span><span class="n">message_string</span><span class="p">)</span>
 
                 <span class="k">if</span> <span class="n">parsed_message</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">drone_id</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">parsed_message</span>
-                    <span class="k">if</span> <span class="ow">not</span> <span class="n">validate_message_prop_value</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nf">validate_message_prop_value</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 
-                          <span class="n">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
+                          <span class="nf">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="n">command</span> <span class="o">=</span> <span class="n">generate_command</span><span class="p">(</span><span class="n">drone_id</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+                        <span class="n">command</span> <span class="o">=</span> <span class="nf">generate_command</span><span class="p">(</span><span class="n">drone_id</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
                           <span class="k">try</span><span class="p">:</span>
-                            <span class="n">RES</span><span class="p">,</span> <span class="n">NAMESPACE</span> <span class="o">=</span> <span class="n">find_res</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)</span>
+                            <span class="n">RES</span><span class="p">,</span> <span class="n">NAMESPACE</span> <span class="o">=</span> <span class="nf">find_res</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)</span>
                             <span class="k">if</span> <span class="n">RES</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">NAMESPACE</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                                <span class="n">issue_command</span><span class="p">(</span><span class="n">RES</span><span class="p">,</span> <span class="n">NAMESPACE</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
+                                <span class="nf">issue_command</span><span class="p">(</span><span class="n">RES</span><span class="p">,</span> <span class="n">NAMESPACE</span><span class="p">,</span> <span class="n">command</span><span class="p">)</span>
 
                         <span class="k">except</span><span class="p">:</span>
-                            <span class="n">controllerlog</span> <span class="o">=</span> <span class="n">gen_ControllerLog</span><span class="p">(</span>
-                                <span class="s">"Drone with id %s not found, deleting message."</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)),</span> <span class="s">""</span><span class="p">)</span>
+                            <span class="n">controllerlog</span> <span class="o">=</span> <span class="nf">gen_ControllerLog</span><span class="p">(</span>
+                                <span class="sh">"</span><span class="s">Drone with id %s not found, deleting message.</span><span class="sh">"</span> <span class="o">%</span> <span class="p">(</span><span class="nf">str</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)),</span> <span class="sh">""</span><span class="p">)</span>
 
-                            <span class="n">send_controllerlog</span><span class="p">(</span><span class="n">controllerlog</span><span class="p">)</span>
+                            <span class="nf">send_controllerlog</span><span class="p">(</span><span class="n">controllerlog</span><span class="p">)</span>
 
-                            <span class="n">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
+                            <span class="nf">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
 
                 <span class="c1"># delete message
-</span>                <span class="n">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
+</span>                <span class="nf">delete_message</span><span class="p">(</span><span class="n">message_id</span><span class="p">)</span>
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="parsing-a-message">Parsing a Message</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">""" Parsing a given message string.
-    Messages will be in format 'Set Drone &lt;DroneID&gt; &lt;Property&gt; &lt;Value&gt;'.
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s"> Parsing a given message string.
+    Messages will be in format </span><span class="sh">'</span><span class="s">Set Drone &lt;DroneID&gt; &lt;Property&gt; &lt;Value&gt;</span><span class="sh">'</span><span class="s">.
     DroneID is the drone identifier assigned by the central controller.
     Property can be Direction, Speed or Status and values can be anything
-    supported by that respective Property."""</span>
+    supported by that respective Property.</span><span class="sh">"""</span>
 
-    <span class="n">message_items</span> <span class="o">=</span> <span class="n">message_string</span><span class="p">.</span><span class="n">lower</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="n">message_items</span> <span class="o">=</span> <span class="n">message_string</span><span class="p">.</span><span class="nf">lower</span><span class="p">().</span><span class="nf">split</span><span class="p">(</span><span class="sh">"</span><span class="s"> </span><span class="sh">"</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">drone_id</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="s">"drone"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="n">prop</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-        <span class="n">value</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">drone_id</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="sh">"</span><span class="s">drone</span><span class="sh">"</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">prop</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">drone_id</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">message_items</span><span class="p">[</span><span class="n">message_items</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">prop</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="p">(</span><span class="n">drone_id</span><span class="p">,</span> <span class="n">prop</span><span class="p">.</span><span class="n">title</span><span class="p">(),</span> <span class="n">value</span><span class="p">.</span><span class="n">title</span><span class="p">())</span>
+        <span class="nf">return </span><span class="p">(</span><span class="n">drone_id</span><span class="p">,</span> <span class="n">prop</span><span class="p">.</span><span class="nf">title</span><span class="p">(),</span> <span class="n">value</span><span class="p">.</span><span class="nf">title</span><span class="p">())</span>
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div></div>
 
 <h3 id="handling-anomalies">Handling Anomalies</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">"""Handling the anomalies in AnomalyCollection."""</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="sh">"""</span><span class="s">Handling the anomalies in AnomalyCollection.</span><span class="sh">"""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">anomaly_collection</span> <span class="o">=</span> <span class="n">get_anomaly_collection</span><span class="p">()</span>
-        <span class="n">drone_collection</span> <span class="o">=</span> <span class="n">get_drone_collection</span><span class="p">()</span>
+        <span class="n">anomaly_collection</span> <span class="o">=</span> <span class="nf">get_anomaly_collection</span><span class="p">()</span>
+        <span class="n">drone_collection</span> <span class="o">=</span> <span class="nf">get_drone_collection</span><span class="p">()</span>
 
-        <span class="n">non_confirmed_anomalies</span><span class="p">,</span> <span class="n">negative_anomalies</span> <span class="o">=</span> <span class="n">find_non_confirmed_and_negative_anomalies</span><span class="p">(</span>
+        <span class="n">non_confirmed_anomalies</span><span class="p">,</span> <span class="n">negative_anomalies</span> <span class="o">=</span> <span class="nf">find_non_confirmed_and_negative_anomalies</span><span class="p">(</span>
             <span class="n">anomaly_collection</span><span class="p">)</span>
 
         <span class="c1"># Handle non_confirmed_anomalies
 </span>        <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">non_confirmed_anomalies</span><span class="p">:</span>
-            <span class="n">handle_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">,</span> <span class="n">drone_collection</span><span class="p">)</span>
+            <span class="nf">handle_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">,</span> <span class="n">drone_collection</span><span class="p">)</span>
 
         <span class="c1"># Delete Negative anomalies
 </span>        <span class="k">for</span> <span class="n">anomaly</span> <span class="ow">in</span> <span class="n">negative_anomalies</span><span class="p">:</span>
-            <span class="n">delete_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[</span><span class="s">"AnomalyID"</span><span class="p">])</span>
+            <span class="nf">delete_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">[</span><span class="sh">"</span><span class="s">AnomalyID</span><span class="sh">"</span><span class="p">])</span>
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_controller.mechanics.simulate</code>.
@@ -320,85 +320,85 @@ The drone deletes the command from it’s <code class="language-plaintext highli
 <p>Drones are driven by a 15 second time loop after which the drones update their position, generate new sensor datastreams depending upon anomalies detected (if any).</p>
 
 <h3 id="main-loop-design-1">Main Loop design</h3>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s">"""Main 15 second time loop for drone mechanics."""</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sh">"""</span><span class="s">Main 15 second time loop for drone mechanics.</span><span class="sh">"""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">"Retrieving the drone details"</span><span class="p">)</span>
-        <span class="n">drone</span> <span class="o">=</span> <span class="n">get_drone</span><span class="p">()</span>
-        <span class="n">drone_identifier</span> <span class="o">=</span> <span class="n">drone</span><span class="p">[</span><span class="s">"DroneID"</span><span class="p">]</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Retrieving the drone details</span><span class="sh">"</span><span class="p">)</span>
+        <span class="n">drone</span> <span class="o">=</span> <span class="nf">get_drone</span><span class="p">()</span>
+        <span class="n">drone_identifier</span> <span class="o">=</span> <span class="n">drone</span><span class="p">[</span><span class="sh">"</span><span class="s">DroneID</span><span class="sh">"</span><span class="p">]</span>
         <span class="n">datastream</span> <span class="o">=</span> <span class="bp">None</span>
 
         <span class="c1"># Commands will be executed in any state
-</span>        <span class="n">drone</span> <span class="o">=</span> <span class="n">handle_drone_commands</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+</span>        <span class="n">drone</span> <span class="o">=</span> <span class="nf">handle_drone_commands</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">is_not_off</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nf">is_not_off</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
 
             <span class="c1">## Handle drone battery change
-</span>            <span class="n">drone</span> <span class="o">=</span> <span class="n">handle_drone_battery</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+</span>            <span class="n">drone</span> <span class="o">=</span> <span class="nf">handle_drone_battery</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
             <span class="c1">## Handle drone general behaviour
-</span>            <span class="n">anomaly</span> <span class="o">=</span> <span class="n">get_anomaly</span><span class="p">()</span>
+</span>            <span class="n">anomaly</span> <span class="o">=</span> <span class="nf">get_anomaly</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">anomaly</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">anomaly</span><span class="p">[</span><span class="s">"Status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Confirming"</span> <span class="ow">and</span> <span class="n">drone</span><span class="p">[</span><span class="s">"State"</span><span class="p">][</span><span class="s">"Status"</span><span class="p">]</span> <span class="o">==</span> <span class="s">"Active"</span><span class="p">:</span>
-                    <span class="n">drone</span><span class="p">[</span><span class="s">"State"</span><span class="p">][</span><span class="s">"Status"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"Confirming"</span>
+                <span class="k">if</span> <span class="n">anomaly</span><span class="p">[</span><span class="sh">"</span><span class="s">Status</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">Confirming</span><span class="sh">"</span> <span class="ow">and</span> <span class="n">drone</span><span class="p">[</span><span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">Status</span><span class="sh">"</span><span class="p">]</span> <span class="o">==</span> <span class="sh">"</span><span class="s">Active</span><span class="sh">"</span><span class="p">:</span>
+                    <span class="n">drone</span><span class="p">[</span><span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">Status</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="sh">"</span><span class="s">Confirming</span><span class="sh">"</span>
 
-            <span class="k">if</span> <span class="n">is_confirming</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
-                <span class="k">print</span><span class="p">(</span><span class="s">"Drone handling anomaly"</span><span class="p">)</span>
-                <span class="n">drone</span> <span class="o">=</span> <span class="n">handle_anomaly</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nf">is_confirming</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Drone handling anomaly</span><span class="sh">"</span><span class="p">)</span>
+                <span class="n">drone</span> <span class="o">=</span> <span class="nf">handle_anomaly</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
-            <span class="k">elif</span> <span class="n">is_inactive</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
-                <span class="k">print</span><span class="p">(</span><span class="s">"Drone battery low, needs to charge"</span><span class="p">)</span>
-                <span class="n">drone</span> <span class="o">=</span> <span class="n">handle_drone_low_battery</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nf">is_inactive</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
+                <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Drone battery low, needs to charge</span><span class="sh">"</span><span class="p">)</span>
+                <span class="n">drone</span> <span class="o">=</span> <span class="nf">handle_drone_low_battery</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
-            <span class="k">elif</span> <span class="n">is_active</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
-                <span class="n">anomaly</span> <span class="o">=</span> <span class="n">gen_grid_anomaly</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nf">is_active</span><span class="p">(</span><span class="n">drone</span><span class="p">):</span>
+                <span class="n">anomaly</span> <span class="o">=</span> <span class="nf">gen_grid_anomaly</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">anomaly</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s">"New anomaly created"</span><span class="p">)</span>
-                    <span class="n">send_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">,</span> <span class="n">drone_identifier</span><span class="p">)</span>
-                    <span class="n">datastream</span> <span class="o">=</span> <span class="n">gen_Datastream</span><span class="p">(</span><span class="n">gen_abnormal_sensor_data</span><span class="p">(</span>
-                    <span class="p">),</span> <span class="n">drone</span><span class="p">[</span><span class="s">"State"</span><span class="p">][</span><span class="s">"Position"</span><span class="p">],</span> <span class="n">drone_identifier</span><span class="p">)</span>
+                    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">New anomaly created</span><span class="sh">"</span><span class="p">)</span>
+                    <span class="nf">send_anomaly</span><span class="p">(</span><span class="n">anomaly</span><span class="p">,</span> <span class="n">drone_identifier</span><span class="p">)</span>
+                    <span class="n">datastream</span> <span class="o">=</span> <span class="nf">gen_Datastream</span><span class="p">(</span><span class="nf">gen_abnormal_sensor_data</span><span class="p">(</span>
+                    <span class="p">),</span> <span class="n">drone</span><span class="p">[</span><span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">Position</span><span class="sh">"</span><span class="p">],</span> <span class="n">drone_identifier</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">datastream</span> <span class="o">=</span> <span class="n">gen_Datastream</span><span class="p">(</span><span class="n">gen_normal_sensor_data</span><span class="p">(</span>
-                    <span class="p">),</span> <span class="n">drone</span><span class="p">[</span><span class="s">"State"</span><span class="p">][</span><span class="s">"Position"</span><span class="p">],</span> <span class="n">drone_identifier</span><span class="p">)</span>
+                    <span class="n">datastream</span> <span class="o">=</span> <span class="nf">gen_Datastream</span><span class="p">(</span><span class="nf">gen_normal_sensor_data</span><span class="p">(</span>
+                    <span class="p">),</span> <span class="n">drone</span><span class="p">[</span><span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">Position</span><span class="sh">"</span><span class="p">],</span> <span class="n">drone_identifier</span><span class="p">)</span>
 
             <span class="c1"># Handle positions change
-</span>            <span class="n">drone</span> <span class="o">=</span> <span class="n">handle_drone_position</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+</span>            <span class="n">drone</span> <span class="o">=</span> <span class="nf">handle_drone_position</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
         <span class="c1"># update the drone both locally and on the controller
-</span>        <span class="n">update_drone</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
+</span>        <span class="nf">update_drone</span><span class="p">(</span><span class="n">drone</span><span class="p">)</span>
 
-        <span class="n">update_drone_at_controller</span><span class="p">(</span><span class="n">drone</span><span class="p">,</span> <span class="n">drone_identifier</span><span class="p">)</span>
+        <span class="nf">update_drone_at_controller</span><span class="p">(</span><span class="n">drone</span><span class="p">,</span> <span class="n">drone_identifier</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">datastream</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="c1"># Send datastream to central controller
-</span>            <span class="n">send_datastream</span><span class="p">(</span><span class="n">datastream</span><span class="p">)</span>
+</span>            <span class="nf">send_datastream</span><span class="p">(</span><span class="n">datastream</span><span class="p">)</span>
             <span class="c1"># Update datastream locally
-</span>            <span class="n">update_datastream</span><span class="p">(</span><span class="n">datastream</span><span class="p">)</span>
+</span>            <span class="nf">update_datastream</span><span class="p">(</span><span class="n">datastream</span><span class="p">)</span>
 
     <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
     <span class="k">finally</span><span class="p">:</span>
         <span class="c1"># call main() again in LOOP_TIME
-</span>        <span class="n">threading</span><span class="p">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="n">start</span><span class="p">()</span>
+</span>        <span class="n">threading</span><span class="p">.</span><span class="nc">Timer</span><span class="p">(</span><span class="n">LOOP_TIME</span><span class="p">,</span> <span class="n">main</span><span class="p">).</span><span class="nf">start</span><span class="p">()</span>
 </code></pre></div></div>
 <p>The full implementation of the main loop is available at <code class="language-plaintext highlighter-rouge">flock_drone.mechanics.simulate</code>.</p>
 
 <h3 id="sample-drone-object">Sample Drone Object</h3>
 <p>All the drone configurations are defined in a drone object.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DRONE</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"@type"</span><span class="p">:</span> <span class="s">"Drone"</span><span class="p">,</span>
-    <span class="s">"DroneID"</span><span class="p">:</span> <span class="s">"-1000"</span><span class="p">,</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Drone 1"</span><span class="p">,</span>
-    <span class="s">"model"</span><span class="p">:</span> <span class="s">"xyz"</span><span class="p">,</span>
-    <span class="s">"MaxSpeed"</span><span class="p">:</span> <span class="s">"130"</span><span class="p">,</span>
-    <span class="s">"Sensor"</span><span class="p">:</span> <span class="s">"Temperature"</span><span class="p">,</span>
-    <span class="s">"State"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"@type"</span><span class="p">:</span> <span class="s">"State"</span><span class="p">,</span>
-        <span class="s">"Speed"</span><span class="p">:</span> <span class="s">"100"</span><span class="p">,</span>
-        <span class="s">"Position"</span><span class="p">:</span> <span class="s">"0,0"</span><span class="p">,</span>
-        <span class="s">"Battery"</span><span class="p">:</span> <span class="s">"100"</span><span class="p">,</span>
-        <span class="s">"Direction"</span><span class="p">:</span> <span class="s">"N"</span><span class="p">,</span>
-        <span class="s">"Status"</span><span class="p">:</span> <span class="s">"Active"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Drone</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">DroneID</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">-1000</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Drone 1</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">model</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">xyz</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">MaxSpeed</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">130</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">Sensor</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Temperature</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">State</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Speed</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">100</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Position</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">0,0</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Battery</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">100</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Direction</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">N</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">Status</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Active</span><span class="sh">"</span><span class="p">,</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -744,10 +744,10 @@ There are four repositories for the simulation:</p>
 We have the <code class="language-plaintext highlighter-rouge">Subsystem</code> OWL vocabulary defined in <code class="language-plaintext highlighter-rouge">Hydrus.metadata.subsystem_vocab_jsonld</code>.</p>
 
 <p>Import this into <code class="language-plaintext highlighter-rouge">parser.py</code> using</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.metadata.subsystem_vocab_jsonld</span> <span class="kn">import</span> <span class="n">subsystem_data</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">hydrus.metadata.subsystem_vocab_jsonld</span> <span class="kn">import</span> <span class="n">subsystem_data</span>
 </code></pre></div></div>
 <p>Pass this vocab to data</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">"</span><span class="s">__main__</span><span class="sh">"</span><span class="p">:</span>
     <span class="c1"># NOTE: Usage must be in the following order
 </span>        <span class="c1"># get_all_properties() &gt;&gt; hydrafy_properties() &gt;&gt; properties
 </span>        <span class="c1"># get_all_classes() + properties &gt;&gt; hydrafy_classes() &gt;&gt; classes
@@ -755,8 +755,8 @@ We have the <code class="language-plaintext highlighter-rouge">Subsystem</code> 
 </span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">subsystem_data</span>
     <span class="c1"># Get all the owl:ObjectProperty objects from the vocab
-</span>    <span class="n">owl_props</span> <span class="o">=</span> <span class="n">get_all_properties</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="p">......</span>
+</span>    <span class="n">owl_props</span> <span class="o">=</span> <span class="nf">get_all_properties</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="p">...</span><span class="bp">...</span>
 </code></pre></div></div>
 <p>Running the <code class="language-plaintext highlighter-rouge">parser.py</code> will return <code class="language-plaintext highlighter-rouge">HydraClasses</code> and their <code class="language-plaintext highlighter-rouge">SupportedProperties</code>.<br />
 We can save this as <code class="language-plaintext highlighter-rouge">parsed_classes</code> using Output redirection. Running <code class="language-plaintext highlighter-rouge">python parser.py &gt; parsed_classes</code> should do it!<br />
@@ -765,18 +765,18 @@ Now we’re ready to move forward. The next steps involve generating a Hydra voc
 <h3 id="2-generating-hydravocab-from-parsed-classes">2. Generating <code class="language-plaintext highlighter-rouge">HydraVocab</code> from parsed classes</h3>
 <p><code class="language-plaintext highlighter-rouge">Hydrus.hydraspec.vocab_generator</code> can be used to generate a Hydra Vocabulary from the parsed classes. Vocab generator mainly consists <code class="language-plaintext highlighter-rouge">gen_vocab</code> function.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">,</span> <span class="n">item_semantic_url</span><span class="p">):</span>
-    <span class="s">"""Generate Hydra Vocabulary."""</span>
+    <span class="sh">"""</span><span class="s">Generate Hydra Vocabulary.</span><span class="sh">"""</span>
     <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
     <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
     <span class="n">ITEM_SEMANTIC_URL</span> <span class="o">=</span> <span class="n">item_semantic_url</span>
 
     <span class="n">vocab_template</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"@context"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">"vocab"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="s">"/api/vocab#"</span><span class="p">,</span>
-            <span class="s">"hydra"</span><span class="p">:</span> <span class="s">"https://www.w3.org/ns/hydra/core#"</span><span class="p">,</span>
-            <span class="s">"ApiDocumentation"</span><span class="p">:</span> <span class="s">"hydra:ApiDocumentation"</span><span class="p">,</span>
-            <span class="s">"property"</span><span class="p">:</span> <span class="p">{</span>
-<span class="p">......</span>
+        <span class="sh">"</span><span class="s">@context</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">vocab</span><span class="sh">"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="sh">"</span><span class="s">/api/vocab#</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">hydra</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">https://www.w3.org/ns/hydra/core#</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">ApiDocumentation</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">hydra:ApiDocumentation</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">property</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+<span class="p">...</span><span class="bp">...</span>
 </code></pre></div></div>
 <p>We need to pass the following variables into <code class="language-plaintext highlighter-rouge">gen_vocab()</code> for generation of a Hydra Vocabulary</p>
 <ul>
@@ -790,8 +790,8 @@ Now we’re ready to move forward. The next steps involve generating a Hydra voc
 
 <p>After passing all these variables, simply running the <code class="language-plaintext highlighter-rouge">vocab_generator.py</code> will return a Hydra vocabulary for the server.<br /></p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">print</span><span class="p">(</span><span class="n">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">,</span>
-          <span class="s">"https://ontology.projectchronos.eu/subsystems?format=jsonld"</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nf">print</span><span class="p">(</span><span class="nf">gen_vocab</span><span class="p">(</span><span class="n">parsed_classes</span><span class="p">,</span> <span class="sh">"</span><span class="s">https://hydrus.com/</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cots</span><span class="sh">"</span><span class="p">,</span>
+          <span class="sh">"</span><span class="s">https://ontology.projectchronos.eu/subsystems?format=jsonld</span><span class="sh">"</span><span class="p">))</span>
 </code></pre></div></div>
 <p>Use Output redirection to save it, Running <code class="language-plaintext highlighter-rouge">python vocab_generator.py &gt; vocab</code> should do it!</p>
 
@@ -801,24 +801,24 @@ Now we’re ready to move forward. The next steps involve generating a Hydra voc
     <h4 id="entrypoint-generator">Entrypoint Generator</h4>
     <p><code class="language-plaintext highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> uses an Entrypoint template to generate the required Entrypoint data.</p>
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
-  <span class="s">"""Generate EntryPoint."""</span>
+  <span class="sh">"""</span><span class="s">Generate EntryPoint.</span><span class="sh">"""</span>
   <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
   <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
 
   <span class="n">entrypoint_template</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"@context"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="s">"api/contexts/EntryPoint.jsonld"</span><span class="p">,</span>
-    <span class="s">"@id"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="s">"api/"</span><span class="p">,</span>
-    <span class="s">"@type"</span><span class="p">:</span> <span class="s">"EntryPoint"</span><span class="p">,</span>
-    <span class="n">ITEM_TYPE</span><span class="p">.</span><span class="n">lower</span><span class="p">():</span> <span class="s">"api/%s/"</span> <span class="o">%</span> <span class="p">(</span><span class="n">ITEM_TYPE</span><span class="p">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="sh">"</span><span class="s">@context</span><span class="sh">"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="sh">"</span><span class="s">api/contexts/EntryPoint.jsonld</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">@id</span><span class="sh">"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="sh">"</span><span class="s">api/</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">EntryPoint</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">ITEM_TYPE</span><span class="p">.</span><span class="nf">lower</span><span class="p">():</span> <span class="sh">"</span><span class="s">api/%s/</span><span class="sh">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">ITEM_TYPE</span><span class="p">.</span><span class="nf">lower</span><span class="p">())</span>
   <span class="p">}</span>
 
-  <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">entrypoint_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">entrypoint_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>    </div>
     <p>We can generate the data for entrypoint simply by doing something like this:</p>
   </li>
 </ul>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="nf">gen_entrypoint</span><span class="p">(</span><span class="sh">"</span><span class="s">https://hydrus.com/</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cots</span><span class="sh">"</span><span class="p">))</span>
 </code></pre></div></div>
 <ul>
   <li>
@@ -828,26 +828,26 @@ Now we’re ready to move forward. The next steps involve generating a Hydra voc
 </ul>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gen_entrypoint_context</span><span class="p">(</span><span class="n">server_url</span><span class="p">,</span> <span class="n">item_type</span><span class="p">):</span>
-    <span class="s">"""Generate context for the EntryPoint."""</span>
+    <span class="sh">"""</span><span class="s">Generate context for the EntryPoint.</span><span class="sh">"""</span>
     <span class="n">SERVER_URL</span> <span class="o">=</span> <span class="n">server_url</span>
     <span class="n">ITEM_TYPE</span> <span class="o">=</span> <span class="n">item_type</span>
 
     <span class="n">entrypoint_context_template</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s">"@context"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s">"hydra"</span><span class="p">:</span> <span class="s">"https://www.w3.org/ns/hydra/core#"</span><span class="p">,</span>
-            <span class="s">"vocab"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="s">"/api/vocab#"</span><span class="p">,</span>
-            <span class="s">"EntryPoint"</span><span class="p">:</span> <span class="s">"vocab:EntryPoint"</span><span class="p">,</span>
-            <span class="n">ITEM_TYPE</span><span class="p">.</span><span class="n">lower</span><span class="p">():</span> <span class="p">{</span>
-                <span class="s">"@id"</span><span class="p">:</span> <span class="s">"vocab:EntryPoint/"</span><span class="o">+</span><span class="n">ITEM_TYPE</span><span class="p">,</span>
-                <span class="s">"@type"</span><span class="p">:</span> <span class="s">"@id"</span>
+        <span class="sh">"</span><span class="s">@context</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="sh">"</span><span class="s">hydra</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">https://www.w3.org/ns/hydra/core#</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">vocab</span><span class="sh">"</span><span class="p">:</span> <span class="n">SERVER_URL</span> <span class="o">+</span> <span class="sh">"</span><span class="s">/api/vocab#</span><span class="sh">"</span><span class="p">,</span>
+            <span class="sh">"</span><span class="s">EntryPoint</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">vocab:EntryPoint</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">ITEM_TYPE</span><span class="p">.</span><span class="nf">lower</span><span class="p">():</span> <span class="p">{</span>
+                <span class="sh">"</span><span class="s">@id</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">vocab:EntryPoint/</span><span class="sh">"</span><span class="o">+</span><span class="n">ITEM_TYPE</span><span class="p">,</span>
+                <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">@id</span><span class="sh">"</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">entrypoint_context_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">entrypoint_context_template</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div></div>
 <p>We can generate the data for entrypoint context simply by doing something like this:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">gen_entrypoint_context</span><span class="p">(</span><span class="s">"https://hydrus.com/"</span><span class="p">,</span> <span class="s">"Cots"</span><span class="p">))</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="nf">gen_entrypoint_context</span><span class="p">(</span><span class="sh">"</span><span class="s">https://hydrus.com/</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">Cots</span><span class="sh">"</span><span class="p">))</span>
 </code></pre></div></div>
 
 <p>Both the <code class="language-plaintext highlighter-rouge">Hydrus.hydraspec.entrypoint_generator</code> and <code class="language-plaintext highlighter-rouge">Hydrus.hydraspec.entrypoint_context_generator</code> can be used to generate <code class="language-plaintext highlighter-rouge">Entrypoint</code> and <code class="language-plaintext highlighter-rouge">Entrypoint_context</code> data.</p>
@@ -860,7 +860,7 @@ The implementation of <code class="language-plaintext highlighter-rouge">app.py<
 Endpoints are defined in <code class="language-plaintext highlighter-rouge">api.add_resource</code> like this:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Needs to be changed manually
-</span><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="s">"/api/&lt;string:type_&gt;/&lt;int:id_&gt;"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s">"cots"</span><span class="p">)</span>
+</span><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">Item</span><span class="p">,</span> <span class="sh">"</span><span class="s">/api/&lt;string:type_&gt;/&lt;int:id_&gt;</span><span class="sh">"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="sh">"</span><span class="s">cots</span><span class="sh">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h3 id="5-starting-the-api-server">5. Starting the API server</h3>
@@ -878,11 +878,11 @@ Endpoints are defined in <code class="language-plaintext highlighter-rouge">api.
 <p>There are four supported CURD operation (<code class="language-plaintext highlighter-rouge">insert</code>, <code class="language-plaintext highlighter-rouge">get</code>, <code class="language-plaintext highlighter-rouge">delete</code> and <code class="language-plaintext highlighter-rouge">update</code>). Here are examples for all four:</p>
 
 <p><strong>GET</strong></p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+<span class="kn">import</span> <span class="n">json</span>
 
-<span class="n">instance</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s">"Spacecraft_Communication"</span><span class="p">)</span>     <span class="c1"># Return the Resource/Instance with ID = 1
-</span><span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">instance</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="sh">"</span><span class="s">Spacecraft_Communication</span><span class="sh">"</span><span class="p">)</span>     <span class="c1"># Return the Resource/Instance with ID = 1
+</span><span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 <span class="c1"># Output:
 # {
 #     "name": "12W communication",
@@ -899,59 +899,59 @@ Endpoints are defined in <code class="language-plaintext highlighter-rouge">api.
 </span></code></pre></div></div>
 <p><strong>INSERT</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">instance</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"12W communication"</span><span class="p">,</span>    <span class="c1"># The name of the instance must be in "name"
-</span>    <span class="s">"object"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">12W communication</span><span class="sh">"</span><span class="p">,</span>    <span class="c1"># The name of the instance must be in "name"
+</span>    <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
         <span class="c1"># The "object" key contains all the properties and their values for a given instance
-</span>        <span class="s">"maxWorkingTemperature"</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>    <span class="c1"># InstanceProperty: Value, Value is automatically converted to Terminal Object
+</span>        <span class="sh">"</span><span class="s">maxWorkingTemperature</span><span class="sh">"</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>    <span class="c1"># InstanceProperty: Value, Value is automatically converted to Terminal Object
 </span>
         <span class="c1"># In case the Value for a property is another Resource, we use the following syntax
-</span>        <span class="s">"hasDuplicate"</span><span class="p">:{</span>
-            <span class="s">"@id"</span><span class="p">:</span> <span class="s">"subsystem/34"</span>   <span class="c1"># The "@id" tag gives the ID of the other instance
+</span>        <span class="sh">"</span><span class="s">hasDuplicate</span><span class="sh">"</span><span class="p">:{</span>
+            <span class="sh">"</span><span class="s">@id</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">subsystem/34</span><span class="sh">"</span>   <span class="c1"># The "@id" tag gives the ID of the other instance
 </span>        <span class="p">}</span>
 
         <span class="c1"># In case the property is an AbstractProperty, the class name should be given as Value
-</span>        <span class="s">"@type"</span><span class="p">:</span> <span class="s">"Spacecraft_Communication"</span><span class="p">,</span>     <span class="c1"># AbstractProperty: Classname, Classname is automatically mapped to relevant RDFClass
+</span>        <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Spacecraft_Communication</span><span class="sh">"</span><span class="p">,</span>     <span class="c1"># AbstractProperty: Classname, Classname is automatically mapped to relevant RDFClass
 </span>    <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">#Once we have defined such an `instance`, we can use the built-in CRUD operations of Hydrus to add these instances.
-</span><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+</span><span class="kn">from</span> <span class="n">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
 
-<span class="n">crud</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">object_</span><span class="o">=</span><span class="n">instance</span><span class="p">)</span>   <span class="c1"># This will insert 'instance' into Instance and all other information into Graph.
+<span class="n">crud</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">object_</span><span class="o">=</span><span class="n">instance</span><span class="p">)</span>   <span class="c1"># This will insert 'instance' into Instance and all other information into Graph.
 </span>
 <span class="c1"># Optionally, we can specify the ID of an instance if it is not already used
-</span><span class="n">crud</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">object_</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">#This will insert 'instance' with ID = 1  
+</span><span class="n">crud</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="n">object_</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1">#This will insert 'instance' with ID = 1  
 </span></code></pre></div></div>
 
 <p><strong>DELETE</strong></p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+<span class="kn">import</span> <span class="n">json</span>
 
-<span class="n">output</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s">"Spacecraft_Communication"</span><span class="p">)</span>     <span class="c1"># Deletes the Resource/Instance with ID = 1
-</span><span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="sh">"</span><span class="s">Spacecraft_Communication</span><span class="sh">"</span><span class="p">)</span>     <span class="c1"># Deletes the Resource/Instance with ID = 1
+</span><span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 <span class="c1"># Output:
 # {
 #   204: "Object with ID : 1 successfully deleted!"
 # }
 </span></code></pre></div></div>
 <p><strong>UPDATE</strong></p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
-<span class="kn">import</span> <span class="nn">json</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">hydrus.data</span> <span class="kn">import</span> <span class="n">crud</span>
+<span class="kn">import</span> <span class="n">json</span>
 
 <span class="n">new_object</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"14W communication"</span><span class="p">,</span>
-    <span class="s">"object"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">"@type"</span><span class="p">:</span> <span class="s">"Spacecraft_Thermal"</span><span class="p">,</span>
-        <span class="s">"hasMass"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
-        <span class="s">"hasMonetaryValue"</span><span class="p">:</span> <span class="mi">6204</span><span class="p">,</span>
-        <span class="s">"hasPower"</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
-        <span class="s">"hasVolume"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-        <span class="s">"maxWorkingTemperature"</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>
-        <span class="s">"minWorkingTemperature"</span><span class="p">:</span> <span class="o">-</span><span class="mi">26</span>
+    <span class="sh">"</span><span class="s">name</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">14W communication</span><span class="sh">"</span><span class="p">,</span>
+    <span class="sh">"</span><span class="s">object</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="sh">"</span><span class="s">@type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">Spacecraft_Thermal</span><span class="sh">"</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">hasMass</span><span class="sh">"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">hasMonetaryValue</span><span class="sh">"</span><span class="p">:</span> <span class="mi">6204</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">hasPower</span><span class="sh">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">hasVolume</span><span class="sh">"</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">maxWorkingTemperature</span><span class="sh">"</span><span class="p">:</span> <span class="mi">63</span><span class="p">,</span>
+        <span class="sh">"</span><span class="s">minWorkingTemperature</span><span class="sh">"</span><span class="p">:</span> <span class="o">-</span><span class="mi">26</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="n">output</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">object_</span><span class="o">=</span><span class="n">new_object</span><span class="p">)</span>     <span class="c1"># Updates the Resource/Instance with ID = 1 with new_object
-</span><span class="k">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">crud</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">id_</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">object_</span><span class="o">=</span><span class="n">new_object</span><span class="p">)</span>     <span class="c1"># Updates the Resource/Instance with ID = 1 with new_object
+</span><span class="nf">print</span><span class="p">(</span><span class="n">json</span><span class="p">.</span><span class="nf">dumps</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 <span class="c1"># Output:
 # {
 #   204: "Object with ID : 1 successfully updated!"
@@ -967,12 +967,12 @@ NOTE: Relevant all responses are returned in JSON format</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
 </span><span class="p">{</span>   
-    <span class="mi">401</span><span class="p">:</span> <span class="s">"The class dummyClass is not a valid/defined RDFClass"</span>
+    <span class="mi">401</span><span class="p">:</span> <span class="sh">"</span><span class="s">The class dummyClass is not a valid/defined RDFClass</span><span class="sh">"</span>
 <span class="p">}</span>
 
 <span class="c1"># A 404 error is returned when an Instance is not found
 </span><span class="p">{</span>
-    <span class="mi">404</span><span class="p">:</span> <span class="s">"Instance with ID : 2 NOT FOUND"</span>
+    <span class="mi">404</span><span class="p">:</span> <span class="sh">"</span><span class="s">Instance with ID : 2 NOT FOUND</span><span class="sh">"</span>
 <span class="p">}</span>
 
 </code></pre></div></div>
@@ -980,22 +980,22 @@ NOTE: Relevant all responses are returned in JSON format</p>
 <p><strong>INSERT</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># A 400 error is returned when an instance with a given ID already exists
 </span><span class="p">{</span>
-    <span class="mi">400</span><span class="p">:</span> <span class="s">"Instance with ID : 1 already exists"</span>
+    <span class="mi">400</span><span class="p">:</span> <span class="sh">"</span><span class="s">Instance with ID : 1 already exists</span><span class="sh">"</span>
 <span class="p">}</span>
 
 <span class="c1"># A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
 </span><span class="p">{</span>   
-    <span class="mi">401</span><span class="p">:</span> <span class="s">"The class dummyClass is not a valid/defined RDFClass"</span>
+    <span class="mi">401</span><span class="p">:</span> <span class="sh">"</span><span class="s">The class dummyClass is not a valid/defined RDFClass</span><span class="sh">"</span>
 <span class="p">}</span>
 
 <span class="c1"># A 402 error is returned when a given Property: Value pair has an invalid/undefined Property
 </span><span class="p">{</span>
-    <span class="mi">402</span><span class="p">:</span> <span class="s">"The property dummyProp is not a valid/defined Property"</span>
+    <span class="mi">402</span><span class="p">:</span> <span class="sh">"</span><span class="s">The property dummyProp is not a valid/defined Property</span><span class="sh">"</span>
 <span class="p">}</span>
 
 <span class="c1"># A 403 error is returned when a given InstanceProperty: Instance pair has an invalid/undefined Instance ID
 </span><span class="p">{</span>   
-    <span class="mi">403</span><span class="p">:</span> <span class="s">"The instance 2 is not a valid Instance"</span>
+    <span class="mi">403</span><span class="p">:</span> <span class="sh">"</span><span class="s">The instance 2 is not a valid Instance</span><span class="sh">"</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -1003,12 +1003,12 @@ NOTE: Relevant all responses are returned in JSON format</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1"># A 401 error is returned when a given AbstractProperty: Classname pair has an invalid/undefined RDFClass
 </span><span class="p">{</span>   
-    <span class="mi">401</span><span class="p">:</span> <span class="s">"The class dummyClass is not a valid/defined RDFClass"</span>
+    <span class="mi">401</span><span class="p">:</span> <span class="sh">"</span><span class="s">The class dummyClass is not a valid/defined RDFClass</span><span class="sh">"</span>
 <span class="p">}</span>
 
 <span class="c1"># A 404 error is returned when an Instance is not found
 </span><span class="p">{</span>
-    <span class="mi">404</span><span class="p">:</span> <span class="s">"Instance with ID : 2 NOT FOUND"</span>
+    <span class="mi">404</span><span class="p">:</span> <span class="sh">"</span><span class="s">Instance with ID : 2 NOT FOUND</span><span class="sh">"</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -1020,11 +1020,11 @@ NOTE: Relevant all responses are returned in JSON format</p>
 <p>The following section explains how the server needs to be set up to be able to serve the data we added in the previous section.</p>
 
 <p>The generic server is implemented using the <a href="https://flask.pocoo.org/">Flask</a> micro-framework. To get the server up and running, all you need to do is:</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">hydrus.app</span> <span class="kn">import</span> <span class="n">app</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">hydrus.app</span> <span class="kn">import</span> <span class="n">app</span>
 
-<span class="n">IP</span> <span class="o">=</span> <span class="s">"127.0.0.1"</span>
+<span class="n">IP</span> <span class="o">=</span> <span class="sh">"</span><span class="s">127.0.0.1</span><span class="sh">"</span>
 <span class="n">port_</span> <span class="o">=</span> <span class="mi">8000</span>
-<span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">IP</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">IP</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port_</span><span class="p">)</span>
 
 <span class="c1"># The server will be running at http://127.0.0.1:8000/
 </span></code></pre></div></div>

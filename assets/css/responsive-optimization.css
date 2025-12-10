@@ -575,7 +575,7 @@ a:focus,
 button:focus,
 input:focus,
 textarea:focus {
-  outline: 2px solid #29a587;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
 
@@ -1425,7 +1425,7 @@ html {
 .menu-btn:focus,
 .contacts-form input:focus,
 .contacts-form textarea:focus {
-  outline: 2px solid #29a587;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
 
@@ -1501,18 +1501,18 @@ html {
   margin: 0;
   padding: 0;
   border: none !important;
-  background: #f0ebe3 !important;
+  background: #FFFFFF !important;
   transition: all 0.3s ease;
 }
 
 .history-item:not(:last-child) {
-  border-bottom: 1px solid #fdf9f2  !important;
+  border-bottom: 1px solid #F5F5F5  !important;
 }
 
 .history-item .name {
   margin: 0;
   padding: 25px 30px;
-  background: #f0ebe3 !important;
+  background: #FFFFFF !important;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1520,7 +1520,7 @@ html {
 }
 
 .history-item .name:hover {
-  background: #fdf9f2 !important;
+  background: #F5F5F5 !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -1548,7 +1548,7 @@ html {
 
 .history-item .history-content {
   margin: 0;
-  background: #fdf9f2 !important;
+  background: #F5F5F5 !important;
   border: none;
 }
 
@@ -1559,7 +1559,7 @@ html {
   width: 100%;
   font-size: 20px;
   line-height: 1.4;
-  color: #29a587;
+  color: #2563EB;
   font-weight: 600;
 }
 
@@ -1716,7 +1716,7 @@ html {
 .skills-item {
   margin: 0 0 30px 0;
   padding: 25px;
-  background: #fdf9f2 !important;
+  background: #F5F5F5 !important;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
@@ -1784,12 +1784,12 @@ html {
 }
 
 .skills-item .text p::-webkit-scrollbar-thumb {
-  background: #29a587;
+  background: #2563EB;
   border-radius: 3px;
 }
 
 .skills-item .text p::-webkit-scrollbar-thumb:hover {
-  background: #1abc9c;
+  background: #60A5FA;
 }
 
 .skills-item .dots {
@@ -1806,13 +1806,13 @@ html {
   display: block;
   width: 0%;
   height: 4px;
-  background: linear-gradient(90deg, #29a587, #1abc9c);
+  background: linear-gradient(90deg, #2563EB, #60A5FA);
   border-radius: 2px;
   transition: all 0.8s cubic-bezier(0.3, 0, 0.3, 1);
 }
 
 .skills-item .dots .dot span {
-  border: 3px solid #29a587;
+  border: 3px solid #2563EB;
   border-radius: 50%;
   background-color: #ffffff;
   box-shadow: 0 3px 10px rgba(41, 165, 135, 0.3);
@@ -1827,9 +1827,9 @@ html {
 .skills-item .dots .dot span:before {
   margin-top: -3px;
   margin-left: -3px;
-  border: 2px solid #29a587;
+  border: 2px solid #2563EB;
   border-radius: 50%;
-  background-color: #29a587;
+  background-color: #2563EB;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1841,7 +1841,7 @@ html {
   position: absolute;
   top: 25px;
   right: 25px;
-  background: linear-gradient(135deg, #29a587, #1abc9c);
+  background: linear-gradient(135deg, #2563EB, #60A5FA);
   color: #ffffff;
   padding: 8px 12px;
   border-radius: 20px;
@@ -2207,7 +2207,7 @@ html {
 
 /* Focus states for skills items */
 .skills-item:focus-within {
-  outline: 2px solid #29a587;
+  outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
 
@@ -2465,7 +2465,7 @@ html {
   #contact-section .numbers-item {
     text-align: center;
     padding: 20px;
-    background: #fdf9f2;
+    background: #F5F5F5;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   }

@@ -25,14 +25,14 @@
     // --- MAIN DOM READY ---
     $(function () {
         // Error Fixes & Browser Extension Compatibility
-        (function() {
+        (function () {
             'use strict';
 
             // Suppress SES warnings and errors from browser extensions
             const originalConsoleWarn = console.warn;
             const originalConsoleError = console.error;
 
-            console.warn = function(message) {
+            console.warn = function (message) {
                 if (typeof message === 'string' && (
                     message.includes('dateTaming') ||
                     message.includes('mathTaming') ||
@@ -44,7 +44,7 @@
                 originalConsoleWarn.apply(console, arguments);
             };
 
-            console.error = function(message) {
+            console.error = function (message) {
                 if (typeof message === 'string' && (
                     message.includes('lockdown-install') ||
                     message.includes('moz-extension') ||
@@ -56,29 +56,29 @@
             };
 
             // Handle jQuery easing function errors
-            $(document).ready(function() {
+            $(document).ready(function () {
                 if ($.easing) {
                     if (!$.easing.easeInOutCubic) {
-                        $.easing.easeInOutCubic = function(t) {
+                        $.easing.easeInOutCubic = function (t) {
                             return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
                         };
                     }
-                    
+
                     if (!$.easing.easeInOutQuart) {
-                        $.easing.easeInOutQuart = function(t) {
+                        $.easing.easeInOutQuart = function (t) {
                             return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
                         };
                     }
-                    
+
                     if (!$.easing.easeOutCubic) {
-                        $.easing.easeOutCubic = function(t) {
+                        $.easing.easeOutCubic = function (t) {
                             return (--t) * t * t + 1;
                         };
                     }
                 }
             });
 
-            window.addEventListener('error', function(event) {
+            window.addEventListener('error', function (event) {
                 if (event.filename && (
                     event.filename.includes('moz-extension') ||
                     event.filename.includes('chrome-extension') ||
@@ -89,7 +89,7 @@
                 }
             });
 
-            window.addEventListener('unhandledrejection', function(event) {
+            window.addEventListener('unhandledrejection', function (event) {
                 if (event.reason && event.reason.toString().includes('lockdown')) {
                     event.preventDefault();
                     return false;
@@ -98,10 +98,10 @@
         })();
 
         // Modern Interactive Loader
-        (function($) {
+        (function ($) {
             'use strict';
 
-            $(document).ready(function() {
+            $(document).ready(function () {
                 initModernLoader();
             });
 
@@ -109,13 +109,13 @@
                 const preloader = $('.preloader');
                 const logoImg = $('.preloader .spinner-logo img');
                 const loadingText = $('.preloader .loading-text');
-                
-                logoImg.on('click', function() {
+
+                logoImg.on('click', function () {
                     $(this).css({
                         animation: 'logoPulse 0.5s ease-in-out',
                         transform: 'scale(1.3)'
                     });
-                    
+
                     setTimeout(() => {
                         $(this).css({
                             animation: 'logoPulse 2s ease-in-out infinite',
@@ -126,43 +126,43 @@
 
                 const loadingTexts = ['LOADING...', 'PREPARING...', 'ALMOST READY...'];
                 let textIndex = 0;
-                
+
                 setInterval(() => {
                     if (!preloader.hasClass('loaded')) {
-                        loadingText.fadeOut(300, function() {
+                        loadingText.fadeOut(300, function () {
                             $(this).text(loadingTexts[textIndex]).fadeIn(300);
                             textIndex = (textIndex + 1) % loadingTexts.length;
                         });
                     }
                 }, 2000);
 
-                $(document).mousemove(function(e) {
+                $(document).mousemove(function (e) {
                     if (!preloader.hasClass('loaded')) {
                         const mouseX = e.clientX / window.innerWidth;
                         const mouseY = e.clientY / window.innerHeight;
-                        
+
                         $('.spinner-dot').css({
                             transform: `translate(${mouseX * 10}px, ${mouseY * 10}px)`
                         });
-                        
+
                         $('.spinner-line').css({
                             transform: `translate(${-mouseX * 5}px, ${-mouseY * 5}px)`
                         });
                     }
                 });
 
-                $(window).on('load', function() {
+                $(window).on('load', function () {
                     setTimeout(() => {
                         logoImg.css({
                             animation: 'logoPulse 0.3s ease-in-out 3',
                             filter: 'drop-shadow(0 0 40px rgba(255,255,255,0.8))'
                         });
-                        
+
                         loadingText.text('READY!').css({
                             fontSize: '20px',
                             textShadow: '0 0 20px rgba(255,255,255,0.8)'
                         });
-                        
+
                         setTimeout(() => {
                             preloader.addClass('loaded');
                             setTimeout(() => preloader.hide(), 800);
@@ -170,13 +170,13 @@
                     }, 1000);
                 });
 
-                $(document).keydown(function(e) {
+                $(document).keydown(function (e) {
                     if (!preloader.hasClass('loaded')) {
                         if (e.keyCode === 32) {
                             e.preventDefault();
                             logoImg.trigger('click');
                         }
-                        
+
                         if (e.keyCode === 13) {
                             e.preventDefault();
                             preloader.addClass('loaded');
@@ -185,7 +185,7 @@
                     }
                 });
 
-                logoImg.on('touchstart', function(e) {
+                logoImg.on('touchstart', function (e) {
                     e.preventDefault();
                     $(this).trigger('click');
                 });
@@ -197,22 +197,22 @@
         })(jQuery);
 
         // Modern Animations Enhancement
-        (function($) {
+        (function ($) {
             'use strict';
 
             // Define all functions first
             function initParticleSystem() {
                 console.log('Initializing particle system...');
-                
+
                 const canvas = $('<canvas id="particle-canvas"></canvas>');
                 $('.lui-section-hero').prepend(canvas);
-                
+
                 console.log('Canvas created and added to DOM');
-                
+
                 const ctx = canvas[0].getContext('2d');
                 const particles = [];
                 const maxParticles = 30;
-                
+
                 function resizeCanvas() {
                     canvas[0].width = window.innerWidth;
                     canvas[0].height = window.innerHeight;
@@ -220,7 +220,7 @@
                 }
                 resizeCanvas();
                 $(window).resize(resizeCanvas);
-                
+
                 class Particle {
                     constructor() {
                         this.x = Math.random() * canvas[0].width;
@@ -231,19 +231,19 @@
                         this.opacity = Math.random() * 0.6 + 0.4;
                         this.originalOpacity = this.opacity;
                     }
-                    
+
                     update() {
                         this.x += this.vx;
                         this.y += this.vy;
-                        
+
                         if (this.x < 0) this.x = canvas[0].width;
                         if (this.x > canvas[0].width) this.x = 0;
                         if (this.y < 0) this.y = canvas[0].height;
                         if (this.y > canvas[0].height) this.y = 0;
-                        
+
                         this.opacity = this.originalOpacity + Math.sin(Date.now() * 0.001 + this.x * 0.01) * 0.2;
                     }
-                    
+
                     draw() {
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -251,21 +251,21 @@
                         ctx.fill();
                     }
                 }
-                
+
                 for (let i = 0; i < maxParticles; i++) {
                     particles.push(new Particle());
                 }
-                
+
                 console.log('Created', particles.length, 'particles');
-                
+
                 function animate() {
                     ctx.clearRect(0, 0, canvas[0].width, canvas[0].height);
-                    
+
                     particles.forEach(particle => {
                         particle.update();
                         particle.draw();
                     });
-                    
+
                     particles.forEach((particle, i) => {
                         particles.slice(i + 1).forEach(otherParticle => {
                             const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y);
@@ -279,13 +279,13 @@
                             }
                         });
                     });
-                    
+
                     requestAnimationFrame(animate);
                 }
-                
+
                 console.log('Starting animation...');
                 animate();
-                
+
                 canvas.css({
                     position: 'absolute',
                     top: 0,
@@ -294,14 +294,14 @@
                     pointerEvents: 'none',
                     opacity: 1,
                 });
-                
+
                 console.log('Canvas CSS applied');
                 canvas.show();
             }
 
             function initEnhancedScrollAnimations() {
                 const animateElements = document.querySelectorAll('.animate-on-scroll');
-                
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -312,38 +312,38 @@
                     threshold: 0.1,
                     rootMargin: '-50px'
                 });
-                
-                $('.skills-item, .history-item, .archive-item, .works-item').each(function() {
+
+                $('.skills-item, .history-item, .archive-item, .works-item').each(function () {
                     $(this).addClass('animate-on-scroll');
                     observer.observe(this);
                 });
-                
-                $(window).scroll(function() {
+
+                $(window).scroll(function () {
                     const scrolled = $(this).scrollTop();
                     const parallax = $('.parallax-bg');
                     const speed = 0.5;
-                    
+
                     parallax.css('transform', `translateY(${scrolled * speed}px)`);
                 });
-                
+
                 // Initialize countdown numbers with intersection observer
-                $('.num').each(function() {
+                $('.num').each(function () {
                     const $this = $(this);
                     const originalText = $this.text();
                     const suffix = originalText.split(' ')[1];
                     const countTo = parseInt(originalText.split(' ')[0]);
-                    
+
                     // Only animate if it's a valid number
                     if (isNaN(countTo) || countTo <= 0) {
                         return;
                     }
-                    
+
                     // Store the original text to restore it
                     $this.data('original-text', originalText);
-                    
+
                     // Set initial value to 0
                     $this.text('0');
-                    
+
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
@@ -355,15 +355,15 @@
                                     }, {
                                         duration: 2000,
                                         easing: 'swing',
-                                        step: function() {
+                                        step: function () {
                                             $this.text(Math.floor(this.countNum) + suffix);
                                         },
-                                        complete: function() {
+                                        complete: function () {
                                             $this.text(countTo + suffix);
                                         }
                                     });
                                 }, 300);
-                                
+
                                 // Stop observing after animation starts
                                 observer.unobserve(entry.target);
                             }
@@ -372,7 +372,7 @@
                         threshold: 0.5,
                         rootMargin: '0px 0px -50px 0px'
                     });
-                    
+
                     // Observe the parent element (usually .info-list ul li)
                     const parentElement = $this.closest('.info-list ul li, .numbers-item, .skills-item');
                     if (parentElement.length) {
@@ -384,12 +384,12 @@
             }
 
             function initInteractiveSkillBars() {
-                $('.skills-item .dots .dot').each(function() {
+                $('.skills-item .dots .dot').each(function () {
                     const $dot = $(this);
                     const percentage = $dot.css('width');
-                    
+
                     $dot.css('width', '0%');
-                    
+
                     const observer = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
@@ -403,29 +403,29 @@
                             }
                         });
                     });
-                    
+
                     observer.observe($dot.closest('.skills-item')[0]);
                 });
             }
 
             function init3DEffects() {
-                $('.works-item, .archive-item, .services-item').on('mousemove', function(e) {
+                $('.works-item, .archive-item, .services-item').on('mousemove', function (e) {
                     const card = $(this);
                     const rect = this.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
-                    
+
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
-                    
+
                     const rotateX = (y - centerY) / centerY * -10;
                     const rotateY = (x - centerX) / centerX * 10;
-                    
+
                     card.css({
                         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
                         transition: 'transform 0.1s ease'
                     });
-                }).on('mouseleave', function() {
+                }).on('mouseleave', function () {
                     $(this).css({
                         transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
                         transition: 'transform 0.3s ease'
@@ -442,7 +442,7 @@
             function initTypewriterEffect() {
                 const texts = [
                     'a Protocol Engineer',
-                    'a DeFi Researcher', 
+                    'a DeFi Researcher',
                     'a Blockchain Developer',
                     'an AI Enthusiast',
                     'an Anti-plagiarism researcher',
@@ -451,17 +451,17 @@
                     'a Blockchain Nerd',
                     'a Crypto Trader',
                 ];
-                
+
                 let textIndex = 0;
                 let charIndex = 0;
                 let isDeleting = false;
-                
+
                 function typeWriter() {
                     const currentText = texts[textIndex];
                     const displayText = currentText.substring(0, charIndex);
-                    
+
                     $('.label.lui-subtitle strong').text(displayText);
-                    
+
                     if (!isDeleting && charIndex < currentText.length) {
                         charIndex++;
                         setTimeout(typeWriter, 100);
@@ -476,21 +476,21 @@
                         setTimeout(typeWriter, 1000);
                     }
                 }
-                
+
                 typeWriter();
             }
 
             function initFloatingElements() {
-                $('.circle').each(function(index) {
+                $('.circle').each(function (index) {
                     const $circle = $(this);
                     const delay = index * 200;
-                    
+
                     $circle.css({
                         animation: `float 3s ease-in-out infinite ${delay}ms`,
                         animationDirection: index % 2 === 0 ? 'normal' : 'reverse'
                     });
                 });
-                
+
                 const style = $(`
                     <style>
                         .animate-on-scroll {
@@ -509,15 +509,15 @@
             }
 
             function initGlitchEffect() {
-                $('.m-title, h1').on('mouseenter', function() {
+                $('.m-title, h1').on('mouseenter', function () {
                     const $this = $(this);
                     $this.addClass('glitch-effect');
-                    
+
                     setTimeout(() => {
                         $this.removeClass('glitch-effect');
                     }, 500);
                 });
-                
+
                 const glitchStyle = $(`
                     <style>
                         .glitch-effect {
@@ -560,16 +560,16 @@
             }
 
             function initModernHoverEffects() {
-                $('.btn').each(function() {
+                $('.btn').each(function () {
                     const $btn = $(this);
-                    
-                    $btn.on('mouseenter', function() {
+
+                    $btn.on('mouseenter', function () {
                         $(this).css({
                             transform: 'translateY(-3px)',
                             boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
                             transition: 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
                         });
-                    }).on('mouseleave', function() {
+                    }).on('mouseleave', function () {
                         $(this).css({
                             transform: 'translateY(0)',
                             boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
@@ -577,15 +577,15 @@
                         });
                     });
                 });
-                
+
                 $('.archive-item, .works-item').hover(
-                    function() {
+                    function () {
                         $(this).find('img').css({
                             transform: 'scale(1.1)',
                             transition: 'transform 0.5s ease'
                         });
                     },
-                    function() {
+                    function () {
                         $(this).find('img').css({
                             transform: 'scale(1)',
                             transition: 'transform 0.5s ease'
@@ -595,13 +595,13 @@
             }
 
             function enhanceButtonInteractions() {
-                $('.lui-button, .btn-primary, button').each(function() {
+                $('.lui-button, .btn-primary, button').each(function () {
                     const $btn = $(this);
-                    
-                    $btn.on('mouseenter', function() {
+
+                    $btn.on('mouseenter', function () {
                         if (!$btn.find('.shimmer-effect').length) {
                             $btn.append('<div class="shimmer-effect"></div>');
-                            
+
                             const shimmerCSS = `
                                 .shimmer-effect {
                                     position: absolute;
@@ -616,25 +616,25 @@
                                     to { left: 100%; }
                                 }
                             `;
-                            
+
                             if (!$('#shimmer-styles').length) {
                                 $('head').append(`<style id="shimmer-styles">${shimmerCSS}</style>`);
                             }
                         }
                     });
-                    
-                    $btn.on('animationend', '.shimmer-effect', function() {
+
+                    $btn.on('animationend', '.shimmer-effect', function () {
                         $(this).remove();
                     });
                 });
             }
 
             function addFocusGlowEffects() {
-                $('input, textarea, select').focus(function() {
+                $('input, textarea, select').focus(function () {
                     $(this).css({
                         'outline': 'none'
                     });
-                }).blur(function() {
+                }).blur(function () {
                     $(this).css({
                         'box-shadow': '',
                         'border-color': ''
@@ -642,7 +642,7 @@
                 });
 
                 $('.nav-link, .navbar-nav a').hover(
-                    function() {
+                    function () {
                         $(this).css({
                             'text-shadow': '',
                             'color': ''
@@ -652,7 +652,7 @@
             }
 
             // Now call all functions after they're defined
-            $(document).ready(function() {
+            $(document).ready(function () {
                 initParticleSystem();
                 initEnhancedScrollAnimations();
                 initInteractiveSkillBars();
@@ -669,31 +669,31 @@
         })(jQuery);
 
         // Enhanced Interactions & UX Features
-        (function($) {
+        (function ($) {
             'use strict';
 
             function initAdvancedNavigation() {
                 const sections = $('.lui-section');
                 const navLinks = $('.menu-full a[href^="#"]');
-                
-                $(window).scroll(function() {
+
+                $(window).scroll(function () {
                     let currentSection = '';
-                    sections.each(function() {
+                    sections.each(function () {
                         const sectionTop = $(this).offset().top;
                         const sectionHeight = $(this).height();
                         if ($(window).scrollTop() >= (sectionTop - 200)) {
                             currentSection = $(this).attr('id');
                         }
                     });
-                    
+
                     navLinks.removeClass('active');
                     navLinks.filter(`[href="#${currentSection}"]`).addClass('active');
                 });
-                
-                navLinks.on('click', function(e) {
+
+                navLinks.on('click', function (e) {
                     e.preventDefault();
                     const target = $(this.getAttribute('href'));
-                    
+
                     if (target.length) {
                         $('html, body').animate({
                             scrollTop: target.offset().top - 80
@@ -703,17 +703,17 @@
                         });
                     }
                 });
-                
+
                 const progressBar = $('<div class="scroll-progress"><div class="scroll-progress-bar"></div></div>');
                 $('body').prepend(progressBar);
-                
-                $(window).scroll(function() {
+
+                $(window).scroll(function () {
                     const scroll = $(window).scrollTop();
                     const height = $(document).height() - $(window).height();
                     const progress = (scroll / height) * 100;
                     $('.scroll-progress-bar').css('width', progress + '%');
                 });
-                
+
                 const progressStyle = $(`
                     <style>
                         .scroll-progress {
@@ -753,7 +753,7 @@
             }
 
             function initSmoothScrolling() {
-                $('a[href*="#"]:not([href="#"])').click(function() {
+                $('a[href*="#"]:not([href="#"])').click(function () {
                     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                         let target = $(this.hash);
                         target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -763,7 +763,7 @@
                             }, {
                                 duration: 1200,
                                 easing: 'swing',
-                                complete: function() {
+                                complete: function () {
                                     target.addClass('section-focus');
                                     setTimeout(() => {
                                         target.removeClass('section-focus');
@@ -778,18 +778,18 @@
 
             function initImageLazyLoading() {
                 const images = $('img[src]');
-                
-                images.each(function() {
+
+                images.each(function () {
                     const img = $(this);
                     const src = img.attr('src');
-                    
+
                     img.css({
                         filter: 'blur(5px)',
                         transition: 'filter 0.5s ease'
                     });
-                    
+
                     const fullImage = new Image();
-                    fullImage.onload = function() {
+                    fullImage.onload = function () {
                         img.attr('src', src).css('filter', 'blur(0px)');
                     };
                     fullImage.src = src;
@@ -799,13 +799,13 @@
             function initPageTransitions() {
                 const overlay = $('<div class="page-transition-overlay"></div>');
                 $('body').append(overlay);
-                
+
                 $('body').addClass('page-entering');
-                
-                $('a[href^="http"]').on('click', function(e) {
+
+                $('a[href^="http"]').on('click', function (e) {
                     const link = this.href;
                     e.preventDefault();
-                    
+
                     overlay.addClass('active');
                     setTimeout(() => {
                         window.open(link, '_blank');
@@ -816,7 +816,7 @@
 
             function initPerformanceOptimizations() {
                 let scrollTimeout;
-                $(window).on('scroll', function() {
+                $(window).on('scroll', function () {
                     if (scrollTimeout) {
                         clearTimeout(scrollTimeout);
                     }
@@ -825,14 +825,14 @@
                         $('.parallax-element').css('transform', `translateY(${scrollTop * 0.3}px)`);
                     }, 16);
                 });
-                
+
                 if (window.innerWidth <= 768) {
                     $('.particle-canvas').remove();
                     $('*').css('animation-duration', '0.5s');
                 }
             }
 
-            $(document).ready(function() {
+            $(document).ready(function () {
                 initAdvancedNavigation();
                 initMagneticCursor();
                 initSmoothScrolling();
@@ -1041,13 +1041,14 @@
                 }
             });
 
-            // Carousel Testimonials
+            // Carousel Books
             new Swiper('.js-books', {
                 slidesPerView: 3,
                 spaceBetween: 40,
                 watchSlidesVisibility: true,
                 noSwipingSelector: 'a',
                 loop: true,
+                loopedSlides: 6,
                 speed: 1000,
                 autoplay: {
                     delay: 4000,
@@ -1063,13 +1064,12 @@
                 breakpoints: {
                     0: { slidesPerView: 1, spaceBetween: 20 },
                     767: { slidesPerView: 2, spaceBetween: 30 },
-                    1024: { slidesPerView: 3, spaceBetween: 40 },
-                    1200: { slidesPerView: 4, spaceBetween: 40 }
+                    1024: { slidesPerView: 3, spaceBetween: 40 }
                 }
             });
         }
 
-                
+
 
         // Initialize portfolio items
         var $container = $('.works-items');
@@ -1220,33 +1220,33 @@
 
         // Enhanced hover effects with magnetic attraction
         $('a, .swiper-pagination, .swiper-button-prev, .swiper-button-next, button, .button, .btn, .lnk, .works-item, .archive-item, .social-links a').hover(
-            function () { 
+            function () {
                 cursor.el.addClass("cursor-zoom");
-                
+
                 // Magnetic effect - attract cursor to element center
                 const rect = this.getBoundingClientRect();
                 const centerX = rect.left + rect.width / 2;
                 const centerY = rect.top + rect.height / 2;
-                
+
                 // Calculate offset from current mouse position to element center
                 const offsetX = centerX - mouseX;
                 const offsetY = centerY - mouseY;
-                
+
                 // Apply magnetic attraction with proper positioning
-                const magneticX = cursor.x - cursor.w/2 + offsetX * 0.2;
-                const magneticY = cursor.y - cursor.h/2 + offsetY * 0.2;
-                
+                const magneticX = cursor.x - cursor.w / 2 + offsetX * 0.2;
+                const magneticY = cursor.y - cursor.h / 2 + offsetY * 0.2;
+
                 cursor.el.css({
                     'transform': `translate3d(${magneticX}px, ${magneticY}px, 0) scale(1.5)`,
                     'mix-blend-mode': 'difference'
                 });
             },
-            function () { 
+            function () {
                 cursor.el.removeClass("cursor-zoom");
-                
+
                 // Reset to normal position
                 cursor.el.css({
-                    'transform': `translate3d(${cursor.x - cursor.w/2}px, ${cursor.y - cursor.h/2}px, 0) scale(1)`,
+                    'transform': `translate3d(${cursor.x - cursor.w / 2}px, ${cursor.y - cursor.h / 2}px, 0) scale(1)`,
                     'mix-blend-mode': 'normal'
                 });
             }
@@ -1255,19 +1255,19 @@
         function move() {
             cursor.x = lerp(cursor.x, mouseX, 0.8);
             cursor.y = lerp(cursor.y, mouseY, 0.8);
-            
+
             // Only update transform if not hovering over interactive elements
             if (!cursor.el.hasClass('cursor-zoom')) {
                 cursor.update();
             }
-            
+
             requestAnimationFrame(move);
         }
-        
+
         function lerp(start, end, amt) {
             return (1 - amt) * start + amt * end;
         }
-        
+
         move();
 
         // Contact form validation

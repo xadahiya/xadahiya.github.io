@@ -1,0 +1,840 @@
+/**
+ * Professional Light Theme Overrides
+ * A refined, classy color palette for a professional portfolio
+ */
+
+:root {
+  /* Professional Color Palette */
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F5F5F5;
+  --bg-card: #FFFFFF;
+  --text-primary: #1A1A2E;
+  --text-secondary: #4A4A68;
+  --text-muted: #6B7280;
+  --accent-primary: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-light: rgba(37, 99, 235, 0.1);
+  --border-color: #E5E7EB;
+  --border-light: #F3F4F6;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+/* ========================================
+   COMPREHENSIVE GREEN TO BLUE OVERRIDES
+   ======================================== */
+
+/* Base Body Styling */
+body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Typography Refinements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.m-title {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+p,
+.text,
+.lui-text {
+  color: var(--text-secondary) !important;
+}
+
+/* Links - Professional Blue Accent - Override ALL green */
+a {
+  color: var(--accent-primary) !important;
+}
+
+a:hover {
+  color: var(--accent-hover) !important;
+  text-decoration: none !important;
+}
+
+a:link,
+a:visited,
+a:active {
+  color: var(--accent-primary) !important;
+}
+
+.lnk:after {
+  color: var(--accent-primary) !important;
+}
+
+/* ========================================
+   HEADER IMPROVEMENTS
+   ======================================== */
+
+/* Header - Clean Minimal with Better Positioning */
+.header {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-sm) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+.header.glass-effect {
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+/* Logo Styling */
+.logo a {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Improved Hamburger Menu Button */
+.menu-btn {
+  width: 32px !important;
+  height: 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  padding: 4px !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-btn span {
+  display: block !important;
+  width: 24px !important;
+  height: 2px !important;
+  background: var(--text-primary) !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-btn:hover span {
+  background: var(--accent-primary) !important;
+}
+
+/* Menu button animation when active */
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px) !important;
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0 !important;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px) !important;
+}
+
+/* Menu Overlay */
+.menu-full-overlay {
+  background: rgba(255, 255, 255, 0.98) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.menu-full a {
+  color: var(--text-primary) !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-full a:hover {
+  color: var(--accent-primary) !important;
+  padding-left: 10px !important;
+}
+
+/* Menu social links - FIX GREEN HOVER */
+.menu-social-links a {
+  color: var(--text-secondary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-social-links a:hover {
+  color: var(--accent-primary) !important;
+  transform: scale(1.1) !important;
+}
+
+.menu-social-links a svg {
+  fill: currentColor !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-social-links a:hover svg {
+  fill: var(--accent-primary) !important;
+}
+
+/* ========================================
+   SECTION STYLING
+   ======================================== */
+
+/* Hero Section */
+.lui-section-hero {
+  background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%) !important;
+}
+
+.hero-started .titles .lui-subtitle {
+  color: var(--text-muted) !important;
+}
+
+.hero-started .titles .lui-subtitle span {
+  color: var(--text-muted) !important;
+}
+
+.hero-started .titles .lui-subtitle b,
+.hero-started .titles .lui-subtitle strong {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .title {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .title span {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .title b,
+.hero-started .title strong {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .label {
+  color: var(--accent-primary) !important;
+}
+
+.hero-started .label strong,
+.hero-started .label b {
+  color: var(--accent-primary) !important;
+}
+
+.hero-started .description p {
+  color: var(--text-secondary) !important;
+}
+
+/* Hero Image Circle */
+.hero-started .slide .circle {
+  background: var(--accent-light) !important;
+  border: 2px solid var(--accent-primary) !important;
+}
+
+/* Info List Stats - Fix ALL colors */
+.hero-started .info-list {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .info-list ul {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .info-list ul li {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .info-list ul li .num {
+  color: var(--accent-primary) !important;
+}
+
+.hero-started .info-list ul li .num span {
+  color: var(--accent-primary) !important;
+}
+
+.hero-started .info-list ul li .value {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .info-list ul li .value span {
+  color: var(--text-primary) !important;
+}
+
+.hero-started .info-list ul li .value strong,
+.hero-started .info-list ul li .value b {
+  color: var(--text-primary) !important;
+}
+
+/* ========================================
+   BUTTONS - Professional Styling
+   ======================================== */
+
+.btn,
+button,
+a.btn,
+.elementor .btn {
+  background: transparent !important;
+  border: 2px solid var(--text-primary) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover,
+button:hover,
+a.btn:hover,
+.elementor .btn:hover {
+  background: var(--accent-primary) !important;
+  border-color: var(--accent-primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 4px 4px 0 rgba(37, 99, 235, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn:before,
+button:before {
+  background: var(--accent-primary) !important;
+}
+
+input[type="submit"] {
+  background: var(--accent-primary) !important;
+  border-color: var(--accent-primary) !important;
+  color: #FFFFFF !important;
+}
+
+input[type="submit"]:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+/* ========================================
+   SECTION HEADINGS & BACKGROUND TITLES
+   ======================================== */
+
+.lui-heading .m-title,
+.lui-heading .m-subtitle {
+  color: var(--text-primary) !important;
+}
+
+.lui-heading .m-subtitle b,
+.lui-heading .m-subtitle strong {
+  color: var(--accent-primary) !important;
+}
+
+/* Background Title Watermarks - FIX CREAM COLOR */
+.lui-bgtitle {
+  color: rgba(26, 26, 46, 0.03) !important;
+}
+
+.lui-bgtitle span {
+  color: rgba(26, 26, 46, 0.03) !important;
+  opacity: 1 !important;
+}
+
+/* ========================================
+   CARDS & SECTIONS
+   ======================================== */
+
+.skills-item,
+.services-item,
+.works-item,
+.archive-item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all 0.3s ease !important;
+}
+
+.skills-item:hover,
+.services-item:hover,
+.works-item:hover,
+.archive-item:hover {
+  box-shadow: var(--shadow-lg) !important;
+  border-color: var(--accent-primary) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Skills Section */
+.skills-item .name {
+  color: var(--text-primary) !important;
+}
+
+.skills-item .text p {
+  color: var(--text-secondary) !important;
+}
+
+/* Skill Progress Bars */
+.skills-item .dots .dot {
+  background: linear-gradient(90deg, var(--accent-primary), #60A5FA) !important;
+  border-radius: 4px !important;
+}
+
+.skills-item .dots {
+  background: var(--border-light) !important;
+  border-radius: 4px !important;
+}
+
+/* ========================================
+   HISTORY/RESUME SECTION
+   ======================================== */
+
+.history-item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+}
+
+.history-item .name {
+  color: var(--text-primary) !important;
+}
+
+.history-item .subname {
+  color: var(--accent-primary) !important;
+}
+
+.history-item .date {
+  color: var(--text-muted) !important;
+}
+
+.history-item .text {
+  color: var(--text-secondary) !important;
+}
+
+.history-title {
+  color: var(--text-primary) !important;
+}
+
+/* Collapse Button */
+.lui-collapse-btn {
+  color: var(--text-primary) !important;
+}
+
+.lui-collapse-btn.active {
+  color: var(--accent-primary) !important;
+}
+
+/* ========================================
+   GITHUB ACTIVITY SECTION
+   ======================================== */
+
+.github-activity-container {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  padding: 30px !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.github-graph-wrapper {
+  background: var(--bg-secondary) !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+}
+
+/* ========================================
+   BLOG SECTION
+   ======================================== */
+
+.archive-item .image {
+  border-radius: 12px 12px 0 0 !important;
+  overflow: hidden !important;
+}
+
+.archive-item .desc {
+  padding: 24px !important;
+}
+
+.archive-item .category {
+  color: var(--text-muted) !important;
+}
+
+.archive-item .lui-title a {
+  color: var(--text-primary) !important;
+}
+
+.archive-item .lui-title a:hover {
+  color: var(--accent-primary) !important;
+}
+
+.readmore a,
+.readmore .lnk {
+  color: var(--accent-primary) !important;
+}
+
+/* ========================================
+   BOOKS SECTION
+   ======================================== */
+
+.works-item .image {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.works-item .desc .name a {
+  color: var(--text-primary) !important;
+}
+
+.works-item .desc .text p {
+  color: var(--text-secondary) !important;
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+  background: var(--border-color) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--accent-primary) !important;
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
+.numbers-item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+}
+
+.numbers-item:hover {
+  box-shadow: var(--shadow-md) !important;
+  border-color: var(--accent-primary) !important;
+}
+
+.numbers-item .icon i {
+  color: var(--accent-primary) !important;
+}
+
+.numbers-item .title {
+  color: var(--text-muted) !important;
+}
+
+.numbers-item .lui-text {
+  color: var(--text-primary) !important;
+}
+
+/* Contact Form */
+.contacts-form {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  padding: 40px !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px var(--accent-light) !important;
+  outline: none !important;
+}
+
+label {
+  color: var(--text-primary) !important;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+/* Social Links */
+.social-links a {
+  color: var(--text-secondary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.social-links a:hover {
+  color: var(--accent-primary) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Menu Social Links */
+.menu-social-links a {
+  color: var(--text-secondary) !important;
+}
+
+.menu-social-links a:hover {
+  color: var(--accent-primary) !important;
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+/* Vertical Lines */
+.v-line:before {
+  background: linear-gradient(180deg, transparent 0%, var(--border-color) 10%, var(--border-color) 90%, transparent 100%) !important;
+}
+
+/* ========================================
+   COMPREHENSIVE GREEN OVERRIDES FROM RESPONSIVE-OPTIMIZATION.CSS
+   ======================================== */
+
+/* Fix ALL green skill progress bars */
+.skills-item .text p::-webkit-scrollbar-thumb {
+  background: var(--accent-primary) !important;
+}
+
+.skills-item .text p::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover) !important;
+}
+
+.skills-item .dots .dot {
+  background: linear-gradient(90deg, var(--accent-primary), #60A5FA) !important;
+}
+
+.skills-item .dots .dot span {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3) !important;
+}
+
+.skills-item .dots .dot span:before {
+  border-color: var(--accent-primary) !important;
+  background-color: var(--accent-primary) !important;
+}
+
+.skills-item .value {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-hover)) !important;
+}
+
+/* Fix focus states - remove ALL green */
+.btn:focus,
+.menu-btn:focus,
+.contacts-form input:focus,
+.contacts-form textarea:focus,
+.skills-item:focus-within {
+  outline-color: var(--accent-primary) !important;
+}
+
+/* Fix history/resume green subnames */
+.history-item .subname {
+  color: var(--accent-primary) !important;
+}
+
+/* Fix skill backgrounds that use cream */
+.skills-item {
+  background: var(--bg-card) !important;
+}
+
+.history-item {
+  background: var(--bg-card) !important;
+}
+
+.history-item .name {
+  background: var(--bg-card) !important;
+}
+
+.history-item .name:hover {
+  background: var(--bg-secondary) !important;
+}
+
+.history-item .history-content {
+  background: var(--bg-secondary) !important;
+}
+
+/* ========================================
+   CONTACT FORM LAYOUT AND COLOR FIXES
+   ======================================== */
+
+/* Fix contact form container */
+.lui-contacts {
+  display: block !important;
+}
+
+.contacts-form {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Fix form alignment */
+.contacts-form .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin: 0 -10px !important;
+}
+
+.contacts-form .col-xs-12,
+.contacts-form .col-sm-6,
+.contacts-form .col-md-6,
+.contacts-form .col-lg-6 {
+  padding: 0 10px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Fix form group */
+.contacts-form .group {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure labels look good */
+.contacts-form label {
+  display: block !important;
+  margin-bottom: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: var(--text-primary) !important;
+}
+
+.contacts-form label b,
+.contacts-form label strong {
+  color: var(--accent-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Fix inputs */
+.contacts-form input[type="text"],
+.contacts-form input[type="email"],
+.contacts-form textarea {
+  width: 100% !important;
+  background: var(--bg-secondary) !important;
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  font-size: 14px !important;
+}
+
+.contacts-form input[type="text"]:focus,
+.contacts-form input[type="email"]:focus,
+.contacts-form textarea:focus {
+  border-color: var(--accent-primary) !important;
+  box-shadow: 0 0 0 3px var(--accent-light) !important;
+  outline: none !important;
+}
+
+.contacts-form textarea {
+  min-height: 140px !important;
+  resize: vertical !important;
+}
+
+/* Fix submit button */
+.contacts-form button[type="submit"],
+.contacts-form input[type="submit"] {
+  background: var(--accent-primary) !important;
+  border: 2px solid var(--accent-primary) !important;
+  color: #FFFFFF !important;
+  padding: 14px 32px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.contacts-form button[type="submit"]:hover,
+.contacts-form input[type="submit"]:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Fix alignment classes */
+.align-right {
+  text-align: right !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+/* ========================================
+   PRELOADER
+   ======================================== */
+
+/* Preloader */
+.preloader {
+  background: var(--bg-primary) !important;
+}
+
+.preloader .spinner-dot {
+  background: var(--accent-primary) !important;
+}
+
+.preloader .spinner-line {
+  border-color: var(--accent-light) !important;
+  border-top-color: var(--accent-primary) !important;
+}
+
+.preloader .loading-text {
+  color: var(--text-muted) !important;
+}
+
+.preloader .progress-bar {
+  background: var(--accent-primary) !important;
+}
+
+/* Cursor */
+.cursor {
+  border-color: var(--accent-primary) !important;
+}
+
+/* Scroll Animation Elements */
+.scroll-animate {
+  transition: all 0.6s ease !important;
+}
+
+/* Description in About Section */
+.description {
+  color: var(--text-secondary) !important;
+}
+
+.description strong,
+.description b {
+  color: var(--text-primary) !important;
+}
+
+/* Photo styling in hero */
+.hero-started .slide img {
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-xl) !important;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .contacts-form {
+    padding: 24px !important;
+  }
+
+  .github-activity-container {
+    padding: 20px !important;
+  }
+
+  .header {
+    padding: 15px 20px !important;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  body {
+    background: #fff !important;
+  }
+
+  .btn,
+  .social-links,
+  .preloader,
+  .menu-btn {
+    display: none !important;
+  }
+}
