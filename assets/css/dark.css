@@ -1,3 +1,5 @@
+---
+---
 /**
 * Base Styles
 **/
@@ -196,7 +198,7 @@ a.lnk,
 a.lnk:after,
 .lnk:after {
 	margin-left: 20px;
-	content: "\f061";
+	content: "061";
 	position: relative;
 	left: 0;
 	top: 1px;
@@ -280,7 +282,7 @@ input[type="submit"] {
 
 .btn-solid:after,
 .elementor .btn-solid:after {
-	content: "\f061";
+	content: "061";
 	position: absolute;
 	right: 30px;
 	top: 0;
@@ -2071,7 +2073,7 @@ hr {
 	top: 50%;
 	display: inline-block;
 	vertical-align: middle;
-	content: "\f078";
+	content: "078";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	display: inline-block;
@@ -4694,7 +4696,7 @@ h5.comment-box__details {
 
 .comment-reply-link:before {
 	padding-right: 8px;
-	content: "\f3e5";
+	content: "3e5";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	display: inline-block;
@@ -4739,7 +4741,7 @@ h5.comment-box__details {
 
 .post-edit-link:before {
 	padding-right: 8px;
-	content: "\f044";
+	content: "044";
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	display: inline-block;

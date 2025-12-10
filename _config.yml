@@ -99,5 +99,32 @@ exclude:
   - CNAME
 
 jekyll-minifier:
+  # HTML minification
+  compress_css: true
+  compress_javascript: true
+  remove_comments: true
+  remove_intertag_spaces: true
+  remove_quotes: false
+  simple_doctype: false
+  remove_script_attributes: false
+  remove_style_attributes: false
+  remove_link_attributes: false
+  remove_form_attributes: false
+  remove_input_attributes: false
+  remove_http_protocol: false
+  remove_https_protocol: false
+  preserve_line_breaks: false
+  simple_boolean_attributes: false
+  preserve_patterns:
+  # JS minification (Uglifier settings)
   uglifier_args:
     harmony: true
+    mangle: true
+    compress:
+      unused: true
+      dead_code: true
+      drop_console: false
+  # Exclude specific files if needed
+  exclude:
+    - "*.min.js"
+    - "*.min.css"
