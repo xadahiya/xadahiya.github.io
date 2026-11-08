@@ -1,0 +1,69 @@
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pl__top mono"><span>Akshay Dahiya</span><span>Syncing to Ethereum mainnet</span></div>
+  <svg class="pl__mark" viewBox="0 0 120 120" aria-hidden="true">
+    <g>
+      <line class="pl__edge" style="--o:520" x1="20" y1="20" x2="60" y2="20"/>
+      <line class="pl__edge" style="--o:520" x1="60" y1="20" x2="100" y2="20"/>
+      <line class="pl__edge" style="--o:1000" x1="20" y1="60" x2="60" y2="60"/>
+      <line class="pl__edge" style="--o:1000" x1="60" y1="60" x2="100" y2="60"/>
+      <line class="pl__edge" style="--o:850" x1="20" y1="100" x2="60" y2="100"/>
+      <line class="pl__edge" style="--o:850" x1="60" y1="100" x2="100" y2="100"/>
+      <line class="pl__edge" style="--o:740" x1="20" y1="20" x2="20" y2="60"/>
+      <line class="pl__edge" style="--o:740" x1="20" y1="60" x2="20" y2="100"/>
+      <line class="pl__edge" style="--o:1000" x1="60" y1="20" x2="60" y2="60"/>
+      <line class="pl__edge" style="--o:1000" x1="60" y1="60" x2="60" y2="100"/>
+      <line class="pl__edge" style="--o:630" x1="100" y1="20" x2="100" y2="60"/>
+      <line class="pl__edge" style="--o:630" x1="100" y1="60" x2="100" y2="100"/>
+    </g>
+    <circle class="pl__halo" cx="60" cy="60" r="10"/>
+    <circle class="pl__node" style="--o:220" cx="20" cy="20" r="7"/>
+    <circle class="pl__node" style="--o:440" cx="60" cy="20" r="7"/>
+    <circle class="pl__node" style="--o:0" cx="100" cy="20" r="7"/>
+    <circle class="pl__node" style="--o:660" cx="20" cy="60" r="7"/>
+    <circle class="pl__node pl__node--c" style="--o:920" cx="60" cy="60" r="8"/>
+    <circle class="pl__node" style="--o:550" cx="100" cy="60" r="7"/>
+    <circle class="pl__node" style="--o:110" cx="20" cy="100" r="7"/>
+    <circle class="pl__node" style="--o:770" cx="60" cy="100" r="7"/>
+    <circle class="pl__node" style="--o:330" cx="100" cy="100" r="7"/>
+  </svg>
+  <div class="pl__bottom">
+    <p class="pl__count"><span data-pl-count>000</span><sup>%</sup></p>
+    <dl class="pl__status mono">
+      <dt>Peers</dt><dd><b data-pl-peers>0/9</b></dd>
+      <dt>Head</dt><dd><b data-pl-head>#—</b></dd>
+      <dt>State</dt><dd><b data-pl-state>Syncing</b></dd>
+    </dl>
+  </div>
+  <div class="pl__bar"><span data-pl-bar></span></div>
+</div>
+<script>
+  /* Preloader driver: animates from first paint; site.js flips XA.pl.ready when the hero is set. */
+  (function () {
+    var pl = document.getElementById('preloader'); if (!pl) return;
+    var d = document.documentElement, XA = window.XA = window.XA || {};
+    if (!location.hash) d.classList.add('is-loading');
+    var quick = d.classList.contains('reduce-motion');
+    try { if (sessionStorage.getItem('xa-seen')) quick = true; sessionStorage.setItem('xa-seen', '1'); } catch (e) {}
+    if (quick) pl.classList.add('is-quick');
+    var q = function (s) { return pl.querySelector(s); };
+    var count = q('[data-pl-count]'), peers = q('[data-pl-peers]'), head = q('[data-pl-head]'), state = q('[data-pl-state]'), bar = q('[data-pl-bar]');
+    var est = 26369973 + Math.floor((Date.now() / 1000 - 1794138731) / 12.05);
+    head.textContent = '#' + est.toLocaleString('en-US');
+    var T = [0, 110, 220, 330, 440, 550, 660, 770, 920], dur = quick ? 280 : 1050, t0 = performance.now(), last = -1;
+    var P = XA.pl = { ready: false, min: false, finished: false, cb: null, quick: quick };
+    P.setHead = function (n) { head.textContent = '#' + n.toLocaleString('en-US'); };
+    function finish() { P.finished = true; state.textContent = 'Finalized'; state.className = 'is-final'; pl.classList.add('is-synced'); if (P.cb) P.cb(); }
+    (function frame(now) {
+      var e = now - t0, k = Math.min(1, e / dur), v = Math.round((1 - Math.pow(1 - k, 3)) * 99);
+      if (k >= 1) P.min = true;
+      if (P.min && P.ready) v = 100;
+      if (v !== last) { last = v; count.textContent = ('00' + v).slice(-3); bar.style.transform = 'scaleX(' + (v / 100) + ')'; }
+      var n = 9; if (!quick) { n = 0; for (var i = 0; i < T.length; i++) if (T[i] <= e) n++; }
+      peers.textContent = n + '/9';
+      if (v === 100) return finish();
+      requestAnimationFrame(frame);
+    })(t0);
+    setTimeout(function () { P.ready = true; }, 4500);
+    setTimeout(function () { if (!pl.classList.contains('is-gone')) { pl.classList.add('is-gone'); d.classList.add('is-ready'); d.classList.remove('is-loading'); } }, 7000);
+  })();
+</script>

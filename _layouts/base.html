@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  {% include head.html %}
+</head>
+<body class="{{ page.body_class | default: 'page' }}">
+  {% if page.hero %}{% include preloader.html %}{% endif %}
+  <a class="skip mono" href="#main">Skip to content</a>
+  {% include icons.html %}
+  {% include nav.html %}
+
+  <main id="main" tabindex="-1">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+  {% include palette.html %}
+
+  <div class="hud mono" aria-hidden="true" data-hud>
+    <span class="hud__sec"><span class="hud__idx" data-hud-idx>00</span><span class="hud__name" data-hud-name>Index</span></span>
+    <span class="hud__bar"><span data-hud-bar></span></span>
+  </div>
+  <a class="hud-block mono" href="https://etherscan.io/" target="_blank" rel="noopener" data-block-link data-hud-block>
+    <span class="live-dot" data-live-dot></span><span class="sr-only">Latest Ethereum block </span><span data-block-number>—</span>
+  </a>
+  <div class="preview" aria-hidden="true" data-preview-el><div class="preview__inner"><img alt="" data-preview-img decoding="async"></div></div>
+  <div class="toast mono" role="status" aria-live="polite" data-toast></div>
+  <div class="cursor" aria-hidden="true" data-cursor-el><div class="cursor__ring"><span class="cursor__label" data-cursor-label></span></div><div class="cursor__dot"></div></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true">{% for i in (1..12) %}<span></span>{% endfor %}</div>
+
+  {% assign v = site.time | date: '%s' %}
+  {% if page.hero %}<script defer src="{{ '/assets/js/hero-gl.js' | relative_url }}?v={{ v }}"></script>{% endif %}
+  <script defer src="{{ '/assets/js/site.js' | relative_url }}?v={{ v }}" data-v="{{ v }}"></script>
+</body>
+</html>

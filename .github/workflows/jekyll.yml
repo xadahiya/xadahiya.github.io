@@ -43,6 +43,12 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Minify JavaScript
+        # Sources stay readable in the repo; only the deployed copy is minified.
+        run: |
+          for f in assets/js/site.js assets/js/hero-gl.js assets/js/viz.js; do
+            npx --yes esbuild@0.25.10 "$f" --minify --target=es2019 --outfile="$f" --allow-overwrite --log-level=warning
+          done
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"

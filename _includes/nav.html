@@ -1,0 +1,48 @@
+<header class="nav" data-nav>
+  <a class="nav__brand" href="{{ '/' | relative_url }}">
+    <svg class="mark" viewBox="0 0 24 24" aria-hidden="true">
+      {% for row in (0..2) %}{% for col in (0..2) %}<circle class="mark__dot" style="--d:{{ row | plus: col }}" cx="{{ col | times: 8 | plus: 4 }}" cy="{{ row | times: 8 | plus: 4 }}" r="2.2"/>{% endfor %}{% endfor %}
+    </svg>
+    <span class="nav__name"><span>Akshay Dahiya</span><span class="nav__handle mono">@xadahiya</span></span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="{{ '/#work' | relative_url }}" data-nav-link="work"><span class="nav__idx">01</span><span class="roll" data-text="Work">Work</span></a>
+    <a href="{{ '/#chain' | relative_url }}" data-nav-link="chain"><span class="nav__idx">02</span><span class="roll" data-text="Chain">Chain</span></a>
+    <a href="{{ '/#stack' | relative_url }}" data-nav-link="stack"><span class="nav__idx">03</span><span class="roll" data-text="Stack">Stack</span></a>
+    <a href="{{ '/#writing' | relative_url }}" data-nav-link="writing"><span class="nav__idx">04</span><span class="roll" data-text="Writing">Writing</span></a>
+    <a href="{{ '/#contact' | relative_url }}" data-nav-link="contact"><span class="nav__idx">05</span><span class="roll" data-text="Contact">Contact</span></a>
+  </nav>
+
+  <div class="nav__actions">
+    <button class="nav__k" type="button" data-palette-open aria-keyshortcuts="Meta+K Control+K">
+      <svg aria-hidden="true"><use href="#i-search"/></svg><kbd data-mod>⌘</kbd><kbd>K</kbd><span class="sr-only">Open command menu</span>
+    </button>
+    <a class="pill" href="{{ '/resume_2026.pdf' | relative_url }}" target="_blank" rel="noopener" data-cursor="Open">
+      <span class="roll" data-text="Résumé">Résumé</span><svg aria-hidden="true"><use href="#i-arrow"/></svg>
+    </a>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" data-menu aria-label="Site menu">
+  <div class="menu__inner">
+    <ol class="menu__links">
+      <li><a href="{{ '/#work' | relative_url }}"><span class="mono">01</span>Work</a></li>
+      <li><a href="{{ '/#chain' | relative_url }}"><span class="mono">02</span>Chain</a></li>
+      <li><a href="{{ '/#stack' | relative_url }}"><span class="mono">03</span>Stack</a></li>
+      <li><a href="{{ '/#writing' | relative_url }}"><span class="mono">04</span>Writing</a></li>
+      <li><a href="{{ '/#contact' | relative_url }}"><span class="mono">05</span>Contact</a></li>
+    </ol>
+    <div class="menu__foot mono">
+      <a href="mailto:xadahiya@gmail.com">xadahiya@gmail.com</a>
+      <span class="menu__socials">
+        <a href="https://github.com/xadahiya" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/xadahiya" target="_blank" rel="noopener">X</a>
+        <a href="https://www.linkedin.com/in/xadahiya" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </div>
+  </div>
+</div>
