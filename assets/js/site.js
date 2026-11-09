@@ -1060,8 +1060,7 @@
         { g: 'Actions', l: 'Toggle layout grid', h: 'G', i: 'i-hash', a: function () { close(); toggleGrid(); }, k: 'columns design' },
         { g: 'Links', l: 'GitHub', i: 'i-github', a: open('https://github.com/xadahiya'), k: 'code' },
         { g: 'Links', l: 'X / Twitter', i: 'i-x', a: open('https://twitter.com/xadahiya'), k: 'social' },
-        { g: 'Links', l: 'LinkedIn', i: 'i-linkedin', a: open('https://www.linkedin.com/in/xadahiya'), k: 'social' },
-        { g: 'Links', l: 'View this site’s source', i: 'i-code', a: open('https://github.com/xadahiya/xadahiya.github.io'), k: 'repo' }
+        { g: 'Links', l: 'LinkedIn', i: 'i-linkedin', a: open('https://www.linkedin.com/in/xadahiya'), k: 'social' }
       ].concat(posts.map(function (p) { return { g: 'Writing', l: p.t, h: p.d, i: 'i-arrow', a: go(p.u), k: 'post blog' }; }));
     }
     function render() {
@@ -1199,7 +1198,7 @@
   });
   setTimeout(function () { later('lenis', initLenis); }, 1800);
   if (window.console && console.log) {
-    console.log('%c xadahiya %c hand-built: WebGL2 · Canvas 2D · zero animation libraries — source: https://github.com/xadahiya/xadahiya.github.io',
+    console.log('%c xadahiya %c hand-built: WebGL2 · Canvas 2D · zero animation libraries',
       'background:#d4ff3a;color:#120c30;font-weight:700;padding:3px 7px;border-radius:3px', 'color:#c2b9ea');
   }
 })();
