@@ -1,49 +1,40 @@
 ---
-layout: new
+layout: base
+body_class: article-page
 ---
+{% assign words = content | strip_html | number_of_words %}
+<div class="progress" data-progress aria-hidden="true"><span></span></div>
 
-      <!-- Section Started Heading -->
-      <section class="section section-inner started-heading">
-      	<div class="container">
+<article class="article" data-article>
+  <header class="article__head wrap">
+    <a class="back mono" href="{{ '/blog/' | relative_url }}"><svg aria-hidden="true"><use href="#i-arrow"/></svg>All writing</a>
+    <p class="article__meta mono">
+      <span>{{ page.category | default: "Notes" }}</span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span>{{ words | divided_by: 220 | at_least: 1 }} min read</span>
+    </p>
+    <h1 class="article__title">{{ page.title }}</h1>
+    {% if page.tags.size > 0 %}<ul class="tags mono" aria-label="Tags">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+  </header>
 
-  				<!-- Heading -->
-					<div class="m-titles align-center">
-            <div class="m-category scrolla-element-anim-1 scroll-animate" data-animate="active">
-              <a href="{{ site.baseurl }}/blog">Blog</a> / {{page.title}} / by Akshay (@xadahiya) / written on {{ page.date | date: "%B %e, %Y" }}
-            </div>
-            <h1 class="m-title scrolla-element-anim-1 scroll-animate" data-animate="active">
-              {{ page.title }}
-            </h1>
-					</div>
+  <div class="article__body wrap">
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
 
-      	</div>
-      </section>
+  <nav class="article__nav wrap" aria-label="More writing">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><span class="mono">← Older</span><b>{{ page.previous.title }}</b></a>{% else %}<span></span>{% endif %}
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}"><span class="mono">Newer →</span><b>{{ page.next.title }}</b></a>{% endif %}
+  </nav>
 
-      <!-- Section - Blog -->
-			<section class="section section-inner m-archive">
-        <div class="container">
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 offset-1">
-              
-              <!-- content -->
-              <div class="description">
-                <div class="post-content scrolla-element-anim-1 scroll-animate" data-animate="active">
-                  {{ content }}
-                </div>
-              </div>
-
-              <!-- Comments -->
-              <div class="comments-post scrolla-element-anim-1 scroll-animate" data-animate="active">
-                <div class="section__comments">
-                  {% include disqus.html %}
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="v-line-left v-line-top"><div class="v-line-block"><span></span></div></div>
-
-        </div>
-      </section>
+  {% if site.disqus %}
+  <section class="article__comments wrap" aria-label="Comments" data-comments data-shortname="{{ site.disqus }}">
+    <div class="comments-lazy" data-comments-placeholder>
+      <p class="mono">Comments are hosted by Disqus and load when you reach them.</p>
+      <button class="btn btn--ghost" type="button" data-comments-load><span class="roll">Load comments</span></button>
+    </div>
+    <div id="disqus_thread"></div>
+  </section>
+  {% endif %}
+</article>

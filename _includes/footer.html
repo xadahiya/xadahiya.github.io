@@ -1,0 +1,40 @@
+<footer class="foot cva" data-foot>
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__col">
+        <p class="foot__label mono">Say hello</p>
+        <a class="foot__mail" href="mailto:xadahiya@gmail.com">xadahiya@gmail.com</a>
+      </div>
+      <div class="foot__col">
+        <p class="foot__label mono">Elsewhere</p>
+        <ul class="foot__list">
+          <li><a href="https://github.com/xadahiya" target="_blank" rel="noopener"><span class="roll">GitHub</span></a></li>
+          <li><a href="https://twitter.com/xadahiya" target="_blank" rel="noopener"><span class="roll">X / Twitter</span></a></li>
+          <li><a href="https://www.linkedin.com/in/xadahiya" target="_blank" rel="noopener"><span class="roll">LinkedIn</span></a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}"><span class="roll">RSS</span></a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <p class="foot__label mono">Heartbeat</p>
+        <p class="foot__text">This page pulses with every new Ethereum block.</p>
+        <a class="foot__block mono" href="https://etherscan.io/" target="_blank" rel="noopener" data-block-link>
+          <span class="live-dot" data-live-dot></span>#<span data-block-number>—</span>
+        </a>
+      </div>
+      <div class="foot__col foot__col--end">
+        <button class="foot__btn mono" type="button" data-motion-toggle aria-pressed="true"><svg aria-hidden="true"><use href="#i-motion"/></svg><span>Motion: <b data-motion-state>on</b></span></button>
+        <button class="foot__btn mono" type="button" data-palette-open><kbd data-mod>⌘</kbd><kbd>K</kbd><span>Command menu</span></button>
+        <a class="foot__btn mono" href="#top" data-to-top><svg aria-hidden="true"><use href="#i-down"/></svg><span>Back to top</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot__mark" aria-hidden="true">
+    <span class="foot__word" data-foot-word>xadahiya</span>
+  </div>
+
+  <div class="wrap foot__base mono">
+    <span>© {{ site.time | date: "%Y" }} Akshay Dahiya</span>
+    <span>Press <kbd>G</kbd> for the grid</span>
+  </div>
+</footer>

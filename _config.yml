@@ -6,7 +6,7 @@ nav:
     - '/blog/'
     - { Categories: '/blog/categories/' }
 
-paginate: 4
+paginate: 50
 paginate_path: "/blog/page:num/"
 
 # Where are tags and categories displayed
@@ -18,9 +18,32 @@ category_page: '/blog/categories/'
 
 # Name of your site (displayed in the header)
 name: Akshay Dahiya
+title: Akshay Dahiya
+author: Akshay Dahiya
+lang: en
 
-# Short bio or description (displayed in the header)
-description: '@xadahiya'
+# Short bio or description (used by SEO tags + feed)
+description: >-
+  Protocol engineer & DeFi researcher. I architect decentralized data
+  infrastructure and ship production-grade protocol code — smart contracts,
+  tokenomics, gasless relayers and consensus systems.
+
+# jekyll-seo-tag
+twitter:
+  username: xadahiya
+  card: summary_large_image
+social:
+  name: Akshay Dahiya
+  links:
+    - https://github.com/xadahiya
+    - https://twitter.com/xadahiya
+    - https://www.linkedin.com/in/xadahiya
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/og.jpg
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: https://avatars0.githubusercontent.com/u/9114274?v=4&u=696c6f2f7a3eceef365e10d99a747c5e0e6959b2&s=70
@@ -97,13 +120,23 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - deploy.sh
+  - vendor
+  - .ruby-lsp
+  - .claude
+  - WEBSITE_REVIEW_PLAN.md
+  - README_DESIGN_IMPROVEMENTS.md
+  - DESIGN_FIXES_SUMMARY.md
 
 jekyll-minifier:
-  # HTML minification
-  compress_css: true
-  compress_javascript: true
+  # HTML minification. CSS/JS are hand-written modern code (ES2020+, nesting-free
+  # CSS) that the bundled Uglifier/CSS compressor can't parse, so they ship as-is
+  # and rely on GitHub Pages' gzip. Intertag-space removal is off because it
+  # glues inline elements together ("<b>a</b> <i>b</i>" → "ab").
+  compress_css: false
+  compress_javascript: false
   remove_comments: true
-  remove_intertag_spaces: true
+  remove_intertag_spaces: false
   remove_quotes: false
   simple_doctype: false
   remove_script_attributes: false

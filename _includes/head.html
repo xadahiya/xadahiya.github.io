@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  /* Boot: runs before first paint — motion preference and the JS flag. */
+  (function (d) {
+    var r = d.documentElement, m = 'auto';
+    try { m = localStorage.getItem('xa-motion') || 'auto'; } catch (e) {}
+    r.classList.remove('no-js'); r.classList.add('js');
+    if (location.hash.length > 1) r.classList.add('cv-off'); /* deep links: render everything so the jump lands exactly */
+    if (m === 'off' || (m === 'auto' && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) r.classList.add('reduce-motion');
+    /* If the script never boots (blocked, old browser), drop the preloader and show everything. */
+    setTimeout(function () { if (!window.XA || !window.XA.booted) r.classList.add('no-anim'); }, 3500);
+  })(document);
+</script>
+<title>{% if page.url == "/" %}Akshay Dahiya — Protocol Engineer &amp; DeFi Researcher{% elsif page.title %}{{ page.title | strip_html }} — Akshay Dahiya{% else %}{{ site.title }}{% endif %}</title>
+{% seo title=false %}
+<meta name="theme-color" content="#0f0a26">
+<meta name="color-scheme" content="dark">
+<meta name="google-site-verification" content="6ADAo9Ij5vEut5Jw6CsvR_s8Rx_mWw3WwUe_CsTDDMc">
+<link rel="preload" href="{{ '/assets/fonts/v2/archivo-var.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/v2/jetbrains-mono-var.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% capture site_css %}{% include css/site.scss %}{% if page.layout == 'post' or page.body_class == 'writing-page' or page.layout == 'page' %}{% include css/article.scss %}{% endif %}{% endcapture %}<style>{{ site_css | scssify }}</style>
+<link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="32x32">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<link rel="alternate" type="application/rss+xml" title="Akshay Dahiya — Writing" href="{{ '/feed.xml' | relative_url }}">
