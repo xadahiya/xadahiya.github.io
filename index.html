@@ -16,7 +16,6 @@ viz: true
   "alternateName": "xadahiya",
   "url": "https://xadahiya.me",
   "jobTitle": "Protocol Engineer & DeFi Researcher",
-  "worksFor": { "@type": "Organization", "name": "Powerloom Protocol" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Georgia Institute of Technology" },
   "email": "mailto:xadahiya@gmail.com",
   "sameAs": ["https://github.com/xadahiya", "https://twitter.com/xadahiya", "https://www.linkedin.com/in/xadahiya"]
@@ -30,7 +29,7 @@ viz: true
 
   <div class="hero__grid wrap">
     <h1 id="hero-title" class="sr-only">Akshay Dahiya — Protocol Engineer &amp; DeFi Researcher</h1>
-    <p class="hero__role mono"><span class="hero__in">Protocol Engineer</span><span class="hero__in">&amp; DeFi Researcher</span><span class="hero__in hero__now">Now <b>@</b> Powerloom Protocol</span></p>
+    <p class="hero__role mono"><span class="hero__in">Protocol Engineer</span><span class="hero__in">&amp; DeFi Researcher</span><span class="hero__in hero__now">Now <b>@</b> Stealth</span></p>
 
     <a class="hero__chain mono" href="https://etherscan.io/" target="_blank" rel="noopener" data-block-link data-cursor="Etherscan">
       <span class="hero__in"><span class="live-dot" data-live-dot></span><span data-block-status>Ethereum mainnet</span></span>
@@ -111,7 +110,7 @@ viz: true
       <article class="sys" style="--i:0">
         <div class="sys__card">
           <div class="sys__body">
-            <p class="sys__meta mono"><span class="sys__idx">01 / 06</span><span>Powerloom Protocol</span><span>2022 → Now</span></p>
+            <p class="sys__meta mono"><span class="sys__idx">01 / 06</span><span>Powerloom Protocol</span><span>2022 → 2026</span></p>
             <h3 class="sys__title">Decentralized data, <em>at consensus</em></h3>
             <p class="sys__lede">Co-designed the protocol's evolution from V0 → V1 → V2 → DSV: snapshotter nodes independently observe chain state, agree on it, and finalize verifiable data for onchain apps. I authored the Snapshotter Lite and Full node contracts and backend, designed $POWER tokenomics and dynamic-tax staking, and shipped mainnets for Powerloom and Onchain Points.</p>
             <dl class="sys__facts">
@@ -249,9 +248,22 @@ viz: true
     </header>
 
     <ol class="blocks" data-blocks>
-      <li class="block" data-block data-n="009" data-span="Dec 2022 — Now">
+      <li class="block block--now" data-block data-n="010" data-span="2026 — Now">
         <div class="block__rail" aria-hidden="true"><span class="block__node"></span></div>
-        <div class="block__when mono"><span class="block__num">#009</span><span>Dec 2022 — Now</span></div>
+        <div class="block__when mono"><span class="block__num">#010</span><span>2026 — Now</span></div>
+        <div class="block__what">
+          <h3 class="block__title">Building something new</h3>
+          <p class="block__org">Stealth startup</p>
+          <p class="block__gist">Heads down. More soon.</p>
+        </div>
+        <div class="block__side">
+          <p class="block__hash mono"><span>hash</span><code data-hash>…</code><span>prev</span><code data-prev>…</code></p>
+        </div>
+      </li>
+
+      <li class="block" data-block data-n="009" data-span="Dec 2022 — Jan 2026">
+        <div class="block__rail" aria-hidden="true"><span class="block__node"></span></div>
+        <div class="block__when mono"><span class="block__num">#009</span><span>Dec 2022 — Jan 2026</span></div>
         <div class="block__what">
           <h3 class="block__title">Lead Protocol Engineer &amp; DeFi Researcher</h3>
           <p class="block__org">Powerloom Protocol</p>
@@ -463,12 +475,8 @@ viz: true
 
   <div class="marquee" aria-hidden="true" data-marquee>
     <div class="marquee__row" data-dir="-1"><div class="marquee__track">
-      {% assign mq1 = "Solidity,EIP-712,Tokenomics,IPFS proofs,Consensus,Rust,Foundry,Sequencers,Agentic AI,Staking" | split: "," %}
-      {% for k in (1..2) %}{% for w in mq1 %}<span class="marquee__item{% cycle '', ' marquee__item--o' %}">{{ w }}</span><span class="marquee__star">✦</span>{% endfor %}{% endfor %}
-    </div></div>
-    <div class="marquee__row" data-dir="1"><div class="marquee__track">
-      {% assign mq2 = "Python,Web3.py,Gasless,Snapshotters,PyTorch,Upgradeable proxies,Game theory,Redis,Sybil resistance,Airdrops" | split: "," %}
-      {% for k in (1..2) %}{% for w in mq2 %}<span class="marquee__item{% cycle ' marquee__item--o', '' %}">{{ w }}</span><span class="marquee__star">✦</span>{% endfor %}{% endfor %}
+      {% assign mq = "Solidity,EIP-712,Tokenomics,Rust,Consensus,Foundry,Python,IPFS proofs,Snapshotters,Gasless,Sequencers,Sybil resistance,Agentic AI,Game theory" | split: "," %}
+      {% for k in (1..2) %}{% for w in mq %}<span class="marquee__item{% cycle '', ' marquee__item--o' %}">{{ w }}</span><span class="marquee__star">✦</span>{% endfor %}{% endfor %}
     </div></div>
   </div>
 </section>

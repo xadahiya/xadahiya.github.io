@@ -621,7 +621,7 @@
         if (i >= chain.length) {
           label.textContent = ok ? 'Chain valid ✓' : 'Mismatch ✗';
           vb.classList.add('is-done');
-          toast(ok ? '10/10 blocks verified — SHA-256 chain intact' : 'Hash mismatch detected');
+          toast(ok ? chain.length + '/' + chain.length + ' blocks verified — SHA-256 chain intact' : 'Hash mismatch detected');
           setTimeout(function () { vb.disabled = false; }, 800);
           return;
         }
@@ -753,9 +753,33 @@
   function initPreview() {
     var list = $('[data-posts]'), pv = $('[data-preview-el]');
     if (!list || !pv || !fine || reduced) return;
-    var img = $('[data-preview-img]', pv), links = $$('a[data-preview]', list);
-    whenNear(list, function () { links.forEach(function (a) { if (a.dataset.preview) { var im = new Image(); im.src = a.dataset.preview; } }); }, '100% 0px');
-    var st = { x: 0, y: 0, tx: 0, ty: 0, r: 0, tr: 0, run: false, lastX: 0 };
+    var card = $('.preview__inner', pv), img = $('[data-preview-img]', pv), links = $$('a[data-preview]', list), cur = null;
+    // Preload thumbnails and remember each one's shape, so the card matches the image instead of cropping it.
+    whenNear(list, function () {
+      links.forEach(function (a) {
+        if (!a.dataset.preview) return;
+        var im = new Image();
+        im.onload = function () { a._ar = im.naturalWidth / im.naturalHeight; };
+        im.onerror = function () { a._bad = true; };
+        im.src = a.dataset.preview;
+      });
+    }, '100% 0px');
+    var st = { x: 0, y: 0, tx: 0, ty: 0, r: 0, tr: 0, run: false, lastX: 0, mx: 0, my: 0, w: 0, h: 0, side: 1 };
+    var size = function (ar) {
+      var max = clamp(window.innerWidth * 0.24, 260, 380);
+      ar = ar || 1.6;
+      st.w = Math.min(max, max * 0.72 * ar); st.h = st.w / ar;
+      card.style.width = st.w.toFixed(1) + 'px'; card.style.height = st.h.toFixed(1) + 'px';
+    };
+    // Park the card beside the cursor so the title stays readable; flip sides near an edge and stay on screen.
+    var place = function (fresh) {
+      var vw = window.innerWidth, vh = window.innerHeight, room = st.w + 44;
+      if (fresh) st.side = st.mx + room <= vw ? 1 : -1;
+      else if (st.side > 0 && st.mx + room > vw) st.side = -1;
+      else if (st.side < 0 && st.mx - room < 0) st.side = 1;
+      st.tx = st.mx + st.side * (28 + st.w / 2);
+      st.ty = clamp(st.my, 16 + st.h / 2, vh - 16 - st.h / 2);
+    };
     onTick(function (t, dt) {
       if (!st.run) return;
       var k = 1 - Math.pow(0.0009, dt);
@@ -764,18 +788,28 @@
       if (!pv.classList.contains('is-on') && Math.abs(st.tx - st.x) < 0.5 && Math.abs(st.r) < 0.05) st.run = false;
     });
     list.addEventListener('pointermove', function (e) {
-      st.tx = e.clientX; st.ty = e.clientY; st.tr = clamp((e.clientX - st.lastX) * 0.5, -9, 9); st.lastX = e.clientX; st.run = true;
+      st.mx = e.clientX; st.my = e.clientY; place(false);
+      st.tr = clamp((e.clientX - st.lastX) * 0.5, -9, 9); st.lastX = e.clientX; st.run = true;
     });
+    img.addEventListener('load', function () {
+      if (!cur || cur._ar) return;
+      cur._ar = img.naturalWidth / img.naturalHeight; size(cur._ar); place(false);
+    });
+    img.addEventListener('error', function () { if (cur) cur._bad = true; pv.classList.remove('is-on'); });
     links.forEach(function (a) {
       a.addEventListener('pointerenter', function (e) {
         var src = a.dataset.preview;
-        if (!src) return;
+        if (!src || a._bad) { cur = null; pv.classList.remove('is-on'); return; }
+        var fresh = !pv.classList.contains('is-on');
+        cur = a;
         if (img.getAttribute('src') !== src) img.src = src;
-        if (!pv.classList.contains('is-on')) { st.x = st.tx = e.clientX; st.y = st.ty = e.clientY; st.lastX = e.clientX; }
+        size(a._ar);
+        st.mx = e.clientX; st.my = e.clientY; place(fresh);
+        if (fresh) { st.x = st.tx; st.y = st.ty; st.r = st.tr = 0; st.lastX = e.clientX; void card.offsetWidth; }
         pv.classList.add('is-on'); st.run = true;
       });
     });
-    list.addEventListener('pointerleave', function () { pv.classList.remove('is-on'); });
+    list.addEventListener('pointerleave', function () { cur = null; pv.classList.remove('is-on'); });
   }
 
   /* ---------- shelf ---------- */
